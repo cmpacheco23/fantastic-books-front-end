@@ -13,8 +13,17 @@ const NavBar = ({ user, handleLogout }) => {
         </ul>
       :
         <ul>
+          <li>
+            <NavLink to="/"> Home</NavLink>
+          </li>
           <li><NavLink to="/auth/login">Log In</NavLink></li>
           <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
+          <li>
+            <NavLink to="/search-books"> Search Books </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about"> About Us</NavLink>
+          </li>
         </ul>
       }
     </nav>
