@@ -8,6 +8,10 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import BookSearch from './pages/BookSearch/BookSearch'
+import AboutUs from './pages/AboutUs/AboutUs'
+import Profile from './pages/Profile/Profile'
+import Logout from './pages/Logout/Logout'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -47,6 +51,14 @@ function App() {
           }
         />
         <Route
+          path="/profile/:profileId"
+          element={
+            <ProtectedRoute user={user}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
         />
@@ -55,12 +67,24 @@ function App() {
           element={<Login handleAuthEvt={handleAuthEvt} />}
         />
         <Route
+          path="/auth/logout"
+          element={<Logout/>}
+        />
+        <Route
           path="/auth/change-password"
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path='/search-books'
+          element={<BookSearch/>} 
+        />
+        <Route 
+          path='/about'
+          element={<AboutUs/>} 
         />
       </Routes>
     </>
