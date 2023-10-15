@@ -7,6 +7,7 @@ import * as authService from '../../services/authService'
 
 // css
 import styles from './Signup.module.css'
+import Logo from '../../assets/logo.png'
 
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
@@ -79,7 +80,12 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Sign Up</h1>
+      <Link>
+        <img src={Logo} alt="" />
+      </Link>
+      <h1>Sign Up For Full Access</h1>
+      <h4>Already have an account?</h4>
+      <Link to='/auth/login'>Login</Link>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.label}>
