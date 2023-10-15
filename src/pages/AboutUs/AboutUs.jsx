@@ -5,6 +5,7 @@ const AboutUs = () => {
   return ( 
     <>
       <main>
+        <h1>Meet the Devs</h1>
         <section className={styles.devCard}>
         <div>
             <h2>Face</h2>
