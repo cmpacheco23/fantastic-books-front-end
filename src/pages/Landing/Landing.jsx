@@ -7,25 +7,29 @@ const Landing = ({ user }) => {
   return (
     <>
       <main className={styles.container}>
-        {user 
-          ? 'Welcome to' 
-          : 'Log in to enjoy'
-        }
-      
-        <h1 className="landing-title">
-          Fantastic Books
-        </h1>
-      
-        <h2 className="logo-place-holder">LOGO</h2>
+        <section className={styles.landing}>
 
-        <div className="app-description">
-          <p className="description">
-          Welcome to Fantastic Books - your literary Narnia for all bibliophilic delights! Dive 20,000 leagues into a personalized reading odyssey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your compass. Like Bilbo setting out from the Shire, embark with us and craft your unique literary epic!
-          </p>
-        </div>
+          {user 
+            ? 'Welcome to' 
+          : 'Log in to enjoy'
+          }
+      
+          <h1 className="landing-title">
+              Fantastic Books
+          </h1>
+      
+            <h2 className="logo-place-holder">LOGO</h2>
+
+          <div className="app-description">
+            <p className="description">
+              Welcome to Fantastic Books - your literary Narnia for all bibliophilic delights! Dive 20,000 leagues into a personalized reading odyssey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your compass. Like Bilbo setting out from the Shire, embark with us and craft your unique literary epic!
+            </p>
+          </div>
+        </section>
+
+        <h3>How to use this app:</h3>
 
         <section className={styles.directions}>
-          <h3 className="how-to">How to use this app:</h3>
         
           <div>
             <h4 className="direction-title">
@@ -54,32 +58,35 @@ const Landing = ({ user }) => {
             </p>
           </div>
         </section>
+            
+        <h3>About the Devs:</h3>
+            
         <section className={styles.about}>
-          
+
           <div>
             <h2>Face</h2>
-            <h2>Name</h2>
+            <h2>Carla Pacheco</h2>
             <div>
-              <h3>LI</h3>
-              <h3>GH</h3>
+              <a href='https://www.linkedin.com/in/thecarlapacheco/'>LI</a>
+              <a href='https://github.com/cmpacheco23'>GH</a>
             </div>
           </div>
           
           <div>
             <h2>Face</h2>
-            <h2>Name</h2>
+            <h2>Enes Velovic</h2>
             <div>
-              <h3>LI</h3>
-              <h3>GH</h3>
+              <a href='https://www.linkedin.com/in/enesvelovic/'>LI</a>
+              <a href='https://github.com/NSnyc'>GH</a>
             </div>
           </div>
           
           <div>
             <h2>Face</h2>
-            <h2>Name</h2>
+            <h2>Steve Morrison</h2>
             <div>
-              <h3>LI</h3>
-              <h3>GH</h3>
+              <a href='https://www.linkedin.com/in/steven-ansman-morrison/'>LI</a>
+              <a href='https://github.com/venmorr'>GH</a>
             </div>
           </div>
         
