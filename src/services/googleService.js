@@ -5,11 +5,11 @@ export async function getBookDetails(bookId) {
   return res.json()
 }
 
-async function bookSearch (searchTerm) {
+async function bookSearch (data) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
-      body: JSON.stringify({searchTerm: searchTerm}),
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },

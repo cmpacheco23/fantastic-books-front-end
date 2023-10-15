@@ -8,28 +8,32 @@ const BookSearch = () => {
   const [searchResults, setSearchResults] = useState([])
   const [errMsg, setErrMsg] = useState("")
 
-  useEffect(() => {
-    const fetchBookList = async () => {
-      const bookData = await googleService.bookSearch("Dune")
-      console.log(bookData)
-      setAllBooks(bookData)
-    }
-    fetchBookList()
-  }, [])
-
-  const handleBookSearch = formData => {
-    const filteredBookResults = allBooks.items.filter(book => (
-      // book.volume.items.title.includes(formData.query)
-      data.title.toLowerCase().includes(formData.query.toLowerCase())
-    ))
-    if(!filteredBookResults.length) {
-      setErrMsg('No matches for that query')
-    } else {
-      setErrMsg('')
-    }
-    setSearchResults(filteredBookResults)
-  }
-
+  // useEffect(() => {
+  //   const fetchBookList = async () => {
+  //     const bookData = await googleService.bookSearch()
+  //     console.log(bookData)
+  //     setAllBooks(bookData)
+  //   }
+  //   fetchBookList()
+  // }, [])
+  
+  const handleBookSearch = async(formData) => {
+    const bookData = await googleService.bookSearch(formData)
+    console.log(bookData)
+    setAllBooks(bookData)
+    // const filteredBookResults = allBooks.items.filter(book => (
+      //   // book.volume.items.title.includes(formData.query)
+      //   data.title.toLowerCase().includes(formData.query.toLowerCase())
+      // ))
+      // if(!filteredBookResults.length) {
+        //   setErrMsg('No matches for that query')
+        // } else {
+          //   setErrMsg('')
+          // }
+          // setSearchResults(filteredBookResults)
+        }
+  console.log(allBooks)
+        
   return ( 
     <main className="book-list">
       <h1>Books</h1>
