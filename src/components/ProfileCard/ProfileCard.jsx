@@ -17,10 +17,7 @@ const ProfileCard = ({profile}) => {
         <h4>Number of Shelves: </h4>
         <h4>Number of Books: </h4>
         <Link to={`/profiles/${profile._id}`}>View Profile</Link>
-
-
         </div>
-      {/* </section> */}
     </main>
   )
 }
