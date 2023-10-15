@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import BookSearch from './pages/BookSearch/BookSearch'
 import AboutUs from './pages/AboutUs/AboutUs'
-import Profile from './pages/Profile/Profile'
+import ProfileInfo from './pages/ProfileInfo/ProfileInfo'
 import Logout from './pages/Logout/Logout'
 
 // components
@@ -54,7 +54,7 @@ function App() {
           path="/profile/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <Profile />
+              <ProfileInfo />
             </ProtectedRoute>
           }
         />
