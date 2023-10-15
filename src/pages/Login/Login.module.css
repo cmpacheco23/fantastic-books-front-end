@@ -46,8 +46,8 @@ input[type="file"] {
   margin-bottom: 16px;
 }
 
-img{
-  height: 90px;
+.logo{
+  max-height: 90px;
   border-radius: 50px;
 }
 
