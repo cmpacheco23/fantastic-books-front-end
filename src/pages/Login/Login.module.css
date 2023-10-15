@@ -46,10 +46,11 @@ input[type="file"] {
   margin-bottom: 16px;
 }
 
-Login > img{
-  height: 90px;
+.logo{
+  max-height: 90px;
   border-radius: 50px;
 }
+
 
 h1{
   font-size: 20px;
