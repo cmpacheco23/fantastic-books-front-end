@@ -1,0 +1,6 @@
+.linkContainer {
+  max-width: 200px;
+  max-height: 300px;
+  gap: 10px;
+  padding: 10px;
+}
