@@ -1,6 +1,6 @@
 // npm modules
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -51,10 +51,10 @@ function App() {
           }
         />
         <Route
-          path="/profile/:profileId"
+          path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileInfo />
+              <ProfileInfo profileId={useParams().profileId} />
             </ProtectedRoute>
           }
         />
