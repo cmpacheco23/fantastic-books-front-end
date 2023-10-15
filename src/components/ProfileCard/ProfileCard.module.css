@@ -2,20 +2,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 32px;
 }
 
-.card {
+.profileCard {
   width: 250px;
-  margin: 10px;
   border: 2px solid #3b6704;
   border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #0a0a0a;
   text-align: center;
-  margin: 15px;
-  padding: 25px;
+  padding: 24px;
+  margin: 10px;
+
 }
+
 
 .photo {
   width: 100px;

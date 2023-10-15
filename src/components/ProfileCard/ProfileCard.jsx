@@ -11,15 +11,16 @@ const ProfileCard = ({profile}) => {
   
   return (
     <main className={styles.main}>
-      <div className={`${styles.card} card`}>
+        <div className={styles.profileCard}>
         <img className={styles.photo} src={profile.photo} alt='profile photo'/>
         <h1> {profile.name} </h1>
         <h4>Number of Shelves: </h4>
         <h4>Number of Books: </h4>
         <Link to={`/profiles/${profile._id}`}>View Profile</Link>
-        {/* add number of shelves
-        add number of books */}
-      </div>
+
+
+        </div>
+      {/* </section> */}
     </main>
   )
 }
