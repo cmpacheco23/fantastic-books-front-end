@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as profileService from "../../services/profileService";
 
+import styles from './ProfileInfo.module.css'
+
 const ProfileInfo = () => {
   const [profile, setProfile] = useState(null)
   const { profileId } = useParams()
@@ -20,12 +22,16 @@ const ProfileInfo = () => {
 
   return (
     <main>
+      {/* need to add a button somewhere to return to the profiles */}
       {profile ? (
         <div>
-          <h1>{profile.name}</h1>
-          <img src={profile.photo} alt="profile photo" />
+          <img className={styles.photo} src={profile.photo} alt="profile photo" />
+          <h1 className={styles.name}>{profile.name}</h1>
           {/* Render other profile information here */}
+          <h2>Books Collected:</h2>
+          <h2>Shelves Created:</h2>
         </div>
+        // Enes add your shelves here in a div
       ) : (
         <p>Loading...</p>
       )}
