@@ -54,7 +54,7 @@ function App() {
           path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileInfo profileId={useParams().profileId} />
+              <ProfileInfo />
             </ProtectedRoute>
           }
         />
