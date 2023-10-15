@@ -15,7 +15,6 @@ const SearchForm = (props) => {
       await props.handleBookSearch(formData)
     }
   }
-  console.log(formData)
   return (
     <form onSubmit={handleSubmit} className="search-form">
       <input 
