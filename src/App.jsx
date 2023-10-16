@@ -26,25 +26,7 @@ import './App.css'
 import BookDetails from './pages/BookDetails/BookDetails'
 
 function App() {
-  const [allBooks, setAllBooks] = useState([]);
-  const [formData, setFormData] = useState({ searchTerm: '' });
-
-  const handleBookSearch = async (formData) => {
-    const bookData = await googleService.bookSearch(formData);
-    setAllBooks(bookData);
-  };
-
-  const handleChange = (evt) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value });
-  };
-
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    if (formData.searchTerm) {
-      await handleBookSearch(formData);
-    }
-  };
-
+  
   const [user, setUser] = useState(authService.getUser());
   const navigate = useNavigate();
 
@@ -103,10 +85,7 @@ function App() {
         <Route
           path='/books'
           element={
-            <BookSearch
-              allBooks={allBooks}
-              handleBookSearch={handleBookSearch}
-            />
+            <BookSearch/>
           }
         />
         <Route 
@@ -118,19 +97,7 @@ function App() {
           element={<AboutUs/>} 
         />
       </Routes>
-      <div>
-        <form onSubmit={handleSubmit} className="search-form">
-          <input
-            type="text"
-            name="searchTerm"
-            autoComplete="off"
-            value={formData.searchTerm}
-            onChange={handleChange}
-            placeholder='Search for a book'
-          />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+
     </>
   )
 }
