@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
-import * as googleService from '../../services/googleService'
+import * as googleService from '../../services/googleService';
 
 const BookDetails = () => {
-  const { bookId } = useParams();
-  const [book, setBook] = useState(null);
+  const { volumeId } = useParams()
+  const [book, setBook] = useState(null)
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        // Make an API request to fetch book details based on bookId
-        const bookData = await googleService.getBookDetails(bookId);
+
+        const bookData = await googleService.getBookDetails(volumeId);
         setBook(bookData);
       } catch (error) {
-        console.error(error);
-        // Handle the error as needed
+        console.error(error)
+
       }
-    };
+    }
 
-    fetchBook(); // Call the function to fetch book details
+    fetchBook()
 
-  }, [bookId]);
+  }, [volumeId])
 
   return (
     <main>

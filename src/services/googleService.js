@@ -1,8 +1,12 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/google`
 
-export async function getBookDetails(bookId) {
-  const res = await fetch(`${BASE_URL}/${bookId}`)
-  return res.json()
+export async function getBookDetails(volumeId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}`)
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 async function bookSearch (data) {
@@ -19,6 +23,7 @@ async function bookSearch (data) {
     console.log(error)
   }
 }
+
 
 export {
   bookSearch
