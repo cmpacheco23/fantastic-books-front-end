@@ -12,25 +12,22 @@ import NewComment from "../../components/NewComment/NewComment"
 const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
+  // const [comments, setComments] = useState([])
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-
         const bookData = await googleService.getBookDetails(volumeId);
         setBook(bookData);
       } catch (error) {
-        console.error(error)
-
+        console.error(error);
       }
     }
-
-    fetchBook()
-
-  }, [volumeId])
+    fetchBook();
+  }, [volumeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.createComment(volumeId, commentFormData)
+    const newComment = await googleService.createComment(volumeId, commentFormData)
     setBook({...book, comments: [...book.comments, newComment]})
   }
 

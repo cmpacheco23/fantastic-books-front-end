@@ -1,11 +1,12 @@
 import CommentCard from "../CommentCard/CommentCard";
 
-const Comments = (props) => {
-  if (!props.comments.length) return <h4>No Comments</h4>
+const Comments = () => {
+
   return (
-    <>
-    </>
+    <div>
+
+    </div>
   );
 }
 
-export default Comments
+export default Comments;
