@@ -1,34 +1,34 @@
-import { useState } from "react"
-import SearchForm from "../../components/SearchForm/SearchForm"
-import BookCard from "../../components/BookCard/BookCard"
-import * as googleService from "../../services/googleService"
-import styles from "./BookSearch.module.css"
+import { useState } from "react";
+import styles from "./BookSearch.module.css";
+import BookCard from "../../components/BookCard/BookCard";
+import BookDetails from "../BookDetails/BookDetails";
 
-const BookSearch = () => {
-  const [allBooks, setAllBooks] = useState([])
-  // const [errMsg] = useState("")
+const BookSearch = (props) => {
+  const [selectedBook, setSelectedBook] = useState(null);
 
-  const handleBookSearch = async(formData) => {
-    const bookData = await googleService.bookSearch(formData)
-    setAllBooks(bookData)
-    }
-  console.log(allBooks)
-        
-  return ( 
+  const handleBookClick = (book) => {
+    setSelectedBook(book);
+  };
+
+  return (
     <main className={styles.bookList}>
       <div className={styles.spacer}></div>
       <h1>Books</h1>
-      <SearchForm handleBookSearch={handleBookSearch} />
-      { allBooks.length ?
-        <h2>{allBooks.length} results found</h2>
-        :
+      {props.allBooks.length ? (
+        <h2>{props.allBooks.length} results found</h2>
+      ) : (
         <h2>Please search for a book</h2>
-      }
-      {allBooks.map(book => 
-        <BookCard key={book.id} book={book} />
-        )}
+      )}
+      {props.allBooks.map((book) => (
+        <div key={book.id}>
+          <BookCard book={book} onClick={() => handleBookClick(book)} />
+          {selectedBook && selectedBook.id === book.id && (
+            <BookDetails book={selectedBook} />
+          )}
+        </div>
+      ))}
     </main>
-  )
-}
+  );
+};
 
-export default BookSearch
+export default BookSearch;
