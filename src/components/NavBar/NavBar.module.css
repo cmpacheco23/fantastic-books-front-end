@@ -1,0 +1,13 @@
+.nav, .nav * {
+  border: 1px solid orange;
+}
+
+ul {
+  display: flex;
+  
+}
+
+li {
+  list-style-type: none;
+  margin-left: 5px;
+}
