@@ -80,11 +80,11 @@ function App() {
           }
         />
         <Route 
-          path='/search-books'
+          path='/books'
           element={<BookSearch/>} 
         />
         <Route 
-          path='/:bookId'
+          path='/books/:bookId'
           element={<BookDetails />} 
         />
         <Route 

@@ -4,7 +4,7 @@ const BookDetails = (props) => {
 
   return (
     <main>
-      <h1>hello</h1>
+      <h1>{props.book.title}</h1>
     </main>
   )
 }
