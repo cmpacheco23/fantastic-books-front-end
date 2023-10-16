@@ -1,6 +1,7 @@
 // npm modules
 import { useState } from 'react'
 import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -19,7 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
-import * as googleService from './services/googleService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
@@ -27,7 +28,8 @@ import BookDetails from './pages/BookDetails/BookDetails'
 
 function App() {
   
-  const [user, setUser] = useState(authService.getUser());
+  const [user, setUser] = useState(authService.getUser())
+  const [profile, setProfile] = useState(null)
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -40,6 +42,16 @@ function App() {
     setUser(authService.getUser());
   };
 
+  useEffect(() => {
+    if (user && user.profileId) {
+      // Use the user's profileId to fetch the profile data
+      // Replace this with your actual profile fetching logic
+      profileService.getOneProfile(user.profileId).then((profileData) => {
+        setProfile(profileData);
+      })
+    }
+  }, [user])
+
   return (
     <>
       {/* <div className={styles.spacer}></div> */}
@@ -50,7 +62,7 @@ function App() {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles profile={profile}/>
             </ProtectedRoute>
           }
         />
@@ -58,7 +70,7 @@ function App() {
           path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileInfo />
+              <ProfileInfo/>
             </ProtectedRoute>
           }
         />
