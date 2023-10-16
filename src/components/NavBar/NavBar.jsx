@@ -12,9 +12,11 @@ const NavBar = ({ user, handleLogout }) => {
       <ul className={styles.right}>
         <li><NavLink to="/"> <img src={Logo} className={styles.logo}/> </NavLink></li>
         
-        {user ? <li>Welcome, {user.name}</li> : '' }
+        {user ? (
+        <li>
+          <NavLink to={`/profiles/${user.profile}`}>Welcome, {user.name}</NavLink>
+        </li>) : null}
       </ul>
-      
       <div className={styles.left}>
         <ul>
           <li><NavLink to="/books"> Search Books </NavLink></li>
