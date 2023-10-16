@@ -1,17 +1,10 @@
 import styles from "./BookDetails.module.css"
 
-const BookDetails = ({bookInfo}) => {
-
-  if(!bookInfo){
-    return (
-    <main>
-      <p>Loading...</p>
-    </main>)
-  }
+const BookDetails = (props) => {
 
   return (
     <main>
-      <h1>{bookInfo.title}</h1>
+      <h1>hello</h1>
     </main>
   )
 }
