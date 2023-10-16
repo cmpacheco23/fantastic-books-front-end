@@ -110,7 +110,7 @@ function App() {
           }
         />
         <Route 
-          path='/books/:bookId'
+          path='/books/:volumeId'
           element={<BookDetails />} 
         />
         <Route 
