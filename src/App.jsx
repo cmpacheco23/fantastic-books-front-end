@@ -1,6 +1,6 @@
 // npm modules
 import { useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import BookSearch from './pages/BookSearch/BookSearch'
 import AboutUs from './pages/AboutUs/AboutUs'
-import Profile from './pages/Profile/Profile'
+import ProfileInfo from './pages/ProfileInfo/ProfileInfo'
 import Logout from './pages/Logout/Logout'
 
 // components
@@ -52,10 +52,10 @@ function App() {
           }
         />
         <Route
-          path="/profile/:profileId"
+          path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <Profile />
+              <ProfileInfo />
             </ProtectedRoute>
           }
         />

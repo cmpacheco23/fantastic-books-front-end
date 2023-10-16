@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
+import ProfileInfo from "../../pages/ProfileInfo/ProfileInfo"
+
 import styles from './ProfileCard.module.css'
 
 const ProfileCard = ({profile}) => {
@@ -11,16 +13,18 @@ const ProfileCard = ({profile}) => {
   
   return (
     <main className={styles.main}>
-        <div className={styles.profileCard}>
+        <div className={styles.profileCard} onClick={handleProfileInfo} >
         <img className={styles.photo} src={profile.photo} alt='profile photo'/>
         <h1> {profile.name} </h1>
         <h4>Number of Shelves: </h4>
         <h4>Number of Books: </h4>
         <Link to={`/profiles/${profile._id}`}>View Profile</Link>
+        {profileInfo && <ProfileInfo profile={profile}/>}
 
 
+        
         </div>
-      {/* </section> */}
+
     </main>
   )
 }
