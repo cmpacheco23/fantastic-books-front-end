@@ -12,7 +12,7 @@ const BookSearch = (props) => {
 
   return (
     <main className={styles.bookList}>
-      <div className={styles.spacer}></div>
+      {/* <div className={styles.spacer}></div> */}
       <h1>Books</h1>
       {props.allBooks.length ? (
         <h2>{props.allBooks.length} results found</h2>
