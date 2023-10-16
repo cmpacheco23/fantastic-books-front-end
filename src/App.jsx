@@ -62,7 +62,7 @@ function App() {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles profile={profile}/>
             </ProtectedRoute>
           }
         />
@@ -70,7 +70,7 @@ function App() {
           path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileInfo profile={profile}/>
+              <ProfileInfo/>
             </ProtectedRoute>
           }
         />
