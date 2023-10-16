@@ -47,7 +47,7 @@ const LoginPage = ({ handleAuthEvt }) => {
     <main className={styles.container}>
       <div className={styles.spacer}></div>
       <Link to='/'>
-      <img src={Logo} className={styles.logo}/></Link>
+      <img src={Logo} className={styles.logo} /></Link>
       <h1>Log In To Unlock Full Site Access</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>

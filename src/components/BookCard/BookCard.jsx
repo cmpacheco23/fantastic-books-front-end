@@ -13,7 +13,7 @@ const BookCard = (props) => {
         <button onClick={props.onClick}>Show Details</button>
       )} */}
     </div>
-  );
-};
+  )
+}
 
 export default BookCard;

@@ -51,7 +51,7 @@ input[type="file"] {
 }
 
 .logo{
-  max-height: 90px;
+  height: 90px;
   border-radius: 50px;
 }
 

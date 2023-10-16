@@ -28,5 +28,5 @@ const ProfileCard = ({profile}) => {
     </main>
   )
 }
- 
+
 export default ProfileCard
