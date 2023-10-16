@@ -25,10 +25,11 @@ const BookDetails = () => {
 
   return (
     <main>
+            <div className={styles.spacer}></div>
       {book ? (
         <div>
           <h1>{book.title}</h1>
-          <p>Author: {book.authors}</p>
+          {/* <p>Author: {book.authors}</p> */}
           {/* Add more details here */}
         </div>
       ) : (
