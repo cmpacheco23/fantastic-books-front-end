@@ -31,14 +31,16 @@ const BookDetails = () => {
       <div className={styles.info}>
         <h1>{book.title}</h1>
       <div className={styles.sideBySide}>
-        <img src={book.cover} alt="book cover" />
+        <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
           <p>Published: {book.published}</p>
           <p>Categories: {book.categories}</p>
-          <p>Description: {book.description}</p>
+
+          <div dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
+
           <Link to={book.url}>
           <button>Learn More</button>
           </Link>

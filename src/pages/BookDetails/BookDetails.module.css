@@ -8,8 +8,9 @@
   /* You can adjust the spacer height to control the spacing at the top. */
 }
 
-img {
+.cover {
   max-height: 50vh;
+  min-height: 550px;
   margin: 10px;
 }
 
