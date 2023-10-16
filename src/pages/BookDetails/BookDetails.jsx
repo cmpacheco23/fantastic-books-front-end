@@ -33,7 +33,7 @@ const BookDetails = (props) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     setBook({...book, comments: [...book.comments, newComment]})
   }
-  
+
   return (
     <main>
       <div className={styles.spacer}></div>
@@ -57,8 +57,8 @@ const BookDetails = (props) => {
       )}
       <section>
         <h1>Comments</h1>
-        <NewComment/>
-        <Comments user={props.user}/>
+        <NewComment handleAddComment={handleAddComment}/>
+        <Comments comments ={book.comments} user={props.user}/>
       </section>
     </main>
   );
