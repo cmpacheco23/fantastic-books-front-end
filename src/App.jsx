@@ -19,24 +19,44 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as googleService from './services/googleService'
 
 // styles
 import './App.css'
 import BookDetails from './pages/BookDetails/BookDetails'
 
 function App() {
-  const [user, setUser] = useState(authService.getUser())
-  const navigate = useNavigate()
+  const [allBooks, setAllBooks] = useState([]);
+  const [formData, setFormData] = useState({ searchTerm: '' });
+
+  const handleBookSearch = async (formData) => {
+    const bookData = await googleService.bookSearch(formData);
+    setAllBooks(bookData);
+  };
+
+  const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value });
+  };
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    if (formData.searchTerm) {
+      await handleBookSearch(formData);
+    }
+  };
+
+  const [user, setUser] = useState(authService.getUser());
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    authService.logout()
-    setUser(null)
-    navigate('/')
-  }
+    authService.logout();
+    setUser(null);
+    navigate('/');
+  };
 
   const handleAuthEvt = () => {
-    setUser(authService.getUser())
-  }
+    setUser(authService.getUser());
+  };
 
   return (
     <>
@@ -80,9 +100,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route 
+        <Route
           path='/books'
-          element={<BookSearch/>} 
+          element={
+            <BookSearch
+              allBooks={allBooks}
+              handleBookSearch={handleBookSearch}
+            />
+          }
         />
         <Route 
           path='/books/:bookId'
@@ -93,6 +118,19 @@ function App() {
           element={<AboutUs/>} 
         />
       </Routes>
+      <div>
+        <form onSubmit={handleSubmit} className="search-form">
+          <input
+            type="text"
+            name="searchTerm"
+            autoComplete="off"
+            value={formData.searchTerm}
+            onChange={handleChange}
+            placeholder='Search for a book'
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
     </>
   )
 }
