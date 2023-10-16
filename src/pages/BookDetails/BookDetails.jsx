@@ -58,7 +58,7 @@ const BookDetails = (props) => {
       <section>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment}/>
-        <Comments comments ={book.comments} user={props.user}/>
+        <Comments user={props.user}/>
       </section>
     </main>
   );
