@@ -26,11 +26,13 @@ const BookDetails = () => {
 
   return (
     <main>
-            <div className={styles.spacer}></div>
+      <div className={styles.spacer}></div>
       {book ? (
-        <div>
-          <h1>{book.title}</h1>
-          <img src={book.cover} alt="book cover" />
+      <div className={styles.info}>
+        <h1>{book.title}</h1>
+      <div className={styles.sideBySide}>
+        <img src={book.cover} alt="book cover" />
+        <div className={styles.bookInfo}>
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
@@ -40,8 +42,10 @@ const BookDetails = () => {
           <Link to={book.url}>
           <button>Learn More</button>
           </Link>
-          {/* Add more details here */}
         </div>
+      </div>
+        {/* Add more details here */}
+      </div>
       ) : (
         <p>Loading...</p>
       )}
