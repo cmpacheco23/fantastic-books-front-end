@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
-import * as googleService from '../../services/googleService';
+import * as googleService from '../../services/googleService'
+import * as bookService from '../../services/bookService'
 import { Link } from "react-router-dom";
 
 //components
@@ -28,6 +29,11 @@ const BookDetails = (props) => {
 
   }, [volumeId])
 
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await bookService.createComment(volumeId, commentFormData)
+    setBook({...book, comments: [...book.comments, newComment]})
+  }
+  
   return (
     <main>
       <div className={styles.spacer}></div>
