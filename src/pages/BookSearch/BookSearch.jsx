@@ -16,6 +16,7 @@ const BookSearch = () => {
         
   return ( 
     <main className={styles.bookList}>
+      <div className={styles.spacer}></div>
       <h1>Books</h1>
       <SearchForm handleBookSearch={handleBookSearch} />
       { allBooks.length ?

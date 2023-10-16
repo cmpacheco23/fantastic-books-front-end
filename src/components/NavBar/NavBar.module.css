@@ -1,0 +1,24 @@
+/* .nav, .nav * {
+  border: 1px solid orange;
+} */
+
+.nav {
+  background-color: rgb(1, 94, 1);
+  height: 70px;
+  width: 100%;
+  position: fixed; 
+  z-index: 1;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+li {
+  list-style-type: none;
+  margin-left: 7px;
+  text-decoration: underline;
+}
+

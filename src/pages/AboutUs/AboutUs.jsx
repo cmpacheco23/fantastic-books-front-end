@@ -4,6 +4,7 @@ import styles from './AboutUs.module.css'
 const AboutUs = () => {
   return ( 
     <>
+      <div className={styles.spacer}></div>
       <main>
         <h1>Meet the Devs</h1>
         <section className={styles.devCard}>
