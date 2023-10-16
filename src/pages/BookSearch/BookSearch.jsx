@@ -31,7 +31,7 @@ const BookSearch = (props) => {
 
   return (
     <main className={styles.bookList}>
-      {/* <div className={styles.spacer}></div> */}
+      <div className={styles.spacer}>spacer</div>
       <h1>Books</h1>
       <div>
         <form onSubmit={handleSubmit} className="search-form">

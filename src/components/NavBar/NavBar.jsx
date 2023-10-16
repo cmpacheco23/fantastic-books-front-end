@@ -6,6 +6,7 @@ import styles from "./NavBar.module.css"
 
 const NavBar = ({ user, handleLogout }) => {
   return (
+    
     <nav className={styles.nav}>
       
       <ul className={styles.right}>
