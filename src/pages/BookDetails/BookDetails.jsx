@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 //components
 import Comments from "../../components/Comments/Comments"
+import NewComment from "../../components/NewComment/NewComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()
@@ -50,6 +51,7 @@ const BookDetails = (props) => {
       )}
       <section>
         <h1>Comments</h1>
+        <NewComment/>
         <Comments user={props.user}/>
       </section>
     </main>
