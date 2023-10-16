@@ -1,9 +1,12 @@
-.container {
+.container  {
   display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  padding: 32px;
 }
 
-.container > p {
-  margin: 8px;
+.pageTitle {
+  margin: 15px;
 }
