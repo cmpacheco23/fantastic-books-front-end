@@ -1,5 +1,7 @@
 .spacer {
+  background-color: red;
   height: 90px;
+  position: fixed;
 }
 
 .container  {
@@ -11,6 +13,6 @@
   /* padding: 32px; */
 }
 
-.pageTitle {
+/* .pageTitle {
   margin: 15px;
-}
+} */

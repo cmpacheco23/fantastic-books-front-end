@@ -42,7 +42,6 @@ function App() {
 
   return (
     <>
-      {/* <div className={styles.spacer}></div> */}
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
