@@ -19,7 +19,7 @@ const NavBar = ({ user, handleLogout }) => {
       </ul>
       <div className={styles.left}>
         <ul>
-          <li><NavLink to="/books"> Search Books </NavLink></li>
+          <li><NavLink to="/books"> Book Search </NavLink></li>
           
           {user ? <li><NavLink to="/profiles">Profiles</NavLink></li> : '' }
 
