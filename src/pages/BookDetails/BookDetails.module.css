@@ -15,7 +15,7 @@
 }
 
 .sideBySide {
-  display: flex;
+  display: inline-flex;
 }
 
 .sideBySide > .bookInfo {
