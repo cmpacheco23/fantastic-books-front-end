@@ -6,7 +6,7 @@ import styles from "./BookSearch.module.css"
 
 const BookSearch = () => {
   const [allBooks, setAllBooks] = useState([])
-  const [errMsg, setErrMsg] = useState("")
+  // const [errMsg] = useState("")
 
   const handleBookSearch = async(formData) => {
     const bookData = await googleService.bookSearch(formData)
@@ -17,7 +17,6 @@ const BookSearch = () => {
   return ( 
     <main className={styles.bookList}>
       <h1>Books</h1>
-      {errMsg && <h2>{errMsg}</h2>}
       <SearchForm handleBookSearch={handleBookSearch} />
       { allBooks.length ?
         <h2>{allBooks.length} results found</h2>
