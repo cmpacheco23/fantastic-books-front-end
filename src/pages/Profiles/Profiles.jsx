@@ -29,6 +29,7 @@ const Profiles = () => {
   
   return (
     <main>
+      <div className={styles.spacer}></div>
       <h1 className={styles.pageTitle}>Hello. This is a list of all the profiles.</h1>
       <div className={styles.container}>
       {profiles.map(profile => (
