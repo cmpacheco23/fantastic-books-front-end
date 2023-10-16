@@ -22,6 +22,7 @@ const ProfileInfo = () => {
 
   return (
     <main>
+      <div className={styles.spacer}></div>
       {/* need to add a button somewhere to return to the profiles */}
       {profile ? (
         <div>

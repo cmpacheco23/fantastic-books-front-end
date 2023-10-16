@@ -9,6 +9,8 @@
 
 .spacer {
   height: 90px;
+  min-height: 90px;
+  /* background-color: red; */
   /* You can adjust the spacer height to control the spacing at the top. */
 }
 
