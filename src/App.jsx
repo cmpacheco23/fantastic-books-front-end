@@ -22,6 +22,7 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
+import BookDetails from './pages/BookDetails/BookDetails'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
@@ -81,6 +82,10 @@ function App() {
         <Route 
           path='/search-books'
           element={<BookSearch/>} 
+        />
+        <Route 
+          path='/:bookId'
+          element={<BookDetails/>} 
         />
         <Route 
           path='/about'
