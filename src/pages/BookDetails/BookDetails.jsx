@@ -4,7 +4,10 @@ import styles from "./BookDetails.module.css";
 import * as googleService from '../../services/googleService';
 import { Link } from "react-router-dom";
 
-const BookDetails = () => {
+//components
+import Comments from "../../components/Comments/Comments"
+
+const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
 
@@ -26,7 +29,7 @@ const BookDetails = () => {
 
   return (
     <main>
-            <div className={styles.spacer}></div>
+      <div className={styles.spacer}></div>
       {book ? (
         <div>
           <h1>{book.title}</h1>
@@ -45,6 +48,10 @@ const BookDetails = () => {
       ) : (
         <p>Loading...</p>
       )}
+      <section>
+        <h1>Comments</h1>
+        <Comments user={props.user}/>
+      </section>
     </main>
   );
 };

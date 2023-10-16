@@ -102,7 +102,7 @@ function App() {
         />
         <Route 
           path='/books/:volumeId'
-          element={<BookDetails />} 
+          element={<BookDetails user={user}/>} 
         />
         <Route 
           path='/about'
