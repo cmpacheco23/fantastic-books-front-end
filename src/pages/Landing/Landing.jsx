@@ -6,6 +6,7 @@ import styles from './Landing.module.css'
 const Landing = ({ user }) => {
   return (
     <>
+    <div className={styles.spacer}></div>
       <main className={styles.container}>
         <section className={styles.landing}>
 
