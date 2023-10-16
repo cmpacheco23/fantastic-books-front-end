@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
-import * as googleService from '../../services/googleService'
 import * as bookService from '../../services/bookService'
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,7 @@ const BookDetails = (props) => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const bookData = await googleService.getBookDetails(volumeId);
+        const bookData = await bookService.getBookDetails(volumeId);
         setBook(bookData);
       } catch (error) {
         console.error(error);
@@ -27,7 +26,7 @@ const BookDetails = (props) => {
   }, [volumeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await googleService.createComment(volumeId, commentFormData)
+    const newComment = await bookService.createComment(volumeId, commentFormData)
     setBook({...book, comments: [...book.comments, newComment]})
   }
 
