@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./BookSearch.module.css";
 import BookCard from "../../components/BookCard/BookCard";
 import BookDetails from "../BookDetails/BookDetails";
-import * as googleService from '../../services/googleService'
+import * as bookService from '../../services/bookService'
 
 const BookSearch = (props) => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -10,7 +10,7 @@ const BookSearch = (props) => {
   const [formData, setFormData] = useState({ searchTerm: '' });
 
   const handleBookSearch = async (formData) => {
-    const bookData = await googleService.bookSearch(formData);
+    const bookData = await bookService.bookSearch(formData);
     setAllBooks(bookData);
   };
 

@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
-import * as googleService from '../../services/googleService';
+import * as bookService from '../../services/bookService'
 import { Link } from "react-router-dom";
 
-const BookDetails = () => {
+//components
+import Comments from "../../components/Comments/Comments"
+import NewComment from "../../components/NewComment/NewComment"
+
+const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
+  // const [comments, setComments] = useState([])
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-
-        const bookData = await googleService.getBookDetails(volumeId);
+        const bookData = await bookService.getBookDetails(volumeId);
         setBook(bookData);
       } catch (error) {
-        console.error(error)
-
+        console.error(error);
       }
     }
+    fetchBook();
+  }, [volumeId]);
 
-    fetchBook()
-
-  }, [volumeId])
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await bookService.createComment(volumeId, commentFormData)
+    setBook({...book, comments: [...book.comments, newComment]})
+  }
 
   return (
     <main>
@@ -51,6 +57,11 @@ const BookDetails = () => {
       ) : (
         <p>Loading...</p>
       )}
+      <section>
+        <h1>Comments</h1>
+        <NewComment handleAddComment={handleAddComment}/>
+        <Comments user={props.user}/>
+      </section>
     </main>
   );
 };
