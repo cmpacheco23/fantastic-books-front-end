@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "./BookCard.module.css";
-import BookDetails from "../../pages/BookDetails/BookDetails";
 
 const BookCard = (props) => {
   return (

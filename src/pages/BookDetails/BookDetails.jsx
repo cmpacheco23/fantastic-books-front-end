@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
 import * as googleService from '../../services/googleService';
+import { Link } from "react-router-dom";
 
 const BookDetails = () => {
   const { volumeId } = useParams()
@@ -29,7 +30,16 @@ const BookDetails = () => {
       {book ? (
         <div>
           <h1>{book.title}</h1>
-          {/* <p>Author: {book.authors}</p> */}
+          <img src={book.cover} alt="book cover" />
+          <h3>{book.subtitle}</h3>
+          <h3>Author: {book.authors}</h3>
+          <p>Pages: {book.pages}</p>
+          <p>Published: {book.published}</p>
+          <p>Categories: {book.categories}</p>
+          <p>Description: {book.description}</p>
+          <Link to={book.url}>
+          <button>Learn More</button>
+          </Link>
           {/* Add more details here */}
         </div>
       ) : (
