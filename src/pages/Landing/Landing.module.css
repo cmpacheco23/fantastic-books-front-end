@@ -1,6 +1,6 @@
-main, main * {
+/* main, main * {
   border: 1px solid #088808;
-}
+} */
 
 .spacer {
   height: 90px;
@@ -60,6 +60,15 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   100% {
     opacity: 1;
   }
+}
+
+.howTo {
+  /* background-color: #f00303; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 10px;
 }
 
 .container div p{

@@ -30,7 +30,7 @@ const Landing = ({ user }) => {
           </div>
         </section>
         
-        <div>
+        <div className={styles.howTo}>
 
         <h3>How to use this app:</h3>
 
