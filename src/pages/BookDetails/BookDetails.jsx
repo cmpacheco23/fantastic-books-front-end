@@ -88,23 +88,24 @@ const BookDetails = (props) => {
         <h1>Comments</h1>
         {book ? (
           <div>
-            <NewComment handleAddComment={handleAddComment} />
+            {/* <NewComment handleAddComment={handleAddComment} /> */}
             <Comments 
               key={comments.id} 
               comments={comments} 
               user={props.user} 
               handleEditComment={handleEditComment} 
+              handleAddComment={handleAddComment}
               // handleEditButtonClick={handleEditButtonClick}
               volumeId={volumeId} 
             />
 
-            {editCommentData && 
+            {/* {editCommentData && 
               <EditComment
                 handleEditComment={handleEditComment}
                 volumeId={volumeId}
                 commentId={editCommentData.commentId}
                 initialFormData={editCommentData.comment}
-            />}
+            />} */}
           </div>) : (
           <p>Loading...</p>
         )}
