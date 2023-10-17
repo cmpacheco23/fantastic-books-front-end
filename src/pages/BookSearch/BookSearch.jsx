@@ -10,7 +10,6 @@ const BookSearch = () => {
   const [formData, setFormData] = useState({ searchTerm: '' });
   const [currPage, setCurrPage] = useState(1)
   const [startIndex, setStartIndex] = useState(0)
-  console.log(startIndex)
 
   const handleBookSearch = async (formData) => {
     formData.startIndex = startIndex
@@ -38,7 +37,6 @@ const BookSearch = () => {
   const handleIncreasePageCount = async () => {
     setCurrPage(currPage + 1)
     setStartIndex(startIndex + 10)
-    console.log(startIndex)
     await handleBookSearch({...formData})
   }
 
