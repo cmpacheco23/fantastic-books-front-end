@@ -1,6 +1,6 @@
-/* main, main * {
+main, main * {
   border: 1px solid #088808;
-} */
+}
 
 .spacer {
   height: 90px;
@@ -67,6 +67,13 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   max-width: 800px;
   width: 85vw;  
   margin: 10px;
+}
+
+.description {
+  
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
 }
 
 .directions {
