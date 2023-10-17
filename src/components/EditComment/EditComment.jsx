@@ -17,13 +17,7 @@ const EditComment = (props) => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    await bookService.updateComment(volumeId, commentId, formData)
-    if (props.commentId) {
-      // Editing an existing comment
-      console.log('formData:', formData)
-      // await bookService.updateComment(props.volumeId, props.commentId, formData);
-      // props.handleEditComment(props.commentId, props.volumeId, formData);
-    }
+    await bookService.updateComment(props.volumeId, props.commentId, formData)
   }
 
   return (

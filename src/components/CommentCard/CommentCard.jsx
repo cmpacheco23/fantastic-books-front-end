@@ -5,6 +5,7 @@ const CommentCard = ({ comment }) => {
       <p>{comment.text}</p>
       <p>{comment.rating}</p>
       <p>{comment.createdAt}</p>
+      <button>Edit</button>
     </article>
   );
 }
