@@ -12,10 +12,11 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
 import Logout from './pages/Logout/Logout';
 import Signup from './pages/Signup/Signup';
+
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
 
-import styles from './App.css'
+import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
