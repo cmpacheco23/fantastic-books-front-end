@@ -9,7 +9,7 @@ export async function getBookDetails(volumeId) {
   }
 }
 
-async function bookSearch (data) {
+export async function bookSearch (data) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -25,6 +25,24 @@ async function bookSearch (data) {
 }
 
 
-export {
-  bookSearch
+export async function createComment(volumeId, commentFormData) {
+  try {
+    const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
+      method: 'POST',
+      body: JSON.stringify(commentFormData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.ok) {
+      const newComment = await response.json();
+      return newComment;
+    } else {
+      console.error('Error creating comment:', response.status);
+      return null;
+    }
+  } catch (error) {
+    console.error('Failed to create comment:', error);
+    return null;
+  }
 }
