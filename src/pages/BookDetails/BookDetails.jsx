@@ -13,6 +13,7 @@ const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
   const [comments, setComments] = useState([])
+  const [editCommentData, setEditCommentData] = useState(null)
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -47,11 +48,20 @@ const BookDetails = (props) => {
     }
   }
   
-  const handleEditComment = async (commentFormData) => {
-    const updatedComment = await bookService.updateComment(commentFormData)
-    setComments(comments.filter(c => c._id === c._id ? updatedComment : c))
+  const handleEditComment = async (commentId, volumeId, commentFormData) => {
+    const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
+    setComments((existingComments) => {
+      return existingComments.filter(comment => comment._id === commentId ? updatedComment : comment._id
+    )})
   }
-  
+
+  const handleEditButtonClick = (commentId) => {
+    const commentToEdit = comments.find((comment) => comment._id === commentId);
+    if (commentToEdit) {
+      setEditCommentData({ commentId, comment: commentToEdit });
+    }
+  }
+
   return (
     <main>
       <div className={styles.spacer}></div>
@@ -83,8 +93,22 @@ const BookDetails = (props) => {
         {book ? (
           <div>
             <NewComment handleAddComment={handleAddComment} />
-            <Comments key ={comments.id} comments={comments} user={props.user} />
-            <EditComment handleEditCommnet={handleEditComment}/>
+            <Comments 
+              key={comments.id} 
+              comments={comments} 
+              user={props.user} 
+              handleEditComment={handleEditComment} 
+              handleEditButtonClick={handleEditButtonClick}
+              volumeId={volumeId} 
+            />
+
+            {editCommentData && 
+              <EditComment
+                handleEditComment={handleEditComment}
+                volumeId={volumeId}
+                commentId={editCommentData.commentId}
+                initialFormData={editCommentData.comment}
+            />}
           </div>) : (
           <p>Loading...</p>
         )}

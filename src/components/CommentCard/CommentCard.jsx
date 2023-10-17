@@ -1,16 +1,12 @@
-import { Link } from "react-router-dom";
-const CommentCard = ({comment}) => {
-  return ( 
+const CommentCard = ({ comment, onEditClick, volumeId }) => {
+  return (
     <article>
       <p>{comment.commenter.name}</p>
       <p>{comment.text}</p>
       <p>{comment.rating}</p>
-      <Link to={{ pathname: "/edit-comment", state: comment }}>
-        <button>Edit</button>
-      </Link>
-
+      <button onClick={() => onEditClick(comment._id, volumeId, comment)}>Edit</button>
     </article>
-  )
+  );
 }
 
 export default CommentCard;

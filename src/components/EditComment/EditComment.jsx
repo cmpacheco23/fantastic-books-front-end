@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const EditComment = (props) => {
@@ -13,10 +14,15 @@ const EditComment = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    props.handleEditComment(formData)
-    
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+  
+    if (props.commentId) {
+      // Editing an existing comment
+      await bookService.updateComment(props.volumeId, props.commentId, formData);
+      props.handleEditComment(props.commentId, props.volumeId, formData);
+    }
   }
 
   return (
@@ -27,9 +33,7 @@ const EditComment = (props) => {
       required
       id="text-input"
       value={formData.text}
-      //because we are getting it from state ^^
       onChange={handleChange}
-      placeholder="Add a Comment"
     />
     <label htmlFor="rating">Rating:</label>
     <select
