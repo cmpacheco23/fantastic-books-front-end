@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 import styles from "./EditComment.module.css"
 const EditComment = (props) => {
 
-  const {state} = useLocation()
+  const location = useLocation()
+  const {state: initialFormData} = location
 
-  const [formData, setFormData] = useState(state)
+  const [formData, setFormData] = useState(initialFormData || { text: '', rating: '1' })
 
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})

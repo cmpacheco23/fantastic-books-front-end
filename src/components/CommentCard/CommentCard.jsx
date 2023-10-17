@@ -1,4 +1,3 @@
-import EditComment from "../EditComment/EditComment"
 import { Link } from "react-router-dom";
 const CommentCard = ({comment}) => {
   return ( 
@@ -6,8 +5,9 @@ const CommentCard = ({comment}) => {
       <p>{comment.commenter.name}</p>
       <p>{comment.text}</p>
       <p>{comment.rating}</p>
-      <Link>      <button>Edit</button></Link>
-      {/* to={`/profiles/${profile._id}`} */}
+      <Link to={{ pathname: "/edit-comment", state: comment }}>
+        <button>Edit</button>
+      </Link>
 
     </article>
   )
