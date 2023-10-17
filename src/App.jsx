@@ -15,13 +15,15 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
 import BlogList from './pages/BlogList/BlogList'
+import * as blogService from './services/blogService'
 
-import styles from './app.css'
+import styles from './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
+  const [blogs] = useState([])
 
   const handleLogout = () => {
     authService.logout();
@@ -41,6 +43,20 @@ function App() {
     }
   }, [user]);
 
+  // Not sure if the bellow useEffect will work so I preserved it above just in case.
+  
+  // useEffect(() => {
+  //   if (user && user.profileId) {
+  //     profileService.getOneProfile(user.profileId).then((profileData) => {
+  //       setProfile(profileData);
+  //     });
+  //   }
+  //   const fetchAllBlogs = async () => {
+  //     const data = await blogService.index()
+  //     setBlogs(data)
+  //   }
+  //   if (user) fetchAllBlogs()
+  // }, [user]);
 
   return (
     <>
@@ -97,7 +113,8 @@ function App() {
           path="/blogs"
           element={
             <ProtectedRoute user={user}>
-              <BlogList />
+              <BlogList blogs={blogs}/>
+              {/* <Profiles profile={profile} /> */}
             </ProtectedRoute>
           }
         />
