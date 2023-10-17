@@ -60,7 +60,6 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ProfileInfo />
-              
             </ProtectedRoute>
           }
         />
@@ -81,14 +80,19 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route 
-          path="/books" 
-          element={<BookSearch />} 
+        <Route
+          path="/books"
+          element={
+            <>
+              <BookSearch />
+              <Route path=":volumeId" element={<BookDetails />} />
+            </>
+          }
         />
-        <Route 
+        {/* <Route 
         path="/books/:volumeId" 
         element={<BookDetails />} 
-        />
+        /> */}
         <Route 
         path="/about" 
         element={<AboutUs />} 
