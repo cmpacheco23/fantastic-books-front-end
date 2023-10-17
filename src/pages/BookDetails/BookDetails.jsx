@@ -51,6 +51,7 @@ const BookDetails = (props) => {
     const updatedComment = await bookService.updateComment(commentFormData)
     setComments(comments.filter(c => c._id === c._id ? updatedComment : c))
   }
+  
   return (
     <main>
       <div className={styles.spacer}></div>
