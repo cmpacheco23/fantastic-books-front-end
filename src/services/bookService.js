@@ -2,14 +2,7 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/books`
 
-// export async function getBookDetails(volumeId) {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${volumeId}`)
-//     return res.json()
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+
 
 export async function getBookDetails(volumeId) {
   try {
@@ -18,7 +11,7 @@ export async function getBookDetails(volumeId) {
 
     const bookDetailsWithComments = {
       ...bookData,
-      comments: bookData.comments || [], // Assuming comments are available in the same response
+      comments: bookData.comments || [], 
     };
 
     return bookDetailsWithComments;
@@ -64,5 +57,21 @@ export async function createComment(volumeId, commentFormData) {
   } catch (error) {
     console.error('Failed to create comment:', error);
     return null;
+  }
+}
+
+export async function getComments(volumeId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments`);
+    if (res.ok) {
+      const comments = await res.json();
+      return comments;
+    } else {
+      console.error('Error fetching comments:', res.status);
+      return [];
+    }
+  } catch (error) {
+    console.error('Failed to fetch comments:', error);
+    return [];
   }
 }
