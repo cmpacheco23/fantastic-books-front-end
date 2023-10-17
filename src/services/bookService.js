@@ -14,15 +14,14 @@ export async function getBookDetails(volumeId) {
       comments: bookData.comments || [], 
     };
 
-    return bookDetailsWithComments;
+    return bookDetailsWithComments
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
 
 export async function bookSearch (data) {
-  // console.log([data, startIndex])
   try {
     console.log(data)
     const res = await fetch(BASE_URL, {
@@ -64,16 +63,16 @@ export async function createComment(volumeId, commentFormData) {
 
 export async function getComments(volumeId) {
   try {
-    const res = await fetch(`${BASE_URL}/${volumeId}/comments`);
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
     if (res.ok) {
-      const comments = await res.json();
+      const comments = await res.json()
       return comments;
     } else {
-      console.error('Error fetching comments:', res.status);
-      return [];
+      console.error('Error fetching comments:', res.status)
+      return []
     }
   } catch (error) {
-    console.error('Failed to fetch comments:', error);
-    return [];
+    console.error('Failed to fetch comments:', error)
+    return []
   }
 }
