@@ -16,7 +16,7 @@ const BookDetails = (props) => {
   const [editCommentData, setEditCommentData] = useState(null)
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchBookData = async () => {
       try {
 
         const bookData = await bookService.getBookDetails(volumeId);
@@ -29,7 +29,7 @@ const BookDetails = (props) => {
         console.error(error);
       }
     }
-    fetchBook();
+    fetchBookData();
   }, [volumeId]);
 
   
@@ -50,18 +50,13 @@ const BookDetails = (props) => {
   }
   
   const handleEditComment = async (commentId, volumeId, commentFormData) => {
+    console.log('commentform in bookdetails', commentFormData)
     const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
     setComments((existingComments) => {
       return existingComments.filter(comment => comment._id === commentId ? updatedComment : comment._id
     )})
   }
 
-  const handleEditButtonClick = (commentId) => {
-    const commentToEdit = comments.find((comment) => comment._id === commentId);
-    if (commentToEdit) {
-      setEditCommentData({ commentId, comment: commentToEdit });
-    }
-  }
 
   return (
     <main>
@@ -99,7 +94,7 @@ const BookDetails = (props) => {
               comments={comments} 
               user={props.user} 
               handleEditComment={handleEditComment} 
-              handleEditButtonClick={handleEditButtonClick}
+              // handleEditButtonClick={handleEditButtonClick}
               volumeId={volumeId} 
             />
 

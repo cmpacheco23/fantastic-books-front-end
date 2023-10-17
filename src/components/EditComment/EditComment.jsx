@@ -6,9 +6,9 @@ import styles from "./EditComment.module.css"
 const EditComment = (props) => {
 
   const location = useLocation()
-  const {state: initialFormData} = location
+  const {state} = location()
 
-  const [formData, setFormData] = useState(initialFormData || { text: '', rating: '1' })
+  const [formData, setFormData] = useState(state)
 
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -17,11 +17,12 @@ const EditComment = (props) => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-  
+    await bookService.updateComment(volumeId, commentId, formData)
     if (props.commentId) {
       // Editing an existing comment
-      await bookService.updateComment(props.volumeId, props.commentId, formData);
-      props.handleEditComment(props.commentId, props.volumeId, formData);
+      console.log('formData:', formData)
+      // await bookService.updateComment(props.volumeId, props.commentId, formData);
+      // props.handleEditComment(props.commentId, props.volumeId, formData);
     }
   }
 

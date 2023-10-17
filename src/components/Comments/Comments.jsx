@@ -12,7 +12,6 @@ const Comments = (props) => {
           key={comment._id} 
           comment={comment} 
           user={props.user}
-          onEditClick={(commentId, commentFormData) => props.handleEditComment(commentId, props.volumeId, commentFormData)}
           volumeId={props.volumeId}
 
         />
