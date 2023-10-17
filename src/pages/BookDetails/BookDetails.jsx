@@ -45,7 +45,7 @@ const BookDetails = (props) => {
           <p>Published: {book.published}</p>
           <p>Categories: {book.categories}</p>
 
-          <div dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
+          <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
 
           <Link to={book.url}>
           <button>Learn More</button>
