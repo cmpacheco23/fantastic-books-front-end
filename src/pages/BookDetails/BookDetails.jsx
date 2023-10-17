@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./BookDetails.module.css";
-import * as bookService from '../../services/bookService'
+import * as bookService from '../../services/bookService';
 import { Link } from "react-router-dom";
 
 //components
@@ -18,7 +18,8 @@ const BookDetails = (props) => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const bookData = await bookService.getBookDetails(volumeId)
+
+        const bookData = await bookService.getBookDetails(volumeId);
         setBook(bookData);
 
         const comments = await bookService.getComments(volumeId);
