@@ -1,7 +1,7 @@
 import CommentCard from "../CommentCard/CommentCard";
 
 const Comments = ({comments}) => {
-  if (!comments) {
+  if (!comments.length) {
     return <h4>No Comments</h4>;
   }
 
