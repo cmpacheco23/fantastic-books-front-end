@@ -18,7 +18,7 @@ const NewComment = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.newComment} onSubmit={handleSubmit}>
       <textarea
         name="text"
         type="text"
@@ -43,7 +43,7 @@ const NewComment = (props) => {
         <option value="5">5</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button className={styles.submit}type="submit">Submit</button>
 
     </form>
   )
