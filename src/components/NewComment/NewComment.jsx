@@ -18,7 +18,7 @@ const NewComment = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.newComment} onSubmit={handleSubmit}>
       <textarea
         name="text"
         type="text"

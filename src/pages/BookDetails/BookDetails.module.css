@@ -39,7 +39,7 @@
 .description {
   background: rgb(13,13,13);
 background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
-  height: 190px;
+  height: 185px;
   border-radius: 10px;
   padding: 10px 10px 0px 10px;
   overflow-y: scroll;
