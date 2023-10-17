@@ -22,7 +22,9 @@ export async function getBookDetails(volumeId) {
 
 
 export async function bookSearch (data) {
+  // console.log([data, startIndex])
   try {
+    console.log(data)
     const res = await fetch(BASE_URL, {
       method: 'POST',
       body: JSON.stringify(data),
