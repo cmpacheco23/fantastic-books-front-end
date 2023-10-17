@@ -2,14 +2,31 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/books`
 
+// export async function getBookDetails(volumeId) {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${volumeId}`)
+//     return res.json()
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+
 export async function getBookDetails(volumeId) {
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}`)
-    return res.json()
+    const bookData = await res.json();
+
+    const bookDetailsWithComments = {
+      ...bookData,
+      comments: bookData.comments || [], // Assuming comments are available in the same response
+    };
+
+    return bookDetailsWithComments;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
+
 
 export async function bookSearch (data) {
   try {

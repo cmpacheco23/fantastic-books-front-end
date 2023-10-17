@@ -24,9 +24,15 @@ const BookDetails = (props) => {
     fetchBook();
   }, [volumeId]);
 
+  
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData);
-    setBook({...book, comments: [...book.comments, newComment]})
+    setBook((bookExists) => {
+      if (!bookExists || !bookExists.comments) {
+        return bookExists;
+      }
+      return { ...bookExists, comments: [...bookExists.comments, newComment] };
+    });
   }
   
 
@@ -61,7 +67,7 @@ const BookDetails = (props) => {
         {book ? (
           <div>
             <NewComment handleAddComment={handleAddComment} />
-            <Comments comments={book.comments} user={props.user} />
+            <Comments comments={book.comments} user={props.user} key={book.id} />
           </div>) : (
           <p>Loading...</p>
         )}
