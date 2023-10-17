@@ -1,3 +1,5 @@
+import * as tokenService from './tokenService'
+
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/books`
 
 export async function getBookDetails(volumeId) {
@@ -31,6 +33,7 @@ export async function createComment(volumeId, commentFormData) {
       method: 'POST',
       body: JSON.stringify(commentFormData),
       headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json',
       },
     });

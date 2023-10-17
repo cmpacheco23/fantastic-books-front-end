@@ -11,7 +11,7 @@ import NewComment from "../../components/NewComment/NewComment"
 const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
-  // const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -26,9 +26,10 @@ const BookDetails = (props) => {
   }, [volumeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.createComment(volumeId, commentFormData)
-    setBook({...book, comments: [...book.comments, newComment]})
-  }
+    const newComment = await bookService.createComment(volumeId, commentFormData);
+    setComments([...comments, newComment]); // Update the comments state
+  };
+  
 
   return (
     <main>
@@ -59,8 +60,13 @@ const BookDetails = (props) => {
       )}
       <section>
         <h1>Comments</h1>
-        <NewComment handleAddComment={handleAddComment}/>
-        <Comments user={props.user}/>
+        {book ? (
+          <div>
+            <NewComment handleAddComment={handleAddComment} />
+            <Comments comments={book.comments} user={props.user} />
+          </div>) : (
+          <p>Loading...</p>
+        )}
       </section>
     </main>
   );
