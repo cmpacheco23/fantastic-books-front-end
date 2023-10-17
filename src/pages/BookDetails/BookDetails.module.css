@@ -10,6 +10,7 @@
 
 .info {
   /* background-color: blue; */
+  width: 800px;
   padding: 5px;
   margin: 30px;
   border-radius: 10px;
