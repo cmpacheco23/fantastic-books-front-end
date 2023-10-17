@@ -10,12 +10,12 @@ const Landing = ({ user }) => {
       <main className={styles.container}>
         <section className={styles.landing}>
 
-          {user 
+          {/* {user 
             ? 'Welcome to' 
           : 'Log in to enjoy'
-          }
+          } */}
       
-          <h1 className="landing-title">
+          <h1 className={styles.landingTitle}>
               Fantastic Books
           </h1>
       
