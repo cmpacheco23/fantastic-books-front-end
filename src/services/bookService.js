@@ -75,3 +75,21 @@ export async function getComments(volumeId) {
     return [];
   }
 }
+
+
+export const updateComment = async (volumeId, commentId, commentFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+

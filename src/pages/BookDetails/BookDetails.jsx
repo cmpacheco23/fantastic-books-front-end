@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 //components
 import Comments from "../../components/Comments/Comments"
 import NewComment from "../../components/NewComment/NewComment"
+import EditComment from "../../components/EditComment/EditComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()
@@ -46,7 +47,10 @@ const BookDetails = (props) => {
     }
   }
   
-
+  const handleEditComment = async (commentFormData) => {
+    const updatedComment = await bookService.updateComment(commentFormData)
+    setComments(comments.filter(c => c._id === c._id ? updatedComment : c))
+  }
   return (
     <main>
       <div className={styles.spacer}></div>
@@ -79,6 +83,7 @@ const BookDetails = (props) => {
           <div>
             <NewComment handleAddComment={handleAddComment} />
             <Comments key ={comments.id} comments={comments} user={props.user} />
+            <EditComment handleEditCommnet={handleEditComment}/>
           </div>) : (
           <p>Loading...</p>
         )}
