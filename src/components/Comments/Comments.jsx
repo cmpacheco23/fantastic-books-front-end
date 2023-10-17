@@ -1,18 +1,19 @@
 import CommentCard from "../CommentCard/CommentCard";
 
-const Comments = ({comments, handleEditComment, volumeId}) => {
-  if (!comments.length) {
+const Comments = (props) => {
+  if (!props.comments.length) {
     return <h4>No Comments</h4>;
   }
 
   return (
     <div>
-      {comments.map((comment) => (
+      {props.comments.map((comment) => (
         <CommentCard 
           key={comment._id} 
           comment={comment} 
-          onEditClick={(commentId, commentFormData) => handleEditComment(commentId, volumeId, commentFormData)}
-          volumeId={volumeId}
+          user={props.user}
+          onEditClick={(commentId, commentFormData) => props.handleEditComment(commentId, props.volumeId, commentFormData)}
+          volumeId={props.volumeId}
 
         />
 

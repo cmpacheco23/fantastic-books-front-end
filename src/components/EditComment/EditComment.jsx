@@ -27,31 +27,34 @@ const EditComment = (props) => {
 
   return (
     <form className={styles.newComment} onSubmit={handleSubmit}>
-    <textarea
-      name="text"
-      type="text"
-      required
-      id="text-input"
-      value={formData.text}
-      onChange={handleChange}
-    />
-    <label htmlFor="rating">Rating:</label>
-    <select
-      name="rating"
-      id="rating"
-      value={formData.rating}
-      onChange={handleChange}
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+      <h1>Edit Comment</h1>
+      <label htmlFor="text-input">Comment</label>
+      <textarea
+        name="text"
+        type="text"
+        required
+        id="text-input"
+        value={formData.text}
+        placeholder={formData.text}
+        onChange={handleChange}
+      />
+      <label htmlFor="rating">Rating:</label>
+      <select
+        name="rating"
+        id="rating"
+        value={formData.rating}
+        onChange={handleChange}
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
 
-    <button className={styles.submit}type="submit">Submit</button>
+      <button className={styles.submit}type="submit">Submit</button>
 
-  </form>
+    </form>
   );
 }
 
