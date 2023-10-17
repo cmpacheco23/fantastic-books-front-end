@@ -57,7 +57,7 @@ const BookDetails = (props) => {
       ) : (
         <p>Loading...</p>
       )}
-      <section>
+      <section className={styles.commentCard}>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment}/>
         <Comments user={props.user}/>
