@@ -43,7 +43,7 @@ const NewComment = (props) => {
         <option value="5">5</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button className={styles.submit}type="submit">Submit</button>
 
     </form>
   )
