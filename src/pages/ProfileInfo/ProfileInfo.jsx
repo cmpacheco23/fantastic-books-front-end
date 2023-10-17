@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import * as profileService from "../../services/profileService";
+import * as 
+profileService from "../../services/profileService";
 
 import styles from './ProfileInfo.module.css';
 
@@ -28,6 +29,7 @@ const ProfileInfo = () => {
     <main>
       {profile ? (
         <div>
+          <div className={styles.spacer}>hello</div>
           <img className={styles.photo} src={profile.photo} alt="profile photo" />
           <h1 className={styles.name}>{profile.name}</h1>
           {/* Render other profile information here */}
