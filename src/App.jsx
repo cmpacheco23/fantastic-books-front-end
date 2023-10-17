@@ -14,6 +14,7 @@ import Logout from './pages/Logout/Logout';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
+import BlogList from './pages/BlogList/BlogList'
 
 import styles from './app.css'
 
@@ -92,7 +93,16 @@ function App() {
         path="/about" 
         element={<AboutUs />} 
         />
+        <Route
+          path="/blogs"
+          element={
+            <ProtectedRoute user={user}>
+              <BlogList />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
+      
     </>
   );
 }
