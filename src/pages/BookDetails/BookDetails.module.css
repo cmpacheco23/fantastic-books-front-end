@@ -3,19 +3,30 @@
 } */
 
 .spacer {
-  height: 90px;
-  min-height: 90px;
+  min-height: 60px;
+  top: 0px;
   /* You can adjust the spacer height to control the spacing at the top. */
 }
 
+.info {
+  /* background-color: blue; */
+  width: 800px;
+  padding: 5px;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
 .cover {
-  max-height: 50vh;
-  min-height: 550px;
+  max-height: 30vh;
+  min-height: 400px;
   margin: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
 }
 
 .sideBySide {
-  display: flex;
+  display: inline-flex;
 }
 
 .sideBySide > .bookInfo {
@@ -23,4 +34,27 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.description {
+  background: rgb(13,13,13);
+background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
+  height: 185px;
+  border-radius: 10px;
+  padding: 10px 10px 0px 10px;
+  overflow-y: scroll;
+  
+}
+
+.commentCard {
+  /* background-color: blue; */
+  min-height: 200px;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
 }
