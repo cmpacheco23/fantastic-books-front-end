@@ -11,12 +11,11 @@ import NewComment from "../../components/NewComment/NewComment"
 const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
-  // const [comments, setComments] = useState([])
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const bookData = await bookService.getBookDetails(volumeId);
+        const bookData = await bookService.getBookDetails(volumeId)
         setBook(bookData);
       } catch (error) {
         console.error(error);
@@ -26,9 +25,10 @@ const BookDetails = (props) => {
   }, [volumeId]);
 
   const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.createComment(volumeId, commentFormData)
+    const newComment = await bookService.createComment(volumeId, commentFormData);
     setBook({...book, comments: [...book.comments, newComment]})
   }
+  
 
   return (
     <main>
@@ -52,18 +52,22 @@ const BookDetails = (props) => {
           </Link>
         </div>
       </div>
-        {/* Add more details here */}
       </div>
       ) : (
         <p>Loading...</p>
       )}
       <section className={styles.commentCard}>
         <h1>Comments</h1>
-        <NewComment handleAddComment={handleAddComment}/>
-        <Comments user={props.user}/>
+        {book ? (
+          <div>
+            <NewComment handleAddComment={handleAddComment} />
+            <Comments comments={book.comments} user={props.user} />
+          </div>) : (
+          <p>Loading...</p>
+        )}
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default BookDetails;
+export default BookDetails

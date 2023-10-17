@@ -4,7 +4,7 @@ import BookCard from "../../components/BookCard/BookCard";
 import BookDetails from "../BookDetails/BookDetails";
 import * as bookService from '../../services/bookService'
 
-const BookSearch = (props) => {
+const BookSearch = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [allBooks, setAllBooks] = useState([]);
   const [formData, setFormData] = useState({ searchTerm: '' });
