@@ -19,7 +19,9 @@ const Landing = ({ user }) => {
               Fantastic Books
           </h1>
       
-            <h2 className="logo-place-holder">LOGO</h2>
+          <h2 className={styles.landingSubTitle}>
+              and where to find them.
+          </h2>
 
           <div className="app-description">
             <p className="description">
