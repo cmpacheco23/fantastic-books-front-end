@@ -11,12 +11,11 @@ import NewComment from "../../components/NewComment/NewComment"
 const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
-  const [comments, setComments] = useState([])
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const bookData = await bookService.getBookDetails(volumeId);
+        const bookData = await bookService.getBookDetails(volumeId)
         setBook(bookData);
       } catch (error) {
         console.error(error);
@@ -27,8 +26,8 @@ const BookDetails = (props) => {
 
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData);
-    setComments([...comments, newComment]); // Update the comments state
-  };
+    setBook({...book, comments: [...book.comments, newComment]})
+  }
   
 
   return (
@@ -53,7 +52,6 @@ const BookDetails = (props) => {
           </Link>
         </div>
       </div>
-        {/* Add more details here */}
       </div>
       ) : (
         <p>Loading...</p>
@@ -69,7 +67,7 @@ const BookDetails = (props) => {
         )}
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default BookDetails;
+export default BookDetails
