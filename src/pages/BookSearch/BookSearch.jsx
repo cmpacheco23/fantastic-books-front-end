@@ -8,8 +8,12 @@ const BookSearch = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const [allBooks, setAllBooks] = useState([]);
   const [formData, setFormData] = useState({ searchTerm: '' });
+  const [currPage, setCurrPage] = useState(1)
+  const [startIndex, setStartIndex] = useState(0)
+  console.log(startIndex)
 
   const handleBookSearch = async (formData) => {
+    formData.startIndex = startIndex
     const bookData = await bookService.bookSearch(formData);
     setAllBooks(bookData);
   };
@@ -21,6 +25,8 @@ const BookSearch = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (formData.searchTerm) {
+      setCurrPage(1)
+      setStartIndex(0)
       await handleBookSearch(formData);
     }
   };
@@ -29,10 +35,28 @@ const BookSearch = () => {
     setSelectedBook(book);
   };
 
+  const handleIncreasePageCount = async () => {
+    setCurrPage(currPage + 1)
+    setStartIndex(startIndex + 10)
+    console.log(startIndex)
+    await handleBookSearch({...formData})
+  }
+
+  const handleDecreasePageCount = async () => {
+    setCurrPage(currPage - 1)
+    setStartIndex(startIndex - 10)
+    await handleBookSearch({...formData})
+  }
+
   return (
     <main className={styles.bookList}>
       <div className={styles.spacer}>spacer</div>
       <h1>Books</h1>
+      <div className={styles.paginationContainer}>
+        {currPage > 1 && <h2 onClick={handleDecreasePageCount}>◄</h2>}
+        <h2>Page {currPage}</h2>
+        <h2 onClick={handleIncreasePageCount}>►</h2>
+      </div>
       <div>
         <form onSubmit={handleSubmit} className="search-form">
           <input

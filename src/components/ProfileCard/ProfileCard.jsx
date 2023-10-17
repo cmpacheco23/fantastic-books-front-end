@@ -20,9 +20,6 @@ const ProfileCard = ({profile}) => {
         <h4>Number of Books: </h4>
         <Link to={`/profiles/${profile._id}`}>View Profile</Link>
         {profileInfo && <ProfileInfo profile={profile}/>}
-
-
-        
         </div>
 
     </main>
