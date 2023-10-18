@@ -107,6 +107,7 @@ const BookDetails = (props) => {
               handleEditComment={handleEditComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
+              handleCommentUpdate={handleCommentUpdate}
               volumeId={volumeId} 
             />
           

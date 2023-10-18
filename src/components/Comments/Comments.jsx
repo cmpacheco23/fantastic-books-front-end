@@ -8,17 +8,6 @@ const Comments = (props) => {
   const [isEditingComment, setIsEditingComment] = useState(null)
 ;
 
-  const handleCommentUpdate = (commentId, updatedData) => {
-    // Update the comments state
-    setComments((prevComments) =>
-      prevComments.map((comment) =>
-        comment._id === commentId ? { ...comment, ...updatedData } : comment
-      )
-    );
-    setIsEditingComment(null);
-  }
-
-
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
@@ -50,7 +39,8 @@ const Comments = (props) => {
             <EditComment
             volumeId={props.volumeId}
             commentId={isEditingComment}
-            onCommentUpdate={handleCommentUpdate}
+            user={props.user}
+            onCommentUpdate={props.handleCommentUpdate}
             handleCancelEdit={handleCancelEdit}
             comment={props.comments.find((comment) => comment._id === isEditingComment)}
             />
