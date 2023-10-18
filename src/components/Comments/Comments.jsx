@@ -11,15 +11,23 @@ const Comments = (props) => {
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
-  
 
-  // if (!props.comments) {
-  //   return <h4>No Comments</h4>;
-  // }
+
 
   return (
     <div>
-      <NewComment handleAddComment={props.handleAddComment}/>  
+      {props.comments.length > 0 ? (
+        <>
+        <NewComment handleAddComment={props.handleAddComment} />
+        <h4>Read the comments below</h4>
+        </>
+      ): (
+        <>
+        <h4>No Comments Have Been Added Yet</h4>
+        <NewComment handleAddComment={props.handleAddComment} />
+        </>
+      )}
+
       {props.comments.map((comment) => (
         <CommentCard 
           key={comment._id} 
