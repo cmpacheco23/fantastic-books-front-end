@@ -6,7 +6,7 @@ import NewComment from "../NewComment/NewComment";
 const Comments = (props) => {
 
   const [isEditingComment, setIsEditingComment] = useState(null)
-
+  const [formOpen, setFormOpen] = useState(true)
 
   const handleCancelEdit = () => {
     setIsEditingComment(null)
@@ -32,16 +32,15 @@ const Comments = (props) => {
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleEditComment={() =>
-            isEditingComment === comment._id
-              ? setIsEditingComment(null)
-              : setIsEditingComment(comment._id)
-          }
+          handleEditComment={(commentId) => {
+            setIsEditingComment(commentId)
+            setFormOpen(true)
+          }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
-          }}
-          isEditingComment={isEditingComment} 
-          handleCancelEdit={handleCancelEdit} 
+            }}
+            isEditingComment={isEditingComment} 
+            handleCancelEdit={handleCancelEdit} 
         />
       ))}
         {isEditingComment && (
@@ -52,6 +51,7 @@ const Comments = (props) => {
             onCommentUpdate={props.handleCommentUpdate}
             handleCancelEdit={handleCancelEdit}
             comment={props.comments.find((comment) => comment._id === isEditingComment)}
+            formOpen={formOpen}
             />
 
           )}
