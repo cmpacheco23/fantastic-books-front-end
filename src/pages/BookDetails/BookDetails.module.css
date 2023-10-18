@@ -46,10 +46,9 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   
 }
 
-.commentCard {
-  /* background-color: blue; */
-  min-height: 200px;
-  width: 300px;
+.commentContainer {
+  background-color: rgb(7, 22, 1); /* Add your desired background color */
+  width: auto; /* Let it expand to fit the content */
   border-radius: 5px;
   box-shadow: 5px 5px 10px black;
   display: flex;
@@ -57,6 +56,7 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   justify-content: space-around;
   align-items: center;
   padding: 20px;
+  margin: 10px; /* Add margin for spacing around the comment container */
 }
 
 .commenth1{
