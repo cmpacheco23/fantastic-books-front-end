@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 
 //components
 import Comments from "../../components/Comments/Comments"
-import NewComment from "../../components/NewComment/NewComment"
-import EditComment from "../../components/EditComment/EditComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()
@@ -57,9 +55,22 @@ const BookDetails = (props) => {
     )})
   }
 
+  const handleCommentUpdate = (commentId, updatedData) => {
+    // Update the comments state
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment._id === commentId ? { ...comment, ...updatedData } : comment
+      )
+    );
+  };
+
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
+    console.log("Deleted comment, book.comments before:", book.comments);
+
     setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
+    console.log("Deleted comment, book.comments after:", book.comments);
+
   }
 
   return (
@@ -100,10 +111,11 @@ const BookDetails = (props) => {
               handleEditComment={handleEditComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
+              handleCommentUpdate={handleCommentUpdate}
               volumeId={volumeId} 
             />
-
-
+          
+          
           </div>) : (
           <p>Loading...</p>
         )}
