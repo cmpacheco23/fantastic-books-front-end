@@ -5,7 +5,7 @@ import styles from "./BlogCard.module.css";
 const BlogCard = ({blog}) => {
   const titleLength = 200
 
-  const shorterBlogTitle =
+  const shorterBlogText =
     blog.text.length > titleLength
       ? blog.text.substring(0, titleLength)
       : blog.text
@@ -18,7 +18,7 @@ const BlogCard = ({blog}) => {
           </span>
           <h4>Created By: {blog.blogger.name}</h4>
         </header>
-        <p>{shorterBlogTitle}</p>
+        <p>{shorterBlogText}</p>
         <Link to={`/blogs/${blog._id}`}>
           <button> Read Blog</button>
     </Link>
