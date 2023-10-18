@@ -18,6 +18,7 @@ const NewBlog = (props) => {
     e.preventDefault()
     console.log(formData)
     props.handleAddBlog(formData)
+    setFormData({title: '', text: ''})
   }
 
   return (
