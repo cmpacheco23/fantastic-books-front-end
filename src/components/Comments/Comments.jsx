@@ -12,7 +12,7 @@ const Comments = (props) => {
     setIsEditingComment(null)
   };
   
-  if (!props.comments.length) {
+  if (!props.comments) {
     return <h4>No Comments</h4>;
   }
 
