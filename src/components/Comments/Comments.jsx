@@ -13,9 +13,15 @@ const Comments = (props) => {
       prevComments.map((comment) =>
         comment._id === commentId ? { ...comment, ...updatedData } : comment
       )
-    )
+    );
     setIsEditingComment(null);
   }
+
+
+  const handleCancelEdit = () => {
+    setIsEditingComment(null)
+  };
+  
   if (!props.comments.length) {
     return <h4>No Comments</h4>;
   }
@@ -36,6 +42,7 @@ const Comments = (props) => {
           }
           handleDeleteComment={props.handleDeleteComment}
           isEditingComment={isEditingComment} 
+          handleCancelEdit={handleCancelEdit} 
         />
       ))}
         {isEditingComment && (
@@ -44,6 +51,7 @@ const Comments = (props) => {
             commentId={isEditingComment}
             initialFormData={props.comment}
             onCommentUpdate={handleCommentUpdate}
+            handleCancelEdit={handleCancelEdit}
             />
           )}
     </div>

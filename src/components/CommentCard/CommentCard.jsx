@@ -1,4 +1,6 @@
-const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment }) => {
+import styles from "./CommentCard.module.css"
+
+const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment, handleCancelEdit }) => {
 
   return (
     <article>
@@ -17,7 +19,7 @@ const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment
         </button>
         <button
           onClick={() => handleDeleteComment(volumeId, comment._id)}
-          disabled={isEditingComment === comment._id} // Disable the "Delete" button if the comment is being edited
+          disabled={isEditingComment === comment._id}
         >
           Delete
         </button>
