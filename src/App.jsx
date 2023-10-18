@@ -16,6 +16,7 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
 import BlogList from './pages/BlogList/BlogList'
+import BlogDetails from './pages/BlogDetails/BlogDetails';
 import * as blogService from './services/blogService'
 
 import './App.css'
@@ -123,6 +124,13 @@ function App() {
           path="/blogs"
           element={
               <BlogList blogs={blogs} user={user}/>
+          }
+        />
+
+<Route
+          path="/blogs/:blogId"
+          element={
+              <BlogDetails/>
           }
         />
       </Routes>
