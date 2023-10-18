@@ -64,38 +64,38 @@ export async function createComment(volumeId, commentFormData) {
   }
 }
 
-// export async function getComments(volumeId) {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
-//     if (res.ok) {
-//       const comments = await res.json()
-//       return comments;
-//     } else {
-//       console.error('Error fetching comments:', res.status)
-//       return []
-//     }
-//   } catch (error) {
-//     console.error('Failed to fetch comments:', error)
-//     return []
-//   }
-// }
-
 export async function getComments(volumeId) {
   try {
-    const res = await fetch(`${BASE_URL}/${volumeId}/comments`);
-    const comments = await res.json();
-
-    if (comments && comments.length > 0) {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
+    if (res.ok) {
+      const comments = await res.json()
       return comments;
     } else {
-      console.log('No comments exist for volumeId:', volumeId);
-      return [];
+      console.error('Error fetching comments:', res.status)
+      return []
     }
   } catch (error) {
-    console.error('Failed to fetch comments:', error);
-    return [];
+    console.error('Failed to fetch comments:', error)
+    return []
   }
 }
+
+// export async function getComments(volumeId) {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${volumeId}/comments`);
+//     const comments = await res.json();
+
+//     if (comments && comments.length > 0) {
+//       return comments;
+//     } else {
+//       console.log('No comments exist for volumeId:', volumeId);
+//       return [];
+//     }
+//   } catch (error) {
+//     console.error('Failed to fetch comments:', error);
+//     return [];
+//   }
+// }
 
 
 export const updateComment = async (volumeId, commentId, commentFormData) => {

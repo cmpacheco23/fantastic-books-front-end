@@ -1,4 +1,4 @@
-const CommentCard = ({ comment, volumeId, user,handleDeleteComment, handleEditComment }) => {
+const CommentCard = ({ comment, volumeId,handleDeleteComment, handleEditComment }) => {
   return (
     <article>
       <p>{comment.commenter.name}</p>
@@ -6,12 +6,16 @@ const CommentCard = ({ comment, volumeId, user,handleDeleteComment, handleEditCo
       <p>{comment.rating}</p>
       <p>{comment.createdAt}</p>
 
-      {comment.commenter._id === user.profile &&
+        <button onClick={() => handleEditComment(volumeId, comment._id)}>Edit</button>
+        <button onClick={() => handleDeleteComment(volumeId, comment._id)}>Delete</button>
+
+
+      {/* {comment.commenter._id === user.profile._id &&
       <>
         <button onClick={() => handleEditComment(volumeId, comment._id)}>Edit</button>
         <button onClick={() => handleDeleteComment(volumeId, comment._id)}>Delete</button>
       </>
-      }
+      } */}
     </article>
   );
 }

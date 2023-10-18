@@ -3,12 +3,13 @@ import { useLocation } from "react-router-dom";
 import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
-const EditComment = (props) => {
+const  EditComment = (props) => {
 
   const location = useLocation()
-  const {state} = location()
+  const {state} = location
 
-  const [formData, setFormData] = useState(state)
+  const initialFormData = state || { text: '', rating: 1 }; // Provide default values
+const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
