@@ -1,5 +1,6 @@
 // css
 import styles from './BlogList.module.css'
+
 // import { useState } from 'react';
 
 const BlogList = (props) => {

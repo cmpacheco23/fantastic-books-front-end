@@ -59,6 +59,13 @@ function App() {
   //   if (user) fetchAllBlogs()
   // }, [user]);
 
+    useEffect(() => {
+      const fetchAllBlogs = async () => {
+        const data = await blogService.index()
+        console.log('Blog Data:', data)
+      }
+      if (user) fetchAllBlogs()
+    }, [user])
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
