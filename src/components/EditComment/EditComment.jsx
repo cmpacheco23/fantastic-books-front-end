@@ -9,6 +9,7 @@ const  EditComment = (props) => {
   console.log('Received props in EditComment:', props)
 
   const {volumeId, commentId} = useParams()
+  const {setFormOpen} = props
   const [formData, setFormData] = useState(props.comment)
 
 
@@ -19,13 +20,13 @@ const  EditComment = (props) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     await bookService.updateComment(volumeId, commentId, formData)
-    props.setFormOpen(false)
+    setFormOpen(false)
   };
   
 
 
   const handleCancel = () => {
-    props.setFormOpen(false);
+    setFormOpen(false);
     console.log('After setting isFormOpen to false in handleCancel')
     props.handleCancelEdit()
   }
@@ -66,6 +67,7 @@ const  EditComment = (props) => {
         <button className={styles.cancel} type="button" onClick={handleCancel}>
           Cancel
         </button>
+        
       </form>
       ) : (
         <div> </div>

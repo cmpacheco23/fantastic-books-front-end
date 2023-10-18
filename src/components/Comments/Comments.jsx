@@ -55,6 +55,7 @@ const Comments = (props) => {
             handleCancelEdit={handleCancelEdit}
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
+            setFormOpen={setFormOpen}
             />
           )}
 
