@@ -7,6 +7,15 @@ const Comments = (props) => {
 
   const [isEditingComment, setIsEditingComment] = useState(null)
 
+  const handleCommentUpdate = (commentId, updatedData) => {
+    // Update the comments state
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment._id === commentId ? { ...comment, ...updatedData } : comment
+      )
+    )
+    setIsEditingComment(null);
+  }
   if (!props.comments.length) {
     return <h4>No Comments</h4>;
   }
@@ -20,16 +29,21 @@ const Comments = (props) => {
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleEditComment={() => setIsEditingComment(comment._id)}
+          handleEditComment={() =>
+            isEditingComment === comment._id
+              ? setIsEditingComment(null)
+              : setIsEditingComment(comment._id)
+          }
           handleDeleteComment={props.handleDeleteComment}
-
+          isEditingComment={isEditingComment} // Pass isEditingComment to CommentCard
         />
-        ))}
+      ))}
         {isEditingComment && (
             <EditComment
             volumeId={props.volumeId}
             commentId={isEditingComment}
             initialFormData={props.comment}
+            onCommentUpdate={handleCommentUpdate}
             />
           )}
     </div>

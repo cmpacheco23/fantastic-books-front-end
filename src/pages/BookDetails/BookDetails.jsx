@@ -57,6 +57,15 @@ const BookDetails = (props) => {
     )})
   }
 
+  const handleCommentUpdate = (commentId, updatedData) => {
+    // Update the comments state
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment._id === commentId ? { ...comment, ...updatedData } : comment
+      )
+    );
+  };
+
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
     setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
@@ -102,8 +111,8 @@ const BookDetails = (props) => {
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
             />
-
-
+          
+          
           </div>) : (
           <p>Loading...</p>
         )}

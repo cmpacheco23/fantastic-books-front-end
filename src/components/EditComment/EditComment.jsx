@@ -19,6 +19,9 @@ const [formData, setFormData] = useState(initialFormData);
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     await bookService.updateComment(props.volumeId, props.commentId, formData)
+    if (props.onCommentUpdate) {
+      props.onCommentUpdate(props.commentId, formData);
+    }
   }
 
   return (
@@ -31,22 +34,25 @@ const [formData, setFormData] = useState(initialFormData);
         required
         id="text-input"
         value={formData.text}
-        placeholder={formData.text}
         onChange={handleChange}
       />
-      <label htmlFor="rating">Rating:</label>
-      <select
-        name="rating"
-        id="rating"
-        value={formData.rating}
-        onChange={handleChange}
-      >
+      <div className={styles.dropdown}> 
+        <label htmlFor="rating" className={styles.dropdownLabel}>Rating:</label>
+        <select
+          name="rating"
+          id="rating"
+          className={styles.dropdownSelect} 
+          value={formData.rating}
+          onChange={handleChange}
+        >
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
+      </div>
+      <label htmlFor="rating">Rating:</label>
 
       <button className={styles.submit}type="submit">Save</button>
 
