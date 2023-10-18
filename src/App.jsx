@@ -18,6 +18,7 @@ import BookDetails from './pages/BookDetails/BookDetails';
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails';
 import * as blogService from './services/blogService'
+import NewBlog from './pages/NewBlog/NewBlog'
 
 import './App.css'
 
@@ -45,21 +46,6 @@ function App() {
     }
   }, [user]);
 
-  // Not sure if the bellow useEffect will work so I preserved it above just in case.
-  
-  // useEffect(() => {
-  //   if (user && user.profileId) {
-  //     profileService.getOneProfile(user.profileId).then((profileData) => {
-  //       setProfile(profileData);
-  //     });
-  //   }
-  //   const fetchAllBlogs = async () => {
-  //     const data = await blogService.index()
-  //     setBlogs(data)
-  //   }
-  //   if (user) fetchAllBlogs()
-  // }, [user]);
-
     useEffect(() => {
       const fetchAllBlogs = async () => {
         const data = await blogService.index()
@@ -67,6 +53,12 @@ function App() {
       }
       fetchAllBlogs()
     }, [])
+
+    const handleAddBlog = async (blogFormData) => {
+      const newBlog = await blogService.create(blogFormData)
+      setBlogs([newBlog, ...blogs])
+      navigate('/blogs')
+    }
 
   return (
     <>
@@ -126,11 +118,18 @@ function App() {
               <BlogList blogs={blogs} user={user}/>
           }
         />
-
-<Route
+        <Route
           path="/blogs/:blogId"
           element={
               <BlogDetails/>
+          }
+        />
+        <Route
+          path="/blogs/new" 
+          element={
+            <ProtectedRoute user={user}>
+              <NewBlog handleAddBlog={handleAddBlog} />
+            </ProtectedRoute>
           }
         />
       </Routes>
