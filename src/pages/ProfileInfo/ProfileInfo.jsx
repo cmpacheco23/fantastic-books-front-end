@@ -10,6 +10,8 @@ const ProfileInfo = () => {
   const { profileId } = useParams()
   const [isCreateShelfModalOpen, setIsCreateShelfModalOpen] = useState(false)
   const [shelfName, setShelfName] = useState("")
+  const [editingShelfId, setEditingShelfId] = useState(null)
+  const [editShelfName, setEditShelfName] = useState("")
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -40,6 +42,40 @@ const ProfileInfo = () => {
     }
   }
 
+  const handleEditShelf = async (shelfId) => {
+    try {
+      const editedShelf = await profileService.editShelf({ name: editShelfName }, profileId, shelfId)
+      if (editedShelf) {
+        setProfile(prevState => {
+          const updatedShelves = prevState.shelves.map(shelf => shelf._id === shelfId ? editedShelf : shelf)
+          return {
+            ...prevState,
+            shelves: updatedShelves
+          }
+        })
+      }
+      setEditShelfName("")
+      setEditingShelfId(null)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleDeleteShelf = async (shelfId) => {
+    try {
+      await profileService.deleteShelf(profileId, shelfId)
+      setProfile(prevState => {
+        const updatedShelves = prevState.shelves.filter(shelf => shelf._id !== shelfId)
+        return {
+          ...prevState,
+          shelves: updatedShelves
+        }
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <main>
       {profile ? (
@@ -50,12 +86,30 @@ const ProfileInfo = () => {
           <h2>Books Collected:</h2>
           <h2>Shelves Created:</h2>
           {profile.shelves.map(shelf => (
-            <div key={shelf._id}>{shelf.name}</div>
+              <div key={shelf._id}>{shelf.name}
+                <button onClick={() => {
+                  setEditingShelfId(shelf._id);
+                  setEditShelfName(shelf.name);
+                }}>
+                  Edit
+                </button>
+                <button onClick={() => handleDeleteShelf(shelf._id)}>Delete</button>
+                <div className={editingShelfId === shelf._id ? styles.modalOpen : styles.modalClose}>
+                  <div className={styles.modalContent}>
+                    <label>
+                      Edit Shelf Name:
+                      <input type="text" value={editShelfName} onChange={e => setEditShelfName(e.target.value)} />
+                    </label>
+                    <button onClick={() => handleEditShelf(shelf._id)}>Save</button>
+                    <button onClick={() => setEditingShelfId(null)}>Cancel</button>
+                  </div>
+                </div>
+              </div>
           ))}
           <div className={isCreateShelfModalOpen ? styles.modalOpen : styles.modalClose}>
             <label>
               Shelf Name:
-              <input type="text" value={shelfName} onChange={e => setShelfName(e.target.value)} />
+              <input type="text" value={shelfName} onChange={e => setShelfName(e.target.value)} placeholder="Shelf Name"/>
             </label>
             <button onClick={handleCreateShelf}>Create Shelf</button>
             <button onClick={() => setIsCreateShelfModalOpen(false)}>Cancel</button>

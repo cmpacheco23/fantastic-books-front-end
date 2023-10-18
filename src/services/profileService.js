@@ -58,4 +58,41 @@ async function createShelf(shelfData, profileId) {
   }
 }
 
-export { getAllProfiles, addPhoto, getOneProfile, createShelf }
+async function editShelf(shelfData, profileId, shelfId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(shelfData)
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+async function deleteShelf(profileId, shelfId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    if (res.status !== 200) throw new Error("Failed to delete shelf")
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { 
+  getAllProfiles,
+  addPhoto,
+  getOneProfile,
+  createShelf,
+  editShelf,
+  deleteShelf
+}
