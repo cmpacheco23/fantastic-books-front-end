@@ -21,7 +21,7 @@ const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment
 
         <button
           onClick={() => handleDeleteComment(volumeId, comment._id)}
-          disabled={isEditingComment === comment._id || !formOpen}
+          disabled={isEditingComment === comment._id}
         >
           Delete
         </button>

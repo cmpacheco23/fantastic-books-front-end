@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
-  const {state} = useLocation()
+
+  console.log('Received props in EditComment:', props)
+
   const {volumeId, commentId} = useParams()
-  const [formData, setFormData] = useState(state || { text: "", rating: "1" })
+  const [formData, setFormData] = useState(props.comment)
 
-
-  useEffect(() => {
-    if (state === null) {
-      setFormData({ text: "", rating: "1" });
-    }
-  }, [state])
 
   const handleChange = ({target}) => {
     setFormData({...formData, [target.name]: target.value})
