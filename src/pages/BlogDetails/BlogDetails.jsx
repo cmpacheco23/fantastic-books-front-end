@@ -22,7 +22,13 @@ const BlogDetails = (props) => {
   return (
     <main>
       <div className={styles.spacer}></div>
-      <h1>Blog Details</h1>
+      <h1>{blog ? blog.blogTitle : 'Loading...'}</h1>
+      {blog && (
+        <>
+          <h4>Author: {blog.blogger.name}</h4>
+          <p>{blog.text}</p>
+        </>
+      )}
     </main>
     )
 }
