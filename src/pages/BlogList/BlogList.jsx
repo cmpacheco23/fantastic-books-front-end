@@ -13,7 +13,6 @@ const BlogList = (props) => {
     <main className={styles.container}>
       <div className={styles.spacer}></div>
       <NewBlog handleAddBlog={props.handleAddBlog} />
-      {/* <NavLink to="/blogs/new">NEW BLOG</NavLink> */}
       <div className={styles.spacer}></div>
       <h1>BLOG LIST</h1>
       {props.blogs.map(blog => (
