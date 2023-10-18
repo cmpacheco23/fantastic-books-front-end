@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 
 //components
 import Comments from "../../components/Comments/Comments"
-import NewComment from "../../components/NewComment/NewComment"
-import EditComment from "../../components/EditComment/EditComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()

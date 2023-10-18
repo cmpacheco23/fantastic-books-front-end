@@ -1,38 +1,45 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  const location = useLocation()
-  const {state} = location
-
-  const initialFormData = state || { text: '', rating: 1 }
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(props.comment)
   const [isFormOpen, setIsFormOpen] = useState(true)
 
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
-
   const handleSubmit = async (evt) => {
+    console.log('handleSubmit called')
     evt.preventDefault();
-    await bookService.updateComment(props.volumeId, props.commentId, formData)
-    if (props.onCommentUpdate) {
-      props.onCommentUpdate(props.commentId, formData);
+
+    try {
+      await bookService.updateComment(props.volumeId, props.commentId, formData)
+      
+      if (props.onCommentUpdate) {
+        props.onCommentUpdate(props.commentId, formData);
+      }
+      setIsFormOpen(false)
+      console.log('Form closed after submission');
+
+      props.handleCancelEdit()
+    } catch (error) {
+      console.error('An error occurred:', error)
     }
   }
 
 
   const handleCancel = () => {
+    console.log('Before setting isFormOpen to false in handleCancel')
     setIsFormOpen(false);
+    console.log('After setting isFormOpen to false in handleCancel')
     props.handleCancelEdit()
   }
 
   return (
     <div>
-
       {isFormOpen && (
         <form className={styles.newComment} onSubmit={handleSubmit}>
           <h1>Edit Comment</h1>

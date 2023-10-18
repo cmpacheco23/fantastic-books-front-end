@@ -1,6 +1,6 @@
 import styles from "./CommentCard.module.css"
 
-const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment, handleCancelEdit }) => {
+const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment }) => {
 
   return (
     <article>

@@ -6,6 +6,7 @@ import NewComment from "../NewComment/NewComment";
 const Comments = (props) => {
 
   const [isEditingComment, setIsEditingComment] = useState(null)
+;
 
   const handleCommentUpdate = (commentId, updatedData) => {
     // Update the comments state
@@ -49,10 +50,11 @@ const Comments = (props) => {
             <EditComment
             volumeId={props.volumeId}
             commentId={isEditingComment}
-            initialFormData={props.comment}
             onCommentUpdate={handleCommentUpdate}
             handleCancelEdit={handleCancelEdit}
+            comment={props.comments.find((comment) => comment._id === isEditingComment)}
             />
+
           )}
     </div>
   );
