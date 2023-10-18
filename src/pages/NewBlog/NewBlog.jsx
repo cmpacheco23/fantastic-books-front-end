@@ -6,7 +6,7 @@ import styles from './NewBlog.module.css'
 
 const NewBlog = (props) => {
   const [formData, setFormData] = useState({
-    title: '',
+    blogTitle: '',
     text: '',
   })
 
@@ -16,19 +16,21 @@ const NewBlog = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(formData)
     props.handleAddBlog(formData)
   }
 
   return (
     <main className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title-input">Title</label>
+      <div className={styles.spacer}></div>
+      <form className={styles.newBlogForm} onSubmit={handleSubmit}>
+        <label htmlFor="blogTitle-input">Title</label>
         <input
           required
           type="text"
-          name="title"
-          id="title-input"
-          value={formData.blogTitle} //might need to be just title
+          name="blogTitle"
+          id="blog-title-input"
+          value={formData.title} //might need to be just title
           placeholder="Title"
           onChange={handleChange}
         />
