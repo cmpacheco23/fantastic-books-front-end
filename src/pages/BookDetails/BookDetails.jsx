@@ -100,7 +100,7 @@ const BookDetails = (props) => {
         <p>Loading...</p>
       )}
       <section className={styles.commentCard}>
-        <h1>Comments</h1>
+        <h1 className={styles.commenth1}>Comments</h1>
         {book ? (
           <div>
 
