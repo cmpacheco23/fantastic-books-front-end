@@ -57,6 +57,7 @@ const Comments = (props) => {
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
             setFormOpen={setFormOpen}
+            
             />
           )}
 
