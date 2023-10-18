@@ -5,8 +5,6 @@ import BlogCard from '../../components/BlogCard/BlogCard'
 
 const BlogList = (props) => {
 
-
-  console.log('BlogList props:', props)
   return (
     <main className={styles.container}>
       <div className={styles.spacer}></div>

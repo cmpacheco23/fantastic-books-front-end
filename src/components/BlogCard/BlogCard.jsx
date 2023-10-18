@@ -3,18 +3,26 @@ import { Link } from "react-router-dom";
 import styles from "./BlogCard.module.css";
 
 const BlogCard = ({blog}) => {
+  const titleLength = 200
+
+  const shorterBlogTitle =
+    blog.text.length > titleLength
+      ? blog.text.substring(0, titleLength)
+      : blog.text
+
   return (
-    <Link to={`/blogs/${blog._id}`}>
-      <article className={styles.container}>
+    <article className={styles.container}>
         <header>
           <span>
             <h1>{blog.blogTitle}</h1>
           </span>
-          <h4>{blog.blogger.name}</h4>
+          <h4>Created By: {blog.blogger.name}</h4>
         </header>
-        <p>{blog.text}</p>
-      </article>
+        <p>{shorterBlogTitle}</p>
+        <Link to={`/blogs/${blog._id}`}>
+          <button> Read Blog</button>
     </Link>
+      </article>
   )
 }
 
