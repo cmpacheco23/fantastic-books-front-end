@@ -24,7 +24,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser());
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
-  const [blogs] = useState([])
+  const [blogs, setBlogs] = useState([])
 
   const handleLogout = () => {
     authService.logout();
@@ -62,10 +62,11 @@ function App() {
     useEffect(() => {
       const fetchAllBlogs = async () => {
         const data = await blogService.index()
-        console.log('Blog Data:', data)
+        setBlogs(data)
       }
-      if (user) fetchAllBlogs()
-    }, [user])
+      fetchAllBlogs()
+    }, [])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />

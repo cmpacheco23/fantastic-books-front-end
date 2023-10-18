@@ -8,18 +8,13 @@ const BlogList = (props) => {
 
   console.log('BlogList props:', props)
   return (
-    // <main className={styles.container}>
-    //   {props.blogs.map(blog => (
-    //     <p key={blog._id}>
-    //       {blog.blogTitle}
-          
-    //     </p>
-    //   ))}
-    // </main>
-
-    <main>
+    <main className={styles.container}>
       <div className={styles.spacer}></div>
       <h1>BLOG LIST</h1>
+      {props.blogs.map(blog => (
+        <p key={blog._id}>
+          {blog.blogTitle} </p>
+      ))}
     </main>
   )
 }
