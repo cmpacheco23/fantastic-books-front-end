@@ -11,7 +11,8 @@ const BlogCard = ({blog}) => {
       : blog.text
 
   return (
-    <article className={styles.container}>
+    <Link className={styles.blogCard} to={`/blogs/${blog._id}`}> 
+      <article className={styles.container}>
         <header>
           <span>
             <h1>{blog.blogTitle}</h1>
@@ -19,10 +20,8 @@ const BlogCard = ({blog}) => {
           <h4>Created By: {blog.blogger.name}</h4>
         </header>
         <p>{shorterBlogText}</p>
-        <Link to={`/blogs/${blog._id}`}>
-          <button> Read Blog</button>
-    </Link>
       </article>
+    </Link>
   )
 }
 

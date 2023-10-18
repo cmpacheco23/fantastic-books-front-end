@@ -24,4 +24,3 @@ export async function show(blogId) {
     console.log(error)
   }
 }
-
