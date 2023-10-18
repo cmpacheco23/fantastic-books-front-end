@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 import CommentCard from "../CommentCard/CommentCard";
 import EditComment from "../EditComment/EditComment"
 import NewComment from "../NewComment/NewComment";
 const Comments = (props) => {
+
+  const [isEditingComment, setIsEditingComment] = useState(null)
+
   if (!props.comments.length) {
     return <h4>No Comments</h4>;
   }
@@ -15,16 +20,18 @@ const Comments = (props) => {
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleEditComment={props.handleEditComment}
+          handleEditComment={() => setIsEditingComment(comment._id)}
           handleDeleteComment={props.handleDeleteComment}
 
         />
         ))}
-        <EditComment
-          volumeId={props.volumeId}
-          commentId={props.commentId}
-          initialFormData={props.comment}
-        />  
+        {isEditingComment && (
+            <EditComment
+            volumeId={props.volumeId}
+            commentId={isEditingComment}
+            initialFormData={props.comment}
+            />
+          )}
     </div>
   );
 }
