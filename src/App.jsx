@@ -18,6 +18,7 @@ import BookDetails from './pages/BookDetails/BookDetails';
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails';
 import * as blogService from './services/blogService'
+import NewBlog from './pages/NewBlog/NewBlog'
 
 import './App.css'
 
@@ -117,11 +118,18 @@ function App() {
               <BlogList blogs={blogs} user={user}/>
           }
         />
-
-<Route
+        <Route
           path="/blogs/:blogId"
           element={
               <BlogDetails/>
+          }
+        />
+        <Route
+          path="/blogs/new" 
+          element={
+            <ProtectedRoute user={user}>
+              <NewBlog handleAddBlog={handleAddBlog} />
+            </ProtectedRoute>
           }
         />
       </Routes>
