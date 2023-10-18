@@ -83,13 +83,13 @@ function App() {
         <Route
           path="/books"
           element={
-              <BookSearch element={<BookDetails path="/books/:volumeId" />} />
+              <BookSearch/>
           }
         />
-        {/* <Route 
+        <Route 
         path="/books/:volumeId" 
         element={<BookDetails />} 
-        /> */}
+        />
         <Route 
         path="/about" 
         element={<AboutUs />} 
