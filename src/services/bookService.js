@@ -113,3 +113,16 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
   }
 }
 
+export const deleteComment = async (volumeId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}

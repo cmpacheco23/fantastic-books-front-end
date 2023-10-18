@@ -83,10 +83,7 @@ function App() {
         <Route
           path="/books"
           element={
-            <>
-              <BookSearch />
-              <Route path=":volumeId" element={<BookDetails />} />
-            </>
+              <BookSearch element={<BookDetails path="/books/:volumeId" />} />
           }
         />
         {/* <Route 
