@@ -64,15 +64,30 @@ const BookDetails = (props) => {
     );
   };
 
+  // const handleDeleteComment = async (volumeId, commentId) => {
+  //   await bookService.deleteComment(volumeId, commentId)
+  //   console.log("Deleted comment, book.comments before:", book.comments);
+
+  //   setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
+  //   console.log("Deleted comment, book.comments after:", book.comments);
+
+  // }
+
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
-    console.log("Deleted comment, book.comments before:", book.comments);
-
-    setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
-    console.log("Deleted comment, book.comments after:", book.comments);
-
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment._id !== commentId)
+    )
+    setBook((prevBook) => {
+      if (!prevBook || !prevBook.comments) {
+        return prevBook
+      }
+      return {
+        ...prevBook,
+        comments: prevBook.comments.filter((comment) => comment._id !== commentId),
+      }
+    })
   }
-
   return (
     <main>
       <div className={styles.spacer}></div>
