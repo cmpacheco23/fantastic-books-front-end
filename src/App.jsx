@@ -114,10 +114,7 @@ function App() {
         <Route
           path="/blogs"
           element={
-            <ProtectedRoute user={user}>
-              <BlogList blogs={blogs}/>
-              {/* <Profiles profile={profile} /> */}
-            </ProtectedRoute>
+              <BlogList blogs={blogs} user={user}/>
           }
         />
       </Routes>

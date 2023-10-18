@@ -23,3 +23,9 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.spacer {
+  min-height: 60px;
+  top: 0px;
+  /* You can adjust the spacer height to control the spacing at the top. */
+}
