@@ -14,6 +14,7 @@ const BookSearch = () => {
   const handleBookSearch = async (formData) => {
     formData.startIndex = startIndex
     const bookData = await bookService.bookSearch(formData);
+    console.log("bookData:", bookData)
     setAllBooks(bookData);
   };
 
@@ -21,6 +22,7 @@ const BookSearch = () => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
+  //error happening here:
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (formData.searchTerm) {

@@ -47,7 +47,7 @@ const EditComment = (props) => {
         <option value="5">5</option>
       </select>
 
-      <button className={styles.submit}type="submit">Submit</button>
+      <button className={styles.submit}type="submit">Save</button>
 
     </form>
   );

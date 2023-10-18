@@ -8,20 +8,22 @@ const Comments = (props) => {
 
   return (
     <div>
-      <NewComment handleAddComment={handleAddComment}/>  
+      <NewComment handleAddComment={props.handleAddComment}/>  
       {props.comments.map((comment) => (
         <CommentCard 
           key={comment._id} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
+          handleEditComment={props.handleEditComment}
+          handleDeleteComment={props.handleDeleteComment}
 
         />
         ))}
         <EditComment
-          volumeId={volumeId}
-          commentId={editCommentData.commentId}
-          initialFormData={editCommentData.comment}
+          volumeId={props.volumeId}
+          commentId={props.commentId}
+          initialFormData={props.comment}
         />  
     </div>
   );

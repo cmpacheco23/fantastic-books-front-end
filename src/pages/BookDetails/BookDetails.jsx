@@ -13,7 +13,7 @@ const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
   const [comments, setComments] = useState([])
-  const [editCommentData, setEditCommentData] = useState(null)
+
 
   useEffect(() => {
     const fetchBookData = async () => {
@@ -49,7 +49,7 @@ const BookDetails = (props) => {
     }
   }
   
-  const handleEditComment = async (commentId, volumeId, commentFormData) => {
+  const handleEditComment = async (volumeId, commentId, commentFormData) => {
     console.log('commentform in bookdetails', commentFormData)
     const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
     setComments((existingComments) => {
@@ -57,6 +57,10 @@ const BookDetails = (props) => {
     )})
   }
 
+  const handleDeleteComment = async (volumeId, commentId) => {
+    await bookService.deleteComment(volumeId, commentId)
+    setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
+  }
 
   return (
     <main>
@@ -95,6 +99,7 @@ const BookDetails = (props) => {
               user={props.user} 
               handleEditComment={handleEditComment} 
               handleAddComment={handleAddComment}
+              handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
             />
 
