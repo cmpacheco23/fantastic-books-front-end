@@ -1,6 +1,6 @@
 import styles from "./CommentCard.module.css"
 
-const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment }) => {
+const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment, formOpen }) => {
 
   return (
     <article>
@@ -11,12 +11,14 @@ const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment
       
       
       <div>
+
         <button
           onClick={() => handleEditComment(volumeId, comment._id)}
           disabled={isEditingComment === comment._id}
         >
           Edit
         </button>
+
         <button
           onClick={() => handleDeleteComment(volumeId, comment._id)}
           disabled={isEditingComment === comment._id}
