@@ -5,34 +5,19 @@ import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
-
+  const {state} = useLocation()
+  const {volumeId, commentId} = useParams()
   const [formData, setFormData] = useState(props.comment)
   const [isFormOpen, setIsFormOpen] = useState(true)
 
-  const handleChange = (evt) => {
-    setFormData({...formData, [evt.target.name]: evt.target.value})
+  const handleChange = ({target}) => {
+    setFormData({...formData, [target.name]: target.value})
   }
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-
-    try {
-      await bookService.updateComment(props.volumeId, props.commentId, formData);
-
-      if (props.onCommentUpdate) {
-        props.onCommentUpdate(props.commentId, formData);
-      }
-      console.log('isFormOpen state before setIsFormOpen(false):', isFormOpen);
-    
-    setIsFormOpen(false); // Close the form
-
-    // Log the state after changing
-    console.log('isFormOpen state after setIsFormOpen(false):', isFormOpen);
-
-    console.log('Form closed after submission')
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
+    await bookService.updateComment(volumeId, commentId, formData)
+    setIsFormOpen(false)
   };
   
 
