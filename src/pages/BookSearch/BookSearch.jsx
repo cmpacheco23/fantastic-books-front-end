@@ -14,7 +14,6 @@ const BookSearch = () => {
   const handleBookSearch = async (formData) => {
     formData.startIndex = startIndex
     const bookData = await bookService.bookSearch(formData);
-    console.log("bookData:", bookData)
     setAllBooks(bookData);
   };
 
