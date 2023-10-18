@@ -24,7 +24,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser());
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
-  const [blogs] = useState([])
+  const [blogs, setBlogs] = useState([])
 
   const handleLogout = () => {
     authService.logout();
@@ -58,6 +58,14 @@ function App() {
   //   }
   //   if (user) fetchAllBlogs()
   // }, [user]);
+
+    useEffect(() => {
+      const fetchAllBlogs = async () => {
+        const data = await blogService.index()
+        setBlogs(data)
+      }
+      fetchAllBlogs()
+    }, [])
 
   return (
     <>
@@ -114,10 +122,7 @@ function App() {
         <Route
           path="/blogs"
           element={
-            <ProtectedRoute user={user}>
-              <BlogList blogs={blogs}/>
-              {/* <Profiles profile={profile} /> */}
-            </ProtectedRoute>
+              <BlogList blogs={blogs} user={user}/>
           }
         />
       </Routes>
