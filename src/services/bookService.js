@@ -38,6 +38,9 @@ export async function bookSearch (data) {
 }
 
 
+
+
+
 export async function createComment(volumeId, commentFormData) {
   try {
     const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
@@ -61,18 +64,67 @@ export async function createComment(volumeId, commentFormData) {
   }
 }
 
+// export async function getComments(volumeId) {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
+//     if (res.ok) {
+//       const comments = await res.json()
+//       return comments;
+//     } else {
+//       console.error('Error fetching comments:', res.status)
+//       return []
+//     }
+//   } catch (error) {
+//     console.error('Failed to fetch comments:', error)
+//     return []
+//   }
+// }
+
 export async function getComments(volumeId) {
   try {
-    const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
-    if (res.ok) {
-      const comments = await res.json()
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments`);
+    const comments = await res.json();
+
+    if (comments && comments.length > 0) {
       return comments;
     } else {
-      console.error('Error fetching comments:', res.status)
-      return []
+      console.log('No comments exist for volumeId:', volumeId);
+      return [];
     }
   } catch (error) {
-    console.error('Failed to fetch comments:', error)
-    return []
+    console.error('Failed to fetch comments:', error);
+    return [];
+  }
+}
+
+
+export const updateComment = async (volumeId, commentId, commentFormData) => {
+  console.log(commentFormData)
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteComment = async (volumeId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
   }
 }
