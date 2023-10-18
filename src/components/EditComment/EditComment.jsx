@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import * as bookService from '../../services/bookService'
@@ -6,26 +6,36 @@ import * as bookService from '../../services/bookService'
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  console.log('Received props in EditComment:', props)
+  // console.log('Received props in EditComment:', props)
 
-  const {volumeId, commentId} = useParams()
+  const {volumeId} = useParams()
+  // const {commentId} = props
+  const {setFormOpen} = props
   const [formData, setFormData] = useState(props.comment)
 
+  const commentId = props.comment._id
 
   const handleChange = ({target}) => {
     setFormData({...formData, [target.name]: target.value})
   }
 
   const handleSubmit = async (evt) => {
+    setFormOpen(false)
     evt.preventDefault();
+    console.log('handleSubmit called')
+    //this works
+    // console.log('volumeId:', volumeId);
+    //this works now
+    console.log('commentId:', commentId);
+    //this works
+    // console.log('formData:', formData);
     await bookService.updateComment(volumeId, commentId, formData)
-    props.setFormOpen(false)
   };
   
 
 
   const handleCancel = () => {
-    props.setFormOpen(false);
+    setFormOpen(false);
     console.log('After setting isFormOpen to false in handleCancel')
     props.handleCancelEdit()
   }
@@ -66,6 +76,7 @@ const  EditComment = (props) => {
         <button className={styles.cancel} type="button" onClick={handleCancel}>
           Cancel
         </button>
+        
       </form>
       ) : (
         <div> </div>

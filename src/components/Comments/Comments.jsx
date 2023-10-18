@@ -12,8 +12,8 @@ const Comments = (props) => {
     setIsEditingComment(null)
   };
 
-  const selectedComment = props.comments.find((comment) => comment._id === isEditingComment)
-
+  const selectedComment = props.comments.find((comment) => comment._id === comment._id)
+  
   return (
     <div>
       {props.comments.length > 0 ? (
@@ -41,7 +41,7 @@ const Comments = (props) => {
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
             }}
-            isEditingComment={isEditingComment} 
+            isEditingComment={selectedComment} 
             handleCancelEdit={handleCancelEdit} 
         />
         
@@ -49,12 +49,15 @@ const Comments = (props) => {
         {isEditingComment && (
             <EditComment
             volumeId={props.volumeId}
-            commentId={isEditingComment}
+            // commentId={props.commentId}
+            // selectedComment={selectedComment}
             user={props.user}
             onCommentUpdate={props.handleCommentUpdate}
             handleCancelEdit={handleCancelEdit}
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
+            setFormOpen={setFormOpen}
+            
             />
           )}
 
