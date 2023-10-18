@@ -80,8 +80,9 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
+      <div className={styles.spacer}></div>
       <Link>
-        <img src={Logo} alt="" />
+        <img src={Logo} className={styles.logo} alt="logo" />
       </Link>
       <h1>Sign Up For Full Access</h1>
       <h4>Already have an account?</h4>

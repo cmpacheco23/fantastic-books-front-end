@@ -1,3 +1,7 @@
+.spacer {
+  height: 90px;
+}
+
 input {
   margin-left: 16px;
   padding: 4px 8px;
@@ -44,4 +48,9 @@ input[type="file"] {
 
 .form > label:last-of-type {
   margin-bottom: 16px;
+}
+
+.logo{
+  height: 90px;
+  border-radius: 50px;
 }
