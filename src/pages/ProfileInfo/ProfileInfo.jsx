@@ -61,6 +61,21 @@ const ProfileInfo = () => {
     }
   }
 
+  const handleDeleteShelf = async (shelfId) => {
+    try {
+      await profileService.deleteShelf(profileId, shelfId)
+      setProfile(prevState => {
+        const updatedShelves = prevState.shelves.filter(shelf => shelf._id !== shelfId)
+        return {
+          ...prevState,
+          shelves: updatedShelves
+        }
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <main>
       {profile ? (
@@ -78,6 +93,7 @@ const ProfileInfo = () => {
                 }}>
                   Edit
                 </button>
+                <button onClick={() => handleDeleteShelf(shelf._id)}>Delete</button>
                 <div className={editingShelfId === shelf._id ? styles.modalOpen : styles.modalClose}>
                   <div className={styles.modalContent}>
                     <label>
