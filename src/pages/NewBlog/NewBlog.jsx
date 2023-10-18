@@ -21,7 +21,8 @@ const NewBlog = (props) => {
 
   return (
     <main className={styles.container}>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.spacer}></div>
+      <form className={styles.newBlogForm} onSubmit={handleSubmit}>
         <label htmlFor="title-input">Title</label>
         <input
           required
