@@ -6,21 +6,30 @@ import * as bookService from '../../services/bookService'
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  console.log('Received props in EditComment:', props)
+  // console.log('Received props in EditComment:', props)
 
-  const {volumeId, commentId} = useParams()
+  const {volumeId} = useParams()
+  // const {commentId} = props
   const {setFormOpen} = props
   const [formData, setFormData] = useState(props.comment)
 
+  const commentId = props.comment._id
 
   const handleChange = ({target}) => {
     setFormData({...formData, [target.name]: target.value})
   }
 
   const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    await bookService.updateComment(volumeId, commentId, formData)
     setFormOpen(false)
+    evt.preventDefault();
+    console.log('handleSubmit called')
+    //this works
+    // console.log('volumeId:', volumeId);
+    //this works now
+    console.log('commentId:', commentId);
+    //this works
+    // console.log('formData:', formData);
+    await bookService.updateComment(volumeId, commentId, formData)
   };
   
 
