@@ -10,11 +10,11 @@ const BookSearch = () => {
   const [formData, setFormData] = useState({ searchTerm: '' });
   const [currPage, setCurrPage] = useState(1)
   const [startIndex, setStartIndex] = useState(0)
-  console.log(startIndex)
 
   const handleBookSearch = async (formData) => {
     formData.startIndex = startIndex
     const bookData = await bookService.bookSearch(formData);
+    console.log("bookData:", bookData)
     setAllBooks(bookData);
   };
 
@@ -22,6 +22,7 @@ const BookSearch = () => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
+  //error happening here:
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (formData.searchTerm) {
@@ -38,7 +39,6 @@ const BookSearch = () => {
   const handleIncreasePageCount = async () => {
     setCurrPage(currPage + 1)
     setStartIndex(startIndex + 10)
-    console.log(startIndex)
     await handleBookSearch({...formData})
   }
 

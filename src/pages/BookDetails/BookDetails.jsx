@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 //components
 import Comments from "../../components/Comments/Comments"
-import NewComment from "../../components/NewComment/NewComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
   const [comments, setComments] = useState([])
 
+
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchBookData = async () => {
       try {
 
         const bookData = await bookService.getBookDetails(volumeId);
@@ -27,7 +27,7 @@ const BookDetails = (props) => {
         console.error(error);
       }
     }
-    fetchBook();
+    fetchBookData();
   }, [volumeId]);
 
   
@@ -47,6 +47,31 @@ const BookDetails = (props) => {
     }
   }
   
+  const handleEditComment = async (volumeId, commentId, commentFormData) => {
+    console.log('commentform in bookdetails', commentFormData)
+    const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
+    setComments((existingComments) => {
+      return existingComments.filter(comment => comment._id === commentId ? updatedComment : comment._id
+    )})
+  }
+
+  const handleCommentUpdate = (commentId, updatedData) => {
+    // Update the comments state
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment._id === commentId ? { ...comment, ...updatedData } : comment
+      )
+    );
+  };
+
+  const handleDeleteComment = async (volumeId, commentId) => {
+    await bookService.deleteComment(volumeId, commentId)
+    console.log("Deleted comment, book.comments before:", book.comments);
+
+    setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
+    console.log("Deleted comment, book.comments after:", book.comments);
+
+  }
 
   return (
     <main>
@@ -78,8 +103,19 @@ const BookDetails = (props) => {
         <h1>Comments</h1>
         {book ? (
           <div>
-            <NewComment handleAddComment={handleAddComment} />
-            <Comments key ={comments.id} comments={comments} user={props.user} />
+
+            <Comments 
+              key={comments.id} 
+              comments={comments} 
+              user={props.user} 
+              handleEditComment={handleEditComment} 
+              handleAddComment={handleAddComment}
+              handleDeleteComment={handleDeleteComment}
+              handleCommentUpdate={handleCommentUpdate}
+              volumeId={volumeId} 
+            />
+          
+          
           </div>) : (
           <p>Loading...</p>
         )}

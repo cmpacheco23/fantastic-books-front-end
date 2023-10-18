@@ -12,12 +12,13 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
 import Logout from './pages/Logout/Logout';
 import Signup from './pages/Signup/Signup';
+
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
 import BlogList from './pages/BlogList/BlogList'
 import * as blogService from './services/blogService'
 
-import styles from './App.css'
+import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
@@ -76,7 +77,6 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ProfileInfo />
-              
             </ProtectedRoute>
           }
         />
@@ -97,13 +97,15 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route 
-          path="/books" 
-          element={<BookSearch />} 
+        <Route
+          path="/books"
+          element={
+              <BookSearch/>
+          }
         />
         <Route 
         path="/books/:volumeId" 
-        element={<BookDetails />} 
+        element={<BookDetails  user={user}/>} 
         />
         <Route 
         path="/about" 
