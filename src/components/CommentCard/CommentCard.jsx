@@ -1,4 +1,4 @@
-const CommentCard = ({ comment, volumeId, user,handleDeleteComment }) => {
+const CommentCard = ({ comment, volumeId, user,handleDeleteComment, handleEditComment }) => {
   return (
     <article>
       <p>{comment.commenter.name}</p>
@@ -8,7 +8,7 @@ const CommentCard = ({ comment, volumeId, user,handleDeleteComment }) => {
 
       {comment.commenter._id === user.profile &&
       <>
-        <button>Edit</button>
+        <button onClick={() => handleEditComment(volumeId, comment._id)}>Edit</button>
         <button onClick={() => handleDeleteComment(volumeId, comment._id)}>Delete</button>
       </>
       }
