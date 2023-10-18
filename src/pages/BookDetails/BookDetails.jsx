@@ -105,7 +105,7 @@ const BookDetails = (props) => {
           <div>
 
             <Comments 
-              key={comments.id} 
+              key={comments._id} 
               comments={comments} 
               user={props.user} 
               handleEditComment={handleEditComment} 
