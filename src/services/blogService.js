@@ -25,7 +25,7 @@ export async function show(blogId) {
   }
 }
 
-async function create(blogFormData) {
+export async function create(blogFormData) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -39,10 +39,4 @@ async function create(blogFormData) {
   } catch (error) {
     console.log(error)
   }
-}
-
-export {
-  // index,
-  // show,
-  create,
 }

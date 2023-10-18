@@ -115,7 +115,7 @@ function App() {
         <Route
           path="/blogs"
           element={
-              <BlogList blogs={blogs} user={user}/>
+              <BlogList blogs={blogs} user={user} handleAddBlog={handleAddBlog}/>
           }
         />
         <Route
@@ -124,16 +124,7 @@ function App() {
               <BlogDetails/>
           }
         />
-        <Route
-          path="/blogs/new" 
-          element={
-            <ProtectedRoute user={user}>
-              <NewBlog handleAddBlog={handleAddBlog} />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-      
+      </Routes>       
     </>
   );
 }
