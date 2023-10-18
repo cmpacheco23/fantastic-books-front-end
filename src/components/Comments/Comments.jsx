@@ -6,13 +6,11 @@ import NewComment from "../NewComment/NewComment";
 const Comments = (props) => {
 
   const [isEditingComment, setIsEditingComment] = useState(null)
-;
+
 
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
-
-
 
   return (
     <div>
