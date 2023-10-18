@@ -10,24 +10,29 @@ const  EditComment = (props) => {
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
+
   const handleSubmit = async (evt) => {
-    console.log('handleSubmit called')
     evt.preventDefault();
 
     try {
-      await bookService.updateComment(props.volumeId, props.commentId, formData)
-      
+      await bookService.updateComment(props.volumeId, props.commentId, formData);
+
       if (props.onCommentUpdate) {
         props.onCommentUpdate(props.commentId, formData);
       }
-      setIsFormOpen(false)
-      console.log('Form closed after submission');
+      console.log('isFormOpen state before setIsFormOpen(false):', isFormOpen);
+    
+    setIsFormOpen(false); // Close the form
 
-      props.handleCancelEdit()
+    // Log the state after changing
+    console.log('isFormOpen state after setIsFormOpen(false):', isFormOpen);
+
+    console.log('Form closed after submission')
     } catch (error) {
-      console.error('An error occurred:', error)
+      console.error('An error occurred:', error);
     }
-  }
+  };
+  
 
 
   const handleCancel = () => {
@@ -39,7 +44,7 @@ const  EditComment = (props) => {
 
   return (
     <div>
-      {isFormOpen && (
+
         <form className={styles.newComment} onSubmit={handleSubmit}>
           <h1>Edit Comment</h1>
           <label htmlFor="text-input">Comment</label>
@@ -69,13 +74,11 @@ const  EditComment = (props) => {
           </div>
           <label htmlFor="rating">Rating:</label>
 
-          <button className={styles.submit} type="submit">Save</button>
+          <button className={styles.submit} type="submit" >Save</button>
           <button className={styles.cancel} type="button" onClick={handleCancel}>
             Cancel
           </button>
-
         </form>
-    )}
     </div>
   );
 }

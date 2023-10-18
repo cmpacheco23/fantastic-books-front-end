@@ -30,7 +30,9 @@ const Comments = (props) => {
               ? setIsEditingComment(null)
               : setIsEditingComment(comment._id)
           }
-          handleDeleteComment={props.handleDeleteComment}
+          handleDeleteComment={async () => {
+            await props.handleDeleteComment(props.volumeId, comment._id);
+          }}
           isEditingComment={isEditingComment} 
           handleCancelEdit={handleCancelEdit} 
         />
