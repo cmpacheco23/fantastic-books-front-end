@@ -1,11 +1,5 @@
-import { useState } from "react";
-
 const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment }) => {
-  // const [editedCommentText, setEditedCommentText] = useState(comment.text);
 
-  // const handleCommentTextChange = (evt) => {
-  //   setEditedCommentText(evt.target.value);
-  // }
   return (
     <article>
       <p>{comment.commenter.name}</p>
@@ -15,14 +9,18 @@ const CommentCard = ({ comment, volumeId, handleDeleteComment, handleEditComment
       
       
       <div>
-        {/* Disable the "Edit" button if the comment is being edited */}
         <button
           onClick={() => handleEditComment(volumeId, comment._id)}
           disabled={isEditingComment === comment._id}
         >
           Edit
         </button>
-        <button onClick={() => handleDeleteComment(volumeId, comment._id)}>Delete</button>
+        <button
+          onClick={() => handleDeleteComment(volumeId, comment._id)}
+          disabled={isEditingComment === comment._id} // Disable the "Delete" button if the comment is being edited
+        >
+          Delete
+        </button>
       </div>
   
 </article>

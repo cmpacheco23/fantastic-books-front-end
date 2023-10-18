@@ -35,7 +35,7 @@ const Comments = (props) => {
               : setIsEditingComment(comment._id)
           }
           handleDeleteComment={props.handleDeleteComment}
-          isEditingComment={isEditingComment} // Pass isEditingComment to CommentCard
+          isEditingComment={isEditingComment} 
         />
       ))}
         {isEditingComment && (
