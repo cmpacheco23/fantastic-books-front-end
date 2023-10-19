@@ -33,14 +33,12 @@ const NewComment = (props) => {
         <option value="5">5</option>
       </select>
       <textarea
-        name="text"
-        type="text"
         required
-        id="text-input"
+        type="text"
+        name="text"
         value={formData.text}
-        //because we are getting it from state ^^
-        onChange={handleChange}
         placeholder="Add a Comment"
+        onChange={handleChange}
       />
       <button className={styles.submit}type="submit">Submit</button>
 
