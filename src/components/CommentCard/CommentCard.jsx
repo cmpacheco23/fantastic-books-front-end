@@ -5,7 +5,23 @@ const CommentCard = (props) => {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+  function getRatingEmojis(rating) {
+    if (rating < 1 || rating > 5) {
+      return 'Invalid Rating';
+    }
+  
+    // Define an array of book emojis
+    const bookEmojis = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
+  
+    // Use the rating to select the appropriate book emoji
+    return bookEmojis[rating - 1];
+  }
 
+  // Use the getRatingEmojis function to get the rating emojis
+  const ratingEmojis = getRatingEmojis(props.comment.rating);
+
+
+  
   return (
     <article className={styles.commentCard}>
       <div className={styles.commenterSection}>
@@ -22,7 +38,8 @@ const CommentCard = (props) => {
       </div>
       <div className={styles.commentText}>
         <p>{props.comment.text}</p>
-        <p>Rating: {props.comment.rating}</p>
+        <p> {ratingEmojis}</p> {/* Use the rating emojis here */}
+
         <p>Date: {formatDate(props.comment.createdAt)}</p>
       </div>
       <div className={styles.commentButtons}>
