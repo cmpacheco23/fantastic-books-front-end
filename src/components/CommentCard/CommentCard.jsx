@@ -1,28 +1,21 @@
 import { useState } from 'react'; // Import React and useState
-
 import styles from './CommentCard.module.css';
 
 const CommentCard = (props) => {
-  const [formData, setFormData] = useState(props.comment)
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-  function getRatingEmojis(rating) {
-    if (rating < 1 || rating > 5) {
-      return 'Invalid Rating';
-    }
-  
-    // Define an array of book emojis
-    const bookEmojis = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
-  
-    return bookEmojis[rating - 1];
-  }
+  const [formData, setFormData] = useState(props.comment);
 
+  const formatDate = (dateString) => new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+
+    function getRatingEmojis(rating) {
+      if (rating < 1 || rating > 5) {
+        return 'Invalid Rating';
+      }
+    
+      return '⭐'.repeat(rating);
+    }    
 
   const ratingEmojis = getRatingEmojis(props.comment.rating);
 
-  
   return (
     <article className={styles.commentCard}>
       <div className={styles.commenterSection}>
@@ -39,10 +32,9 @@ const CommentCard = (props) => {
       </div>
       <div className={styles.commentText}>
         <p>{props.comment.text}</p>
-        <p> {ratingEmojis}</p> {/* Use the rating emojis here */}
-
+        <p>{ratingEmojis}</p>
         <p>Date: {formatDate(props.comment.createdAt)}</p>
-      </div>
+      </div> {/* Close the 'commentText' div here */}
       <div className={styles.commentButtons}>
         <button
           onClick={() => props.handleEditComment(props.volumeId, props.comment._id)}
