@@ -60,15 +60,6 @@ const BookDetails = (props) => {
       setComments(comments.map(comment => {
         updatedComment._id === comment._id ? updatedComment : comment
       }))
-      // setComments((prevComments) => {
-      //   return prevComments.map((comment) => {
-      //     if (comment._id === commentId) {
-      //       return { ...comment, ...commentFormData };
-      //     }
-      //     return comment;
-      //   });
-      // });
-      
     } catch (error) {
       console.error(error);
     }
