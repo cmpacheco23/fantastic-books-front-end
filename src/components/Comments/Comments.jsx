@@ -34,12 +34,13 @@ const Comments = (props) => {
         </>
       )}
 
-      {props.comments.map((comment) => (
+      {comments.map((comment) => (
         <CommentCard 
           key={comment._id} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
+          setComments={setComments}
           handleEditComment={(commentId) => {
             setIsEditingComment(commentId)
             setFormOpen(true)
