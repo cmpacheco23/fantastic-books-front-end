@@ -28,7 +28,7 @@ const EditBlog = (props) => {
         <input
           required
           type="text"
-          name="title" // will probably be blogTitle
+          name="blogTitle" // will probably be blogTitle
           id="title-input"
           value={formData.title}
           placeholder="Title"
