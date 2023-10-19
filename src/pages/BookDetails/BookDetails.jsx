@@ -47,7 +47,7 @@ const BookDetails = (props) => {
     }
   }
   
-  const handleEditComment = async (volumeId, commentId, commentFormData) => {
+  const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
     console.log('commentform in bookdetails', commentFormData)
     const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
     setComments((existingComments) => {
@@ -116,7 +116,7 @@ const BookDetails = (props) => {
               key={comments._id} 
               comments={comments} 
               user={props.user} 
-              handleEditComment={handleEditComment} 
+              handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               handleCommentUpdate={handleCommentUpdate}

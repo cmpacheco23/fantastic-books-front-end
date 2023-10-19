@@ -49,8 +49,6 @@ const Comments = (props) => {
         {isEditingComment && (
             <EditComment
             volumeId={props.volumeId}
-            // commentId={props.commentId}
-            // selectedComment={selectedComment}
             user={props.user}
             onCommentUpdate={props.handleCommentUpdate}
             handleCancelEdit={handleCancelEdit}
