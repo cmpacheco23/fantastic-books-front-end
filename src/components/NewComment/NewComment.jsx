@@ -14,7 +14,6 @@ const NewComment = (props) => {
     evt.preventDefault()
     props.handleAddComment(formData)
     setFormData({text: '', rating: 5})
-    //^^clears the formdata once we've submitted our comment
   }
 
   return (
