@@ -58,10 +58,14 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   align-items: center;
   padding: 20px;
   margin: 10px; /* Add margin for spacing around the comment container */
+  flex-wrap: wrap; /* Allow items to wrap within the container */
 }
 
-.commenth1{
+
+.commentH1{
   font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .bookTitle{

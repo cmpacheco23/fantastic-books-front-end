@@ -5,7 +5,8 @@ const CommentCard = (props) => {
   // console.log('isEditingComment:', props.isEditingComment);
   // console.log('comment._id:', props.comment._id);
   return (
-    <article>
+
+    <article className={styles.commentCard}>
       <p>{props.comment.commenter.name}</p>
       <p>{props.comment.text}</p>
       <p>{props.comment.rating}</p>
