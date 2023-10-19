@@ -25,7 +25,7 @@
 background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
   font-family:'Times New Roman', Times, serif;
   font-size: 92px;
-  margin-top: 25vh;
+  margin-top: 10vh;
   margin-bottom: 10px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -47,10 +47,10 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   font-family:'Times New Roman', Times, serif;
   font-size: 32px;
   /* margin-top: 25vh; */
-  margin-bottom: 25vh;
+  margin-bottom: 5vh;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: slowFade 3s ease-in
+  animation: slowFade 3s ease-in;
 }
 
 @keyframes slowFade {
@@ -79,10 +79,11 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
 }
 
 .description {
-  
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px rgb(2, 122, 30);
+  margin: 10px;
+  padding: 40px
 }
 
 .directions {
@@ -148,4 +149,11 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+h3{
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
