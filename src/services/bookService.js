@@ -74,38 +74,6 @@ export async function getComments(volumeId) {
   }
 }
 
-export async function getOneComment(volumeId, commentId) {
-  try {
-    const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`)
-    if (res.ok) {
-      const comment = await res.json()
-      return comment
-    } else {
-      console.error('Error fetching comment:', res.status)
-      return []
-    }
-  } catch (error) {
-    console.error('Failed to fetch comment:', error)
-    return []
-  }
-}
-
-// export async function getComments(volumeId) {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
-//     const comments = await res.json()
-
-//     if (comments && comments.length > 0) {
-//       return comments
-//     } else {
-//       console.log('No comments exist for volumeId:', volumeId)
-//       return []
-//     }
-//   } catch (error) {
-//     console.error('Failed to fetch comments:', error)
-//     return []
-//   }
-// }
 
 
 export const updateComment = async (volumeId, commentId, commentFormData) => {
