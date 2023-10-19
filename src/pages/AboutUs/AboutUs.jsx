@@ -34,7 +34,7 @@ const AboutUs = () => {
           <h2>Face</h2>
           <h2>Enes Velovic</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reprehenderit explicabo! Facere enim qui quibusdam ea ex, sapiente odio. Nam magnam voluptatibus quasi explicabo natus dolorum perferendis deserunt omnis adipisci!
+          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. I create efficient web applications and have experience as a Chief Operating Officer and Strategic Planning Coordinator. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
           </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
