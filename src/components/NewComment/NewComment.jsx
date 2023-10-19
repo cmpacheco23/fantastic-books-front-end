@@ -18,7 +18,7 @@ const NewComment = (props) => {
   const handleSubmit = (evt) => {
     setFormOpen(false);
     evt.preventDefault();
-    props.setComments([...props.comments, formData])
+    props.setComments([formData, ...props.comments])
     props.handleAddComment(formData);
     setFormData({ text: '', rating: 5 });
     const delay = 2000; 
