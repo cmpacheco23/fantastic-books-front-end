@@ -13,7 +13,8 @@
   text-align: center;
   padding: 24px;
   margin: 10px;
-
+  position: relative;
+  overflow: hidden
 }
 
 
@@ -24,6 +25,11 @@
   object-fit: cover;
   margin: 0 auto 10px;
   display: block;
+  transition: transform 0.3s
+}
+
+.photo:hover {
+  transform: rotate(360deg); 
 }
 
 h1 {
