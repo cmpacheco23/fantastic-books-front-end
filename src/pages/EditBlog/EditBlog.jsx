@@ -1,42 +1,41 @@
 // npm modules
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
-// css
-import styles from './NewBlog.module.css'
+//css
+import styles from './EditBlog.module.css'
 
-const NewBlog = (props) => {
-  const [formData, setFormData] = useState({
-    blogTitle: '',
-    text: '',
-  })
+const EditBlog = (props) => {
+  const { state } = useLocation()
+  const [formData, setFormData] = useState(state)
 
+  console.log(state)
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
-    props.handleAddBlog(formData)
-    setFormData({title: '', text: ''}) // maybe change to blogTitle
+    props.handleUpdateBlog(formData)
   }
 
   return (
     <main className={styles.container}>
       <div className={styles.spacer}></div>
-      <form className={styles.newBlogForm} onSubmit={handleSubmit}>
-        <label htmlFor="blogTitle-input">Title</label>
+      <form className={styles.editBlogForm} onSubmit={handleSubmit}>
+        <h1>Edit Blog</h1>
+        <label htmlFor="title-input">Title</label>
         <input
           required
           type="text"
-          name="blogTitle"
-          id="blog-title-input"
+          name="title" // will probably be blogTitle
+          id="title-input"
           value={formData.title}
           placeholder="Title"
           onChange={handleChange}
         />
         <label htmlFor="text-input">Text</label>
-				<textarea
+        <textarea
           required
           type="text"
           name="text"
@@ -45,8 +44,8 @@ const NewBlog = (props) => {
           placeholder="Text"
           onChange={handleChange}
         />
-        <label htmlFor="category-input">Category</label>
-        {/* <select
+        {/* <label htmlFor="category-input">Category</label>
+        <select
           required
           name="category"
           id="category-input"
@@ -66,4 +65,4 @@ const NewBlog = (props) => {
   )
 }
 
-export default NewBlog
+export default EditBlog
