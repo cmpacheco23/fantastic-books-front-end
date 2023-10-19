@@ -95,7 +95,9 @@ const BookDetails = (props) => {
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
+          {book.published && ( 
           <p>Published: {book.published}</p>
+        )}
           <p>Categories: {book.categories}</p>
 
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
