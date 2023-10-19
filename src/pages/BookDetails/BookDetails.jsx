@@ -47,31 +47,47 @@ const BookDetails = (props) => {
     }
   }
   
-  const handleEditComment = async (volumeId, commentId, commentFormData) => {
-    console.log('commentform in bookdetails', commentFormData)
-    const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
-    setComments((existingComments) => {
-      return existingComments.filter(comment => comment._id === commentId ? updatedComment : comment._id
-    )})
-  }
-
-  const handleCommentUpdate = (commentId, updatedData) => {
-    // Update the comments state
-    setComments((prevComments) =>
-      prevComments.map((comment) =>
-        comment._id === commentId ? { ...comment, ...updatedData } : comment
-      )
-    );
+  const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
+    try {
+      await bookService.updateComment(volumeId, commentId, commentFormData);
+      
+      setComments((prevComments) => {
+        return prevComments.map((comment) => {
+          if (comment._id === commentId) {
+            return { ...comment, ...commentFormData };
+          }
+          return comment;
+        });
+      });
+      
+      // You can also update the book state here if needed.
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
+  
+  
 
-  // const handleDeleteComment = async (volumeId, commentId) => {
-  //   await bookService.deleteComment(volumeId, commentId)
-  //   console.log("Deleted comment, book.comments before:", book.comments);
 
-  //   setBook({ ...book, comments: book.comments.filter((comment) => comment._id !== commentId) })
-  //   console.log("Deleted comment, book.comments after:", book.comments);
-
+  // const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
+  //   console.log('commentform in bookdetails', commentFormData)
+  //   const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData)
+  //   setComments((existingComments) => {
+  //     return existingComments.filter(comment => comment._id === commentId ? updatedComment : comment._id
+  //   )})
   // }
+
+  // const handleCommentUpdate = (commentId, updatedData) => {
+  //   // Update the comments state
+  //   setComments((prevComments) =>
+  //     prevComments.map((comment) =>
+  //       comment._id === commentId ? { ...comment, ...updatedData } : comment
+  //     )
+  //   );
+  // };
+
+
 
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
@@ -123,10 +139,9 @@ const BookDetails = (props) => {
               key={comments._id} 
               comments={comments} 
               user={props.user} 
-              handleEditComment={handleEditComment} 
+              handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
-              handleCommentUpdate={handleCommentUpdate}
               volumeId={volumeId} 
             />
           
