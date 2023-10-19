@@ -13,6 +13,11 @@ img {
   align-items: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .photo {
   width: 100px;
   height: 100px;
@@ -60,4 +65,44 @@ main{
   padding: 20px;
   width: 300px;
   border-radius: 8px;
+}
+
+.shelfContent {
+  position: relative;
+  z-index: 2;
+}
+
+.catImage {
+  height: 100px;
+  width: auto;
+  position: absolute; 
+  bottom: -149px; 
+  left: 120px; 
+}
+
+.edit{
+  position: absolute;
+  top: 0;
+  right: 40px;
+  cursor: pointer;
+}
+
+.delete{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+button{
+  border-radius: 7px;
+  padding: 3px
+}
+
+.shelf {
+  width: 100%;
+  height: 200px; /* Adjust this value as per your design requirement */
+  background-image: url('../../assets/shelf.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
 import { useParams, Link } from "react-router-dom"
 import * as profileService from "../../services/profileService"
+import shelfImage from '../../assets/shelf.png'
+import catOnShelfImage from '../../assets/blackcat.png'
+
 
 import styles from './ProfileInfo.module.css'
 
@@ -90,6 +93,16 @@ const ProfileInfo = () => {
     }
   }, [isCreateShelfModalOpen])
 
+  const getShelfImage = (shelf) => {
+    if (shelf && shelf.books && shelf.books.length > 0) {
+      return null;
+    } else {
+      return <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />;
+    }
+  }
+  
+
+
   return (
     <main>
       {profile ? (
@@ -100,23 +113,38 @@ const ProfileInfo = () => {
           <h2>Books Collected:</h2>
           <h2>Shelves Created:</h2>
           {profile.shelves.map(shelf => (
-              <div key={shelf._id}>Shelf Name: {shelf.name}
-                <button onClick={() => {
-                  setEditingShelfId(shelf._id);
-                  setEditShelfName(shelf.name);
-                }}>
-                  ✏️
-                </button>
-                <button onClick={() => handleDeleteShelf(shelf._id)}>X</button>
+            <div className={styles.shelf} key={shelf._id}>
+                <div className={styles.shelfContent}>
+                    {/* Shelf name and buttons */}
+                    <span>Shelf Name: {shelf.name}</span>
+
+                    {/* Cat on shelf image */}
+                    {getShelfImage(shelf)}
+
+                    {/* Edit and Delete buttons */}
+                    <button className={styles.edit} onClick={() => {
+                        setEditingShelfId(shelf._id);
+                        setEditShelfName(shelf.name);
+                    }}>
+                        ✏️
+                    </button>
+                    <button className={styles.delete} onClick={() => handleDeleteShelf(shelf._id)}>🗑️</button>
+                </div>
+                {/* Edit modal */}
                 <div className={editingShelfId === shelf._id ? styles.modalOpen : styles.modalClose}>
-                  <div className={styles.modalContent}>
-                    <label>
-                      Edit Shelf Name:
-                      <input type="text" value={editShelfName} onChange={e => setEditShelfName(e.target.value)} ref={editShelfInputRef}/>
-                    </label>
-                    <button onClick={() => handleEditShelf(shelf._id)}>Save</button>
-                    <button onClick={() => setEditingShelfId(null)}>Cancel</button>
-                  </div>
+                    <div className={styles.modalContent}>
+                        <label>
+                            Edit Shelf Name:
+                            <input 
+                                type="text" 
+                                value={editShelfName} 
+                                onChange={e => setEditShelfName(e.target.value)} 
+                                ref={editShelfInputRef}
+                            />
+                        </label>
+                        <button onClick={() => handleEditShelf(shelf._id)}>Save</button>
+                        <button onClick={() => setEditingShelfId(null)}>Cancel</button>
+                    </div>
                 </div>
               </div>
           ))}
