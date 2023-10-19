@@ -5,11 +5,11 @@ import GithubLogo from '../../assets/githubWhiteLogo.png';
 const AboutUs = () => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
-      <img src={logoSrc} alt={altText} className={styles.linkLogo} />
       <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+        <img src={logoSrc} alt={altText} className={styles.linkLogo} />
       </a>
     </div>
-  );
+  )
 
     
   return ( 
