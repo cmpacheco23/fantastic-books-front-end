@@ -30,6 +30,7 @@ const  EditComment = (props) => {
     //this works
     // console.log('formData:', formData);
     await bookService.updateComment(volumeId, commentId, formData)
+    props.commentSavedUpdateRender(commentId, formData)
   };
   
 

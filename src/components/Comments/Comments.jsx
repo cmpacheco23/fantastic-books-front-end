@@ -42,7 +42,8 @@ const Comments = (props) => {
             await props.handleDeleteComment(props.volumeId, comment._id);
             }}
             isEditingComment={selectedComment} 
-            handleCancelEdit={handleCancelEdit} 
+            handleCancelEdit={handleCancelEdit}
+          commentSavedUpdateRender={props.commentSavedUpdateRender}   
         />
         
       ))}
@@ -55,6 +56,7 @@ const Comments = (props) => {
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
             setFormOpen={setFormOpen}
+            commentSavedUpdateRender={props.commentSavedUpdateRender}
             
             />
           )}
