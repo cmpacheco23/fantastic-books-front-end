@@ -88,11 +88,27 @@ async function deleteShelf(profileId, shelfId) {
   }
 }
 
+async function addBookToShelf(profileId, shelfId, volumeId) {
+  console.log(profileId, shelfId, volumeId)
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}/books/${volumeId}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   getAllProfiles,
   addPhoto,
   getOneProfile,
   createShelf,
   editShelf,
-  deleteShelf
+  deleteShelf,
+  addBookToShelf
 }
