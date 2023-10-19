@@ -24,18 +24,11 @@ const  EditComment = (props) => {
     setFormOpen(false)
     evt.preventDefault();
     console.log('handleSubmit called')
-    //this works
-    // console.log('volumeId:', volumeId);
-    //this works now
     console.log('commentId:', commentId);
-    //this works
-    // console.log('formData:', formData);
     await bookService.updateComment(volumeId, commentId, formData)
     props.commentSavedUpdateRender(commentId, formData)
-  };
+  }
   
-
-
   const handleCancel = () => {
     setFormOpen(false);
     console.log('After setting isFormOpen to false in handleCancel')

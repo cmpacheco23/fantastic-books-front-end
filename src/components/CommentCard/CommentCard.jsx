@@ -3,6 +3,7 @@ import { useState } from 'react'; // Import React and useState
 import styles from './CommentCard.module.css';
 
 const CommentCard = (props) => {
+  const [formData, setFormData] = useState(props.comment)
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
