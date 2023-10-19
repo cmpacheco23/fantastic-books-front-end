@@ -1,6 +1,6 @@
-/* main, main * {
+main, main * {
   border: 1px solid #088808;
-} */
+}
 
 .spacer {
   height: 90px;
@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .landing {
@@ -111,25 +112,30 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   margin: 5px;
 }
 
-.about {
-  display: flex;
-  justify-content: space-around;
-  max-width: 800px;
-  width: 85vw;  
-}
-
-.about > div {
+.devs {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 800px;
+  width: 85vw; 
+  box-shadow: 5px 5px 10px black; 
+  margin: 10px;
+}
+
+.devCards {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   width: 30%;
   margin: 5px;
 }
 
-.about > div > div {
+.devCard {
   /* background-color: pink; */
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
   width: 100%;
 }
 
