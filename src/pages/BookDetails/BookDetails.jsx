@@ -50,7 +50,7 @@ const BookDetails = (props) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     //investigate the if statement - review bens code
     if (newComment) {
-      setComments((prevComments) => [...prevComments, newComment])
+      setComments((prevComments) => [newComment,...prevComments])
       setBook((bookExists) => {
         if (!bookExists || !bookExists.comments) {
           return bookExists
@@ -60,6 +60,12 @@ const BookDetails = (props) => {
     }
   }
 
+
+  const sortCommentsByCreatedAt = (comments) => {
+    return comments.slice().sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+  }
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
@@ -200,6 +206,7 @@ const BookDetails = (props) => {
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
               commentSavedUpdateRender={commentSavedUpdateRender}
+              sortCommentsByCreatedAt={sortCommentsByCreatedAt}
             />
           
           
