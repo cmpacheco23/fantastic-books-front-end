@@ -8,8 +8,14 @@ const NewComment = (props) => {
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   }
+
+  console.log('FORMDATA OUTSIDE',formData)
   //this works
-  console.log('props.comments.',props.comments)
+  // console.log('props.comments[0]',props.comments[0] )
+  //this is what I need to render on the new comment
+  // console.log('props.comments[0] COMMENTER NAME',props.comments[0].commenter.name )
+  //this works
+  // console.log('props.comments.',props.comments)
   //this doesnt work
   // console.log('props.comments.comment',props.comments.comment)
   //this doesnt work
@@ -18,7 +24,12 @@ const NewComment = (props) => {
   const handleSubmit = (evt) => {
     setFormOpen(false);
     evt.preventDefault();
+    //this is where I set the comments to show new first
+    //THIS IS COMING IN AS UNDEFINED
+    //the issue is formData - its not defined
+    console.log('FORMDATA', props.setComments([formData]))
     props.setComments([formData, ...props.comments])
+    // console.log('FORMDATA', props.setComments([formData, ...props.comments]))
     props.handleAddComment(formData);
     setFormData({ text: '', rating: 5 });
     const delay = 2000; 

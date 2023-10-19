@@ -48,10 +48,15 @@ const BookDetails = (props) => {
   }, [modalData.isOpen])
 
   //currently adds but doesnt update render of the comment card until you refresh the page
-  // the new comment is being sent to the end
+  // the new comment is being sent to the 
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
+
+    //^^ COMES BACK AS OBJECT ID
     setBook({...book, comments: [...book.comments, newComment]})
+    //this works
+    console.log('COMMENTER INFO', newComment.commenter)
+
   }
 
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
@@ -71,6 +76,7 @@ const BookDetails = (props) => {
     setComments((prevComments) =>
       prevComments.map((comment) => {
         if (comment._id === commentId) {
+          //changing the order of these doesnt change how the comments are rendered
           return { ...comment, ...updatedCommentData };
         }
         return comment;
