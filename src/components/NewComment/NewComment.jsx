@@ -20,16 +20,6 @@ const NewComment = (props) => {
   return (
     <form className={styles.newComment} onSubmit={handleSubmit}>
       <h3>Add New Comment</h3>
-      <textarea
-        name="text"
-        type="text"
-        required
-        id="text-input"
-        value={formData.text}
-        //because we are getting it from state ^^
-        onChange={handleChange}
-        placeholder="Add a Comment"
-      />
       <label htmlFor="rating">Rating:</label>
       <select
         name="rating"
@@ -43,7 +33,16 @@ const NewComment = (props) => {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-
+      <textarea
+        name="text"
+        type="text"
+        required
+        id="text-input"
+        value={formData.text}
+        //because we are getting it from state ^^
+        onChange={handleChange}
+        placeholder="Add a Comment"
+      />
       <button className={styles.submit}type="submit">Submit</button>
 
     </form>

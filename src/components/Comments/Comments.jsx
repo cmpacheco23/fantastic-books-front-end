@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import CommentCard from "../CommentCard/CommentCard";
 import EditComment from "../EditComment/EditComment"
-import NewComment from "../NewComment/NewComment";
+import NewComment from "../NewComment/NewComment"
+
+import styles from "./Comments.module.css"
+
 const Comments = (props) => {
 
   const [isEditingComment, setIsEditingComment] = useState(null)
@@ -15,15 +18,15 @@ const Comments = (props) => {
   const selectedComment = props.comments.find((comment) => comment._id === comment._id)
   
   return (
-    <div>
+    <div className={styles.commentTester}>
       {props.comments.length > 0 ? (
         <>
         <NewComment handleAddComment={props.handleAddComment} />
-        <h4>Read the comments below</h4>
+        <h4 className={styles.commentH4Title} >Read the comments below</h4>
         </>
       ): (
         <>
-        <h4>No Comments Have Been Added Yet</h4>
+        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
         <NewComment handleAddComment={props.handleAddComment} />
         </>
       )}

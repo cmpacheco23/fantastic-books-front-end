@@ -31,7 +31,7 @@ const Profiles = () => {
     <main>
       <div className={styles.spacer}>hello</div>
       
-      <h1 className={styles.pageTitle}>Hello. This is a list of all the profiles.</h1>
+      <h1 className={styles.pageTitle}>View All Profiles</h1>
       <div className={styles.container}>
       {profiles.map(profile => (
         <ProfileCard key={profile._id} profile={profile}/>

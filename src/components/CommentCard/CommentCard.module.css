@@ -1,0 +1,98 @@
+/* Styles for the card container */
+.commentCard {
+  display: flex;
+  flex-direction: row;
+  background-color: #bc7e2e;
+  color: #000;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  width: 50%;
+}
+
+/* Styles for the commentText section */
+.commentCard .commentText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.commentCard .commentText p {
+  margin: 0;
+
+  margin-right: 5px;
+  text-align: center;
+}
+
+.commentCard .commentText p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.commentCard .commentText p:nth-child(2) {
+  font-weight: bold; /* Make the name bold */
+}
+
+.commentCard .commentText p:nth-child(3) {
+  font-weight: bold; /* Make the rating bold */
+}
+
+.commentCard .commentText p:last-child {
+  font-weight: bold; /* Make the date bold */
+}
+
+/* Styles for the commentButtons section */
+.commentCard .commentButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentCard .commentButtons button {
+  background-color: #032346;
+  color: #fff;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  width: 50px;
+  height: 34px;
+  margin-left: auto;
+}
+
+.commentCard .commentButtons button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the commenterPhoto section */
+.commentCard .commenterPhoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: center; /* Center the image */
+  margin-bottom: 10px;
+  transition: transform 0.3s
+}
+
+/* Styles for the namePhoto section */
+.commentCard .namePhoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items vertically within namePhoto */
+  margin: 5px;
+}
+
+.commentCard .namePhoto .name {
+  padding: 0;
+  margin: 0;
+}
+.commentCard .commenterPhoto:hover {
+  transform: rotate(360deg); /* Rotate 360 degrees when hovered */
+}

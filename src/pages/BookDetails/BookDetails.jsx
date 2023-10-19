@@ -88,14 +88,16 @@ const BookDetails = (props) => {
       <div className={styles.spacer}></div>
       {book ? (
       <div className={styles.info}>
-        <h1>{book.title}</h1>
+        <h1 className={styles.bookTitle}>{book.title}</h1>
       <div className={styles.sideBySide}>
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
+          {book.published && ( 
           <p>Published: {book.published}</p>
+        )}
           <p>Categories: {book.categories}</p>
 
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
@@ -109,8 +111,8 @@ const BookDetails = (props) => {
       ) : (
         <p>Loading...</p>
       )}
-      <section className={styles.commentCard}>
-        <h1 className={styles.commenth1}>Comments</h1>
+      <section className={styles.commentContainerSection}>
+        <h1 className={styles.commentH1}>Comments</h1>
         {book ? (
           <div>
 

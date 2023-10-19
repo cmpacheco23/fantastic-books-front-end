@@ -12,15 +12,17 @@
   /* background-color: blue; */
   width: 800px;
   padding: 5px;
-  margin: 30px;
+  margin: 30px 30px 50px 30px;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px rgb(126, 78, 19);
+  padding: 40px 20px 15px 20px;
 }
 
 .cover {
   max-height: 30vh;
-  min-height: 400px;
-  margin: 10px;
+  min-width: 240px;
+  min-height: 200px;
+  margin: 10px 45px 10px 40px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
 }
@@ -41,7 +43,8 @@
 background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   height: 185px;
   border-radius: 10px;
-  padding: 10px 10px 0px 10px;
+  /* padding: 10px 10px 0px 10px; */
+  max-width: 380px;
   overflow-y: scroll;
   
 }
@@ -57,8 +60,28 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   align-items: center;
   padding: 20px;
   margin: 10px; /* Add margin for spacing around the comment container */
+  flex-wrap: wrap; /* Allow items to wrap within the container */
 }
 
-.commenth1{
+
+.commentH1{
   font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.bookTitle{
+  font-size: 30px;
+  text-align: left;
+  margin: 20px 0 20px 44px;
+}
+
+.commentContainerSection{
+  background-color: rgb(1, 18, 1);
+  width: 85%;
+  padding: 30px;
+}
+
+h3{
+  margin: 0px;
 }
