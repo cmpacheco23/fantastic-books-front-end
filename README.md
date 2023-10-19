@@ -1,74 +1,55 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# Fantastic Books
+<p>And where to find them.</p>
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+### [Check it out here!](https://magnolia-room39.netlify.app/)
+#### [fantastic books: The Back End](https://github.com/NSnyc/fantastic-books-back-end)
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+<img width="338" alt="Screen Shot 2023-05-18 at 2 26 38 PM" src="https://github.com/nonchalamment/magnolia-back-end/assets/26176522/d436edb2-5c0e-43a5-8b89-ef998ee9e9c9">
 
-Use this to go build things! 🚀
+## What is this?
 
-## To Use This Template
+Fantastic Books is your literary Narnia for all bibliophilic delights! Dive 20,000 leagues into a personalized reading odyssey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your one stop shop for all you will need on you adventure!
 
-**Replace `<name-of-your-app-here>` (including the `<` and `>`) in the commands below with the name of your app!**
+## Getting Started
+[Magnolia: The App](https://magnolia-room39.netlify.app)
+<br />
+[Check out our Trello board here!](https://trello.com/b/rw1jci9N/family-recipies)
+<br />
+If you are curious about what our back end looks like - [Magnolia: The Back End](https://github.com/nonchalamment/magnolia-back-end/)
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+## Contributors
+[Andy Morrison](https://github.com/andrewmorrisondev)
+<br />
+[Seiyoung Jang](https://github.com/nonchalamment)
+<br />
+[Trenton Wahr](https://github.com/trentonwahr)
 
-With the project open in VS Code, open a terminal and run:
+## Attributions
+[Modul](https://thenounproject.com/modul/) at thenounproject for our beautiful logo
+<br />
+[Emma Mitchell](https://thenounproject.com/emmamitchell/) at thenounproject for waiting logo
+<br />
+[Christian Robertson](https://christianrobertson.com/) for our font Roboto, obtained from [Google Fonts](https://fonts.google.com)
 
-```bash
-rm -rf .git
-```
+## Technologies Used
+<ul>
+  <li>Mongoose.js</li>
+  <li>Express.js</li>
+  <li>React.js</li>
+  <li>Node.js</li>
+  <li>Postman</li>
+  <li>MongoDB</li>
+  <li>JSON Web Token Auth (JWT)</li>
+  <li>AJAX</li>
+   <li>Cloudinary</li>
+  <li>Vite</li>
+  <li>JavaScript</li>
+  <li>HTML/CSS</li>
+  <li>Netlify</li>
+  <li>Fly.io</li>
+  <li>Git</li>
+  <li>Github</li>
+</ul>
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
-
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
-
-Re-initialize a git repository:
-
-```bash
-git init
-```
-
-Create a repo for this project on GitHub and add that remote to your project with:
-
-```bash
-git remote add origin your-repo-URL-here
-```
-
-Run `npm i` to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-VITE_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-Finally, start up the app with:
-```bash
-npm run dev
-```
-
-You're done!
+## Next Steps
+We would like to be able to replace the tree members with real users by sending a link to family members so that they can log in and join the family tree. We were able to get the positions of each family member card correct depending on the relation, but we would like to be able to conditionally render arrow links connecting the family members. Moreover, on the Family Member show page, we also want a button to add a new recipe and assign it to a particular member that the recipe belongs to. Being able to add a relation from the page of a particular member would be another neat feature that we could add. It would also be fantastic to be able to add more generations and display something that looks closer to a tree!
