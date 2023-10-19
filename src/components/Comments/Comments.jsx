@@ -26,7 +26,7 @@ const Comments = (props) => {
         </>
       ): (
         <>
-        <h4>No Comments Have Been Added Yet</h4>
+        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
         <NewComment handleAddComment={props.handleAddComment} />
         </>
       )}

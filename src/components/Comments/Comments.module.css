@@ -1,6 +1,12 @@
-.commentH4Title{
-  font-size: 20px;
+.commentH4Title {
+  display: flex;
+  align-items: center;
+  height: 20px;
   text-align: center;
+  font-size: 20px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 35px;
 }
 
 .commentTester {
