@@ -48,6 +48,7 @@ const BookDetails = (props) => {
 
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
+    //investigate the if statement - review bens code
     if (newComment) {
       setComments((prevComments) => [...prevComments, newComment])
       setBook((bookExists) => {
@@ -66,15 +67,6 @@ const BookDetails = (props) => {
       setComments(comments.map(comment => {
         updatedComment._id === comment._id ? updatedComment : comment
       }))
-      // setComments((prevComments) => {
-      //   return prevComments.map((comment) => {
-      //     if (comment._id === commentId) {
-      //       return { ...comment, ...commentFormData };
-      //     }
-      //     return comment;
-      //   });
-      // });
-      
     } catch (error) {
       console.error(error);
     }
