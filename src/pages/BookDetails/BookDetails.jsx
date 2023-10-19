@@ -83,6 +83,20 @@ const BookDetails = (props) => {
       }
     })
   }
+
+  const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
+    // Update the comment in the state using the commentId
+    setComments((prevComments) =>
+      prevComments.map((comment) => {
+        if (comment._id === commentId) {
+          return { ...comment, ...updatedCommentData };
+        }
+        return comment;
+      })
+    );
+  };
+
+
   return (
     <main>
       <div className={styles.spacer}></div>
@@ -119,11 +133,13 @@ const BookDetails = (props) => {
             <Comments 
               key={comments._id} 
               comments={comments} 
+              setComments={setComments}
               user={props.user} 
               handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
+              commentSavedUpdateRender={commentSavedUpdateRender}
             />
           
           

@@ -16,6 +16,7 @@ const  EditComment = (props) => {
   const commentId = props.comment._id
 
   const handleChange = ({target}) => {
+    //updates state in real time
     setFormData({...formData, [target.name]: target.value})
   }
 
@@ -23,17 +24,11 @@ const  EditComment = (props) => {
     setFormOpen(false)
     evt.preventDefault();
     console.log('handleSubmit called')
-    //this works
-    // console.log('volumeId:', volumeId);
-    //this works now
     console.log('commentId:', commentId);
-    //this works
-    // console.log('formData:', formData);
     await bookService.updateComment(volumeId, commentId, formData)
-  };
+    props.commentSavedUpdateRender(commentId, formData)
+  }
   
-
-
   const handleCancel = () => {
     setFormOpen(false);
     console.log('After setting isFormOpen to false in handleCancel')
@@ -52,6 +47,7 @@ const  EditComment = (props) => {
           type="text"
           id="text-input"
           value={formData.text}
+
           onChange={handleChange}
         />
         <div className={styles.dropdown}> 
@@ -61,6 +57,7 @@ const  EditComment = (props) => {
             id="rating"
             className={styles.dropdownSelect} 
             value={formData.rating}
+
             onChange={handleChange}
           >
           <option value="1">1</option>
