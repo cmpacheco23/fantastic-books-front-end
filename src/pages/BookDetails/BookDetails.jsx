@@ -88,7 +88,7 @@ const BookDetails = (props) => {
       <div className={styles.spacer}></div>
       {book ? (
       <div className={styles.info}>
-        <h1>{book.title}</h1>
+        <h1 className={styles.bookTitle}>{book.title}</h1>
       <div className={styles.sideBySide}>
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
@@ -109,7 +109,7 @@ const BookDetails = (props) => {
       ) : (
         <p>Loading...</p>
       )}
-      <section className={styles.commentCard}>
+      <section className={styles.commentContainerSection}>
         <h1 className={styles.commenth1}>Comments</h1>
         {book ? (
           <div>

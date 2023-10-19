@@ -12,9 +12,10 @@
   /* background-color: blue; */
   width: 800px;
   padding: 5px;
-  margin: 30px;
+  margin: 30px 30px 50px 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
+  padding: 40px 20px 15px 20px;
 }
 
 .cover {
@@ -61,4 +62,16 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
 
 .commenth1{
   font-size: 30px;
+}
+
+.bookTitle{
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.commentContainerSection{
+  background-color: rgb(1, 18, 1);
+  width: 85%;
+  padding: 30px;
 }
