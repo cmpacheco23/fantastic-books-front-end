@@ -43,11 +43,11 @@ export async function createComment(volumeId, commentFormData) {
   try {
     const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
       method: 'POST',
-      body: JSON.stringify(commentFormData),
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify(commentFormData),
     })
     if (response.ok) {
       const newComment = await response.json()
