@@ -89,8 +89,13 @@ const BookDetails = (props) => {
       }
     })
   }
+  
+  const handleSelectedShelf = (event) => {  
+    setSelectedShelf(event.target.value )
+  }
 
   const handleAddToShelf = async () => {
+    console.log(selectedShelf)
     try {
       console.log(props.user.profile, selectedShelf, volumeId)
       const profileData = await profileService.addBookToShelf(props.user.profile, selectedShelf, volumeId)
@@ -103,6 +108,7 @@ const BookDetails = (props) => {
     }
   }
 
+
   return (
     <main>
       <div className={styles.spacer}></div>
@@ -112,7 +118,8 @@ const BookDetails = (props) => {
       <div className={styles.sideBySide}>
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
-        <select id="shelfDropdown">
+        <select id="shelfDropdown" onChange={handleSelectedShelf}>
+          <option value="">Select a shelf</option>
           {shelves.map(shelf => <option key={shelf._id} value={shelf._id}>{shelf.name}</option>)}
         </select>
         <button onClick={handleAddToShelf}>Add to Shelf</button>
