@@ -194,7 +194,7 @@ const BookDetails = (props) => {
               volumeId={volumeId} 
               commentSavedUpdateRender={commentSavedUpdateRender}
             />
-          <NewComment handleAddComment={handleAddComment} />
+          <NewComment handleAddComment={handleAddComment} comments={book.comments} user={props.user}  />
           </div>) : (
           <p>Loading...</p>
         )}

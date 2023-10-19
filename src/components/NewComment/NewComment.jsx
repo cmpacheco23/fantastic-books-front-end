@@ -15,7 +15,7 @@ const NewComment = (props) => {
     props.handleAddComment(formData)
     setFormData({text: '', rating: 5})
   }
-
+//when i passed in state comments are now duplicating: 2pm
   return (
     <form className={styles.newComment} onSubmit={handleSubmit}>
       {props.comments.length > 0 ? (
