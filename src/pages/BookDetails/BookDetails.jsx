@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useParams } from "react-router-dom"
 import styles from "./BookDetails.module.css"
 import * as bookService from '../../services/bookService'
@@ -15,13 +15,15 @@ const BookDetails = (props) => {
   const [shelves, setShelves] = useState([])
   const [selectedShelf, setSelectedShelf] = useState('')
   const [profile, setProfile] = useState({})
+  const [modalData, setModalData] = useState({ isOpen: false, name: '', isEditing: false, id: null })
+  const inputRef = useRef(null)
+
 
   useEffect(() => {
     const fetchShelves = async () => {
       const profileData = await profileService.getOneProfile(props.user.profile)
       setProfile(profileData)
       setShelves(profileData.shelves || [])
-      setSelectedShelf(profileData.shelves[1]._id)
     }
     fetchShelves()
   }, [])
@@ -40,6 +42,10 @@ const BookDetails = (props) => {
     fetchBookData()
   }, [volumeId])
 
+  useEffect(() => {
+    if (modalData.isOpen && inputRef.current) inputRef.current.focus()
+  }, [modalData.isOpen])
+
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
@@ -52,7 +58,7 @@ const BookDetails = (props) => {
       })
     }
   }
-  
+
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
@@ -64,9 +70,18 @@ const BookDetails = (props) => {
       console.error(error);
     }
   };
-  
-  
 
+  const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
+    // Update the comment in the state using the commentId
+    setComments((prevComments) =>
+      prevComments.map((comment) => {
+        if (comment._id === commentId) {
+          return { ...comment, ...updatedCommentData };
+        }
+        return comment;
+      })
+    );
+  };
 
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
@@ -83,7 +98,7 @@ const BookDetails = (props) => {
       }
     })
   }
-  
+
   const handleSelectedShelf = (event) => {  
     setSelectedShelf(event.target.value )
   }
@@ -102,6 +117,13 @@ const BookDetails = (props) => {
     }
   }
 
+  const handleShelf = async () => {
+    try {
+      const newShelf = await profileService.createShelf({ name: modalData.name }, props.user.profile)
+      setShelves(prev => [...prev, newShelf])
+      setModalData({ isOpen: false, name: '', isEditing: false, id: null })
+    } catch (err) { console.log(err) }
+  }
 
   return (
     <main>
@@ -112,11 +134,37 @@ const BookDetails = (props) => {
       <div className={styles.sideBySide}>
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
-        <select id="shelfDropdown" onChange={handleSelectedShelf}>
-          <option value="">Select a shelf</option>
-          {shelves.map(shelf => <option key={shelf._id} value={shelf._id}>{shelf.name}</option>)}
-        </select>
-        <button onClick={handleAddToShelf}>Add to Shelf</button>
+          {
+            shelves.length === 0 ? (
+              <>
+                {/* Create New Shelf button */}
+                <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>Add New Shelf</button>
+
+                {/* Create Shelf Modal */}
+                {modalData.isOpen && (
+                  <div className={styles.modalOpen}>
+                    <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
+                    <button onClick={handleShelf}>Create</button>
+                    <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                {/* Dropdown to select a shelf */}
+                <select id="shelfDropdown" onChange={handleSelectedShelf}>
+                  <option value="">Select a shelf</option>
+                  {shelves.map((shelf) => (
+                    <option key={shelf._id} value={shelf._id}>
+                      {shelf.name}
+                    </option>
+                  ))}
+                </select>
+                {/* Button to add book to selected shelf */}
+                <button onClick={handleAddToShelf}>Add to Shelf</button>
+              </>
+            )
+          }
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
@@ -150,7 +198,7 @@ const BookDetails = (props) => {
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
-              // commentSavedUpdateRender={commentSavedUpdateRender}
+              commentSavedUpdateRender={commentSavedUpdateRender}
             />
           
           

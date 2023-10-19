@@ -1,74 +1,52 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# Fantastic Books
+<p>And where to find them.</p>
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+### [Check it out here!]()
+#### [fantastic books: The Back End](https://github.com/NSnyc/fantastic-books-back-end)
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+<img width="338" alt="Screen Shot 2023-05-18 at 2 26 38 PM" src="">
 
-Use this to go build things! 🚀
+## What is this?
 
-## To Use This Template
+Fantastic Books is a MERN stack CRUD app that makes it convenient to keep track of your all the books you will need for all you bibliophilic delights! Dive 20,000 leagues into a personalized reading journey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your one stop shop for all you will need on you adventure!
 
-**Replace `<name-of-your-app-here>` (including the `<` and `>`) in the commands below with the name of your app!**
+## Getting Started
+[Fantastic books: The App]()
+<br />
+[Check out our Trello board here!](https://trello.com/b/AJpyaYO6/fantastic-books-and-where-to-find-them)
+<br />
+If you are curious about what our back end looks like - [Fantastic Books: The Back End](https://github.com/nonchalamment/magnolia-back-end/)
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+## The Devs
+Carla Pacheco [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
+<br />
+Enes Velovic [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
+<br />
+Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
-With the project open in VS Code, open a terminal and run:
 
-```bash
-rm -rf .git
-```
+## Attributions
+google books api
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Technologies Used
+<ul>
+  <li>Mongoose.js</li>
+  <li>Express.js</li>
+  <li>React.js</li>
+  <li>Node.js</li>
+  <li>Postman</li>
+  <li>MongoDB</li>
+  <li>JSON Web Token Auth (JWT)</li>
+  <li>AJAX</li>
+   <li>Cloudinary</li>
+  <li>Vite</li>
+  <li>JavaScript</li>
+  <li>HTML/CSS</li>
+  <li>Netlify</li>
+  <li>Fly.io</li>
+  <li>Git</li>
+  <li>Github</li>
+</ul>
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+## Next Steps
 
-Re-initialize a git repository:
-
-```bash
-git init
-```
-
-Create a repo for this project on GitHub and add that remote to your project with:
-
-```bash
-git remote add origin your-repo-URL-here
-```
-
-Run `npm i` to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-VITE_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-Finally, start up the app with:
-```bash
-npm run dev
-```
-
-You're done!
