@@ -30,8 +30,6 @@ const NewComment = (props) => {
     evt.preventDefault();
     props.setComments([formData, ...props.comments])
     //the issue is formData is coming in as NOT DEFINED 
-    console.log('FORMDATA', props.setComments([formData]))
-    // console.log('FORMDATA', props.setComments([formData, ...props.comments]))
     props.handleAddComment(formData);
     setFormData({ text: '', rating: 5 });
     const delay = 2000; 
