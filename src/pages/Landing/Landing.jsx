@@ -63,14 +63,14 @@ const Landing = ({ user }) => {
               </p>
             </div>
         
-            <div>
+            {/* <div>
               <h4 className="direction-title">
               The Forum-
               </h4>
               <p className="direction-text">
             Enter the Fantastic Books' Forum, our very own literary roundtable. Like Dante seeking his path, if you're unsure where your next reading journey should lead, or if you're thoughts not so gently rapping, you've found the right place.
               </p>
-            </div>
+            </div> */}
           </section>
         </div>
             
