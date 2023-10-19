@@ -27,13 +27,14 @@ ul {
   display: flex;
   flex-direction: row; 
   justify-content: flex-end; 
+  align-items: flex-end;
 } 
 
 .right {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center;;
 }
 
 .left {
@@ -45,6 +46,7 @@ ul {
 li {
   list-style-type: none;
   margin: 7px;
-  text-decoration: underline;
+  text-decoration: none;
+  
 }
 

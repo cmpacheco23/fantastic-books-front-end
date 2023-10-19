@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  
+  height: 250vh;
 }
 
 .landing {
@@ -26,7 +26,7 @@
 background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
   font-family:'Times New Roman', Times, serif;
   font-size: 92px;
-  margin-top: 10vh;
+  margin-top: 150px;
   margin-bottom: 10px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -47,8 +47,7 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
 background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
   font-family:'Times New Roman', Times, serif;
   font-size: 32px;
-  /* margin-top: 25vh; */
-  margin-bottom: 5vh;
+  margin-bottom: 400px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: slowFade 3s ease-in;
@@ -63,31 +62,24 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   }
 }
 
-.howTo {
+.description {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(2, 122, 30);
+  margin: 10px;
+  margin-bottom: 100px;
+  padding: 40px;
+  max-width: 800px;
+  width: 85vw;
+}
+
+.features {
   /* background-color: #f00303; */
   display: flex;
   align-items: center;
   flex-direction: column;
   box-shadow: 5px 5px 10px black;
   border-radius: 10px;
-}
-
-.container div p{
-  /* background-color: blue; */
-  max-width: 800px;
-  width: 85vw;  
-  margin: 10px;
-}
-
-.description {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px rgb(2, 122, 30);
-  margin: 10px;
-  padding: 40px
-}
-
-.directions {
   margin-bottom: 100px;
 }
 
@@ -99,6 +91,14 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   align-items: center;
   margin: 10px; 
 }
+
+.featureText{
+  /* background-color: blue; */
+  max-width: 800px;
+  width: 85vw;  
+  margin: 10px;
+}
+
 
 .directions > div > h4 {
   /* background-color: purple; */
@@ -121,6 +121,7 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba
   width: 85vw; 
   box-shadow: 5px 5px 10px black; 
   margin: 10px;
+  border-radius: 10px;
 }
 
 .devCards {

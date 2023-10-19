@@ -15,26 +15,27 @@ const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
       <div className={styles.spacer}></div>
+
       <section className={styles.landing}>
         <h1 className={styles.landingTitle}>Fantastic Books</h1>
         <h2 className={styles.landingSubTitle}>and where to find them.</h2>
 
-        <article className="app-description">
-          <p className={styles.description}>
+        <article className={styles.description}>
+          <p className={styles.descriptionText}>
             Welcome to Fantastic Books - your literary Narnia for all bibliophilic delights! Dive 20,000 leagues into a personalized reading odyssey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your compass. Like Bilbo setting out from the Shire, embark with us and craft your unique literary epic!
           </p>
         </article>
       </section>
       
-      <section className={styles.howTo}>
-        <h3>How to use this app:</h3>
+      <section className={styles.features}>
+        <h3>Features of this app:</h3>
           <article className={styles.directions}>
-            <div>
+            <div className={styles.featureText}>
               <h4 className="direction-title">Search Book-</h4>
               <p className="direction-text">Discover your next read with our intuitive search feature, powered by the Google Books API. Simply type in a title and explore the vast literary world awaiting your discovery!</p>
             </div>
       
-            <div>
+            <div className={styles.featureText}>
               <h4 className="direction-title">Your Shelves-</h4>
               <p className="direction-text">Step into the secret garden of our 'Shelf' feature – a reader's own enchanting alcove in the great library of life! Design your shelves with names as captivating as Pemberley's halls, seamlessly add tales of old and new. For those tales you wish to remain for your eyes only', simply set your shelf to private.</p>
             </div>

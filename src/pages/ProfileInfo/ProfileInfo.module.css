@@ -114,6 +114,7 @@ button{
   background-image: url('../../assets/shelf.png');
   background-size: contain;
   background-repeat: no-repeat;
+  /* background-color: black; */
 }
 
 .tooltip {
