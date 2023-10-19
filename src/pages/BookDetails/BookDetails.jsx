@@ -48,6 +48,7 @@ const BookDetails = (props) => {
 
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
+    //investigate the if statement - review bens code
     if (newComment) {
       setComments((prevComments) => [...prevComments, newComment])
       setBook((bookExists) => {
