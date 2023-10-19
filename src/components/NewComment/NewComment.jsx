@@ -18,6 +18,11 @@ const NewComment = (props) => {
 
   return (
     <form className={styles.newComment} onSubmit={handleSubmit}>
+      {props.comments.length > 0 ? (
+        <h4 className={styles.commentH4Title}>Read the comments below</h4>
+      ) : (
+        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
+      )}
       <h3>Add New Comment</h3>
       <label htmlFor="rating">Rating:</label>
       <select
