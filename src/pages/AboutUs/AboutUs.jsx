@@ -46,7 +46,7 @@ const AboutUs = () => {
           <h2>Face</h2>
           <h2>Steve Morrison</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reprehenderit explicabo! Facere enim qui quibusdam ea ex, sapiente odio. Nam magnam voluptatibus quasi explicabo natus dolorum perferendis deserunt omnis adipisci!
+          An imaginative full stack Software Developer with an eye for details, ingenuity, and progress. I use my background in behavioral analysis, my skills in various technologies, and a passion to drive insightful, innovative, and impactful solutions to develop smarter applications with the user in mind.
           </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/steven-ansman-morrison/')}
