@@ -16,6 +16,7 @@ const  EditComment = (props) => {
   const commentId = props.comment._id
 
   const handleChange = ({target}) => {
+    //updates state in real time
     setFormData({...formData, [target.name]: target.value})
   }
 
