@@ -6,8 +6,8 @@ import styles from './NewComment.module.css'
 const NewComment = (props) => {
   const [formData, setFormData] = useState({text: '', rating: 5})
 
-  const handleChange = (evt) => {
-    setFormData({...formData, [evt.target.name]: evt.target.value})
+  const handleChange = ({target}) => {
+    setFormData({...formData, [target.name]: target.value})
   }
 
   const handleSubmit = (evt) => {

@@ -46,6 +46,7 @@ const BookDetails = (props) => {
     if (modalData.isOpen && inputRef.current) inputRef.current.focus()
   }, [modalData.isOpen])
 
+  //currently adds but doesnt update render of the comment card until you refresh the page
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     setBook({...book, comments: [...book.comments, newComment]})
