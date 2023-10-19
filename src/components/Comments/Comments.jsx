@@ -16,7 +16,10 @@ const Comments = (props) => {
     setIsEditingComment(null)
   };
 
-
+  const sortedComments = props.comments.slice().sort((a, b) => {
+    // You can customize the sorting logic here
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  })
 
   const selectedComment = props.comments.find((comment) => comment._id === comment._id)
   
@@ -34,13 +37,13 @@ const Comments = (props) => {
         </>
       )}
 
-      {props.comments.map((comment) => (
+      {sortedComments.map((comment) => (
         <CommentCard 
           key={comment._id} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleEditComment={(commentId) => {
+          handleUpdateComment={(commentId) => {
             setIsEditingComment(commentId)
             setFormOpen(true)
           }}
