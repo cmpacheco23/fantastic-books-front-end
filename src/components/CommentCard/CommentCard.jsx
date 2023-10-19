@@ -1,44 +1,31 @@
-import styles from "./CommentCard.module.css"
+import React, { useState } from 'react'; // Import React and useState
+
+import styles from './CommentCard.module.css';
 
 const CommentCard = (props) => {
+  // Initialize the formData state with the comment data
+  const [formData, setFormData] = useState(props.comment);
 
-  // console.log('isEditingComment:', props.isEditingComment);
-  // console.log('comment._id:', props.comment._id);
   return (
     <article>
       <p>{props.comment.commenter.name}</p>
-      <p>{props.comment.text}</p>
-      <p>{props.comment.rating}</p>
+      <p>{formData.text}</p> {/* Use formData for text */}
+      <p>{formData.rating}</p> {/* Use formData for rating */}
       <p>{props.comment.createdAt}</p>
       
-      
       <div>
-
         <button
-          onClick={() => 
-
-            props.handleEditComment(props.volumeId, props.comment._id)}
+          onClick={() => props.handleEditComment(props.volumeId, props.comment._id)}
           disabled={props.isEditingComment === props.comment._id}
         >
           Edit
         </button>
-
-        <button
-          onClick={() => props.handleDeleteComment(props.volumeId, props.comment._id)}
-          disabled={props.isEditingComment === props.comment._id}
-        >
+        <button onClick={() => props.handleDeleteComment(props.volumeId, props.comment._id)} disabled={props.isEditingComment === props.comment._id}>
           Delete
         </button>
-
-
-        
       </div>
-  
-</article>
-);
-}
+    </article>
+  );
+};
 
 export default CommentCard;
-
-
-  // { comment, volumeId, handleDeleteComment, handleEditComment, isEditingComment, formOpen }

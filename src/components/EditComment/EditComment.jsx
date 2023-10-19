@@ -53,6 +53,7 @@ const  EditComment = (props) => {
           type="text"
           id="text-input"
           value={formData.text}
+
           onChange={handleChange}
         />
         <div className={styles.dropdown}> 
@@ -62,6 +63,7 @@ const  EditComment = (props) => {
             id="rating"
             className={styles.dropdownSelect} 
             value={formData.rating}
+
             onChange={handleChange}
           >
           <option value="1">1</option>
