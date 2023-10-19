@@ -1,11 +1,22 @@
-import React, { useState } from 'react'; // Import React and useState
+import { useState } from 'react'; // Import React and useState
 
 import styles from './CommentCard.module.css';
 
 const CommentCard = (props) => {
+
   // Initialize the formData state with the comment data
+
+  //this is was is rendering state:
   const [formData, setFormData] = useState(props.comment);
 
+  // const updateFormData = (newData) => {
+  //   setFormData(newData);
+  // }
+  //this is how I update it in real time in edit comment
+  // const handleChange = ({target}) => {
+  //   setFormData({...formData, [target.name]: target.value})
+  // }
+  console.log('formData in CommentCard:', formData)
   return (
     <article>
       <p>{props.comment.commenter.name}</p>

@@ -4,13 +4,15 @@ import CommentCard from "../CommentCard/CommentCard";
 import EditComment from "../EditComment/EditComment"
 import NewComment from "../NewComment/NewComment";
 const Comments = (props) => {
-
   const [isEditingComment, setIsEditingComment] = useState(null)
-  const [formOpen, setFormOpen] = useState(true)
-
+  const [formOpen, setFormOpen] = useState
+  (true)
+  
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
+
+
 
   const selectedComment = props.comments.find((comment) => comment._id === comment._id)
   
@@ -44,6 +46,7 @@ const Comments = (props) => {
             isEditingComment={selectedComment} 
             handleCancelEdit={handleCancelEdit}
           commentSavedUpdateRender={props.commentSavedUpdateRender}   
+
         />
         
       ))}
@@ -57,7 +60,6 @@ const Comments = (props) => {
             formOpen={formOpen}
             setFormOpen={setFormOpen}
             commentSavedUpdateRender={props.commentSavedUpdateRender}
-            
             />
           )}
 

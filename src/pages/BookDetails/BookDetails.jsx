@@ -131,6 +131,7 @@ const BookDetails = (props) => {
             <Comments 
               key={comments._id} 
               comments={comments} 
+              setComments={setComments}
               user={props.user} 
               handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
