@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import CommentCard from "../CommentCard/CommentCard";
 import EditComment from "../EditComment/EditComment"
-import NewComment from "../NewComment/NewComment"
+
 
 import styles from "./Comments.module.css"
 
@@ -22,17 +22,7 @@ const Comments = (props) => {
   
   return (
     <div className={styles.commentTester}>
-      {props.comments.length > 0 ? (
-        <>
-        <NewComment handleAddComment={props.handleAddComment} />
-        <h4 className={styles.commentH4Title} >Read the comments below</h4>
-        </>
-      ): (
-        <>
-        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
-        <NewComment handleAddComment={props.handleAddComment} />
-        </>
-      )}
+
 
       {props.comments.map((comment) => (
         <CommentCard 

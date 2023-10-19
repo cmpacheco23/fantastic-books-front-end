@@ -7,6 +7,7 @@ import * as profileService from '../../services/profileService'
 
 //components
 import Comments from "../../components/Comments/Comments"
+import NewComment from "../NewComment/NewComment"
 
 const BookDetails = (props) => {
   const { volumeId } = useParams()
@@ -193,7 +194,17 @@ const BookDetails = (props) => {
               volumeId={volumeId} 
               commentSavedUpdateRender={commentSavedUpdateRender}
             />
-          
+                  {props.comments.length > 0 ? (
+        <>
+        <NewComment handleAddComment={handleAddComment} />
+        <h4 className={styles.commentH4Title} >Read the comments below</h4>
+        </>
+      ): (
+        <>
+        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
+        <NewComment handleAddComment={handleAddComment} />
+        </>
+      )}
           
           </div>) : (
           <p>Loading...</p>
