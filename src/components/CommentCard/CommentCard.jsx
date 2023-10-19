@@ -15,15 +15,12 @@ const CommentCard = (props) => {
     // Define an array of book emojis
     const bookEmojis = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
   
-    // Use the rating to select the appropriate book emoji
     return bookEmojis[rating - 1];
   }
 
-  // Use the getRatingEmojis function to get the rating emojis
+
   const ratingEmojis = getRatingEmojis(props.comment.rating);
 
-
-  
   return (
     <article className={styles.commentCard}>
       <div className={styles.commenterSection}>
