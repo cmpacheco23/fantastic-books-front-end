@@ -35,10 +35,6 @@ export async function bookSearch (data) {
   }
 }
 
-
-
-
-
 export async function createComment(volumeId, commentFormData) {
   try {
     const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
