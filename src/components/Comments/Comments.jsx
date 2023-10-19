@@ -7,7 +7,7 @@ import NewComment from "../NewComment/NewComment"
 import styles from "./Comments.module.css"
 
 const Comments = (props) => {
-  const {comments, setComments} = useState(props.comments)
+
   const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState
   (true)

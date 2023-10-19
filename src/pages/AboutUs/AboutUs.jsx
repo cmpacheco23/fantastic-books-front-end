@@ -5,11 +5,11 @@ import GithubLogo from '../../assets/githubWhiteLogo.png';
 const AboutUs = () => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
-      <img src={logoSrc} alt={altText} className={styles.linkLogo} />
       <a href={linkUrl} target="_blank" rel="noopener noreferrer">
+        <img src={logoSrc} alt={altText} className={styles.linkLogo} />
       </a>
     </div>
-  );
+  )
 
     
   return ( 
@@ -22,7 +22,7 @@ const AboutUs = () => {
           <h2>Face</h2>
           <h2>Carla Pacheco</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reprehenderit explicabo! Facere enim qui quibusdam ea ex, sapiente odio. Nam magnam voluptatibus quasi explicabo natus dolorum perferendis deserunt omnis adipisci!
+          Software Engineer passionate about crafting technical solutions that bridge the gap between client needs and innovative products. My background is in marketing and e-commerce, primarily within MarTech and SaaS companies.
           </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/thecarlapacheco/')}
@@ -34,7 +34,7 @@ const AboutUs = () => {
           <h2>Face</h2>
           <h2>Enes Velovic</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reprehenderit explicabo! Facere enim qui quibusdam ea ex, sapiente odio. Nam magnam voluptatibus quasi explicabo natus dolorum perferendis deserunt omnis adipisci!
+          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. I create efficient web applications and have experience as a Chief Operating Officer and Strategic Planning Coordinator. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
           </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
@@ -46,7 +46,7 @@ const AboutUs = () => {
           <h2>Face</h2>
           <h2>Steve Morrison</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, reprehenderit explicabo! Facere enim qui quibusdam ea ex, sapiente odio. Nam magnam voluptatibus quasi explicabo natus dolorum perferendis deserunt omnis adipisci!
+          An imaginative full stack Software Developer with an eye for details, ingenuity, and progress. I use my background in behavioral analysis, my skills in various technologies, and a passion to drive insightful, innovative, and impactful solutions to develop smarter applications with the user in mind.
           </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/steven-ansman-morrison/')}
