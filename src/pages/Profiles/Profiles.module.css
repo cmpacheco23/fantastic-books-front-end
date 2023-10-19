@@ -1,7 +1,6 @@
-/* main, main * {
-  border: 1px solid red;
-} */
-
+main {
+  height: calc(60vh - 400px);
+}
 .spacer {
   height: 90px;
   top: 0px;
@@ -13,9 +12,12 @@
   /* gap: 32px; */
   justify-content: center;
   align-items: center;
+  height: 20px;
   /* padding: 32px; */
 }
 
 .pageTitle {
   margin-top: 35px;
+  font-size: 35px;
+  padding-top: 25px;
 }

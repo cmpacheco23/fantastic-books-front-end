@@ -1,8 +1,9 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 32px;
+  /* justify-content: space-around; */
+  /* padding: 32px; */
+
 }
 
 .profileCard {
@@ -13,7 +14,8 @@
   text-align: center;
   padding: 24px;
   margin: 10px;
-
+  position: relative;
+  overflow: hidden
 }
 
 
@@ -24,17 +26,11 @@
   object-fit: cover;
   margin: 0 auto 10px;
   display: block;
+  transition: transform 0.3s
 }
 
-h1 {
-  font-size: 1.5rem;
-  margin: 0;
-  text-align: center;
-}
-
-h4 {
-  font-size: 1rem;
-  margin: 5px 0;
+.photo:hover {
+  transform: rotate(360deg); 
 }
 
 a {
@@ -43,6 +39,32 @@ a {
   color: #007bff;
   text-decoration: none;
 }
+h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.name{
+  color: rgb(56, 169, 15)
+}
+h1:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+h4 {
+  font-size: 1rem;
+  margin: 5px 0;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  color: white;
+}
+
+h4:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+
+
 
 a:hover {
   text-decoration: underline;

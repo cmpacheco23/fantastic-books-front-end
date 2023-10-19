@@ -6,10 +6,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 80%;
+  justify-content: center;
+  height: 280px;
+  margin: 0 auto; /* Center horizontally */
+  text-align: center; 
+  width: 100%;
 }
 
+.newComment label {
+  display: inline-block; /* Ensures the label and select are on the same line */
+  margin-bottom: 10px; /* Adds some space below the label */
+}
+
+.newComment select {
+  display: inline-block; /* Display the select element inline */
+  margin-left: 10px; /* Adds some space between the label and select */
+  margin-bottom: 10px; /* Adds some space below the select */
+}
 .submit {
   display: inline-block;
   outline: 0;
@@ -27,6 +40,10 @@
   :hover{
       box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
   }
+  
 }
 
-/* tests */
+button{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
