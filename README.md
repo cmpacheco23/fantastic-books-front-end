@@ -18,12 +18,17 @@ Fantastic Books is a MERN stack CRUD app that makes it convenient to keep track 
 If you are curious about what our back end looks like - [Fantastic Books: The Back End](https://github.com/nonchalamment/magnolia-back-end/)
 
 ## The Devs
-Carla Pacheco [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
-<br />
-Enes Velovic [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
-<br />
-Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
+#### Scrum Manager and Styler:  
+###### Carla Pacheco [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
+<br />
+
+### Api Manager and Git Comander
+##### Enes Velovic [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
+<br />
+
+### Database Manager and Documentor
+##### Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
 ## Attributions
 google books api
