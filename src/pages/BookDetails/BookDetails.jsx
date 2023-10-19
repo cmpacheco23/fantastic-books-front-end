@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import styles from "./BookDetails.module.css";
-import * as bookService from '../../services/bookService';
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import styles from "./BookDetails.module.css"
+import * as bookService from '../../services/bookService'
+import { Link } from "react-router-dom"
+import * as profileService from '../../services/profileService'
 
 //components
 import Comments from "../../components/Comments/Comments"
@@ -11,38 +12,43 @@ const BookDetails = (props) => {
   const { volumeId } = useParams()
   const [book, setBook] = useState(null)
   const [comments, setComments] = useState([])
+  const [shelves, setShelves] = useState([])
+  const [selectedShelf, setSelectedShelf] = useState('')
+  const [profile, setProfile] = useState({})
 
+  useEffect(() => {
+    const fetchShelves = async () => {
+      const profileData = await profileService.getOneProfile(props.user.profile)
+      setProfile(profileData)
+      setShelves(profileData.shelves || [])
+      setSelectedShelf(profileData.shelves[1]._id)
+    }
+    fetchShelves()
+  }, [])
 
   useEffect(() => {
     const fetchBookData = async () => {
       try {
-
-        const bookData = await bookService.getBookDetails(volumeId);
-        setBook(bookData);
-
-        const comments = await bookService.getComments(volumeId);
-        setComments(comments);
-
+        const bookData = await bookService.getBookDetails(volumeId)
+        setBook(bookData)
+        const comments = await bookService.getComments(volumeId)
+        setComments(comments)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
-    fetchBookData();
-  }, [volumeId]);
+    fetchBookData()
+  }, [volumeId])
 
-  
   const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.createComment(volumeId, commentFormData);
-  
+    const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
-      // Add the new comment to the existing comments
-      setComments((prevComments) => [...prevComments, newComment]);
-      
+      setComments((prevComments) => [...prevComments, newComment])
       setBook((bookExists) => {
         if (!bookExists || !bookExists.comments) {
-          return bookExists;
+          return bookExists
         }
-        return { ...bookExists, comments: [...bookExists.comments, newComment] };
+        return { ...bookExists, comments: [...bookExists.comments, newComment] }
       })
     }
   }
@@ -84,18 +90,18 @@ const BookDetails = (props) => {
     })
   }
 
-  const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
-    // Update the comment in the state using the commentId
-    setComments((prevComments) =>
-      prevComments.map((comment) => {
-        if (comment._id === commentId) {
-          return { ...comment, ...updatedCommentData };
-        }
-        return comment;
-      })
-    );
-  };
-
+  const handleAddToShelf = async () => {
+    try {
+      console.log(props.user.profile, selectedShelf, volumeId)
+      const profileData = await profileService.addBookToShelf(props.user.profile, selectedShelf, volumeId)
+      setProfile(profileData)
+      setShelves(profileData.shelves || [])
+      alert("Book added to shelf!")
+    } catch (error) {
+      console.error(error)
+      alert("Failed to add the book to shelf.")
+    }
+  }
 
   return (
     <main>
@@ -106,6 +112,10 @@ const BookDetails = (props) => {
       <div className={styles.sideBySide}>
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
+        <select id="shelfDropdown">
+          {shelves.map(shelf => <option key={shelf._id} value={shelf._id}>{shelf.name}</option>)}
+        </select>
+        <button onClick={handleAddToShelf}>Add to Shelf</button>
           <h3>{book.subtitle}</h3>
           <h3>Author: {book.authors}</h3>
           <p>Pages: {book.pages}</p>
@@ -139,7 +149,7 @@ const BookDetails = (props) => {
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
-              commentSavedUpdateRender={commentSavedUpdateRender}
+              // commentSavedUpdateRender={commentSavedUpdateRender}
             />
           
           
