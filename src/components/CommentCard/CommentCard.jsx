@@ -22,6 +22,7 @@ const CommentCard = (props) => {
 
   const ratingEmojis = getRatingEmojis(props.comment.rating);
 
+  
   return (
     <article className={styles.commentCard}>
       <div className={styles.commenterSection}>

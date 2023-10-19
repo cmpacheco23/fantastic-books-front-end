@@ -7,7 +7,7 @@ import NewComment from "../NewComment/NewComment"
 import styles from "./Comments.module.css"
 
 const Comments = (props) => {
-  const {comments, setComments} = useState(props.comments)
+
   const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState
   (true)
@@ -34,13 +34,12 @@ const Comments = (props) => {
         </>
       )}
 
-      {comments.map((comment) => (
+      {props.comments.map((comment) => (
         <CommentCard 
           key={comment._id} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          setComments={setComments}
           handleEditComment={(commentId) => {
             setIsEditingComment(commentId)
             setFormOpen(true)
