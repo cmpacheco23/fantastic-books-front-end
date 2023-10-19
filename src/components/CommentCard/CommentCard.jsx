@@ -37,7 +37,7 @@ const CommentCard = (props) => {
       </div> {/* Close the 'commentText' div here */}
       <div className={styles.commentButtons}>
         <button
-          onClick={() => props.handleUpdateComment(props.volumeId, props.comment._id)}
+          onClick={() => props.handleToggleEditForm()}
           disabled={props.isEditingComment === props.comment._id}
         >
           ✏️

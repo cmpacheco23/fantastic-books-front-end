@@ -11,7 +11,8 @@ const Comments = (props) => {
   const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState
   (true)
-  
+  const [selectedComment, setSelectedComment] = useState({})
+
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
@@ -21,8 +22,12 @@ const Comments = (props) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   })
 
-  const selectedComment = props.comments.find((comment) => comment._id === comment._id)
-  
+  //should be a state of some sort - state of selected comment
+  // selected comment will be the comment object
+  //remove this
+  // const selectedComment = props.comments.find((comment) => comment._id === comment._id)
+  // pass the selected comment into the edit form
+  // set selected comment like line 53
   return (
     <div className={styles.commentTester}>
       {props.comments.length > 0 ? (
@@ -43,9 +48,12 @@ const Comments = (props) => {
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleUpdateComment={(commentId) => {
-            setIsEditingComment(commentId)
+    
+          handleToggleEditForm={() => {
+            setIsEditingComment(comment._id)
             setFormOpen(true)
+            setSelectedComment(comment._id)
+            //array method to find the comment in the comments array where the id matches comment._id
           }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
@@ -62,11 +70,13 @@ const Comments = (props) => {
             volumeId={props.volumeId}
             user={props.user}
             onCommentUpdate={props.handleCommentUpdate}
+            handleEditComment={props.handleEditComment}
             handleCancelEdit={handleCancelEdit}
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
             setFormOpen={setFormOpen}
             commentSavedUpdateRender={props.commentSavedUpdateRender}
+
             />
           )}
 
