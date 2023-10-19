@@ -1,9 +1,44 @@
 import { useState } from "react"
+import { useEffect } from "react";
 import styles from './NewComment.module.css'
 
 const NewComment = (props) => {
+  // const {formData, setFormData} = useLocation()
+
   const [formData, setFormData] = useState({ text: '', rating: 5 });
+
   const [formOpen, setFormOpen] = useState(true);
+
+  //get one specific comments always have it be [0] index
+  //set formData to it
+  // useEffect(() => {
+  //   const fetchBookData = async () => {
+  //     try {
+  //       // const bookData = await bookService.getBookDetails(volumeId)
+  //       // setBook(bookData)
+  //       const comments = await bookService.getComments(volumeId)
+  //       setComments(comments)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  //   fetchBookData()
+  // }, [volumeId])
+  // export async function getComments(volumeId) {
+  //   try {
+  //     const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
+  //     if (res.ok) {
+  //       const comments = await res.json()
+  //       return comments
+  //     } else {
+  //       console.error('Error fetching comments:', res.status)
+  //       return []
+  //     }
+  //   } catch (error) {
+  //     console.error('Failed to fetch comments:', error)
+  //     return []
+  //   }
+  // }
 
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
