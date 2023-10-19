@@ -8,16 +8,24 @@ const NewComment = (props) => {
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   }
-
+  //this works
+  console.log('props.comments.',props.comments)
+  //this doesnt work
+  // console.log('props.comments.comment',props.comments.comment)
+  //this doesnt work
+  // console.log('props.comments.comment._id',props.comments.comment._id)
+  // console.log('props.comments.comment._id',props.comments.comment._id)
   const handleSubmit = (evt) => {
     setFormOpen(false);
     evt.preventDefault();
+    props.setComments([...props.comments, formData])
     props.handleAddComment(formData);
     setFormData({ text: '', rating: 5 });
     const delay = 2000; 
     setTimeout(() => {
       setFormOpen(true);
     }, delay);
+
   }
 
   return (

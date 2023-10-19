@@ -15,11 +15,15 @@ const CommentCard = (props) => {
     }    
 
   const ratingEmojis = getRatingEmojis(props.comment.rating);
-
+  //doesnt render when the comment is made  however if page is rerendered  it shows up in the console
+  // issue is probably that im not letting it wait
+  //need to wait for the commenter information to arrive comments.comment.commenter
+  console.log('comments.comment.commenter', props.comments)
+  console.log('props.comment.updatedAt', props.comment.updatedAt)
   return (
     <article className={styles.commentCard}>
       <div className={styles.commenterSection}>
-        {props.comment.commenter.photo && (
+        {/* {props.comment.commenter.photo && (
           <div className={styles.namePhoto}>
             <img
               src={props.comment.commenter.photo}
@@ -28,7 +32,7 @@ const CommentCard = (props) => {
             />
             <p className={styles.name}>{props.comment.commenter.name}</p>
           </div>
-        )}
+        )} */}
       </div>
       <div className={styles.commentText}>
         <p>{props.comment.text}</p>
