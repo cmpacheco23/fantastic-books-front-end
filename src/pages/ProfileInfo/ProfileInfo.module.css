@@ -76,22 +76,31 @@ main{
   height: 100px;
   width: auto;
   position: absolute; 
-  bottom: -149px; 
+  bottom: -172px; 
   left: 120px; 
 }
 
 .edit{
   position: absolute;
-  top: 0;
-  right: 40px;
+  top: -17px;
+  left: 2px;
   cursor: pointer;
 }
 
 .delete{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -17px;
+  right: 2px;
   cursor: pointer;
+}
+
+.shelfname{
+  position: absolute;
+  top: 0;
+  left: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 button{
@@ -105,4 +114,28 @@ button{
   background-image: url('../../assets/shelf.png');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-title);
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Position above the cursor */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+   /* Add a 2-second delay */
+}
+
+.tooltip:hover::after {
+  display: block;
+  opacity: .8;
 }

@@ -11,7 +11,6 @@ const ProfileInfo = () => {
   const inputRef = useRef(null)
   const { profileId } = useParams()
 
-  // Fetch profile
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -23,12 +22,10 @@ const ProfileInfo = () => {
     fetchProfile()
   }, [profileId])
 
-  // Focus input on modal open
   useEffect(() => {
     if (modalData.isOpen && inputRef.current) inputRef.current.focus()
   }, [modalData.isOpen])
 
-  // Handle create and edit
   const handleShelf = async (action, shelfId) => {
     try {
       const result = await profileService[action]({ name: modalData.name }, profileId, shelfId)
@@ -60,19 +57,18 @@ const ProfileInfo = () => {
           <img className={styles.photo} src={profile.photo} alt="profile photo" />
           <h1 className={styles.name}>{profile.name}</h1>
           <h2>Books Collected:</h2><h2>Shelves Created:</h2>
-
           {profile.shelves.map(shelf => (
             <div className={styles.shelf} key={shelf._id}>
-              {/* Shelf Content */}
               <div className={styles.shelfContent}>
-                <span>Shelf Name: {shelf.name}</span>
+              <span className={styles.shelfname}>
+                <span className={styles.tooltip} data-title={shelf.name} tooltip={shelf.name}>
+                  Name: {shelf.name.length > 20 ? `${shelf.name.substring(0, 30)}...` : shelf.name}
+                </span>
+              </span>
                 {shelf.books?.length ? null : <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />}
-                <button onClick={() => setModalData({ isOpen: true, isEditing: true, name: shelf.name, id: shelf._id })}>✏️</button>
-                <button onClick={() => handleDeleteShelf(shelf._id)}>🗑️</button>
-
+                <button className={styles.edit} onClick={() => setModalData({ isOpen: true, isEditing: true, name: shelf.name, id: shelf._id })}>✏️</button>
+                <button className={styles.delete} onClick={() => handleDeleteShelf(shelf._id)}>🗑️</button>
               </div>
-
-              {/* Edit Shelf Modal */}
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
                   <label>Edit Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
@@ -82,16 +78,13 @@ const ProfileInfo = () => {
               )}
             </div>
           ))}
-
-          {/* Create Shelf Modal */}
           {modalData.isOpen && !modalData.isEditing && (
             <div className={styles.modalOpen}>
               <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
-              <button onClick={() => handleShelf('createShelf')}>Create</button>
+              <button className={styles.create} onClick={() => handleShelf('createShelf')}>Create</button>
               <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
             </div>
           )}
-
           {showButton && <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })} className={styles.createShelfButton}>New Shelf</button>}
         </div>
       ) : <p>Loading...</p>}
