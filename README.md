@@ -1,35 +1,32 @@
 # Fantastic Books
 <p>And where to find them.</p>
 
-### [Check it out here!](https://magnolia-room39.netlify.app/)
+### [Check it out here!]()
 #### [fantastic books: The Back End](https://github.com/NSnyc/fantastic-books-back-end)
 
-<img width="338" alt="Screen Shot 2023-05-18 at 2 26 38 PM" src="https://github.com/nonchalamment/magnolia-back-end/assets/26176522/d436edb2-5c0e-43a5-8b89-ef998ee9e9c9">
+<img width="338" alt="Screen Shot 2023-05-18 at 2 26 38 PM" src="">
 
 ## What is this?
 
 Fantastic Books is a MERN stack CRUD app that makes it convenient to keep track of your all the books you will need for all you bibliophilic delights! Dive 20,000 leagues into a personalized reading journey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your one stop shop for all you will need on you adventure!
 
 ## Getting Started
-[Magnolia: The App](https://magnolia-room39.netlify.app)
+[Fantastic books: The App]()
 <br />
-[Check out our Trello board here!](https://trello.com/b/rw1jci9N/family-recipies)
+[Check out our Trello board here!](https://trello.com/b/AJpyaYO6/fantastic-books-and-where-to-find-them)
 <br />
-If you are curious about what our back end looks like - [Magnolia: The Back End](https://github.com/nonchalamment/magnolia-back-end/)
+If you are curious about what our back end looks like - [Fantastic Books: The Back End](https://github.com/nonchalamment/magnolia-back-end/)
 
-## Contributors
-[Andy Morrison](https://github.com/andrewmorrisondev)
+## The Devs
+Carla Pacheco [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
 <br />
-[Seiyoung Jang](https://github.com/nonchalamment)
+Enes Velovic [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
 <br />
-[Trenton Wahr](https://github.com/trentonwahr)
+Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
+
 
 ## Attributions
-[Modul](https://thenounproject.com/modul/) at thenounproject for our beautiful logo
-<br />
-[Emma Mitchell](https://thenounproject.com/emmamitchell/) at thenounproject for waiting logo
-<br />
-[Christian Robertson](https://christianrobertson.com/) for our font Roboto, obtained from [Google Fonts](https://fonts.google.com)
+google books api
 
 ## Technologies Used
 <ul>
@@ -52,4 +49,4 @@ If you are curious about what our back end looks like - [Magnolia: The Back End]
 </ul>
 
 ## Next Steps
-We would like to be able to replace the tree members with real users by sending a link to family members so that they can log in and join the family tree. We were able to get the positions of each family member card correct depending on the relation, but we would like to be able to conditionally render arrow links connecting the family members. Moreover, on the Family Member show page, we also want a button to add a new recipe and assign it to a particular member that the recipe belongs to. Being able to add a relation from the page of a particular member would be another neat feature that we could add. It would also be fantastic to be able to add more generations and display something that looks closer to a tree!
+
