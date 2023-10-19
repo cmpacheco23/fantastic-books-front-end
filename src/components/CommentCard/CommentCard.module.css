@@ -1,27 +1,105 @@
+/* Styles for the card container */
 .commentCard {
-  width: 50%; /* Set the width to 50% of the parent container */
-  background-color: #222;
-  color: #fff;
+  display: flex;
+  flex-direction: row;
+  background-color: #bc7e2e;
+  color: #000;
   border: 2px solid #333;
+  border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  width: 50%;
 }
 
-.commentCard p {
-  margin: 5px 0; /* Margin between paragraphs within the comment card */
+/* Styles for the commentText section */
+.commentCard .commentText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
 }
 
-.commentCard button {
-  background-color: #333; /* Dark button background color */
-  color: #fff; /* White text color for buttons */
-  padding: 5px 10px; /* Padding for buttons */
+.commentCard .commentText p {
+  margin: 0;
+  padding-left: 15px;
+  margin-left: 5px;
+}
+
+.commentCard .commentText p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.commentCard .commentText p:nth-child(2) {
+  font-weight: bold; /* Make the name bold */
+}
+
+.commentCard .commentText p:nth-child(3) {
+  font-weight: bold; /* Make the rating bold */
+}
+
+.commentCard .commentText p:last-child {
+  font-weight: bold; /* Make the date bold */
+}
+
+/* Styles for the commentButtons section */
+.commentCard .commentButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentCard .commentButtons button {
+  background-color: #032346;
+  color: #fff;
+  padding: 5px 15px;
   border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
   cursor: pointer;
-  margin: 5px; /* Margin between buttons */
+  font-weight: bold;
+  font-size: 12px;
+  width: 50px;
+  height: 34px;
+  margin-left: auto;
 }
 
-.commentCard button:hover {
-  background-color: #555; /* Darker background color on hover */
+.commentCard .commentButtons button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the commenterPhoto section */
+.commentCard .commenterPhoto {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Styles for the namePhoto section */
+.commentCard .namePhoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items vertically within namePhoto */
+  /* gap: 10px; */
+  padding: 5px; /* Add padding to the namePhoto section */
+  margin: 5px; /* Add margins to the namePhoto section */
+}
+
+/* Styles for the name paragraph (name) */
+.commentCard .namePhoto .name {
+  display: flex;
+  padding: 0; 
+  margin:0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.commentCard .namePhoto > img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
