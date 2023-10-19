@@ -5,18 +5,24 @@ import styles from './NewComment.module.css'
 
 const NewComment = (props) => {
   const [formData, setFormData] = useState({text: '', rating: 5})
-
+  const [formOpen, setFormOpen] = useState(true)
   const handleChange = (evt) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
   const handleSubmit = (evt) => {
+    setFormOpen(false)
     evt.preventDefault()
     props.handleAddComment(formData)
     setFormData({text: '', rating: 5})
+    const delay = 2000;
+    setTimeout(() => {
+      setFormOpen(true)
+    }, delay)
   }
 
   return (
+    formOpen ? (
     <form className={styles.newComment} onSubmit={handleSubmit}>
       <h3>Add New Comment</h3>
       <label htmlFor="rating">Rating:</label>
@@ -45,7 +51,11 @@ const NewComment = (props) => {
       <button className={styles.submit}type="submit">Submit</button>
 
     </form>
-  )
+    
+  ) : (
+  <h2> Thanks for submitting your comment!</h2>
+  ) 
+)
 }
 
 export default NewComment
