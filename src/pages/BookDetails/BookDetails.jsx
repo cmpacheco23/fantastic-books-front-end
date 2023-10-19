@@ -194,12 +194,7 @@ const BookDetails = (props) => {
               volumeId={volumeId} 
               commentSavedUpdateRender={commentSavedUpdateRender}
             />
-                  {props.comments.length > 0 ? (
-        <>
-        <NewComment handleAddComment={handleAddComment} />
-        <h4 className={styles.commentH4Title} >Read the comments below</h4>
-     
-          
+          <NewComment handleAddComment={handleAddComment} />
           </div>) : (
           <p>Loading...</p>
         )}
