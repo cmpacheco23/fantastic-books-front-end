@@ -2,7 +2,6 @@
 <p>And where to find them.</p>
 
 ### [Check it out here!](https://fantastic-books.netlify.app/)
-#### [fantastic books: The Back End](https://github.com/NSnyc/fantastic-books-back-end)
 
 <img src="src/assets/logo.png">
 
