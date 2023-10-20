@@ -18,17 +18,8 @@ const Comments = (props) => {
   };
 
   const sortedComments = props.comments.slice().sort((a, b) => {
-    // You can customize the sorting logic here
     return new Date(b.createdAt) - new Date(a.createdAt);
   })
-
-  
-  console.log('PROPS COMMENTS 26', props.comments)
-    //array method to find the comment in the comments array where the id matches comment._id
-
-
-
-
 
   return (
     <div className={styles.commentTester}>
@@ -55,8 +46,6 @@ const Comments = (props) => {
             setIsEditingComment(comment._id)
             setFormOpen(true)
             setSelectedComment(props.comments.find(element => element._id === comment._id))
-            //array method to find the comment in the comments array where the id matches comment._id
-            //pontentially find?
           }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
@@ -64,7 +53,6 @@ const Comments = (props) => {
             isEditingComment={selectedComment} 
             handleCancelEdit={handleCancelEdit}
           commentSavedUpdateRender={props.commentSavedUpdateRender}   
-
         />
         
       ))}

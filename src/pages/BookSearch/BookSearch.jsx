@@ -50,7 +50,7 @@ const BookSearch = () => {
   return (
     // <main className={styles.bookList}>
     <main className={styles.flexbox}>
-      <div className={styles.spacer}>spacer</div>
+      <div className={styles.spacer}></div>
       <h1 className={`${styles.fantasticFont} ${styles.title}`}>Search Books</h1>
       
       <div className={styles.search}>
@@ -78,7 +78,7 @@ const BookSearch = () => {
         <h2 className={styles.currentPage}>Page {currPage}</h2>
         <h2 onClick={handleIncreasePageCount}>►</h2>
       </div>
-        <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
+        <h2 className={styles.resultCount}>{allBooks.length} Results Found </h2>
       </>
       ) : (
       <></>
