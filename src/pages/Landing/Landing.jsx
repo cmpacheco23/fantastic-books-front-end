@@ -18,7 +18,7 @@ const Landing = ({ user }) => {
 
       <section className={styles.landing}>
         <div className={styles.titleContainer}>
-        <img className={styles.landingTitle} src='public/assets/fantastic-books-logo.png' />
+        <img className={styles.landingTitle} src='/assets/fantastic-books-logo.png' />
         </div>
 
         {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}

@@ -1,11 +1,14 @@
-.title{
-  font-size: 42px;
-  font-family: 'Times New Roman', Times, serif;
-  background: rgb(180,134,2);
-  background: linear-gradient(180deg, rgba(180,134,2,1) 24%, rgba(255,210,120,1) 70%, rgba(78,57,0,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
 
+
+.title{
+  font-size: 50px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 15px;
+  letter-spacing: 3px;
 }
 
 .bookSearch {
@@ -130,7 +133,8 @@ html, body {
   margin-top: 40px;
   font-size: 20px;
   height: 45px;
-
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   /* Hide the button by default */
   opacity: 0;
   visibility: hidden;

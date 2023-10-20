@@ -1,30 +1,61 @@
 // npm modules
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '/assets/logo.png'
 
 import styles from "./NavBar.module.css" 
 
 const NavBar = ({ user, handleLogout }) => {
+  const [showLogo, setShowLogo] = useState(true); // State to track whether to show the logo
+
+  useEffect(() => {
+    // Add a scroll event listener
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowLogo(false); // Hide the logo when scrolling
+      } else {
+        setShowLogo(true); // Show the logo when at the top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [])
   return (
     
     <nav className={styles.nav}>
       
+ 
       <ul className={styles.right}>
-        <li><NavLink to="/"> <img src={'/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
-        
         {user ? (
-        <li>
-          <NavLink style={{ color: 'black'}} to={`/profiles/${user.profile}`}>Welcome, {user.name}</NavLink>
+          
+  <li><NavLink style={{ color: 'white'}} to={`/profiles/${user.profile}`} className={styles.navLink}>Welcome, {user.name}</NavLink>
         </li>) : null}
+ 
       </ul>
+      <div className={`${styles.center} ${styles.flexCenter}`}>
+        <ul >
+        <li>
+            <NavLink to="/" className={styles.navLink}>
+              {showLogo && (
+                <img src={'/assets/booklogo.png'} className={styles.logo} alt="Logo" />
+              )}
+            </NavLink>
+          </li>
+      </ul>
+      </div>
       <div className={styles.left}>
         <ul>
-          <li><NavLink style={{ color: 'black' }} to="/books"> Books </NavLink></li>
+          <li><NavLink style={{ color: 'white' }} to="/books" className={styles.navLink}> Books </NavLink></li>
 
           
-          {user ? <li><NavLink style={{ color: 'black' }} to="/profiles">Profiles</NavLink></li> : '' }
+          {user ? <li><NavLink style={{ color: 'white' }} to="/profiles" className={styles.navLink}>Profiles</NavLink></li> : '' }
 
-        <li><NavLink style={{ color: 'black' }} to="/about"> Devs</NavLink></li>
+        <li><NavLink style={{ color: 'white' }} to="/about" className={styles.navLink}> Devs</NavLink></li>
         
         
         </ul>
@@ -32,7 +63,7 @@ const NavBar = ({ user, handleLogout }) => {
         
         {user ?
           <ul>
-            <li><NavLink style={{ color: 'black' }} to="/auth/logout" onClick={handleLogout}>Logout</NavLink></li>
+            <li><NavLink style={{ color: 'white' }} to="/auth/logout" onClick={handleLogout} className={styles.navLink}>Logout</NavLink></li>
             {/* <li><NavLink to="/auth/change-password">Change Password</NavLink></li>  */}
           </ul>
         :
