@@ -4,13 +4,34 @@
   gap: 10px;
   padding: 10px;
   text-align: center;
-  display: flex; /* Add flex display */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-img {
-  display: block; /* Make sure the image is a block element */
-  margin: 0 auto; /* Center the image horizontally */
+.bookCardImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block; /* Make the image a block-level element */
+  margin: 0 auto; /* Horizontally center the image */
+  padding-top: 30px;
+}
+
+.bookCardText {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  width: 100%; 
+  margin-top: 20px;
+}
+
+.bookCardContent {
+  text-align: center;
+}
+
+.authorLink{
+  font-size: 18px;
+  margin-bottom: 20px
 }

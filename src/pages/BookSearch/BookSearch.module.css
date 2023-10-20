@@ -143,3 +143,21 @@ html, body {
   color: red;
   margin-top: 20px;
 }
+.bookCardContainer {
+  border: 1px solid #ddd; /* Add a border for visualization */
+  max-width: 300px; /* Set a maximum width for the container */
+  padding: 10px; /* Add some padding for spacing */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack the inner elements vertically */
+  align-items: center; /* Center the items horizontally */
+  text-align: center; /* Center the text within the container */
+  background-color: #f9f9f9; /* Background color */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  margin: 10px; /* Add margin to separate cards */
+  transition: transform 0.2s; /* Add a subtle transform animation */
+}
+
+.bookCardContainer:hover {
+  transform: scale(1.05); /* Enlarge the card on hover */
+}
