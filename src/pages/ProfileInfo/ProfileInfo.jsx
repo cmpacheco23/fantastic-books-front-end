@@ -7,7 +7,7 @@ import "flickity/css/flickity.css";
 import uglyCat from "/assets/uglycat.png";
 import greyCat from "/assets/greycat.png";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
   const [profile, setProfile] = useState(null);
   const [showButton, setShowButton] = useState(false);
   const [modalData, setModalData] = useState({
@@ -133,7 +133,7 @@ const ProfileInfo = () => {
       console.error(err);
     }
   }
-  
+
 
   return (
     <main>
@@ -162,22 +162,23 @@ const ProfileInfo = () => {
             </label>
           </div>
           </div>
-          {showButton && (
+          {props.user._id !== profileId ? (
+            showButton && (
             <button
               className={styles.b68}
               onClick={() =>
-                setModalData({
-                  isOpen: true,
-                  isEditing: false,
-                  name: "",
-                  id: null,
-                  placeholder: "Shelf Name",
-                })
-              }
-            >
-              New Shelf
-            </button>
+              setModalData({
+              isOpen: true,
+              isEditing: false,
+              name: "",
+              id: null,
+              placeholder: "Shelf Name",
+              })
+              }> New Shelf </button>)
+          ) : (
+          <></>
           )}
+
           {profile.shelves.map((shelf) => (
             <div className={styles.shelf} key={shelf._id}>
               <div className={styles.shelfNavigation}>

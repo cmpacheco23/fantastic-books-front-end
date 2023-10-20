@@ -51,13 +51,11 @@ const BookDetails = (props) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
       setComments((prevComments) => [{...newComment, createdAt: newComment.commenter.createdAt },...prevComments])
-      ('NEW COMMENT PHOTO',newComment.commenter.name)
-      ('NEW COMMENT PHOTO',newComment.commenter.photo)
+
       setBook((bookExists) => {
         if (!bookExists || !bookExists.comments) {
           return bookExists
         }
-        ('NEWCOMMENT PT2',newComment)
         return { ...bookExists, comments: [...bookExists.comments, {...newComment, createdAt: newComment.commenter.createdAt }] }
       })
     }
@@ -143,9 +141,12 @@ const BookDetails = (props) => {
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
           {
-            shelves.length === 0 ? (
+            shelves.length === 0  && !props.user !== null ? (
               <>
-                <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>Add New Shelf</button>
+                {props.user ? (
+                  <button onClick={() => setModalData({ isOpen: true, isEditing: false,   name: '', id: null })}> Add New Shelf </button> ) : (
+                  <></>
+                )}
                 {modalData.isOpen && (
                   <div className={styles.modalOpen}>
                     <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
@@ -167,6 +168,7 @@ const BookDetails = (props) => {
                 <button className={styles.b68} onClick={handleAddToShelf}>Add to Shelf</button>
               </>
             )
+            
           }
           {book.subtitle && (
             <h3 className={styles.subTitle}>{book.subtitle}</h3>
