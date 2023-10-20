@@ -1,48 +1,134 @@
-/* Container for the dropdown */
-.dropdown {
-  position: relative;
+/* Common styles for form and form elements */
+.newComment,
+.newComment label,
+.newComment select,
+.newComment textarea,
+.newComment .dropdown,
+.newComment .dropdownLabel,
+.newComment .dropdownSelect,
+.newComment .submit,
+.newComment .cancel {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Styles for the form */
+.newComment {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px; /* Add a common font size */
+  width: 800px;
+  background-color: #03172c;;
+  border-radius: 30px;
+  padding-top: 30px;
+}
+
+/* Styles for the form title */
+.newComment h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fffdfd;
+  font-weight: 700;
+}
+
+/* Styles for the labels */
+.newComment label {
   display: inline-block;
+  margin-right: 10px;
+  text-align: center; /* Update to center */
+  color: #fffafa;
+  width: 100px;
 }
 
-/* Trigger button or link style */
-.dropdown-button {
-  background-color: #3498db;
+/* Styles for the textarea input */
+.newComment textarea {
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #2b2d2aeb;
+  color: #e8dddd;
+  resize: vertical;
+  min-height: 120px;
+  width: 400px;
+  line-height: 32px;
+  letter-spacing: .5px;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 0 5px #0056b3;
+  font-size: 20px; /* Add a common font size */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Optional: Style placeholder text */
+.newComment textarea::placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+/* Styles for the dropdown container */
+.newComment .dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Styles for the dropdown label */
+.newComment .dropdownLabel {
+  font-size: 16px;
+  margin-right: 10px;
+  text-align: right;
+  color: #fffcfc;
+  width: 100px;
+  font-size: 20px;
+}
+
+/* Styles for the dropdown select element */
+.newComment .dropdownSelect {
+  padding: 5px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #020202;
+  color: #ffffff;
+  min-width: 70px;
+  outline: none;
+  box-shadow: 0 0 5px #0c0c0caf;
+  font-size: 16px; /* Add a common font size */
+}
+
+/* Styles for the buttons */
+.newComment .submit,
+.newComment .cancel {
+  display: inline-block; /* Display buttons inline */
+  background-color: #242526;
   color: #fff;
+  padding: 10px 10px;
   border: none;
-  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100px;
 }
 
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.newComment .submit:hover,
+.newComment .cancel:hover {
+  background-color: #0056b3;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+.btnRow{
+  display: flex;
+  flex-direction: row;
+  gap: 15px
 }
-
-/* Change link color on hover */
-.dropdown-content a:hover {
-  background-color: #3498db;
-  color: #fff;
-}
-
-/* Show the dropdown content on hover or focus */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Additional style for when the dropdown is open */
-.dropdown:focus-within .dropdown-content {
-  display: block;
+form{
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
 }
