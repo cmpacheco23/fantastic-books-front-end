@@ -11,7 +11,7 @@
 
 .logo {
   margin-top: 150px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -32,6 +32,7 @@ input {
   margin-bottom: 30px;
   line-height: 30px;
   text-align: center;
+  background-color: rgb(200, 199, 197);
 }
 
 input[type="file"] {
@@ -118,6 +119,7 @@ h1 {
   text-decoration: none;
   transform: translate3d(0, 0, 0);
   transition: all 0.3s;
+  width: 120px;
 }
 
 .b68:hover {
@@ -135,16 +137,18 @@ h1 {
 }
 
 /* Additional styles for right overlay */
+/* Additional styles for right overlay */
 .rightOverlay {
   position: absolute;
-  top: 30px; /* Adjust the top value as needed */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Move it up by 50% of its own height to center it */
   right: 0;
   width: 50%;
-  height: 137%; /* Adjust the height as needed */
+  height: 100%; /* Covers the full height of the viewport */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: rgb(23, 21, 22);
   z-index: 1;
 }
@@ -152,7 +156,8 @@ h1 {
 /* Additional styles for left overlay */
 .leftOverlay {
   position: absolute;
-  top: 70px; /* Adjusted for the nav bar height (70px) */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Move it up by 50% of its own height to center it */
   left: 0;
   width: 50%;
   height: calc(100% - 70px); /* Adjusted for the nav bar height (70px) */
@@ -165,10 +170,6 @@ h1 {
   justify-content: center;
 }
 
-/* Additional styles for left image */
-.leftImage {
-  max-width: 200%; /* Ensure the image doesn't exceed the width of the parent container */
-  max-height: 200%; /* Increase the max-height to make the image taller */
-  object-fit: cover; /* Scale the image while maintaining its aspect ratio */
-  z-index: 0;
+h4{
+  font-size: 18px;
 }

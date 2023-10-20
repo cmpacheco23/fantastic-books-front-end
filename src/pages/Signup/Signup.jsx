@@ -87,7 +87,7 @@ const Signup = ({ handleAuthEvt }) => {
       </Link>
       <h1>Sign Up For Full Access</h1>
       <h4>Already have an account?</h4>
-      <Link to='/auth/login'>Login</Link>
+      <Link to='/auth/login' style={{ color: 'white' }} className={styles.b68}>Login</Link>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.label}>
@@ -135,7 +135,7 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <div>
-          <Link to="/">Cancel</Link>
+          <Link to="/" style={{ color: 'white' }} className={styles.b68}>Cancel</Link>
           <button
             className={`${styles.button} ${styles.b68}`}
             disabled={ isFormInvalid() || isSubmitted }
