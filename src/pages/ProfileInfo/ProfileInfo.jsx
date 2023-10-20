@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import catOnShelfImage from '/assets/blackcat.png'
 import styles from './ProfileInfo.module.css'
+import Flickity from 'flickity';
+import 'flickity/css/flickity.css'; // Import Flickity CSS
+
 
 const ProfileInfo = () => {
   const [profile, setProfile] = useState(null)
@@ -12,6 +15,8 @@ const ProfileInfo = () => {
   const { profileId } = useParams()
   const [currentBooks, setCurrentBooks] = useState({})
   const scrollIntervalRefs = useRef({})
+  const flickityRef = useRef(null);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -32,11 +37,19 @@ const ProfileInfo = () => {
     if (profile && profile.shelves) {
       const initialBooks = {}
       profile.shelves.forEach(shelf => {
-        initialBooks[shelf._id] = shelf.books?.slice(0, 5)
+        initialBooks[shelf._id] = shelf.books
       })
       setCurrentBooks(initialBooks)
     }
   }, [profile])
+
+  useEffect(() => {
+    return () => {
+      if (flickityRef.current) {
+        flickityRef.current.destroy();
+      }
+    };
+  }, []);
 
   const handleShelf = async (action, shelfId) => {
     try {
@@ -97,8 +110,9 @@ const stopScrollOnHover = (shelfId) => {
               <div className={styles.shelfNavigation}>
                 <button
                   className={styles.arrowButton}
-                  onMouseEnter={() => setTimeout(() => handleScrollOnHover(shelf._id, -1), 200)}  // 0.2s delay
+                  onMouseEnter={() => setTimeout(() => handleScrollOnHover(shelf._id, -1), 150)}
                   onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, -1)}
                 >
                   ⬅️
                 </button>
@@ -108,7 +122,10 @@ const stopScrollOnHover = (shelfId) => {
                       Name: {shelf.name.length > 20 ? `${shelf.name.substring(0, 28)}...` : shelf.name}
                     </span>
                   </span>
-                  <div className={styles.bookContainer} ref={ref => bookContainerRefs.current[shelf._id] = ref}>
+                  <div
+                    className={styles.bookContainer}
+                    ref={ref => bookContainerRefs.current[shelf._id] = ref}
+                  >
                     {currentBooks[shelf._id]?.map(book => (
                       <img key={book._id} src={book.cover} alt={book.title} className={styles.bookCover} />
                     ))}
@@ -119,6 +136,7 @@ const stopScrollOnHover = (shelfId) => {
                   className={styles.arrowButton}
                   onMouseEnter={() => setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)}  // 0.2s delay
                   onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, 1)}
                 >
                   ➡️
                 </button>
