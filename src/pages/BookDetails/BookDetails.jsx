@@ -199,7 +199,7 @@ const BookDetails = (props) => {
       <section className={styles.commentContainerSection}>
         {book ? (
           <div>
-      <h1 className={styles.commentH1}>Comments About {book.title}</h1>
+      <h1 className={styles.commentH1}>Comments About <br /> {book.title}</h1>
             <Comments 
               key={comments._id} 
               comments={comments} 
