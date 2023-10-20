@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '/assets/logo.png'
-
+import library from '/assets/library.jpg'
 
 // services
 import * as authService from '../../services/authService'
@@ -48,38 +48,42 @@ const LoginPage = ({ handleAuthEvt }) => {
   return (
     <main className={styles.container}>
       <div className={styles.spacer}></div>
+      <div className={styles.rightOverlay}>
       <Link to='/'>
       <img src={Logo} className={styles.logo} /></Link>
-      <h1>Log In To Unlock Full Site Access</h1>
+      <h1>Log In To Unlock <br /> Full Site Access</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Email
+      
           <input
             type="text"
             value={email}
             name="email"
+            placeholder='Enter Your Email'
             onChange={handleChange}
           />
-        </label>
-        <label className={styles.label}>
-          Password
+
           <input
             type="password"
             value={password}
             name="password"
+            placeholder='Enter Your Password'
             onChange={handleChange}
           />
-        </label>
-        <div>
+
+        <div className={styles.buttonContainer}>
           <button className={styles.b68}  disabled={isFormInvalid()}>
             Log In
           </button>
         </div>
         <div>
-          <Link to="/">Cancel</Link>
+          <Link to="/auth/signup" style={{ color: 'white' }} className={styles.b68}>Sign Up</Link>
         </div>
       </form>
+      </div>
+      <div className={styles.leftOverlay}>
+      <img src={library} alt="Picture of a library" className={styles.leftImage}  />
+      </div>
     </main>
   )
 }

@@ -81,47 +81,52 @@ const Signup = ({ handleAuthEvt }) => {
   return (
     <main className={styles.container}>
       <div className={styles.spacer}></div>
+      <div className={styles.leftOverlay}>
       <Link>
         <img src={Logo} className={styles.logo} alt="logo" />
       </Link>
       <h1>Sign Up For Full Access</h1>
       <h4>Already have an account?</h4>
-      <Link to='/auth/login'>Login</Link>
+      <Link to='/auth/login' style={{ color: 'white' }} className={styles.b68}>Login</Link>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.label}>
-          Name
-          <input type="text" value={name} name="name" onChange={handleChange} />
+  
+          <input type="text" value={name} name="name" 
+            placeholder='Enter Your Name'onChange={handleChange} />
         </label>
         <label className={styles.label}>
-          Email
+      
           <input
             type="text"
             value={email}
-            name="email"
             onChange={handleChange}
+            name="email"
+            placeholder='Enter Your Email'
           />
         </label>
         <label className={styles.label}>
-          Password
+
           <input
             type="password"
             value={password}
             name="password"
+            placeholder='Enter A Password'
             onChange={handleChange}
           />
         </label>
         <label className={styles.label}>
-          Confirm Password
+  
           <input
             type="password"
             value={passwordConf}
             name="passwordConf"
+            placeholder='Confirm Your Password'
             onChange={handleChange}
           />
         </label>
         <label className={styles.label}>
-          Upload Photo
+    
           <input 
             type="file" 
             name="photo" 
@@ -130,7 +135,7 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <div>
-          <Link to="/">Cancel</Link>
+          <Link to="/" style={{ color: 'white' }} className={styles.b68}>Cancel</Link>
           <button
             className={`${styles.button} ${styles.b68}`}
             disabled={ isFormInvalid() || isSubmitted }
@@ -139,6 +144,9 @@ const Signup = ({ handleAuthEvt }) => {
           </button>
         </div>
       </form>
+      </div>
+      <div className={styles.rightOverlay}>
+        </div>
     </main>
   )
 }

@@ -4,6 +4,11 @@
   box-sizing: inherit; 
 }
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
