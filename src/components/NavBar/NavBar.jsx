@@ -1,6 +1,6 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
-import Logo from '../../assets/logo.png'
+import Logo from '/assets/logo.png'
 
 import styles from "./NavBar.module.css" 
 
@@ -10,7 +10,7 @@ const NavBar = ({ user, handleLogout }) => {
     <nav className={styles.nav}>
       
       <ul className={styles.right}>
-        <li><NavLink to="/"> <img src={'src/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
+        <li><NavLink to="/"> <img src={'/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
         
         {user ? (
         <li>

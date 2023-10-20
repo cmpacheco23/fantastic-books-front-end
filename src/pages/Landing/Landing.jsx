@@ -2,8 +2,8 @@
 
 // css
 import styles from './Landing.module.css'
-import LinkedInLogo from '../../assets/LIlogo.png';
-import GithubLogo from '../../assets/githubWhiteLogo.png';
+import LinkedInLogo from '/assets/LIlogo.png';
+import GithubLogo from '/assets/githubWhiteLogo.png';
 const Landing = ({ user }) => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
@@ -18,7 +18,7 @@ const Landing = ({ user }) => {
 
       <section className={styles.landing}>
         <div className={styles.titleContainer}>
-        <img className={styles.landingTitle} src='src/assets/fantastic-books-logo.png' />
+        <img className={styles.landingTitle} src='public/assets/fantastic-books-logo.png' />
         </div>
 
         {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}

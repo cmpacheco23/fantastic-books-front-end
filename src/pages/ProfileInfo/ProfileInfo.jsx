@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
-import catOnShelfImage from '../../assets/blackcat.png'
+import catOnShelfImage from '/assets/blackcat.png'
 import styles from './ProfileInfo.module.css'
 
 const ProfileInfo = () => {

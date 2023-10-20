@@ -1,10 +1,10 @@
 // css
 import styles from './AboutUs.module.css'
-import LinkedInLogo from '../../assets/LIlogo.png';
-import GithubLogo from '../../assets/githubWhiteLogo.png';
-import carla from '../../assets/carla.png'
-import steven from '../../assets/steven.png'
-import enes from '../../assets/enes.png'
+import LinkedInLogo from '/assets/LIlogo.png';
+import GithubLogo from '/assets/githubWhiteLogo.png';
+import carla from '/assets/carla.png'
+import steven from '/assets/steven.png'
+import enes from '/assets/enes.png'
 const AboutUs = () => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
