@@ -40,16 +40,6 @@ const  EditComment = (props) => {
       {props.formOpen ? (
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
-        <label htmlFor="text-input">Comment</label>
-        <textarea
-          required
-          name="text"
-          type="text"
-          id="text-input"
-          value={formData.text}
-
-          onChange={handleChange}
-        />
         <div className={styles.dropdown}> 
           <label htmlFor="rating" className={styles.dropdownLabel}>Rating:</label>
           <select
@@ -67,13 +57,24 @@ const  EditComment = (props) => {
           <option value="5">5</option>
         </select>
         </div>
-        <label htmlFor="rating">Rating:</label>
+
+        <textarea
+          required
+          name="text"
+          type="text"
+          id="text-input"
+          value={formData.text}
+
+          onChange={handleChange}
+        />
+        <div className={styles.btnRow}>
 
         <button className={styles.submit} type="submit" >Save</button>
         <button className={styles.cancel} type="button" onClick={handleCancel}>
           Cancel
         </button>
         
+        </div>
       </form>
       ) : (
         <div> </div>
