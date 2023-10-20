@@ -7,7 +7,7 @@ import * as authService from '../../services/authService'
 
 // css
 import styles from './Signup.module.css'
-import Logo from '../../assets/logo.png'
+import Logo from '/assets/logo.png'
 
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
