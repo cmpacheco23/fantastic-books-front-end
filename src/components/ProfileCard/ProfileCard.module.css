@@ -8,7 +8,8 @@
 }
 
 .profileCard {
-  width: 250px;
+  min-width: 400px;
+  max-width: 450px;
   border: 2px solid #3b6704;
   border-radius: 8px;
   background-color: #0a0a0a;
@@ -59,6 +60,7 @@ h4 {
   text-decoration: none; /* Remove underline */
   cursor: pointer;
   color: white;
+  line-height: 30px;
 }
 
 h4:hover {
@@ -69,4 +71,66 @@ h4:hover {
 
 a:hover {
   text-decoration: underline;
+}
+
+
+.b68 {
+  appearance: none;
+  backface-visibility: hidden;
+  background: #740001;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 2.5px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  /* overflow: hidden; */
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.b68:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+  background: #003200;
+  background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
+}
+
+.b68:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.b68:hover {
+  box-shadow: #26f17b33 0 6px 7px;
+}
+
+
+.b68 :hover{
+    box-shadow: 0 1px 4px #0000004d;
+    color: #000;
+}
+
+.joinedDate{
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }

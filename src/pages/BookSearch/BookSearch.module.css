@@ -66,12 +66,13 @@ html, body {
 
 .searchH3 {
   font-weight: normal;
+  margin-top: 0;
 }
 
 .searchH1,
 .searchH3 {
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-shadow: 0 1px #0091c2;
 }
 

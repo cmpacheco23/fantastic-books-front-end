@@ -149,7 +149,7 @@ textarea {
   padding: 10px; /* Add padding inside the textarea */
   border: 2px solid #333; /* Add a border */
   border-radius: 10px; /* Rounded corners */
-  background-color: #153e04eb; /* Background color */
+  background-color: #a6ada3eb; /* Background color */
   color: #e8dddd; /* Text color */
   font-size: 16px; /* Font size */
   resize: vertical; /* Allow vertical resizing */
@@ -168,7 +168,7 @@ textarea:focus {
 
 /* Optional: Style placeholder text */
 textarea::placeholder {
-  color: #777; /* Placeholder text color */
+  color: #0d0c0c; /* Placeholder text color */
   font-style: italic; /* Italicize the placeholder text */
 }
 

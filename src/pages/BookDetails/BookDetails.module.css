@@ -23,6 +23,11 @@
   
 }
 
+.bookPage{
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
 .cover {
   max-height: 30vh;
   min-width: 240px;
@@ -37,8 +42,6 @@
 }
 
 .sideBySide > .bookInfo {
-  /* background-color: red; */
-  margin: 10px;
   display: flex;
   flex-direction: column;
   padding: 50px;
@@ -95,11 +98,6 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   margin-top: 80px;
 }
 
-h3{
-  /* controls the author name */
-  margin: 0px;
-  font-size: 30px;
-}
 
 .b68 {
   appearance: none;
@@ -117,7 +115,6 @@ h3{
   letter-spacing: 2.5px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.5;
   outline: none;
   overflow: hidden;
   padding: 13px 20px;
@@ -162,8 +159,11 @@ button{
   margin-top: 20px;
 }
 
-.bookDescriptionDetails{
-  line-height: 20px;
-  margin-bottom: 20px;
-  font-size: 18px;
+.subTitle{
+  margin:  0;
+}
+
+.bookAuthor{
+  margin: 0;
+  font-size: 25px;
 }
