@@ -4,6 +4,10 @@
   top: 0;
 }
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
 .logo {
   margin-top: 150px;
   margin-bottom: 100px;
@@ -56,6 +60,10 @@ input::placeholder {
   color: #dd1b16;
   font-weight: bold;
   margin-bottom: 30px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
 }
 
 /* Apply styles to .form */
@@ -118,19 +126,6 @@ h1{
 .b68:active {
   transform: translateY(2px);
 }
-.rightOverlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%; /* Covers the full height of the viewport */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(150, 10, 35, 0.447); /* You can use a different background color if desired */
-  z-index: 1; /* Sent to the very back */
-}
 
 /* Style for button container within rightOverlay */
 .buttonContainer {
@@ -146,7 +141,6 @@ h1{
   left: 0;
   width: 50%;
   height: calc(100% - 70px); /* Adjusted for the nav bar height (70px) */
-  background-image: url("https://imgur.com/1Hz9c8D");
   background-size: cover;
   background-position: center; /* Center the background image */
   z-index: 0; /* Sent behind the right overlay */
@@ -161,14 +155,13 @@ h1{
   top: 30px; /* Adjust the top value as needed */
   right: 0;
   width: 50%;
-  height: 139.6%;
+  height: 137%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-color: rgb(23, 21, 22);
   z-index: 1;
-  margin-top: 180px;
 }
 
 
