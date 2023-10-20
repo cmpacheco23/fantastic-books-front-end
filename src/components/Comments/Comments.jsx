@@ -28,7 +28,15 @@ const Comments = (props) => {
         </>
       ): (
         <>
-        <h4 className={styles.commentH4Title}>No Comments Have Been Added Yet</h4>
+        
+        <h4 className={styles.commentH4Title}> {props.user
+          ? "No Comments Have Been Added Yet"
+          : (
+          <> No Comments Yet, <br />
+          Login To Add A Comment
+          </>
+          )}
+        </h4>
         <NewComment handleAddComment={props.handleAddComment} />
         </>
       )}
