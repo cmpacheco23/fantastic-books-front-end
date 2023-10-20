@@ -5,6 +5,21 @@
 
 <img src="src/assets/logo.png">
 
+##### Table of Contents
+<details>
+<summary> Click to Expand</summary>
+
+- [What is this?](#what-is-this?)
+- [Getting Started](#getting-started)
+- [The Devs](#the-devs)
+- [Highlights](#highlights)
+- [Attributions](#attributions)
+- [Technologies Used](#technologies-used)
+- [Next Steps](#next-steps)
+
+</details>
+<br>
+
 ## What is this?
 
 Fantastic Books is a MERN stack CRUD app that makes it convenient to keep track of your all the books you will need for all you bibliophilic delights! Dive 20,000 leagues into a personalized reading journey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your one stop shop for all you will need on you adventure!
