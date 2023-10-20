@@ -59,10 +59,56 @@ If you are curious about what our back end looks like - [Fantastic Books: The Ba
 <br />
 
 ### Database Manager and Documentor
-##### Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
+##### Steve Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
 ## Highlights
 
+Carla: 
+
+Enes:
+
+Steve: 
+```
+.landingTitle {
+  background-color: #242424; 
+  border-radius: 10px;
+  width: 80%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fade 2s ease-in;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.landingSubTitle {
+  background: #c90205;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 32px;
+  margin-bottom: 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slowFade 4s ease-in;
+}
+
+@keyframes slowFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+```
 
 ## Attributions
 [Google Books api](https://developers.google.com/books)  
@@ -99,5 +145,3 @@ Additionally, within blogs we want the user to be able to link to shelves or boo
 In shelves we would like to add a privacy toggle so that only the user a shelf belongs to could look at it's content if they want it to be that way.
 
 We would also like to implement a color system into our app so that users can choose the color of the backdrop and other various elements to best match their reading mood. This could also include light and dark mode settings.
-
-
