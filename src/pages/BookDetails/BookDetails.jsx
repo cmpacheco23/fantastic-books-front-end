@@ -196,10 +196,9 @@ const BookDetails = (props) => {
         <p>Loading...</p>
       )}
       <section className={styles.commentContainerSection}>
-        <h1 className={styles.commentH1}>Comments About "{book.title}" </h1>
         {book ? (
           <div>
-
+      <h1 className={styles.commentH1}>Comments About {book.title}</h1>
             <Comments 
               key={comments._id} 
               comments={comments} 
@@ -211,6 +210,7 @@ const BookDetails = (props) => {
               volumeId={volumeId} 
               commentSavedUpdateRender={commentSavedUpdateRender}
               sortCommentsByCreatedAt={sortCommentsByCreatedAt}
+              book={book}
             />
           
           
