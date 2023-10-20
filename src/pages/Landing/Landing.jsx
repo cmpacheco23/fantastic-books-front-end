@@ -4,6 +4,9 @@
 import styles from './Landing.module.css'
 import LinkedInLogo from '/assets/LIlogo.png';
 import GithubLogo from '/assets/githubWhiteLogo.png';
+import carla from '/assets/carla.png'
+import steven from '/assets/steven.png'
+import enes from '/assets/enes.png'
 const Landing = ({ user }) => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
@@ -56,8 +59,8 @@ const Landing = ({ user }) => {
         <h3 className={styles.devTitle}>The Devs:</h3>
           <div className={styles.devCards}>
             <article className={styles.devCard}>
-              {/* <h2>Face</h2> */}
-              <h2>Carla Pacheco</h2>
+            <img src={carla} alt="Carla's Profile Photo" className={styles.devPhoto} />
+              <h2 className={styles.devName}>Carla Pacheco</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/thecarlapacheco/')}
                 {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/cmpacheco23')}
@@ -65,8 +68,8 @@ const Landing = ({ user }) => {
             </article>
 
             <article className={styles.devCard}>
-              {/* <h2>Face</h2> */}
-              <h2>Enes Velovic</h2>
+            <img src={enes} alt="Enes' Profile Photo" className={styles.devPhoto} />
+            <h2 className={styles.devName}>Enes Velovic</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
                 {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/NSnyc')}
@@ -74,8 +77,8 @@ const Landing = ({ user }) => {
             </article>
 
             <article className={styles.devCard}>
-              {/* <h2>Face</h2> */}
-              <h2>Steve Morrison</h2>
+            <img src={steven} alt="Steven's Profile Photo" className={styles.devPhoto} />
+              <h2 className={styles.devName}>Steve Morrison</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/steven-ansman-morrison/')}
                 {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/venmorr')}
