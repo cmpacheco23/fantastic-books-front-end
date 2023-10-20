@@ -46,6 +46,11 @@
   border-radius: 50%;
   padding: 5px;
   margin-top: 40px;
+  transition: transform 0.3s
+}
+
+.logo:hover {
+  transform: rotate(560deg); 
 }
 
 ul {
