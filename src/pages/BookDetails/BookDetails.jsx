@@ -177,10 +177,18 @@ const BookDetails = (props) => {
               </>
             )
           }
-          <h3 className={styles.bookDescriptionDetails}>
-          {book.subtitle ? book.subtitle : ''}</h3>
-          <h3 className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Author: </span> {book.authors}</h3>
-          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Pages:</span> {book.pages}</p>
+          {book.subtitle && (
+    <h3 className={styles.subTitle}>{book.subtitle}</h3>
+  )}
+  {book.authors && (
+    <h3 className={styles.bookAuthor}>
+      <span style={{ fontWeight: 'bold' }}>Author: </span>
+      {book.authors}
+    </h3>
+  )}
+
+    
+          <p className={styles.bookPage}><span style={{ fontWeight: 'bold' }}>Pages:</span> {book.pages}</p>
           {book.published && ( 
           <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Published:</span> {book.published}</p>
         )}
