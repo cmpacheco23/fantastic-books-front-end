@@ -1,15 +1,19 @@
 /* Styles for the card container */
 .commentCard {
   display: flex;
-  flex-direction: row;
-  background-color: #740001;
-  color: #000;
+  flex-direction: column;
+  gap: 10px;
+  color: #e8dddd;
   border: 2px solid #333;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  width: 50%;
+  background-color: #242424;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
+  width: 400px;
+  max-height: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Styles for the commentText section */
@@ -17,57 +21,43 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;
-}
-
-.commentCard .commentText p {
-  margin: 0;
-
-  margin-right: 5px;
   text-align: center;
-}
-
-.commentCard .commentText p:first-child {
   font-size: 20px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
-.commentCard .commentText p:nth-child(2) {
-  font-weight: bold; /* Make the name bold */
-}
-
-.commentCard .commentText p:nth-child(3) {
-  font-weight: bold; /* Make the rating bold */
-}
-
+.commentCard .commentText p:nth-child(2),
+.commentCard .commentText p:nth-child(3),
 .commentCard .commentText p:last-child {
-  font-weight: bold; /* Make the date bold */
+  font-weight: bold;
 }
 
 /* Styles for the commentButtons section */
 .commentCard .commentButtons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
+  align-items: center; /* Center buttons horizontally */
 }
 
 .commentCard .commentButtons button {
-  background-color: #032346;
+  background-color:  black;
   color: #fff;
   padding: 5px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
-  width: 50px;
-  height: 34px;
+  width: 45px;
+  height: 40px;
   margin-left: auto;
 }
 
 .commentCard .commentButtons button:hover {
-  background-color: #0056b3;
+  background-color: #da082b;
 }
 
 /* Styles for the commenterPhoto section */
@@ -78,7 +68,7 @@
   object-fit: cover;
   align-self: center; /* Center the image */
   margin-bottom: 10px;
-  transition: transform 0.3s
+  transition: transform 0.3s;
 }
 
 /* Styles for the namePhoto section */
@@ -93,6 +83,12 @@
   padding: 0;
   margin: 0;
 }
+
 .commentCard .commenterPhoto:hover {
   transform: rotate(360deg); /* Rotate 360 degrees when hovered */
+}
+
+.commentText{
+  line-height: 20px;
+  margin-bottom: 15px;
 }

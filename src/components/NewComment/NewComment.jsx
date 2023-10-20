@@ -24,7 +24,8 @@ const NewComment = (props) => {
   return (
     formOpen ? (
     <form className={styles.newComment} onSubmit={handleSubmit}>
-      <h3>Add New Comment</h3>
+      <h3>Add a new comment</h3>
+      <div className={styles.inputRow}>
       <label htmlFor="rating">Rating:</label>
       <select
         name="rating"
@@ -38,6 +39,7 @@ const NewComment = (props) => {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
+      </div>
       <textarea
         name="text"
         type="text"

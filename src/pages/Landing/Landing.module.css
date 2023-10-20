@@ -6,6 +6,11 @@
   height: 90px;
 } */
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -23,7 +28,7 @@
 
 .titleContainer {
   background: #26120d;
-background: radial-gradient(circle, #242424d9 15%, #24242400 100%); 
+  background: radial-gradient(circle, #242424d9 15%, #24242400 100%); 
   border-radius: 1000px;
   display: flex;
   justify-content: center;
@@ -48,10 +53,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 }
 
 .landingSubTitle {
-  background: #c90205;
-  font-family:'Times New Roman', Times, serif;
-  font-size: 32px;
-  margin-bottom: 200px;
+  background: #c99702;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 10px;
+  letter-spacing: 4px;
+  font-size: 25px;
+  margin-bottom: 100px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: slowFade 4s ease-in;
@@ -72,13 +79,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 .description {
   padding: 20px;
   background-color: #242424;
-  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
+  box-shadow: -3px -3px 10px #600204, 6px 6px 7px #3e0203;
   border-radius: 10px;
   margin: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   padding: 40px;
-  max-width: 800px;
-  width: 85vw;
+  max-width: 1000px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   line-height: 32px;
@@ -91,13 +97,13 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #242424;
+  background-color: #3f0202;
   box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
   border-radius: 10px;
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
-  max-width: 800px;
+  max-width: 1000px;
   width: 85vw;
 }
 
@@ -115,6 +121,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   max-width: 800px;
   width: 85vw;  
   margin: 10px;
+  font-size: 20px;
 }
 
 
@@ -122,6 +129,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   /* background-color: purple; */
   width: 20vw;
   margin: 5px;
+  font-size: 26px;
 }
 
 .directions > div > p {
@@ -136,12 +144,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   justify-content: space-around;
   align-items: center;
   background-color: #242424;
-  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
+  box-shadow: -3px -3px 10px #654619d6, 6px 6px 7px rgb(27, 25, 25);
   border-radius: 10px;
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
-  max-width: 800px;
+  max-width: 1000px;
   width: 85vw;
 }
 
@@ -149,8 +157,9 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: center;
+  gap: 35px;
+  width: 100%;
   margin: 5px;
   padding: 10px;
 }
@@ -159,10 +168,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   /* background-color: pink; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 30%;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
+  box-shadow: -3px -3px 10px #79797921, 6px 6px 7px rgba(0, 0, 0, 0.569);
 }
 
 .linkContainer {
@@ -181,7 +192,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 .devTitle{
   font-size: 30px;
   margin-top: 30px;
-  margin-bottom: 20px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  
 }
 
 h3{
@@ -190,3 +206,45 @@ h3{
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.featureTitle{
+  font-size: 30px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+/* font-family: 'Roboto', sans-serif; */
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.linkLogo {
+  width: 55px;
+  height: 50px;
+  margin-right: 5px;
+  margin-bottom: 25px;
+}
+.devPhoto{
+  width: 200px;
+  height: 200px;
+  background-size: cover; 
+  background-position: center center; 
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.devPhoto:hover {
+transform: rotate(360deg); 
+}
+.devName{
+  font-size: 25px;
+  text-align: center;
+  margin: 20px;
+}
+

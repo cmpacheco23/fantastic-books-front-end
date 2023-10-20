@@ -18,24 +18,15 @@ const Comments = (props) => {
   };
 
   const sortedComments = props.comments.slice().sort((a, b) => {
-    // You can customize the sorting logic here
     return new Date(b.createdAt) - new Date(a.createdAt);
   })
-
-  
-  console.log('PROPS COMMENTS 26', props.comments)
-    //array method to find the comment in the comments array where the id matches comment._id
-
-
-
-
 
   return (
     <div className={styles.commentTester}>
       {props.comments.length > 0 ? (
         <>
         <NewComment handleAddComment={props.handleAddComment} />
-        <h4 className={styles.commentH4Title} >Read the comments below</h4>
+        <h4 className={styles.commentH4Title} >Read existing comments below</h4>
         </>
       ): (
         <>
@@ -43,7 +34,7 @@ const Comments = (props) => {
         <NewComment handleAddComment={props.handleAddComment} />
         </>
       )}
-
+      <div className={styles.commentCardContainer}>
       {sortedComments.map((comment) => (
         <CommentCard 
           key={`edit-${comment._id}`} 
@@ -55,8 +46,6 @@ const Comments = (props) => {
             setIsEditingComment(comment._id)
             setFormOpen(true)
             setSelectedComment(props.comments.find(element => element._id === comment._id))
-            //array method to find the comment in the comments array where the id matches comment._id
-            //pontentially find?
           }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
@@ -64,10 +53,10 @@ const Comments = (props) => {
             isEditingComment={selectedComment} 
             handleCancelEdit={handleCancelEdit}
           commentSavedUpdateRender={props.commentSavedUpdateRender}   
-
         />
         
       ))}
+      </div>
         {isEditingComment && (
             <EditComment
             volumeId={props.volumeId}

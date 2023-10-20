@@ -68,8 +68,8 @@ const NavBar = ({ user, handleLogout }) => {
           </ul>
         :
           <ul>
-            <li><NavLink style={{ color: 'black'}} to="/auth/login">Log In</NavLink></li>
-            <li><NavLink style={{ color: 'black'}} to="/auth/signup">Sign Up</NavLink></li>  
+            <li><NavLink style={{ color: 'white'}} to="/auth/login" className={styles.navLink}>LogIn</NavLink ></li>
+            <li><NavLink style={{ color: 'white'}} to="/auth/signup" className={styles.navLink}>Sign Up</NavLink></li>  
           </ul>
         }
       </div>

@@ -18,6 +18,7 @@ const CommentCard = (props) => {
 
   return (
     <article className={styles.commentCard}>
+      <div className={styles.commentText}>
       <div className={styles.commenterSection}>
         {props.comment.commenter.photo && (
           <div className={styles.namePhoto}>
@@ -25,16 +26,15 @@ const CommentCard = (props) => {
               src={props.comment.commenter.photo}
               alt={`Photo of ${props.comment.commenter.name}`}
               className={styles.commenterPhoto}
-            />
+              />
             <p className={styles.name}>{props.comment.commenter.name}</p>
-          </div>
+      </div>
         )}
       </div>
-      <div className={styles.commentText}>
-        <p>{props.comment.text}</p>
+        <p className={styles.commentText}>{props.comment.text}</p>
+        <p>{formatDate(props.comment.createdAt)}</p>
         <p>{ratingEmojis}</p>
-        <p>Date: {formatDate(props.comment.createdAt)}</p>
-      </div> {/* Close the 'commentText' div here */}
+      </div> 
       <div className={styles.commentButtons}>
         <button
           onClick={() => props.handleToggleEditForm()}

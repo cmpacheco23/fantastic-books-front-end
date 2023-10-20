@@ -4,6 +4,7 @@ import styles from "./BookDetails.module.css"
 import * as bookService from '../../services/bookService'
 import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
+import uglyCat from '/assets/uglycat.png'
 
 //components
 import Comments from "../../components/Comments/Comments"
@@ -137,7 +138,7 @@ const BookDetails = (props) => {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.spacer}></div>
       {book ? (
       <div className={styles.info}>
@@ -176,13 +177,22 @@ const BookDetails = (props) => {
               </>
             )
           }
-          <h3>{book.subtitle}</h3>
-          <h3>Author: {book.authors}</h3>
-          <p>Pages: {book.pages}</p>
+          {book.subtitle && (
+    <h3 className={styles.subTitle}>{book.subtitle}</h3>
+  )}
+  {book.authors && (
+    <h3 className={styles.bookAuthor}>
+      <span style={{ fontWeight: 'bold' }}>Author: </span>
+      {book.authors}
+    </h3>
+  )}
+
+    
+          <p className={styles.bookPage}><span style={{ fontWeight: 'bold' }}>Pages:</span> {book.pages}</p>
           {book.published && ( 
-          <p>Published: {book.published}</p>
+          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Published:</span> {book.published}</p>
         )}
-          <p>Categories: {book.categories}</p>
+          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Categories: </span>{book.categories}</p>
 
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
 
@@ -193,12 +203,12 @@ const BookDetails = (props) => {
       </div>
       </div>
       ) : (
-        <p>Loading...</p>
+        <p>Loading...<img src={uglyCat}/></p>
       )}
       <section className={styles.commentContainerSection}>
         {book ? (
           <div>
-      <h1 className={styles.commentH1}>Comments About {book.title}</h1>
+      <h1 className={styles.commentH1}>Comments About <br /> {book.title}</h1>
             <Comments 
               key={comments._id} 
               comments={comments} 
@@ -215,7 +225,7 @@ const BookDetails = (props) => {
           
           
           </div>) : (
-          <p>Loading...</p>
+          <p>Loading...<img src={uglyCat}/></p>
         )}
       </section>
     </main>
