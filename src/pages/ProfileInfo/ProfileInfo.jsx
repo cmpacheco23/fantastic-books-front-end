@@ -179,6 +179,68 @@ const ProfileInfo = () => {
                     className={styles.tooltip}
                     data-title={shelf.name}
                     tooltip={shelf.name}
+          <h1 className={styles.name}>{profile.name}</h1>
+          <div className={styles.container}>
+          <div className={styles.toggleContainer}>
+            <input
+              type="checkbox"
+              className={styles.funCheckbox}
+              id="funCheckbox"
+              checked={darkMode}
+              onChange={handleDarkModeChange}
+            />
+            <label htmlFor="funCheckbox" className={styles.funCheckboxLabel}>
+              <i className="fas fa-moon"></i>
+              <i className="fas fa-sun"></i>
+              <span className={styles.funCheckboxThumb}></span>
+            </label>
+          </div>
+          </div>
+          {showButton && (
+            <button
+              className={styles.b68}
+              onClick={() =>
+                setModalData({
+                  isOpen: true,
+                  isEditing: false,
+                  name: "",
+                  id: null,
+                  placeholder: "Shelf Name",
+                })
+              }
+            >
+              New Shelf
+            </button>
+          )}
+          {profile.shelves.map((shelf) => (
+            <div className={styles.shelf} key={shelf._id}>
+              <div className={styles.shelfNavigation}>
+                <button
+                  className={styles.arrowButton}
+                  onMouseEnter={() =>
+                    setTimeout(() => handleScrollOnHover(shelf._id, -1), 150)
+                  }
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, -1)}
+                >
+                  ⬅️
+                </button>
+                <div className={styles.shelfContent}>
+                  <span className={styles.shelfName}>
+                    <span
+                      className={styles.tooltip}
+                      data-title={shelf.name}
+                      tooltip={shelf.name}
+                    >
+                      Name:{" "}
+                      {shelf.name.length > 20
+                        ? `${shelf.name.substring(0, 28)}...`
+                        : shelf.name}
+                    </span>
+                  </span>
+                  <div
+                    className={styles.bookContainer}
+                    ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
                   >
                     Name:{" "}
                     {shelf.name.length > 20
