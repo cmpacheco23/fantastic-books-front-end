@@ -17,7 +17,8 @@ const Landing = ({ user }) => {
       <div className={styles.spacer}></div>
 
       <section className={styles.landing}>
-        <h1 className={styles.landingTitle}>Fantastic Books</h1>
+        <img className={styles.landingTitle} src='src/assets/fantastic books logo.png' />
+        {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}
         <h2 className={styles.landingSubTitle}>and where to find them.</h2>
 
         <article className={styles.description}>
@@ -49,10 +50,10 @@ const Landing = ({ user }) => {
           
           
       <section className={styles.devs}>
-        <h3 className={styles.devTitle}>About the Devs:</h3>
+        <h3 className={styles.devTitle}>The Devs:</h3>
           <div className={styles.devCards}>
             <article className={styles.devCard}>
-              <h2>Face</h2>
+              {/* <h2>Face</h2> */}
               <h2>Carla Pacheco</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/thecarlapacheco/')}
@@ -61,7 +62,7 @@ const Landing = ({ user }) => {
             </article>
 
             <article className={styles.devCard}>
-              <h2>Face</h2>
+              {/* <h2>Face</h2> */}
               <h2>Enes Velovic</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
@@ -70,7 +71,7 @@ const Landing = ({ user }) => {
             </article>
 
             <article className={styles.devCard}>
-              <h2>Face</h2>
+              {/* <h2>Face</h2> */}
               <h2>Steve Morrison</h2>
               <div className={styles.linkContainer}>
                 {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/steven-ansman-morrison/')}
