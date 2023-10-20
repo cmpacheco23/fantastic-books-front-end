@@ -79,6 +79,12 @@ background: radial-gradient(circle, #2424240d 15%, #24242400 100%);
   padding: 40px;
   max-width: 800px;
   width: 85vw;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: .5px;
+  text-align: center;
+
 }
 
 .features {
@@ -102,6 +108,11 @@ background: radial-gradient(circle, #2424240d 15%, #24242400 100%);
   justify-content: space-between;
   align-items: center;
   margin: 10px; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: .5px;
+  text-align: center;
 }
 
 .featureText{
