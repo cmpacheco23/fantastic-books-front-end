@@ -10,7 +10,8 @@ const ProfileCard = ({profile}) => {
   const handleProfileInfo = () =>{
     setProfileInfo(!profileInfo)
   }
-  
+  const formatDate = (dateString) => new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
+
   
   return (
     <main className={styles.main}>
@@ -18,12 +19,15 @@ const ProfileCard = ({profile}) => {
           <Link to={`/profiles/${profile._id}`}>
             <img className={styles.photo} src={profile.photo} alt='profile photo'/>
             <h1 className={styles.name}> {profile.name} </h1>
-            <h4>Number of Shelves: </h4>
+            <h4 className={styles.joinedDate}>Joined: {formatDate(profile.createdAt)} </h4>
+            {/* <h4>Number of Shelves: </h4>
             <h4>Number of Books: </h4>
-          
+           */}
           
           </Link>
-        <Link to={`/profiles/${profile._id}`}>View Profile</Link>
+        <Link to={`/profiles/${profile._id}`}>
+        <button className={styles.b68} >View Profile</button>
+          </Link>
         {profileInfo && <ProfileInfo profile={profile}/>}
         </div>
 
