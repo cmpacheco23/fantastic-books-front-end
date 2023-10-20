@@ -23,24 +23,61 @@
   margin-left: 10px; /* Adds some space between the label and select */
   margin-bottom: 10px; /* Adds some space below the select */
 }
+
 .submit {
-  display: inline-block;
-  outline: 0;
-  border: none;
-  cursor: pointer;
-  line-height: 1.2rem;
-  font-weight: 900;
-  background: #007a5a;
-  padding: 8px 14px 9px;
-  font-size: 15px;
-  border-radius: 4px;
+  appearance: none;
+  backface-visibility: hidden;
+  background: rgb(0,50,0);
+  background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
   color: #fff;
-  height: 36px;
-  transition: all 75ms ease-in-out;
-  :hover{
-      box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
-  }
-  
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.submit:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+  background: #003200;
+  background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
+}
+
+.submit:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.submit:hover {
+  box-shadow: #26f17b33 0 6px 7px;
+}
+
+
+.submit :hover{
+    box-shadow: 0 1px 4px #0000004d;
+    color: #000;
 }
 
 button{
