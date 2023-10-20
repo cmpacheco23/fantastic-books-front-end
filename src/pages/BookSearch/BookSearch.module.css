@@ -139,6 +139,7 @@ html, body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s, visibility 0.5s;
+  margin-bottom: 30px;
 }
 
 .searchInput:focus + .searchButton,
@@ -168,6 +169,7 @@ html, body {
   text-align: center;
   color: #c19316;
   margin-top: 20px;
+  margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
 }
