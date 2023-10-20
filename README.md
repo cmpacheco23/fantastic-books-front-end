@@ -3,7 +3,24 @@
 
 ### [Check it out here!](https://fantastic-books.netlify.app/)
 
-<img src="src/assets/logo.png">
+
+
+<img src="public/assets/fantastic-books-logo.png">
+
+##### Table of Contents
+<details>
+<summary> Click to Expand</summary>
+
+- [What is this?](#what-is-this?)
+- [Getting Started](#getting-started)
+- [The Devs](#the-devs)
+- [Highlights](#highlights)
+- [Attributions](#attributions)
+- [Technologies Used](#technologies-used)
+- [Next Steps](#next-steps)
+
+</details>
+<br>
 
 ##### Table of Contents
 <details>
@@ -44,8 +61,15 @@ If you are curious about what our back end looks like - [Fantastic Books: The Ba
 ### Database Manager and Documentor
 ##### Steven Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
+## Highlights
+
+
 ## Attributions
-google books api
+[Google Books api](https://developers.google.com/books)  
+[Hero Pattern](https://heropatterns.com/)  
+[Animales Fantastic Font](https://www.fontspace.com/category/fantastic-beasts-and-where-to-find-them)  
+[Favicon](https://www.flaticon.com/free-icons/thunder)
+
 
 ## Technologies Used
 <ul>
@@ -68,4 +92,12 @@ google books api
 </ul>
 
 ## Next Steps
+We have plans to implement a blog style forum where users can post requests for advice on what they should read next of share their opinions ona book they think... or don't think others should read. 
+
+Additionally, within blogs we want the user to be able to link to shelves or book details from within the forum. This way they can add books they are interested in reading right to a shelf from the forum.
+
+In shelves we would like to add a privacy toggle so that only the user a shelf belongs to could look at it's content if they want it to be that way.
+
+We would also like to implement a color system into our app so that users can choose the color of the backdrop and other various elements to best match their reading mood. This could also include light and dark mode settings.
+
 

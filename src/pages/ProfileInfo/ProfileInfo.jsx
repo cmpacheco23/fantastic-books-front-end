@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
-import catOnShelfImage from '../../assets/blackcat.png'
+import catOnShelfImage from '/assets/blackcat.png'
 import styles from './ProfileInfo.module.css'
 
 const ProfileInfo = () => {
@@ -49,6 +49,14 @@ const ProfileInfo = () => {
     } catch (err) { console.log(err) }
   }
 
+  const bookContainerRefs = useRef({})
+
+  const handleScroll = (shelfId, direction) => {
+    const container = bookContainerRefs.current[shelfId]
+    if (container) {
+      container.scrollLeft += direction * 200
+    }
+  }
   return (
     <main>
       {profile ? (
@@ -57,15 +65,29 @@ const ProfileInfo = () => {
           <img className={styles.photo} src={profile.photo} alt="profile photo" />
           <h1 className={styles.name}>{profile.name}</h1>
           <h2>Books Collected:</h2><h2>Shelves Created:</h2>
+          {showButton && <button className={styles.b68} onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>New Shelf</button>}
           {profile.shelves.map(shelf => (
             <div className={styles.shelf} key={shelf._id}>
-              <div className={styles.shelfContent}>
-              <span className={styles.shelfname}>
-                <span className={styles.tooltip} data-title={shelf.name} tooltip={shelf.name}>
-                  Name: {shelf.name.length > 20 ? `${shelf.name.substring(0, 30)}...` : shelf.name}
-                </span>
-              </span>
-                {shelf.books?.length ? null : <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />}
+              <div className={styles.shelfNavigation}>
+                <button className={styles.arrowButton} onClick={() => handleScroll(shelf._id, -1)}>⬅️</button>
+                <div className={styles.shelfContent}>
+                  <span className={styles.shelfName}>
+                    <span className={styles.tooltip} data-title={shelf.name} tooltip={shelf.name}>
+                      Name: {shelf.name.length > 20 ? `${shelf.name.substring(0, 28)}...` : shelf.name}
+                    </span>
+                  </span>
+                  <div ref={ref => bookContainerRefs.current[shelf._id] = ref}>
+                    {shelf.books?.length ? 
+                      shelf.books.map(book => (
+                        <img key={book._id} src={book.cover} alt={book.title} className={styles.bookCover} />
+                      )) :
+                      <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />
+                    }
+                  </div>
+                </div>
+                <button className={styles.arrowButton} onClick={() => handleScroll(shelf._id, 1)}>➡️</button>
+              </div>
+              <div className={styles.shelfActions}>
                 <button className={styles.edit} onClick={() => setModalData({ isOpen: true, isEditing: true, name: shelf.name, id: shelf._id })}>✏️</button>
                 <button className={styles.delete} onClick={() => handleDeleteShelf(shelf._id)}>🗑️</button>
               </div>
@@ -85,11 +107,10 @@ const ProfileInfo = () => {
               <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
             </div>
           )}
-          {showButton && <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })} className={styles.b68}>New Shelf</button>}
         </div>
       ) : <p>Loading...</p>}
     </main>
-  )
+)
 }
 
 export default ProfileInfo

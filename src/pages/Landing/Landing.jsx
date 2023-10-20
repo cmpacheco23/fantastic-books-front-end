@@ -2,8 +2,8 @@
 
 // css
 import styles from './Landing.module.css'
-import LinkedInLogo from '../../assets/LIlogo.png';
-import GithubLogo from '../../assets/githubWhiteLogo.png';
+import LinkedInLogo from '/assets/LIlogo.png';
+import GithubLogo from '/assets/githubWhiteLogo.png';
 const Landing = ({ user }) => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
@@ -18,7 +18,7 @@ const Landing = ({ user }) => {
 
       <section className={styles.landing}>
         <div className={styles.titleContainer}>
-        <img className={styles.landingTitle} src='src/assets/fantastic-books-logo.png' />
+        <img className={styles.landingTitle} src='public/assets/fantastic-books-logo.png' />
         </div>
 
         {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}
@@ -41,7 +41,7 @@ const Landing = ({ user }) => {
       
             <div className={styles.featureText}>
               <h4 className="direction-title">Your Shelves-</h4>
-              <p className="direction-text">Step into the secret garden of our 'Shelf' feature – a reader's own enchanting alcove in the great library of life! Design your shelves with names as captivating as Pemberley's halls, seamlessly add tales of old and new. For those tales you wish to remain for your eyes only', simply set your shelf to private.</p>
+              <p className="direction-text">Step into the secret garden of our 'Shelf' feature – a reader's own enchanting alcove in the great library of life! Design your shelves with names as captivating as Pemberley's halls, seamlessly add tales of old and new. For those tales you wish to remain for your eyes only', simply set your shelf to private. [Privacy feature coming soon!]</p>
             </div>
       
             {/* <div>
