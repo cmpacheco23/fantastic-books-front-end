@@ -15,11 +15,7 @@ import Signup from './pages/Signup/Signup';
 
 import Login from './pages/Login/Login';
 import BookDetails from './pages/BookDetails/BookDetails';
-import BlogList from './pages/BlogList/BlogList'
-import BlogDetails from './pages/BlogDetails/BlogDetails';
-import * as blogService from './services/blogService'
-import NewBlog from './pages/NewBlog/NewBlog'
-import EditBlog from './pages/EditBlog/EditBlog'
+
 
 import './App.css'
 
@@ -27,7 +23,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser());
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
-  const [blogs, setBlogs] = useState([])
+
 
   const handleLogout = () => {
     authService.logout();
@@ -47,25 +43,7 @@ function App() {
     }
   }, [user]);
 
-    useEffect(() => {
-      const fetchAllBlogs = async () => {
-        const data = await blogService.index()
-        setBlogs(data)
-      }
-      fetchAllBlogs()
-    }, [])
 
-    const handleAddBlog = async (blogFormData) => {
-      const newBlog = await blogService.create(blogFormData)
-      setBlogs([newBlog, ...blogs])
-      navigate('/blogs')
-    }
-
-    const handleUpdateBlog = async (blogFormData) => {
-      const updatedBlog = await blogService.update(blogFormData)
-      setBlogs(blogs.map((b) => blogFormData._id === b._id ? updatedBlog : b))
-      navigate('/blogs')
-    }
 
   return (
     <>
@@ -119,26 +97,7 @@ function App() {
         path="/about" 
         element={<AboutUs />} 
         />
-        <Route
-          path="/blogs"
-          element={
-              <BlogList blogs={blogs} user={user} handleAddBlog={handleAddBlog}/>
-          }
-        />
-        <Route
-          path="/blogs/:blogId"
-          element={
-              <BlogDetails/>
-          }
-        />
-        <Route 
-          path="/blogs/:blogId/edit" 
-          element={
-            <ProtectedRoute user={user}>
-              <EditBlog handleUpdateBlog={handleUpdateBlog} />
-            </ProtectedRoute>
-          } 
-        />
+
       </Routes>       
     </>
   );
