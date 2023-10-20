@@ -93,9 +93,9 @@ const ProfileInfo = () => {
               </div>
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
-                  <label>Edit Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
-                  <button onClick={() => handleShelf('editShelf', shelf._id)}>Save</button>
-                  <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
+                  <label className={styles.input}>Edit Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
+                  <button className={styles.b68} onClick={() => handleShelf('editShelf', shelf._id)}>Save</button>
+                  <button className={styles.b68} onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
                 </div>
               )}
             </div>
