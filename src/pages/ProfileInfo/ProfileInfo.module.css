@@ -365,6 +365,15 @@ input{
   left: calc(100% - 28px);
 }
 
-input {
-  margin-top: 130px;
+.removeBookButton {
+  position: relative;
+  top: -55px;
+  right: 22px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  height:50px;
+  color: red;
+  z-index: 1000;
 }
