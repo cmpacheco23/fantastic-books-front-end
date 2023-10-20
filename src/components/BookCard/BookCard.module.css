@@ -1,5 +1,7 @@
 .linkContainer {
   width: 320px;
+  height: 420px;
+  margin-bottom: 40px;
   max-height: 320px;
   gap: 10px;
   padding: 10px;
@@ -7,7 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  background-color: #242424;
+  border-radius: 10px;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
 }
 
 .bookCardImage {
@@ -21,7 +25,7 @@
 
 .bookCardText {
   font-size: 16px;
-  color: #333;
+  color: #e4e4e4;
   text-align: center;
   width: 100%; 
   margin-top: 20px;
@@ -34,5 +38,6 @@
 
 .authorLink{
   font-size: 18px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
+  color: #e4e4ee;
 }
