@@ -9,16 +9,19 @@ const NavBar = ({ user, handleLogout }) => {
     
     <nav className={styles.nav}>
       
-
+ 
       <ul className={styles.right}>
         {user ? (
           
   <li><NavLink style={{ color: 'white'}} to={`/profiles/${user.profile}`} className={styles.navLink}>Welcome, {user.name}</NavLink>
         </li>) : null}
-        <ul className={styles.center}>
+ 
+      </ul>
+      <div className={`${styles.center} ${styles.flexCenter}`}>
+        <ul >
         <li><NavLink to="/" className={styles.navLink}> <img src={'/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
       </ul>
-      </ul>
+      </div>
       <div className={styles.left}>
         <ul>
           <li><NavLink style={{ color: 'white' }} to="/books" className={styles.navLink}> Books </NavLink></li>

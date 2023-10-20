@@ -34,11 +34,12 @@
 .logoCase {
   border-radius: 5px;
   box-shadow: 5px 5px 10px black;
-  background: #740001;
+
 }
 
 .logo{
   max-height: 30px;
+  margin-left: 50px;
 }
 
 ul {
@@ -48,6 +49,14 @@ ul {
   justify-content: flex-end; 
   align-items: flex-end;
 } 
+
+
+
+li {
+  list-style-type: none;
+  margin: 7px;
+  text-decoration: none;
+}
 
 .right {
   display: flex;
@@ -60,19 +69,4 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-
-li {
-  list-style-type: none;
-  margin: 7px;
-  text-decoration: none;
-}
-
-
-.center {
-  display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
-  margin-left: auto; /* Push the center section to the right */
-  margin-right: auto; /* Push the center section to the left */
 }
