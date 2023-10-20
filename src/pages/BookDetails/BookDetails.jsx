@@ -162,7 +162,7 @@ const BookDetails = (props) => {
                   ))}
                 </select>
                 {/* Button to add book to selected shelf */}
-                <button onClick={handleAddToShelf}>Add to Shelf</button>
+                <button className={styles.b68} onClick={handleAddToShelf}>Add to Shelf</button>
               </>
             )
           }
@@ -177,7 +177,7 @@ const BookDetails = (props) => {
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
 
           <Link to={book.url}>
-          <button>Learn More</button>
+          <button className={styles.b68} >Learn More</button>
           </Link>
         </div>
       </div>

@@ -21,11 +21,21 @@
   margin-bottom: 100px;
 }
 
+.titleContainer {
+  background: #26120d;
+background: radial-gradient(circle, #2424240d 15%, #24242400 100%); 
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
 .landingTitle {
+  background-color: #242424; 
+  border-radius: 10px;
   width: 80%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fade 2s ease-in
+  animation: fade 2s ease-in;
 }
 
 @keyframes fade {
@@ -65,7 +75,6 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%
   background-color: #242424;
   box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
   border-radius: 10px;
-  color: #00b129;
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
@@ -77,10 +86,14 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%
   display: flex;
   align-items: center;
   flex-direction: column;
-  box-shadow: 5px 5px 10px black;
+  background-color: #242424;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
   border-radius: 10px;
+  margin: 10px;
   margin-bottom: 100px;
-  
+  padding: 40px;
+  max-width: 800px;
+  width: 85vw;
 }
 
 .directions > div {
@@ -117,11 +130,14 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  max-width: 800px;
-  width: 85vw; 
-  box-shadow: 5px 5px 10px black; 
-  margin: 10px;
+  background-color: #242424;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
   border-radius: 10px;
+  margin: 10px;
+  margin-bottom: 100px;
+  padding: 40px;
+  max-width: 800px;
+  width: 85vw;
 }
 
 .devCards {
@@ -141,7 +157,7 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%
   width: 30%;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: 5px 5px 10px black;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
 }
 
 .linkContainer {

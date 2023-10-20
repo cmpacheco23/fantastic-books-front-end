@@ -17,7 +17,10 @@ const Landing = ({ user }) => {
       <div className={styles.spacer}></div>
 
       <section className={styles.landing}>
+        <div className={styles.titleContainer}>
         <img className={styles.landingTitle} src='src/assets/fantastic books logo.png' />
+        </div>
+
         {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}
         <h2 className={styles.landingSubTitle}>and where to find them.</h2>
 

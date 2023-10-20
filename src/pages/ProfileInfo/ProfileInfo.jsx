@@ -85,7 +85,7 @@ const ProfileInfo = () => {
               <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
             </div>
           )}
-          {showButton && <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })} className={styles.createShelfButton}>New Shelf</button>}
+          {showButton && <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })} className={styles.b68}>New Shelf</button>}
         </div>
       ) : <p>Loading...</p>}
     </main>

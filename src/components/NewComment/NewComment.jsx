@@ -49,6 +49,7 @@ const NewComment = (props) => {
         placeholder="Add a Comment"
       />
       <button className={styles.submit}type="submit">Submit</button>
+      
 
     </form>
     
