@@ -6,6 +6,11 @@
   height: 90px;
 } */
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -23,7 +28,7 @@
 
 .titleContainer {
   background: #26120d;
-background: radial-gradient(circle, #242424d9 15%, #24242400 100%); 
+  background: radial-gradient(circle, #242424d9 15%, #24242400 100%); 
   border-radius: 1000px;
   display: flex;
   justify-content: center;
@@ -48,10 +53,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 }
 
 .landingSubTitle {
-  background: #c90205;
-  font-family:'Times New Roman', Times, serif;
-  font-size: 32px;
-  margin-bottom: 200px;
+  background: #c99702;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 10px;
+  letter-spacing: 4px;
+  font-size: 25px;
+  margin-bottom: 100px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: slowFade 4s ease-in;
@@ -72,13 +79,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 .description {
   padding: 20px;
   background-color: #242424;
-  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
+  box-shadow: -3px -3px 10px #600204, 6px 6px 7px #3e0203;
   border-radius: 10px;
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
-  max-width: 800px;
-  width: 85vw;
+  max-width: 1000px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   line-height: 32px;
@@ -97,7 +103,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
-  max-width: 800px;
+  max-width: 1000px;
   width: 85vw;
 }
 
@@ -115,6 +121,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   max-width: 800px;
   width: 85vw;  
   margin: 10px;
+  font-size: 20px;
 }
 
 
@@ -122,6 +129,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   /* background-color: purple; */
   width: 20vw;
   margin: 5px;
+  font-size: 26px;
 }
 
 .directions > div > p {
@@ -141,7 +149,7 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
   margin: 10px;
   margin-bottom: 100px;
   padding: 40px;
-  max-width: 800px;
+  max-width: 1000px;
   width: 85vw;
 }
 
@@ -181,7 +189,12 @@ background: radial-gradient(circle, #242424d9 15%, #24242400 100%);
 .devTitle{
   font-size: 30px;
   margin-top: 30px;
-  margin-bottom: 20px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  
 }
 
 h3{
@@ -190,3 +203,13 @@ h3{
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.featureTitle{
+  font-size: 30px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+/* font-family: 'Roboto', sans-serif; */

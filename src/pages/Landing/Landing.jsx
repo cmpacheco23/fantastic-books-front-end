@@ -32,7 +32,7 @@ const Landing = ({ user }) => {
       </section>
       
       <section className={styles.features}>
-        <h3>Features of this app:</h3>
+        <h3 className={styles.featureTitle}>Features of this app:</h3>
           <article className={styles.directions}>
             <div className={styles.featureText}>
               <h4 className="direction-title">Search Book-</h4>
