@@ -1,34 +1,31 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import * as authService from './services/authService';
-import * as profileService from './services/profileService';
-import NavBar from './components/NavBar/NavBar';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import Landing from './pages/Landing/Landing';
-import Profiles from './pages/Profiles/Profiles';
-import ChangePassword from './pages/ChangePassword/ChangePassword';
-import BookSearch from './pages/BookSearch/BookSearch';
-import AboutUs from './pages/AboutUs/AboutUs';
-import ProfileInfo from './pages/ProfileInfo/ProfileInfo';
-import Logout from './pages/Logout/Logout';
-import Signup from './pages/Signup/Signup';
+import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import * as authService from "./services/authService";
+import * as profileService from "./services/profileService";
+import NavBar from "./components/NavBar/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Landing from "./pages/Landing/Landing";
+import Profiles from "./pages/Profiles/Profiles";
+import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import BookSearch from "./pages/BookSearch/BookSearch";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import ProfileInfo from "./pages/ProfileInfo/ProfileInfo";
+import Logout from "./pages/Logout/Logout";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import BookDetails from "./pages/BookDetails/BookDetails";
 
-import Login from './pages/Login/Login';
-import BookDetails from './pages/BookDetails/BookDetails';
-
-
-import './App.css'
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
   const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
 
-
   const handleLogout = () => {
     authService.logout();
     setUser(null);
-    navigate('/');
+    navigate("/");
   };
 
   const handleAuthEvt = () => {
@@ -42,8 +39,6 @@ function App() {
       });
     }
   }, [user]);
-
-
 
   return (
     <>
@@ -83,22 +78,10 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/books"
-          element={
-              <BookSearch/>
-          }
-        />
-        <Route 
-        path="/books/:volumeId" 
-        element={<BookDetails  user={user}/>} 
-        />
-        <Route 
-        path="/about" 
-        element={<AboutUs />} 
-        />
-
-      </Routes>       
+        <Route path="/books" element={<BookSearch />} />
+        <Route path="/books/:volumeId" element={<BookDetails user={user} />} />
+        <Route path="/about" element={<AboutUs />} />
+      </Routes>
     </>
   );
 }
