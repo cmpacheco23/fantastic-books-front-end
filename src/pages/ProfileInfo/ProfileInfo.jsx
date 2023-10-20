@@ -5,6 +5,7 @@ import catOnShelfImage from "/assets/blackcat.png";
 import styles from "./ProfileInfo.module.css";
 import "flickity/css/flickity.css";
 import uglyCat from "/assets/uglycat.png";
+import greyCat from "/assets/greycat.png";
 
 const ProfileInfo = () => {
   const [profile, setProfile] = useState(null);
@@ -16,10 +17,12 @@ const ProfileInfo = () => {
     id: null,
   });
   const inputRef = useRef(null);
-  const { profileId } = useParams();
-  const [currentBooks, setCurrentBooks] = useState({});
   const scrollIntervalRefs = useRef({});
   const flickityRef = useRef(null);
+  const bookContainerRefs = useRef({});
+  const { profileId } = useParams();
+  const [currentBooks, setCurrentBooks] = useState({});
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -92,8 +95,6 @@ const ProfileInfo = () => {
     }
   };
 
-  const bookContainerRefs = useRef({});
-
   const handleScroll = (shelfId, direction) => {
     const container = bookContainerRefs.current[shelfId];
     if (container) {
@@ -114,6 +115,10 @@ const ProfileInfo = () => {
     clearInterval(scrollIntervalRefs.current[shelfId]);
   };
 
+  const handleDarkModeChange = (event) => {
+    setDarkMode(event.target.checked);
+  };
+
   return (
     <main>
       {profile ? (
@@ -125,6 +130,20 @@ const ProfileInfo = () => {
             alt="profile photo"
           />
           <h1 className={styles.name}>{profile.name}</h1>
+          <div className="toggle-container">
+            <input
+              type="checkbox"
+              className="checkbox"
+              id="checkbox"
+              checked={darkMode}
+              onChange={handleDarkModeChange}
+            />
+            <label htmlFor="checkbox" className="checkbox-label">
+              <i className="fas fa-moon"></i>
+              <i className="fas fa-sun"></i>
+              <span className="ball"></span>
+            </label>
+          </div>
           {showButton && (
             <button
               className={styles.b68}
@@ -171,20 +190,20 @@ const ProfileInfo = () => {
                     className={styles.bookContainer}
                     ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
                   >
-                    {currentBooks[shelf._id]?.map((book) => (
-                      <img
-                        key={book._id}
-                        src={book.cover}
-                        alt={book.title}
-                        className={styles.bookCover}
-                      />
-                    ))}
-                    {shelf.books?.length === 0 && (
-                      <img
-                        src={catOnShelfImage}
-                        alt="Cat on Shelf"
-                        className={styles.catImage}
-                      />
+                  {currentBooks[shelf._id]?.map((book) => (
+                    <img
+                      key={book._id}
+                      src={book.cover}
+                      alt={book.title}
+                      className={styles.bookCover}
+                    />
+                  ))}
+                  {shelf.books?.length === 0 && (
+                    <img
+                      src={darkMode ? catOnShelfImage : greyCat}
+                      alt="Cat on Shelf"
+                      className={styles.catImage}
+                    />
                     )}
                   </div>
                 </div>
