@@ -18,9 +18,12 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-wrap: wrap; /* Allow items within flexbox to wrap when they exceed the container's width */
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; 
 }
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -61,9 +64,9 @@ html, body {
   content: "";
   background: white;
   width: 4px;
-  height: 40px;
+  height: 48px;
   position: absolute;
-  top: 32px;
+  top: 45px;
   right: 0px;
   transform: rotate(135deg);
   padding-bottom: 40px;
@@ -75,11 +78,13 @@ html, body {
   background: transparent;
   width: 40px;
   height: 40px;
-  padding: 10px;
+  padding: 25px;
   border: solid 3px white;
   outline: none;
   border-radius: 35px;
   transition: width 0.5s;
+  font-size: 25px;
+  text-align: center;
 
 }
 
@@ -144,67 +149,26 @@ html, body {
   margin-top: 20px;
 }
 
-.bookRes {
+.bookCardContainer {
+  border: 1px solid #ddd;
+  max-width: 1200px;
+  padding: 10px;
   display: flex;
-  
-}
-
-.b68 {
-  appearance: none;
-  backface-visibility: hidden;
-  background: #740001;
-  border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: normal;
-  line-height: 1.5;
-  outline: none;
-  overflow: hidden;
-  padding: 13px 20px;
-  position: relative;
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  align-items: center;
   text-align: center;
-  text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 10px; /* Add margin to separate cards */
+  transition: transform 0.2s;
 }
 
-.b68:hover {
-  background-color: #1e8449;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
-  background: #003200;
-  background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
+.bookCardContainer:hover {
+  transform: scale(1.05); /* Enlarge the card on hover */
 }
 
-.b68:active {
-  transform: translateY(2px);
-  transition-duration: .35s;
-}
-
-.b68:hover {
-  box-shadow: #26f17b33 0 6px 7px;
-}
-
-
-.b68 :hover{
-    box-shadow: 0 1px 4px #0000004d;
-    color: #000;
-}
-
-button{
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
+/* main {
+  flex-wrap: wrap; 
+} */

@@ -48,11 +48,8 @@ const BookDetails = (props) => {
 
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
-    //investigate the if statement - review bens code
-    console.log('NEWCOMMENT',newComment)
     if (newComment) {
-      //photo and name don't render
-      // setComments((prevComments) => [{text: newComment.text, rating: newComment.rating, commenter: newComment.commenter.name, photo: newComment.commenter.photo, createdAt: newComment.commenter.createdAt },...prevComments])
+
       setComments((prevComments) => [{...newComment, createdAt: newComment.commenter.createdAt },...prevComments])
       console.log('NEW COMMENT PHOTO',newComment.commenter.name)
       console.log('NEW COMMENT PHOTO',newComment.commenter.photo)
@@ -199,7 +196,7 @@ const BookDetails = (props) => {
         <p>Loading...</p>
       )}
       <section className={styles.commentContainerSection}>
-        <h1 className={styles.commentH1}>Comments</h1>
+        <h1 className={styles.commentH1}>Comments About "{book.title}" </h1>
         {book ? (
           <div>
 

@@ -89,18 +89,16 @@ const BookSearch = () => {
       {/* {allBooks.length ? (
         <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
       ) : (
-       <></>
+      <></>
       )} */}
-      <div className={styles.bookRes}>
-        {allBooks.map((book) => (
-          <div key={book.id}>
-            <BookCard book={book} onClick={() => handleBookClick(book)} />
-            {selectedBook && selectedBook.id === book.id && (
-              <BookDetails book={selectedBook} />
-              )}
-          </div>
-        ))}
-      </div>
+      {allBooks.map((book) => (
+        <div key={book.id}>
+          <BookCard book={book} onClick={() => handleBookClick(book)} />
+          {selectedBook && selectedBook.id === book.id && (
+            <BookDetails book={selectedBook} />
+          )}
+        </div>
+      ))}
     </main>
   );
 };
