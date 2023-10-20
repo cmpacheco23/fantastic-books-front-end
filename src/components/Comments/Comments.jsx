@@ -22,12 +22,14 @@ const Comments = (props) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   })
 
-  //should be a state of some sort - state of selected comment
-  // selected comment will be the comment object
-  //remove this
-  // const selectedComment = props.comments.find((comment) => comment._id === comment._id)
-  // pass the selected comment into the edit form
-  // set selected comment like line 53
+  
+  console.log('PROPS COMMENTS 26', props.comments)
+    //array method to find the comment in the comments array where the id matches comment._id
+
+
+
+
+
   return (
     <div className={styles.commentTester}>
       {props.comments.length > 0 ? (
@@ -44,7 +46,7 @@ const Comments = (props) => {
 
       {sortedComments.map((comment) => (
         <CommentCard 
-          key={comment._id} 
+          key={`edit-${comment._id}`} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
@@ -52,8 +54,9 @@ const Comments = (props) => {
           handleToggleEditForm={() => {
             setIsEditingComment(comment._id)
             setFormOpen(true)
-            setSelectedComment(comment._id)
+            setSelectedComment(props.comments.find(element => element._id === comment._id))
             //array method to find the comment in the comments array where the id matches comment._id
+            //pontentially find?
           }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
