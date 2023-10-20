@@ -3,8 +3,7 @@
 } */
 
 .nav {
-  background: rgb(0,50,0);
-  background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
+  background: #740001;
   height: 70px;
   width: 100%;
   position: fixed; 
@@ -19,8 +18,7 @@
 .logoCase {
   border-radius: 5px;
   box-shadow: 5px 5px 10px black;
-  background: rgb(0,50,0);
-  background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
+  background: #740001;
 }
 
 .logo{

@@ -48,8 +48,7 @@ background: radial-gradient(circle, #2424240d 15%, #24242400 100%);
 }
 
 .landingSubTitle {
-  background: rgb(0,50,0);
-background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%);
+  background: #c90205;
   font-family:'Times New Roman', Times, serif;
   font-size: 32px;
   margin-bottom: 200px;

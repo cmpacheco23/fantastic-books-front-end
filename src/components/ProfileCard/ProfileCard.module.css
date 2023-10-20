@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-wrap: wrap;
+  height: 350px;
   /* justify-content: space-around; */
   /* padding: 32px; */
 

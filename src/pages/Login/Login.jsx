@@ -70,7 +70,7 @@ const LoginPage = ({ handleAuthEvt }) => {
           />
         </label>
         <div>
-          <button className={styles.button} disabled={isFormInvalid()}>
+          <button className={styles.b68}  disabled={isFormInvalid()}>
             Log In
           </button>
         </div>

@@ -89,15 +89,15 @@ const BookSearch = () => {
       {/* {allBooks.length ? (
         <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
       ) : (
-       <></>
+      <></>
       )} */}
       {allBooks.map((book) => (
-        <section key={book.id} className={styles.bookCardContainer}>
+        <div key={book.id}>
           <BookCard book={book} onClick={() => handleBookClick(book)} />
           {selectedBook && selectedBook.id === book.id && (
             <BookDetails book={selectedBook} />
           )}
-        </section>
+        </div>
       ))}
     </main>
   );

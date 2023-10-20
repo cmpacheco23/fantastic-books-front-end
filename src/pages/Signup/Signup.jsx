@@ -132,7 +132,7 @@ const Signup = ({ handleAuthEvt }) => {
         <div>
           <Link to="/">Cancel</Link>
           <button
-            className={styles.button}
+            className={`${styles.button} ${styles.b68}`}
             disabled={ isFormInvalid() || isSubmitted }
           >
             {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}

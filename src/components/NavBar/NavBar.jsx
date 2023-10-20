@@ -10,7 +10,7 @@ const NavBar = ({ user, handleLogout }) => {
     <nav className={styles.nav}>
       
       <ul className={styles.right}>
-        <li><NavLink to="/"> <img src={'src/assets/fantastic beast.png'} className={styles.logo}/> </NavLink></li>
+        <li><NavLink to="/"> <img src={'src/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
         
         {user ? (
         <li>
@@ -37,8 +37,8 @@ const NavBar = ({ user, handleLogout }) => {
           </ul>
         :
           <ul>
-            <li><NavLink to="/auth/login">Log In</NavLink></li>
-            <li><NavLink to="/auth/signup">Sign Up</NavLink></li>  
+            <li><NavLink style={{ color: 'black'}} to="/auth/login">Log In</NavLink></li>
+            <li><NavLink style={{ color: 'black'}} to="/auth/signup">Sign Up</NavLink></li>  
           </ul>
         }
       </div>
