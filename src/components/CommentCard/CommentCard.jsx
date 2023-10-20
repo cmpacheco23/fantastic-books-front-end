@@ -32,20 +32,26 @@ const CommentCard = (props) => {
         <p>{formatDate(props.comment.createdAt)}</p>
         <p>{ratingEmojis}</p>
       </div> 
-      {props.user ? 
-      <div className={styles.commentButtons}>
-        <button
-          onClick={() => props.handleToggleEditForm()}
-          disabled={props.isEditingComment === props.comment._id}>
-          ✏️
-        </button>
-        <button
-          onClick={() => props.handleDeleteComment(props.volumeId, props.comment._id)}
-          disabled={props.isEditingComment === props.comment._id}
-          >🗑️</button>
-      </div>
-      : <></>
-        }
+      {props.comment.commenter._id === props.user._id && (
+        <div className={styles.commentButtons}>
+          {props.user ? (
+            <>
+
+            <button
+              onClick={() => props.handleToggleEditForm()}
+              disabled={props.isEditingComment === props.comment._id}>
+                ✏️
+            </button>
+            <button
+              onClick={() => props.handleDeleteComment(props.volumeId, props.comment._id)}
+              disabled={props.isEditingComment === props.comment._id}
+            >🗑️</button>
+            </>
+          ) : (
+          <></>
+          )}
+        </div>
+      )}
     </article>
   );
 }
