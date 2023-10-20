@@ -11,6 +11,7 @@
 <details>
 <summary> Click to Expand</summary>
 
+- [Screen Shots](#screen-shots)
 - [What is this?](#what-is-this?)
 - [Getting Started](#getting-started)
 - [The Devs](#the-devs)
@@ -21,6 +22,14 @@
 
 </details>
 <br>
+
+## Screen Shots
+
+###### The Book Search:
+<img src="public/assets/book-search.png">
+
+###### Shelves in the Profile:
+<img src="public/assets/shelfShot.png">
 
 ## What is this?
 
