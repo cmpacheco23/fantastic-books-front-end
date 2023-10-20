@@ -38,12 +38,12 @@ const Landing = ({ user }) => {
         <h3 className={styles.featureTitle}>Features of this app:</h3>
           <article className={styles.directions}>
             <div className={styles.featureText}>
-              <h4 className="direction-title">Search Book-</h4>
+              <h4 className="direction-title">Search Book</h4>
               <p className="direction-text">Discover your next read with our intuitive search feature, powered by the Google Books API. Simply type in a title and explore the vast literary world awaiting your discovery!</p>
             </div>
       
             <div className={styles.featureText}>
-              <h4 className="direction-title">Your Shelves-</h4>
+              <h4 className="direction-title">Your Shelves</h4>
               <p className="direction-text">Step into the secret garden of our 'Shelf' feature – a reader's own enchanting alcove in the great library of life! Design your shelves with names as captivating as Pemberley's halls, seamlessly add tales of old and new. For those tales you wish to remain for your eyes only', simply set your shelf to private. [Privacy feature coming soon!]</p>
             </div>
       
