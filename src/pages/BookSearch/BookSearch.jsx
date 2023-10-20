@@ -48,16 +48,16 @@ const BookSearch = () => {
   }
 
   return (
-    <main className={styles.bookList}>
+    // <main className={styles.bookList}>
+    <main className={styles.flexbox}>
       <div className={styles.spacer}>spacer</div>
-      <h1>Books</h1>
-      <div className={styles.paginationContainer}>
-        {currPage > 1 && <h2 onClick={handleDecreasePageCount}>◄</h2>}
-        <h2>Page {currPage}</h2>
-        <h2 onClick={handleIncreasePageCount}>►</h2>
-      </div>
-      <div>
-        <form onSubmit={handleSubmit} className="search-form">
+      <h1 className={styles.title}>Search Books</h1>
+      
+      <div className={styles.search}>
+    <h3 className={styles.searchH3}>Click on search icon, to search for a book.</h3>
+    <div className={styles.searchDiv}>
+    <form onSubmit={handleSubmit} className={styles.searchForm}>
+      
           <input
             type="text"
             name="searchTerm"
@@ -65,15 +65,32 @@ const BookSearch = () => {
             value={formData.searchTerm}
             onChange={handleChange}
             placeholder='Search for a book'
+            className={styles.searchInput}
           />
-          <button type="submit">Search</button>
+          {/* <button type="submit">Search</button> */}
+          <button type="submit" className={styles.searchButton}>
+      {/* You can add an icon or text here for the button */}Search
+    </button>
+    {allBooks.length ? (
+      <>
+    <div className={styles.paginationContainer}>
+        {currPage > 1 && <h2 onClick={handleDecreasePageCount}>◄</h2>}
+        <h2 className={styles.currentPage}>Page {currPage}</h2>
+        <h2 onClick={handleIncreasePageCount}>►</h2>
+      </div>
+        <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
+      </>
+      ) : (
+      <></>
+      )}
         </form>
       </div>
-      {allBooks.length ? (
-        <h2>{allBooks.length} results found</h2>
+    </div>
+      {/* {allBooks.length ? (
+        <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
       ) : (
-        <h2>Please search for a book</h2>
-      )}
+       <></>
+      )} */}
       {allBooks.map((book) => (
         <div key={book.id}>
           <BookCard book={book} onClick={() => handleBookClick(book)} />
