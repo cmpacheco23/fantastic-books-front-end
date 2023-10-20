@@ -21,7 +21,6 @@ const NavBar = ({ user, handleLogout }) => {
         <ul>
           <li><NavLink style={{ color: 'black' }} to="/books"> Books </NavLink></li>
 
-          {/* {user ? <li><NavLink to="/blogs">Blog</NavLink></li> : '' } */}
           
           {user ? <li><NavLink style={{ color: 'black' }} to="/profiles">Profiles</NavLink></li> : '' }
 

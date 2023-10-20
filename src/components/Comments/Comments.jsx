@@ -11,15 +11,25 @@ const Comments = (props) => {
   const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState
   (true)
-  
+  const [selectedComment, setSelectedComment] = useState({})
+
   const handleCancelEdit = () => {
     setIsEditingComment(null)
   };
 
+  const sortedComments = props.comments.slice().sort((a, b) => {
+    // You can customize the sorting logic here
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  })
 
-
-  const selectedComment = props.comments.find((comment) => comment._id === comment._id)
   
+  console.log('PROPS COMMENTS 26', props.comments)
+    //array method to find the comment in the comments array where the id matches comment._id
+
+
+
+
+
   return (
     <div className={styles.commentTester}>
       {props.comments.length > 0 ? (
@@ -34,15 +44,19 @@ const Comments = (props) => {
         </>
       )}
 
-      {props.comments.map((comment) => (
+      {sortedComments.map((comment) => (
         <CommentCard 
-          key={comment._id} 
+          key={`edit-${comment._id}`} 
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleEditComment={(commentId) => {
-            setIsEditingComment(commentId)
+    
+          handleToggleEditForm={() => {
+            setIsEditingComment(comment._id)
             setFormOpen(true)
+            setSelectedComment(props.comments.find(element => element._id === comment._id))
+            //array method to find the comment in the comments array where the id matches comment._id
+            //pontentially find?
           }}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(props.volumeId, comment._id);
@@ -59,11 +73,13 @@ const Comments = (props) => {
             volumeId={props.volumeId}
             user={props.user}
             onCommentUpdate={props.handleCommentUpdate}
+            handleEditComment={props.handleEditComment}
             handleCancelEdit={handleCancelEdit}
             comment={selectedComment || { text: '', rating: '1' }}
             formOpen={formOpen}
             setFormOpen={setFormOpen}
             commentSavedUpdateRender={props.commentSavedUpdateRender}
+
             />
           )}
 
