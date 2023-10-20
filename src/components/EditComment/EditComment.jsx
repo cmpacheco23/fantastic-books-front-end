@@ -14,7 +14,6 @@ const  EditComment = (props) => {
   const [formData, setFormData] = useState(props.comment)
 
   const commentId = props.comment._id
-
   const handleChange = ({target}) => {
     //updates state in real time
     setFormData({...formData, [target.name]: target.value})
@@ -23,8 +22,6 @@ const  EditComment = (props) => {
   const handleSubmit = async (evt) => {
     setFormOpen(false)
     evt.preventDefault();
-    ('handleSubmit called')
-    ('commentId:', commentId);
     await bookService.updateComment(volumeId, commentId, formData)
     props.commentSavedUpdateRender(commentId, formData)
   }
@@ -37,7 +34,8 @@ const  EditComment = (props) => {
 
   return (
     <div>
-      {props.formOpen ? (
+      
+      {props.formOpen ?  (
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
         <div className={styles.dropdown}> 
