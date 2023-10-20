@@ -9,6 +9,12 @@
   font-size: 40px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add other styles for your container here */
+}
 
 .title{
   font-size: 50px;
@@ -315,14 +321,57 @@ input{
   /* Add other styles for your container here */
 }
 
-/* Styles for the toggleContainer and its children */
+/* Checkbox container */
 .toggleContainer {
-
+  position: relative;
 }
 
-.checkboxLabel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Add other styles for your checkbox label here */
+/* Hidden default checkbox input */
+.funCheckbox {
+  display: none;
+}
+
+/* Checkbox label */
+.funCheckboxLabel {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: #c8a597; /* Default background color */
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Checkbox track (background) */
+.funCheckboxLabel .funCheckboxTrack {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* Default track color */
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s;
+}
+
+/* Checkbox thumb (handle) */
+.funCheckboxLabel .funCheckboxThumb {
+  width: 26px;
+  height: 26px;
+  background-color: #fff; /* Default thumb color */
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+/* Checked state */
+.funCheckbox:checked + .funCheckboxLabel {
+  background-color: #531806; /* Background color when checked */
+}
+
+.funCheckbox:checked + .funCheckboxLabel .funCheckboxThumb {
+  left: calc(100% - 28px);
 }

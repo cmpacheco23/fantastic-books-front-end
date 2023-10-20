@@ -134,15 +134,15 @@ const ProfileInfo = () => {
           <div className={styles.toggleContainer}>
             <input
               type="checkbox"
-              className="checkbox"
-              id="checkbox"
+              className={styles.funCheckbox}
+              id="funCheckbox"
               checked={darkMode}
               onChange={handleDarkModeChange}
             />
-            <label htmlFor="checkbox" className={styles.checkboxLabel}>
+            <label htmlFor="funCheckbox" className={styles.funCheckboxLabel}>
               <i className="fas fa-moon"></i>
               <i className="fas fa-sun"></i>
-              <span className="ball"></span>
+              <span className={styles.funCheckboxThumb}></span>
             </label>
           </div>
           </div>
