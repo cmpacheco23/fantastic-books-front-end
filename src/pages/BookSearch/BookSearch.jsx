@@ -51,7 +51,7 @@ const BookSearch = () => {
     // <main className={styles.bookList}>
     <main className={styles.flexbox}>
       <div className={styles.spacer}>spacer</div>
-      <h1 className={styles.title}>Search Books</h1>
+      <h1 className={`${styles.fantasticFont} ${styles.title}`}>Search Books</h1>
       
       <div className={styles.search}>
     <h3 className={styles.searchH3}>Click on search icon, to search for a book.</h3>

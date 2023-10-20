@@ -1,5 +1,16 @@
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
 
-
+.title{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 50px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 15px;
+  letter-spacing: 4px;
+}
 .spacer {
   height: 90px;
 }
@@ -47,11 +58,7 @@ main {
   margin-right: 5px;
   margin-bottom: 25px;
 }
-.title{
-  font-size: 40px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
+
 .devPhoto{
     width: 200px;
     height: 200px;
