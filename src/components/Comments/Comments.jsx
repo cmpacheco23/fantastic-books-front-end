@@ -26,7 +26,7 @@ const Comments = (props) => {
       {props.comments.length > 0 ? (
         <>
         <NewComment handleAddComment={props.handleAddComment} />
-        <h4 className={styles.commentH4Title} >Read the comments below</h4>
+        <h4 className={styles.commentH4Title} >Read existing comments below</h4>
         </>
       ): (
         <>
