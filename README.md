@@ -12,7 +12,7 @@
 <summary> Click to Expand</summary>
 
 - [Screen Shots](#screen-shots)
-- [What is this?](#what-is-this?)
+- [What is this?](#what-is-this)
 - [Getting Started](#getting-started)
 - [The Devs](#the-devs)
 - [Highlights](#highlights)
