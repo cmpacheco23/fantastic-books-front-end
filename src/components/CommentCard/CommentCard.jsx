@@ -3,16 +3,14 @@ import styles from './CommentCard.module.css';
 
 const CommentCard = (props) => {
   const [formData, setFormData] = useState(props.comment);
-
   const formatDate = (dateString) => new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' });
 
-    function getRatingEmojis(rating) {
-      if (rating < 1 || rating > 5) {
-        return 'Invalid Rating';
-      }
-    
-      return '⭐'.repeat(rating);
-    }    
+  function getRatingEmojis(rating) {
+    if (rating < 1 || rating > 5) {
+      return 'Invalid Rating';
+    }
+    return '⭐'.repeat(rating);
+  }    
 
   const ratingEmojis = getRatingEmojis(props.comment.rating);
 
@@ -25,8 +23,7 @@ const CommentCard = (props) => {
             <img
               src={props.comment.commenter.photo}
               alt={`Photo of ${props.comment.commenter.name}`}
-              className={styles.commenterPhoto}
-              />
+              className={styles.commenterPhoto}/>
             <p className={styles.name}>{props.comment.commenter.name}</p>
       </div>
         )}
@@ -38,16 +35,13 @@ const CommentCard = (props) => {
       <div className={styles.commentButtons}>
         <button
           onClick={() => props.handleToggleEditForm()}
-          disabled={props.isEditingComment === props.comment._id}
-        >
+          disabled={props.isEditingComment === props.comment._id}>
           ✏️
         </button>
         <button
           onClick={() => props.handleDeleteComment(props.volumeId, props.comment._id)}
           disabled={props.isEditingComment === props.comment._id}
-        >
-          🗑️
-        </button>
+        >🗑️</button>
       </div>
     </article>
   );

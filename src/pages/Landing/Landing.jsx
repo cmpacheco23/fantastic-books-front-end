@@ -23,9 +23,7 @@ const Landing = ({ user }) => {
         <div className={styles.titleContainer}>
         <img className={styles.landingTitle} src='/assets/fantastic-books-logo.png' />
         </div>
-
         <h2 className={styles.landingSubTitle}>and where to find them.</h2>
-
         <article className={styles.description}>
           <p className={styles.descriptionText}>
             Welcome to Fantastic Books - your literary Narnia for all bibliophilic delights! Dive 20,000 leagues into a personalized reading odyssey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your compass. Like Bilbo setting out from the Shire, embark with us and craft your unique literary epic!
