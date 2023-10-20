@@ -89,8 +89,7 @@ h3{
 .b68 {
   appearance: none;
   backface-visibility: hidden;
-  background: rgb(0,50,0);
-  background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
+  background: #740001;
   border-radius: 8px;
   border-style: none;
   box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
