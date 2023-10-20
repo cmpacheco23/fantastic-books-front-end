@@ -28,7 +28,6 @@ export async function bookSearch (data) {
       headers: {
         "Content-Type": "application/json",
       },
-      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {
@@ -49,7 +48,6 @@ export async function createComment(volumeId, commentFormData) {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors',
     })
     if (response.ok) {
       const newComment = await response.json()
@@ -91,7 +89,6 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(commentFormData)
     })
     return res.json()
@@ -107,7 +104,6 @@ export const deleteComment = async (volumeId, commentId) => {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {

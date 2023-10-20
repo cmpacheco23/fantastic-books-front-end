@@ -34,7 +34,6 @@ async function addPhoto(photoData) {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      mode: 'no-cors',
       body: photoFormData
     })
     return await res.json()
@@ -51,7 +50,6 @@ async function createShelf(shelfData, profileId) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      mode: 'no-cors',
       body: JSON.stringify(shelfData)
     })
     return await res.json()
@@ -68,7 +66,6 @@ async function editShelf(shelfData, profileId, shelfId) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      mode: 'no-cors',
       body: JSON.stringify(shelfData)
     })
     return await res.json()
@@ -80,7 +77,6 @@ async function editShelf(shelfData, profileId, shelfId) {
 async function deleteShelf(profileId, shelfId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
@@ -99,7 +95,6 @@ async function addBookToShelf(profileId, shelfId, volumeId) {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
-      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {

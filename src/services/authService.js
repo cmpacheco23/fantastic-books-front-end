@@ -10,7 +10,6 @@ async function signup(signupFormData, photoData) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(signupFormData),
-      mode: 'no-cors',
     })
     const json = await res.json()
 
@@ -42,7 +41,6 @@ async function login(loginFormData) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginFormData),
-      mode: 'no-cors',
     })
     const json = await res.json()
 
@@ -63,7 +61,6 @@ async function changePassword(changePasswordFormData) {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
       body: JSON.stringify(changePasswordFormData),
-      mode: 'no-cors',
     })
     const json = await res.json()
 
