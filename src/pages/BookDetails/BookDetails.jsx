@@ -51,13 +51,11 @@ const BookDetails = (props) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
       setComments((prevComments) => [{...newComment, createdAt: newComment.commenter.createdAt },...prevComments])
-      ('NEW COMMENT PHOTO',newComment.commenter.name)
-      ('NEW COMMENT PHOTO',newComment.commenter.photo)
+
       setBook((bookExists) => {
         if (!bookExists || !bookExists.comments) {
           return bookExists
         }
-        ('NEWCOMMENT PT2',newComment)
         return { ...bookExists, comments: [...bookExists.comments, {...newComment, createdAt: newComment.commenter.createdAt }] }
       })
     }

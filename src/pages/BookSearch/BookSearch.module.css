@@ -84,9 +84,9 @@ html, body {
   content: "";
   background: white;
   width: 4px;
-  height: 48px;
+  height: 55px;
   position: absolute;
-  top: 35px;
+  top: 46px;
   right: 0px;
   transform: rotate(135deg);
   padding-bottom: 40px;
