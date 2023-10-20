@@ -137,7 +137,7 @@ const BookDetails = (props) => {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.spacer}></div>
       {book ? (
       <div className={styles.info}>
@@ -176,13 +176,14 @@ const BookDetails = (props) => {
               </>
             )
           }
-          <h3>{book.subtitle}</h3>
-          <h3>Author: {book.authors}</h3>
-          <p>Pages: {book.pages}</p>
+          <h3 className={styles.bookDescriptionDetails}>
+          {book.subtitle ? book.subtitle : ''}</h3>
+          <h3 className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Author: </span> {book.authors}</h3>
+          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Pages:</span> {book.pages}</p>
           {book.published && ( 
-          <p>Published: {book.published}</p>
+          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Published:</span> {book.published}</p>
         )}
-          <p>Categories: {book.categories}</p>
+          <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Categories: </span>{book.categories}</p>
 
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
 

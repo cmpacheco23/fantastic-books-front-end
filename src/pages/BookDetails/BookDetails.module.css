@@ -1,6 +1,12 @@
 
-main {
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
+.main {
   margin-top: 90px;
+
 }
 .spacer {
   min-height: 60px;
@@ -8,14 +14,12 @@ main {
 }
 
 .info {
-  /* background-color: blue; */
-  width: 800px;
+  max-width: 1000px;
   padding: 5px;
-  margin: 30px 30px 50px 30px;
+  padding: 40px 20px 15px 20px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px #740001;
-  padding: 40px 20px 15px 20px;
-  width: 800px;
+  margin: 0 auto;
   
 }
 
@@ -37,19 +41,21 @@ main {
   margin: 10px;
   display: flex;
   flex-direction: column;
+  padding: 50px;
+  max-height: 700px;
 }
 
 .description {
   background: rgb(13,13,13);
 background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
-  height: 185px;
+  height: 200px;
   border-radius: 10px;
-  /* padding: 10px 10px 0px 10px; */
-  /* max-width: 380px; */
   overflow-y: scroll;
   margin-top: 15px;
-  border: 2px solid #740001;
-  padding: 10px;
+  padding: 10px 0 20px 0;
+  max-width: 560px;
+  line-height: 30px;
+  font-size: 18px;
 }
 
 .commentContainer {
@@ -91,7 +97,7 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
 h3{
   /* controls the author name */
   margin: 0px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .b68 {
@@ -105,10 +111,11 @@ h3{
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 2.5px;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: normal;
   line-height: 1.5;
   outline: none;
   overflow: hidden;
@@ -152,4 +159,10 @@ h3{
 button{
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.bookDescriptionDetails{
+  line-height: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
