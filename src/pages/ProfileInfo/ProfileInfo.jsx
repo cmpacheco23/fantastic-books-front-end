@@ -130,7 +130,8 @@ const ProfileInfo = () => {
             alt="profile photo"
           />
           <h1 className={styles.name}>{profile.name}</h1>
-          <div className="toggle-container">
+          <div className={styles.container}>
+          <div className={styles.toggleContainer}>
             <input
               type="checkbox"
               className="checkbox"
@@ -138,11 +139,12 @@ const ProfileInfo = () => {
               checked={darkMode}
               onChange={handleDarkModeChange}
             />
-            <label htmlFor="checkbox" className="checkbox-label">
+            <label htmlFor="checkbox" className={styles.checkboxLabel}>
               <i className="fas fa-moon"></i>
               <i className="fas fa-sun"></i>
               <span className="ball"></span>
             </label>
+          </div>
           </div>
           {showButton && (
             <button

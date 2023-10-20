@@ -24,6 +24,8 @@
 
 .name {
   font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 .photo {
@@ -36,7 +38,8 @@
   object-fit: cover;
   margin: 0 auto 10px;
   display: block;
-  transition: transform 0.3s
+  transition: transform 0.3s;
+  margin-top: 50px;
 }
 
 .photo:hover {
@@ -302,4 +305,24 @@ input{
   display: block;
   box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
   z-index: 0;overflow-y: visible;
+}
+
+/* Styles for the container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add other styles for your container here */
+}
+
+/* Styles for the toggleContainer and its children */
+.toggleContainer {
+
+}
+
+.checkboxLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add other styles for your checkbox label here */
 }
