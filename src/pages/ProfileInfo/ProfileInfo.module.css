@@ -74,7 +74,7 @@ main{
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   z-index: 1000;
   gap: 10px;
@@ -363,4 +363,8 @@ input{
 
 .funCheckbox:checked + .funCheckboxLabel .funCheckboxThumb {
   left: calc(100% - 28px);
+}
+
+input {
+  margin-top: 130px;
 }

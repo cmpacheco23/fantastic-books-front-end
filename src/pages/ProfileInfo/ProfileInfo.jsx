@@ -249,12 +249,12 @@ const ProfileInfo = () => {
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
                   <label className={styles.input}>
-                    Edit Shelf Name:
                     <input
                       className={styles.input}
                       ref={inputRef}
                       type="text"
                       value={modalData.name}
+                      placeholder="Edit Shelf Name"
                       onChange={(e) =>
                         setModalData({ ...modalData, name: e.target.value })
                       }
@@ -286,12 +286,12 @@ const ProfileInfo = () => {
           {modalData.isOpen && !modalData.isEditing && (
             <div className={styles.modalOpen}>
               <label>
-                Shelf Name:
                 <input
                   className={styles.newShelf}
                   ref={inputRef}
                   type="text"
                   value={modalData.name}
+                  placeholder="Shelf Name"
                   onChange={(e) =>
                     setModalData({ ...modalData, name: e.target.value })
                   }
