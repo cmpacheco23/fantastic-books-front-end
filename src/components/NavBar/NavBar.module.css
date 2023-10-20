@@ -2,6 +2,20 @@
   border: 1px solid orange;
 } */
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
+.navLink{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 10px;
+  letter-spacing: 4px;
+}
+
 .nav {
   background: #740001;
   height: 70px;

@@ -10,21 +10,21 @@ const NavBar = ({ user, handleLogout }) => {
     <nav className={styles.nav}>
       
       <ul className={styles.right}>
-        <li><NavLink to="/"> <img src={'/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
+        <li><NavLink to="/" className={styles.navLink}> <img src={'/assets/fantastic-beast.png'} className={styles.logo}/> </NavLink></li>
         
         {user ? (
         <li>
-          <NavLink style={{ color: 'black'}} to={`/profiles/${user.profile}`}>Welcome, {user.name}</NavLink>
+          <NavLink style={{ color: 'black'}} to={`/profiles/${user.profile}`} className={styles.navLink}>Welcome, {user.name}</NavLink>
         </li>) : null}
       </ul>
       <div className={styles.left}>
         <ul>
-          <li><NavLink style={{ color: 'black' }} to="/books"> Books </NavLink></li>
+          <li><NavLink style={{ color: 'black' }} to="/books" className={styles.navLink}> Books </NavLink></li>
 
           
-          {user ? <li><NavLink style={{ color: 'black' }} to="/profiles">Profiles</NavLink></li> : '' }
+          {user ? <li><NavLink style={{ color: 'black' }} to="/profiles" className={styles.navLink}>Profiles</NavLink></li> : '' }
 
-        <li><NavLink style={{ color: 'black' }} to="/about"> Devs</NavLink></li>
+        <li><NavLink style={{ color: 'black' }} to="/about" className={styles.navLink}> Devs</NavLink></li>
         
         
         </ul>
@@ -32,7 +32,7 @@ const NavBar = ({ user, handleLogout }) => {
         
         {user ?
           <ul>
-            <li><NavLink style={{ color: 'black' }} to="/auth/logout" onClick={handleLogout}>Logout</NavLink></li>
+            <li><NavLink style={{ color: 'black' }} to="/auth/logout" onClick={handleLogout} className={styles.navLink}>Logout</NavLink></li>
             {/* <li><NavLink to="/auth/change-password">Change Password</NavLink></li>  */}
           </ul>
         :
