@@ -14,3 +14,15 @@
   flex-wrap: wrap;
   /* gap: 5px; */
 }
+
+.commentCardContainer{
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}

@@ -34,7 +34,7 @@ const Comments = (props) => {
         <NewComment handleAddComment={props.handleAddComment} />
         </>
       )}
-
+      <div className={styles.commentCardContainer}>
       {sortedComments.map((comment) => (
         <CommentCard 
           key={`edit-${comment._id}`} 
@@ -56,6 +56,7 @@ const Comments = (props) => {
         />
         
       ))}
+      </div>
         {isEditingComment && (
             <EditComment
             volumeId={props.volumeId}
