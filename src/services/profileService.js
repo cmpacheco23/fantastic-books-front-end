@@ -30,8 +30,8 @@ async function addPhoto(photoData) {
     photoFormData.append('photo', photoData)
     const profileId = tokenService.getUserFromToken().profile
     const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
-      mode: 'no-cors',
       method: 'PUT',
+      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
@@ -46,8 +46,8 @@ async function addPhoto(photoData) {
 async function createShelf(shelfData, profileId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
@@ -63,8 +63,8 @@ async function createShelf(shelfData, profileId) {
 async function editShelf(shelfData, profileId, shelfId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
-      mode: 'no-cors',
       method: 'PUT',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
@@ -80,8 +80,8 @@ async function editShelf(shelfData, profileId, shelfId) {
 async function deleteShelf(profileId, shelfId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
-      mode: 'no-cors',
       method: 'DELETE',
+      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       }
@@ -95,8 +95,8 @@ async function deleteShelf(profileId, shelfId) {
 async function addBookToShelf(profileId, shelfId, volumeId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}/books/${volumeId}`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       }

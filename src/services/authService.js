@@ -7,8 +7,8 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/auth`
 async function signup(signupFormData, photoData) {
   try {
     const res = await fetch(`${BASE_URL}/signup`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(signupFormData),
     })
@@ -39,8 +39,8 @@ function logout() {
 async function login(loginFormData) {
   try {
     const res = await fetch(`${BASE_URL}/login`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginFormData),
     })
@@ -57,8 +57,8 @@ async function login(loginFormData) {
 async function changePassword(changePasswordFormData) {
   try {
     const res = await fetch(`${BASE_URL}/change-password`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`,

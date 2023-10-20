@@ -23,8 +23,8 @@ export async function getBookDetails(volumeId) {
 export async function bookSearch (data) {
   try {
     const res = await fetch(BASE_URL, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
@@ -43,8 +43,8 @@ export async function bookSearch (data) {
 export async function createComment(volumeId, commentFormData) {
   try {
     const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
-      mode: 'no-cors',
       method: 'POST',
+      mode: 'no-cors',
       body: JSON.stringify(commentFormData),
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -86,8 +86,8 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
   (commentFormData)
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
-      mode: 'no-cors',
       method: 'PUT',
+      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
@@ -103,8 +103,8 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
 export const deleteComment = async (volumeId, commentId) => {
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
-      mode: 'no-cors',
       method: 'DELETE',
+      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       }
