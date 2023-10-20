@@ -24,11 +24,11 @@ export async function bookSearch (data) {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },
+      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {
@@ -44,12 +44,12 @@ export async function createComment(volumeId, commentFormData) {
   try {
     const response = await fetch(`${BASE_URL}/${volumeId}/comments`, {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify(commentFormData),
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json',
       },
+      mode: 'no-cors',
     })
     if (response.ok) {
       const newComment = await response.json()
@@ -87,11 +87,11 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
       method: 'PUT',
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
+      mode: 'no-cors',
       body: JSON.stringify(commentFormData)
     })
     return res.json()
@@ -104,10 +104,10 @@ export const deleteComment = async (volumeId, commentId) => {
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
       method: 'DELETE',
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
-      }
+      },
+      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {

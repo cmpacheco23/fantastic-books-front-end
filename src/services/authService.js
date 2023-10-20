@@ -8,9 +8,9 @@ async function signup(signupFormData, photoData) {
   try {
     const res = await fetch(`${BASE_URL}/signup`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(signupFormData),
+      mode: 'no-cors',
     })
     const json = await res.json()
 
@@ -40,9 +40,9 @@ async function login(loginFormData) {
   try {
     const res = await fetch(`${BASE_URL}/login`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(loginFormData),
+      mode: 'no-cors',
     })
     const json = await res.json()
 
@@ -58,12 +58,12 @@ async function changePassword(changePasswordFormData) {
   try {
     const res = await fetch(`${BASE_URL}/change-password`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
       body: JSON.stringify(changePasswordFormData),
+      mode: 'no-cors',
     })
     const json = await res.json()
 

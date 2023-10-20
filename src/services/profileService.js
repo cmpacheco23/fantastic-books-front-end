@@ -31,10 +31,10 @@ async function addPhoto(photoData) {
     const profileId = tokenService.getUserFromToken().profile
     const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
       method: 'PUT',
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
+      mode: 'no-cors',
       body: photoFormData
     })
     return await res.json()
@@ -47,11 +47,11 @@ async function createShelf(shelfData, profileId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
+      mode: 'no-cors',
       body: JSON.stringify(shelfData)
     })
     return await res.json()
@@ -64,11 +64,11 @@ async function editShelf(shelfData, profileId, shelfId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
       method: 'PUT',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
+      mode: 'no-cors',
       body: JSON.stringify(shelfData)
     })
     return await res.json()
@@ -80,11 +80,11 @@ async function editShelf(shelfData, profileId, shelfId) {
 async function deleteShelf(profileId, shelfId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}`, {
-      method: 'DELETE',
       mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
-      }
+      },
+      method: 'DELETE',
     })
     if (res.status !== 200) throw new Error("Failed to delete shelf")
   } catch (err) {
@@ -96,10 +96,10 @@ async function addBookToShelf(profileId, shelfId, volumeId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/shelves/${shelfId}/books/${volumeId}`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
-      }
+      },
+      mode: 'no-cors',
     })
     return res.json()
   } catch (error) {
