@@ -1,32 +1,72 @@
+/* Apply styles to .spacer and .logo */
 .spacer {
-  height: 90px;
+  height: 70px;
+  top: 0;
 }
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+
+.logo {
+  margin-top: 150px;
+  margin-bottom: 100px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: rotate(460deg);
+}
+
+/* Style input elements */
 input {
   margin-left: 16px;
-  padding: 4px 8px;
+  padding: 8px;
   font-size: 16px;
   width: 300px;
+  gap: 20px;
+  margin-bottom: 30px;
+  line-height: 30px;
+  text-align: center;
 }
 
 input[type="file"] {
   padding: 0;
 }
 
+input::placeholder {
+  color: #000000;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Apply styles to .container */
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
+/* Apply styles to .message */
 .message {
   margin-top: 0;
-  height: 20px;
+  height: 22px;
   color: #dd1b16;
-  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 30px;
+  font-family: 'Fantastic', sans-serif;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  padding: 0 15px;
 }
 
+/* Apply styles to .form */
 .form {
   display: flex;
   flex-direction: column;
@@ -34,14 +74,27 @@ input[type="file"] {
   margin-bottom: 50px;
 }
 
+/* Apply styles to .label */
 .label {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: .5px;
+  text-align: left;
 }
 
+h1 {
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+}
+
+/* Apply styles to .button */
 .button {
   margin-left: 16px;
 }
@@ -50,69 +103,72 @@ input[type="file"] {
   margin-bottom: 16px;
 }
 
-.logo{
-  height: 90px;
-  border-radius: 50px;
-  margin-top: 100px;
-  margin-bottom: 30px;
-}
-
+/* Update styles for .b68 button */
 .b68 {
-  appearance: none;
-  backface-visibility: hidden;
-  background: #740001;
+  background: #9b6404;
   border-radius: 8px;
-  border-style: none;
-  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
-  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 4px 9px rgba(39, 174, 96, 0.15);
   color: #fff;
   cursor: pointer;
-  display: inline-block;
-  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: normal;
-  line-height: 1.5;
-  outline: none;
-  overflow: hidden;
   padding: 13px 20px;
-  position: relative;
   text-align: center;
   text-decoration: none;
   transform: translate3d(0, 0, 0);
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  transition: all 0.3s;
 }
 
 .b68:hover {
   background-color: #1e8449;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
-  background: #003200;
-  background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
 }
 
 .b68:active {
   transform: translateY(2px);
-  transition-duration: .35s;
 }
 
-.b68:hover {
-  box-shadow: #26f17b33 0 6px 7px;
+/* Style for button container within rightOverlay */
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
-
-.b68 :hover{
-    box-shadow: 0 1px 4px #0000004d;
-    color: #000;
+/* Additional styles for right overlay */
+.rightOverlay {
+  position: absolute;
+  top: 30px; /* Adjust the top value as needed */
+  right: 0;
+  width: 50%;
+  height: 137%; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(23, 21, 22);
+  z-index: 1;
 }
 
-button{
-  margin-bottom: 20px;
-  margin-top: 20px;
+/* Additional styles for left overlay */
+.leftOverlay {
+  position: absolute;
+  top: 70px; /* Adjusted for the nav bar height (70px) */
+  left: 0;
+  width: 50%;
+  height: calc(100% - 70px); /* Adjusted for the nav bar height (70px) */
+  background-size: cover;
+  background-position: center; /* Center the background image */
+  z-index: 0; /* Sent behind the right overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Additional styles for left image */
+.leftImage {
+  max-width: 200%; /* Ensure the image doesn't exceed the width of the parent container */
+  max-height: 200%; /* Increase the max-height to make the image taller */
+  object-fit: cover; /* Scale the image while maintaining its aspect ratio */
+  z-index: 0;
 }
