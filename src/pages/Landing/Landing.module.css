@@ -74,13 +74,13 @@ background: linear-gradient(180deg, rgba(0,50,0,1) 0%, #04f304 31%, #0b270b 100%
 }
 
 .features {
-  /* background-color: #f00303; */
   display: flex;
   align-items: center;
   flex-direction: column;
   box-shadow: 5px 5px 10px black;
   border-radius: 10px;
   margin-bottom: 100px;
+  
 }
 
 .directions > div {
