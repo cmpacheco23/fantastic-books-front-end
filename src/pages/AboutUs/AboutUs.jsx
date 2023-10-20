@@ -21,8 +21,8 @@ const AboutUs = () => {
         <section className={styles.devCard}>
         <div>
         <img src={carla} alt="Carla's Profile Photo" className={styles.devPhoto} />
-          <h2>Carla Pacheco</h2>
-          <p>
+          <h2 className={styles.devName}>Carla Pacheco</h2>
+          <p className={styles.devDescription}>
           Software Engineer passionate about crafting technical solutions that bridge the gap between client needs and innovative products. My background is in marketing and e-commerce, primarily within MarTech and SaaS companies.
           </p>
           <div className={styles.links}>

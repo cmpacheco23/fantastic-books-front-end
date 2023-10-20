@@ -26,9 +26,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  padding: 10px;
-  padding-bottom: 20px;
+  width: 50%;
+  padding: 20px 20px 30px 20px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
 }
@@ -48,13 +47,33 @@ main {
   margin-right: 5px;
 }
 .title{
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
 .devPhoto {
-  border-radius: 30px;
+  border-radius: 50%;
   overflow: hidden;
-  width: 250px;
-  height: 250px
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.3s
+}
+
+.devPhoto:hover {
+  transform: rotate(360deg); 
+}
+
+
+.devName{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.devDescription{
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
 }
