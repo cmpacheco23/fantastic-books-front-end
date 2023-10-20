@@ -11,6 +11,7 @@ import * as profileService from '../../services/profileService'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 // css
 import styles from './Profiles.module.css'
+import uglyCat from '/assets/uglycat.png'
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
@@ -24,7 +25,7 @@ const Profiles = () => {
   }, [])
 
   if (!profiles.length) {
-    return <main className={styles.container}><h1>Loading...</h1></main>
+    return <main className={styles.container}><h1>Loading...<img src={uglyCat}/></h1></main>
   }
   
   return (

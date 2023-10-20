@@ -4,6 +4,7 @@ import styles from "./BookDetails.module.css"
 import * as bookService from '../../services/bookService'
 import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
+import uglyCat from '/assets/uglycat.png'
 
 //components
 import Comments from "../../components/Comments/Comments"
@@ -194,7 +195,7 @@ const BookDetails = (props) => {
       </div>
       </div>
       ) : (
-        <p>Loading...</p>
+        <p>Loading...<img src={uglyCat}/></p>
       )}
       <section className={styles.commentContainerSection}>
         {book ? (
@@ -216,7 +217,7 @@ const BookDetails = (props) => {
           
           
           </div>) : (
-          <p>Loading...</p>
+          <p>Loading...<img src={uglyCat}/></p>
         )}
       </section>
     </main>
