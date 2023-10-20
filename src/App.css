@@ -4,9 +4,15 @@
   box-sizing: inherit; 
 }
 
+@font-face {
+  font-family: 'Fantastic';
+  src: url('/assets/fantasticfont.ttf') format('woff');
+}
 .fantasticFont {
   font-family: 'Fantastic', sans-serif;
   font-size: 40px;
+  word-spacing: 8px;
+  letter-spacing: 2px;
 }
 
 body {

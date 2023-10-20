@@ -1,7 +1,10 @@
 /* .nav, .nav * {
   border: 1px solid orange;
 } */
-
+@font-face {
+  font-family: 'Fantastic';
+  src: url('/assets/fantasticfont.ttf') format('woff');
+}
 .fantasticFont {
   font-family: 'Fantastic', sans-serif;
   font-size: 40px;
