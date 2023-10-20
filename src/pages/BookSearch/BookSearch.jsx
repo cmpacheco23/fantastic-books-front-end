@@ -21,7 +21,6 @@ const BookSearch = () => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  //error happening here:
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     if (formData.searchTerm) {
@@ -48,7 +47,6 @@ const BookSearch = () => {
   };
 
   return (
-    // <main className={styles.bookList}>
     <main className={styles.flexbox}>
       <div className={styles.spacer}></div>
       <h1 className={`${styles.fantasticFont} ${styles.title}`}>

@@ -11,6 +11,7 @@
 <details>
 <summary> Click to Expand</summary>
 
+- [Screen Shots](#screen-shots)
 - [What is this?](#what-is-this?)
 - [Getting Started](#getting-started)
 - [The Devs](#the-devs)
@@ -21,6 +22,14 @@
 
 </details>
 <br>
+
+## Screen Shots
+
+###### The Book Search:
+<img src="public/assets/book-search.png">
+
+###### Shelves in the Profile:
+<img src="public/assets/shelfShot.png">
 
 ## What is this?
 
@@ -77,13 +86,13 @@ await Profile.populate(newComment, { path: 'commenter' })
       newBook.comments.push(newComment)
       await newBook.save();
     }
-    console.log('BOOKDETAILS:',bookDetails)
-    console.log('waffle', newComment)
-    console.log('SHOWS NEWCOMMENT COMMENTER', newComment.commenter)
+    ('BOOKDETAILS:',bookDetails)
+    ('waffle', newComment)
+    ('SHOWS NEWCOMMENT COMMENTER', newComment.commenter)
     // newComment.commenter = profile
     res.status(201).json(newComment);
   } catch (err) {
-    console.log(err);
+    (err);
     res.status(500).json(err);
   }
 ```

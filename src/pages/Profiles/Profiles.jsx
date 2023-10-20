@@ -45,5 +45,3 @@ const Profiles = () => {
 }
 
 export default Profiles
-
-{/* <p key={profile._id}>{profile.name}</p> */}
