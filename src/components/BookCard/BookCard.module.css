@@ -3,4 +3,14 @@
   max-height: 300px;
   gap: 10px;
   padding: 10px;
+  text-align: center;
+  display: flex; /* Add flex display */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+}
+
+img {
+  display: block; /* Make sure the image is a block element */
+  margin: 0 auto; /* Center the image horizontally */
 }
