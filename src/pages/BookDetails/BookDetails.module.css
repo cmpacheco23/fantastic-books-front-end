@@ -9,13 +9,15 @@
 }
 
 .info {
-  /* background-color: blue; */
+  background-color: #242424;
   width: 800px;
   padding: 5px;
   margin: 30px 30px 50px 30px;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px rgb(126, 78, 19);
+  box-shadow: 5px 5px 10px #740001;
   padding: 40px 20px 15px 20px;
+  width: 800px;
+  
 }
 
 .cover {
@@ -46,7 +48,9 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
   /* padding: 10px 10px 0px 10px; */
   max-width: 380px;
   overflow-y: scroll;
-  
+  margin-top: 15px;
+  border: 2px solid #740001;
+  padding: 10px;
 }
 
 .commentContainer {

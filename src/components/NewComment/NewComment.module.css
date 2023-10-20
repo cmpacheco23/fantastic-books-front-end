@@ -24,11 +24,10 @@
   margin-bottom: 10px; /* Adds some space below the select */
 }
 
-.submit {
+.b68 {
   appearance: none;
   backface-visibility: hidden;
-  background: rgb(0,50,0);
-  background: linear-gradient(180deg, rgba(0,50,0,1) 0%, rgba(4,103,4,1) 31%, rgba(25,77,25,1) 100%);
+  background: #740001;
   border-radius: 8px;
   border-style: none;
   box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
@@ -56,7 +55,7 @@
   white-space: nowrap;
 }
 
-.submit:hover {
+.b68:hover {
   background-color: #1e8449;
   opacity: 1;
   transform: translateY(0);
@@ -65,17 +64,17 @@
   background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
 }
 
-.submit:active {
+.b68:active {
   transform: translateY(2px);
   transition-duration: .35s;
 }
 
-.submit:hover {
+.b68:hover {
   box-shadow: #26f17b33 0 6px 7px;
 }
 
 
-.submit :hover{
+.b68 :hover{
     box-shadow: 0 1px 4px #0000004d;
     color: #000;
 }

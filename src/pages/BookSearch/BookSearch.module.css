@@ -14,7 +14,7 @@
 }
 
 .flexbox {
-  background: #8c662e;
+  /* background: #8c662e; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,14 +26,14 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
-  background-color: #a86d15;
+  /* background-color: #a86d15; */
 
 }
 
 html, body {
   width: 100%;
   height: 100%;
-  background-color: #946B2D;
+  /* background-color: #946B2D; */
 }
 
 .search {
@@ -103,8 +103,8 @@ html, body {
   display: block;
   margin: 0 auto; /* Center the button horizontally */
   width: 18%; /* Set the width to 25% of its container */
-  color: rgb(30, 1, 1);
-  background-color: beige;
+  color: #e4e4e4;
+  background-color: #740001;
   margin-top: 40px;
   font-size: 20px;
   height: 45px;
@@ -141,5 +141,70 @@ html, body {
   align-items: center; /* Center vertically */
   text-align: center;
   color: red;
+  margin-top: 20px;
+}
+
+.bookRes {
+  display: flex;
+  
+}
+
+.b68 {
+  appearance: none;
+  backface-visibility: hidden;
+  background: #740001;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.b68:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+  background: #003200;
+  background: linear-gradient(180deg, #003200 0%, #046704 51%, #194d19 100%);
+}
+
+.b68:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.b68:hover {
+  box-shadow: #26f17b33 0 6px 7px;
+}
+
+
+.b68 :hover{
+    box-shadow: 0 1px 4px #0000004d;
+    color: #000;
+}
+
+button{
+  margin-bottom: 20px;
   margin-top: 20px;
 }

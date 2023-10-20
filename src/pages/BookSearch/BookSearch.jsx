@@ -91,14 +91,16 @@ const BookSearch = () => {
       ) : (
        <></>
       )} */}
-      {allBooks.map((book) => (
-        <div key={book.id}>
-          <BookCard book={book} onClick={() => handleBookClick(book)} />
-          {selectedBook && selectedBook.id === book.id && (
-            <BookDetails book={selectedBook} />
-          )}
-        </div>
-      ))}
+      <div className={styles.bookRes}>
+        {allBooks.map((book) => (
+          <div key={book.id}>
+            <BookCard book={book} onClick={() => handleBookClick(book)} />
+            {selectedBook && selectedBook.id === book.id && (
+              <BookDetails book={selectedBook} />
+              )}
+          </div>
+        ))}
+      </div>
     </main>
   );
 };

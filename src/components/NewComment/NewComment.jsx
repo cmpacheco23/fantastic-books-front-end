@@ -48,7 +48,7 @@ const NewComment = (props) => {
         onChange={handleChange}
         placeholder="Add a Comment"
       />
-      <button className={styles.submit}type="submit">Submit</button>
+      <button className={styles.b68}type="submit">Submit</button>
       
 
     </form>
