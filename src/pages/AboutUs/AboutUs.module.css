@@ -1,10 +1,9 @@
-/* main, main * {
-  border: 1px solid #088808;
-} */
+
 
 .spacer {
   height: 90px;
 }
+
 
 main {
   display: flex;
@@ -13,16 +12,14 @@ main {
 }
 
 .devCard {
-  /* background-color: pink; */
   display: flex;
-  max-width: 800px;
+  max-width: 1500px;
   justify-content: center;
   justify-content: space-around;
   margin-top: 40px;
 }
 
 .devCard > div {
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,12 +27,14 @@ main {
   padding: 10px;
   padding-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px black;
+  /* box-shadow: 5px 5px 5px black; */
+  background-color: #2a2525a4;
+  box-shadow: -3px -3px 10px #797979, 6px 6px 7px black;
 }
 .links {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 190px;
 }
 .linkContainer {
   display: flex;
@@ -43,11 +42,40 @@ main {
 }
 
 .linkLogo {
-  width: 30px;
-  height: 30px;
+  width: 55px;
+  height: 50px;
   margin-right: 5px;
+  margin-bottom: 25px;
 }
 .title{
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+.devPhoto{
+    width: 200px;
+    height: 200px;
+    background-size: cover; 
+    background-position: center center; 
+    border-radius: 50%;
+      transition: transform 0.3s
+}
+
+.devPhoto:hover {
+  transform: rotate(360deg); 
+}
+
+.devDescription{
+  font-size: 22px;
+  text-align: center;
+  line-height: 28px;
+  margin-bottom: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.devName{
+  font-size: 30px;
+  text-align: center;
+  margin: 20px;
 }

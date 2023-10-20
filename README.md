@@ -4,7 +4,7 @@
 ### [Check it out here!](https://fantastic-books.netlify.app/)
 #### [fantastic books: The Back End](https://github.com/NSnyc/fantastic-books-back-end)
 
-<img src="src/assets/logo.png">
+<img src="/assets/logo.png">
 
 ## What is this?
 
