@@ -2,6 +2,7 @@
 import styles from './AboutUs.module.css'
 import LinkedInLogo from '../../assets/LIlogo.png';
 import GithubLogo from '../../assets/githubWhiteLogo.png';
+import carla from '../../assets/carla.png'
 const AboutUs = () => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
@@ -19,7 +20,7 @@ const AboutUs = () => {
         <h1 className={styles.title}>Meet the Devs</h1>
         <section className={styles.devCard}>
         <div>
-          <h2>Face</h2>
+        <img src={carla} alt="Carla's Profile Photo" className={styles.devPhoto} />
           <h2>Carla Pacheco</h2>
           <p>
           Software Engineer passionate about crafting technical solutions that bridge the gap between client needs and innovative products. My background is in marketing and e-commerce, primarily within MarTech and SaaS companies.
