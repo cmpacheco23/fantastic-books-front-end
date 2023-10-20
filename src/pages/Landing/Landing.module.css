@@ -1,10 +1,4 @@
-/* main, main * {
-  border: 1px solid #088808;
-} */
 
-/* .spacer {
-  height: 90px;
-} */
 @font-face {
   font-family: 'Fantastic';
   src: url('/assets/fantasticfont.ttf') format('woff');
@@ -24,7 +18,7 @@
 }
 
 .landing {
-  /* background-color: rgb(93, 93, 59); */
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,7 +107,6 @@
 }
 
 .directions > div {
-  /* background-color: orange; */
   display: flex;
   max-width: 800px;
   justify-content: space-between;
@@ -122,7 +115,6 @@
 }
 
 .featureText{
-  /* background-color: blue; */
   max-width: 800px;
   width: 85vw;  
   margin: 10px;
@@ -131,14 +123,12 @@
 
 
 .directions > div > h4 {
-  /* background-color: purple; */
   width: 20vw;
   margin: 5px;
   font-size: 26px;
 }
 
 .directions > div > p {
-  /* background-color: pink; */
   width: 60vw;
   margin: 5px;
 }
@@ -170,7 +160,6 @@
 }
 
 .devCard {
-  /* background-color: pink; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,7 +209,6 @@ h3{
   padding: 0 15px;
   margin-bottom: 30px;
 }
-/* font-family: 'Roboto', sans-serif; */
 
 .linkContainer {
   display: flex;

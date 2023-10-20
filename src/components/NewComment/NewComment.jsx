@@ -46,7 +46,6 @@ const NewComment = (props) => {
         required
         id="text-input"
         value={formData.text}
-        //because we are getting it from state ^^
         onChange={handleChange}
         placeholder="Add a Comment"
       />

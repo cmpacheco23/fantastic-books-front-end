@@ -35,7 +35,6 @@ const Signup = ({ handleAuthEvt }) => {
     const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
     const photoFormat = file.name.split('.').at(-1)
 
-    // cloudinary supports files up to 10.4MB each as of May 2023
     if (file.size >= 10485760) {
       errMsg = "Image must be smaller than 10.4MB"
       isFileInvalid = true
@@ -66,7 +65,7 @@ const Signup = ({ handleAuthEvt }) => {
       handleAuthEvt()
       navigate('/')
     } catch (err) {
-      console.log(err)
+      (err)
       setMessage(err.message)
       setIsSubmitted(false)
     }

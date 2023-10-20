@@ -18,9 +18,8 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-  display: block; /* Make the image a block-level element */
-  margin: 0 auto; /* Horizontally center the image */
-  /* padding-top: 20px; */
+  display: block; 
+  margin: 0 auto; 
 }
 
 .bookCardText {

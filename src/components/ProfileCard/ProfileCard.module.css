@@ -2,9 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   height: 350px;
-  /* justify-content: space-around; */
-  /* padding: 32px; */
-
 }
 
 .profileCard {
@@ -52,19 +49,19 @@ h1 {
   color: rgb(56, 169, 15)
 }
 h1:hover {
-  text-decoration: none; /* Remove underline on hover */
+  text-decoration: none; 
 }
 h4 {
   font-size: 1rem;
   margin: 5px 0;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none; 
   cursor: pointer;
   color: white;
   line-height: 30px;
 }
 
 h4:hover {
-  text-decoration: none; /* Remove underline on hover */
+  text-decoration: none;
 }
 
 
@@ -126,8 +123,8 @@ a:hover {
 
 
 .b68 :hover{
-    box-shadow: 0 1px 4px #0000004d;
-    color: #000;
+  box-shadow: 0 1px 4px #0000004d;
+  color: #000;
 }
 
 .joinedDate{

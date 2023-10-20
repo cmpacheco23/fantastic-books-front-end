@@ -62,8 +62,8 @@ background: linear-gradient(0deg, rgba(13,13,13,1) 0%, rgba(4,103,4,0) 19%);
 }
 
 .commentContainer {
-  background-color: rgb(7, 22, 1); /* Add your desired background color */
-  width: auto; /* Let it expand to fit the content */
+  background-color: rgb(7, 22, 1);
+  width: auto; 
   border-radius: 5px;
   box-shadow: 5px 5px 10px black;
   display: flex;

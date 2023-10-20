@@ -20,17 +20,12 @@ const ProfileCard = ({profile}) => {
             <img className={styles.photo} src={profile.photo} alt='profile photo'/>
             <h1 className={styles.name}> {profile.name} </h1>
             <h4 className={styles.joinedDate}>Joined: {formatDate(profile.createdAt)} </h4>
-            {/* <h4>Number of Shelves: </h4>
-            <h4>Number of Books: </h4>
-           */}
-          
           </Link>
-        <Link to={`/profiles/${profile._id}`}>
-        <button className={styles.b68} >View Profile</button>
+          <Link to={`/profiles/${profile._id}`}>
+          <button className={styles.b68} >View Profile</button>
           </Link>
-        {profileInfo && <ProfileInfo profile={profile}/>}
+          {profileInfo && <ProfileInfo profile={profile}/>}
         </div>
-
     </main>
   )
 }

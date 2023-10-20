@@ -1,4 +1,4 @@
-/* Apply styles to .spacer and .logo */
+
 .spacer {
   height: 70px;
   top: 0;
@@ -21,7 +21,7 @@
   transform: rotate(460deg); 
 }
 
-/* Style input elements */
+
 input {
   margin-left: 16px;
   padding: 8px;
@@ -46,14 +46,14 @@ input::placeholder {
 
 }
 
-/* Apply styles to .container */
+
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-/* Apply styles to .message */
+
 .message {
   margin-top: 0;
   height: 22px;
@@ -66,7 +66,7 @@ input::placeholder {
   padding: 0 15px;
 }
 
-/* Apply styles to .form */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@ input::placeholder {
   margin-bottom: 50px;
 }
 
-/* Apply styles to .label */
+
 .label {
   width: 100%;
   display: flex;
@@ -93,7 +93,7 @@ h1{
   text-align: center;
 }
 
-/* Apply styles to .button */
+
 .button {
   margin-left: 16px;
 }
@@ -102,7 +102,7 @@ h1{
   margin-bottom: 16px;
 }
 
-/* Update styles for .b68 button */
+
 .b68 {
   background: #9b6404;
   border-radius: 8px;
@@ -127,7 +127,7 @@ h1{
   transform: translateY(2px);
 }
 
-/* Style for button container within rightOverlay */
+
 .buttonContainer {
   display: flex;
   justify-content: space-between;
@@ -137,13 +137,13 @@ h1{
 
 .leftOverlay {
   position: absolute;
-  top: 70px; /* Adjusted for the nav bar height (70px) */
+  top: 70px;
   left: 0;
   width: 50%;
-  height: calc(100% - 70px); /* Adjusted for the nav bar height (70px) */
+  height: calc(100% - 70px); 
   background-size: cover;
-  background-position: center; /* Center the background image */
-  z-index: 0; /* Sent behind the right overlay */
+  background-position: center; 
+  z-index: 0; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,7 +152,7 @@ h1{
 
 .rightOverlay {
   position: absolute;
-  top: 30px; /* Adjust the top value as needed */
+  top: 30px; 
   right: 0;
   width: 50%;
   height: 137%;
@@ -167,8 +167,8 @@ h1{
 
 
 .leftImage {
-  max-width: 200%; /* Ensure the image doesn't exceed the width of the parent container */
-  max-height: 200%; /* Increase the max-height to make the image taller */
-  object-fit: cover; /* Scale the image while maintaining its aspect ratio */
+  max-width: 200%; 
+  max-height: 200%; 
+  object-fit: cover; 
   z-index: 0;
 }
