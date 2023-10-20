@@ -63,7 +63,7 @@ main{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,21 +98,22 @@ main{
 .edit{
   position: relative;
   top: -26px;
-  right: 80px;
+  right: -5px;
   cursor: pointer;
   border-radius: 7px;
-
   cursor: pointer;
+  z-index: 4;
 }
 
 .delete {
   position: relative;
   top: -26px;
-  right: 78px;
+  right: -10px;
   cursor: pointer;
   border-radius: 7px;
   padding: 3px;
   cursor:pointer;
+  z-index: 4;
 }
 
 .shelfName{
@@ -152,15 +153,11 @@ main{
 
 .bookCover {
   position: relative;
-  height: 170px;
-  width: 110px;
-  left: 38px;
-  top: 17px;
-  background-color: black;
-  border-radius: 3px;
+  height: 160px;
+  width: 102px;
+  border-radius: 6px;
   margin-right: 3px ;
   z-index: 1;
-  
 }
 
 .bookCover:hover {
@@ -192,11 +189,11 @@ main{
 }
 
 .arrowButton:last-of-type {
-  right: 55px;
+  right: -33px;
 }
 
 .shelf {
-  width: 100%;
+  width: 586px;
   height: 248px;
   background-image: url('../../assets/shelf.png');
   background-size:contain;
@@ -280,8 +277,23 @@ main{
   color: #000;
 }
 
-.input{
-  background-color: #5e0000;
-  padding: 20px;
+input{
+  background-color: #c0c0c0;
+  border: none;
+  padding: 5px;
   border-radius: 8px;
 }
+
+.bookContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 22px;
+  right: -34px;
+}
+
