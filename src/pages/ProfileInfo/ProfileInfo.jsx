@@ -10,6 +10,8 @@ const ProfileInfo = () => {
   const [modalData, setModalData] = useState({ isOpen: false, name: '', isEditing: false, id: null })
   const inputRef = useRef(null)
   const { profileId } = useParams()
+  const [currentBooks, setCurrentBooks] = useState({})
+  const scrollIntervalRefs = useRef({})
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -25,6 +27,16 @@ const ProfileInfo = () => {
   useEffect(() => {
     if (modalData.isOpen && inputRef.current) inputRef.current.focus()
   }, [modalData.isOpen])
+
+  useEffect(() => {
+    if (profile && profile.shelves) {
+      const initialBooks = {}
+      profile.shelves.forEach(shelf => {
+        initialBooks[shelf._id] = shelf.books?.slice(0, 5)
+      })
+      setCurrentBooks(initialBooks)
+    }
+  }, [profile])
 
   const handleShelf = async (action, shelfId) => {
     try {
@@ -57,6 +69,20 @@ const ProfileInfo = () => {
       container.scrollLeft += direction * 200
     }
   }
+
+  const handleScrollOnHover = (shelfId, direction) => {
+    const container = bookContainerRefs.current[shelfId]
+    if (container) {
+      scrollIntervalRefs.current[shelfId] = setInterval(() => {
+        container.scrollLeft += direction * 20  // Adjust scroll amount as needed
+      }, 200)  // 200ms for smooth scrolling effect
+    }
+  }
+
+const stopScrollOnHover = (shelfId) => {
+    clearInterval(scrollIntervalRefs.current[shelfId])
+}
+
   return (
     <main>
       {profile ? (
@@ -69,23 +95,33 @@ const ProfileInfo = () => {
           {profile.shelves.map(shelf => (
             <div className={styles.shelf} key={shelf._id}>
               <div className={styles.shelfNavigation}>
-                <button className={styles.arrowButton} onClick={() => handleScroll(shelf._id, -1)}>⬅️</button>
+                <button
+                  className={styles.arrowButton}
+                  onMouseEnter={() => setTimeout(() => handleScrollOnHover(shelf._id, -1), 200)}  // 0.2s delay
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                >
+                  ⬅️
+                </button>
                 <div className={styles.shelfContent}>
                   <span className={styles.shelfName}>
                     <span className={styles.tooltip} data-title={shelf.name} tooltip={shelf.name}>
                       Name: {shelf.name.length > 20 ? `${shelf.name.substring(0, 28)}...` : shelf.name}
                     </span>
                   </span>
-                  <div ref={ref => bookContainerRefs.current[shelf._id] = ref}>
-                    {shelf.books?.length ? 
-                      shelf.books.map(book => (
-                        <img key={book._id} src={book.cover} alt={book.title} className={styles.bookCover} />
-                      )) :
-                      <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />
-                    }
+                  <div className={styles.bookContainer} ref={ref => bookContainerRefs.current[shelf._id] = ref}>
+                    {currentBooks[shelf._id]?.map(book => (
+                      <img key={book._id} src={book.cover} alt={book.title} className={styles.bookCover} />
+                    ))}
+                    {shelf.books?.length === 0 && <img src={catOnShelfImage} alt="Cat on Shelf" className={styles.catImage} />}
                   </div>
                 </div>
-                <button className={styles.arrowButton} onClick={() => handleScroll(shelf._id, 1)}>➡️</button>
+                <button
+                  className={styles.arrowButton}
+                  onMouseEnter={() => setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)}  // 0.2s delay
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                >
+                  ➡️
+                </button>
               </div>
               <div className={styles.shelfActions}>
                 <button className={styles.edit} onClick={() => setModalData({ isOpen: true, isEditing: true, name: shelf.name, id: shelf._id })}>✏️</button>
@@ -93,7 +129,7 @@ const ProfileInfo = () => {
               </div>
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
-                  <label className={styles.input}>Edit Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
+                  <label className={styles.input}>Edit Shelf Name:<input className={styles.input} ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
                   <button className={styles.b68} onClick={() => handleShelf('editShelf', shelf._id)}>Save</button>
                   <button className={styles.b68} onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
                 </div>
@@ -102,15 +138,15 @@ const ProfileInfo = () => {
           ))}
           {modalData.isOpen && !modalData.isEditing && (
             <div className={styles.modalOpen}>
-              <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
-              <button className={styles.create} onClick={() => handleShelf('createShelf')}>Create</button>
-              <button onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
+              <label>Shelf Name:<input className={styles.newShelf} ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
+              <button className={styles.b68} onClick={() => handleShelf('createShelf')}>Create</button>
+              <button className={styles.b68} onClick={() => setModalData({ isOpen: false, name: '', isEditing: false, id: null })}>Cancel</button>
             </div>
           )}
         </div>
       ) : <p>Loading...</p>}
     </main>
-)
+  )
 }
 
 export default ProfileInfo
