@@ -4,6 +4,7 @@ import LinkedInLogo from '../../assets/LIlogo.png';
 import GithubLogo from '../../assets/githubWhiteLogo.png';
 import carla from '../../assets/carla.png'
 import steven from '../../assets/steven.png'
+import enes from '../../assets/enes.png'
 const AboutUs = () => {
   const renderLink = (logoSrc, altText, linkUrl) => (
     <div className={styles.linkContainer}>
@@ -33,14 +34,14 @@ const AboutUs = () => {
         </div>
           
         <div>
-          <h2>Face</h2>
+        <img src={enes} alt="Enes' Profile Photo" className={styles.devPhoto} />
           <h2 className={styles.devName}>Enes Velovic</h2>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
             {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/NSnyc')}
           </div>
           <p className={styles.devDescription}>
-          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. I create efficient web applications and have experience as a Chief Operating Officer and Strategic Planning Coordinator. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
+          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
           </p>
         </div>
           
