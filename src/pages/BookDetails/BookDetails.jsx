@@ -50,7 +50,6 @@ const BookDetails = (props) => {
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
-
       setComments((prevComments) => [{...newComment, createdAt: newComment.commenter.createdAt },...prevComments])
       console.log('NEW COMMENT PHOTO',newComment.commenter.name)
       console.log('NEW COMMENT PHOTO',newComment.commenter.photo)
@@ -60,11 +59,9 @@ const BookDetails = (props) => {
         }
         console.log('NEWCOMMENT PT2',newComment)
         return { ...bookExists, comments: [...bookExists.comments, {...newComment, createdAt: newComment.commenter.createdAt }] }
-        
       })
     }
   }
-
 
   const sortCommentsByCreatedAt = (comments) => {
     return comments.slice().sort((a, b) => {
@@ -84,16 +81,15 @@ const BookDetails = (props) => {
   };
 
   const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
-    // Update the comment in the state using the commentId
     setComments((prevComments) =>
       prevComments.map((comment) => {
         if (comment._id === commentId) {
           return { ...comment, ...updatedCommentData };
         }
-        return comment;
+        return comment
       })
-    );
-  };
+    )
+  }
 
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
@@ -149,10 +145,7 @@ const BookDetails = (props) => {
           {
             shelves.length === 0 ? (
               <>
-                {/* Create New Shelf button */}
                 <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>Add New Shelf</button>
-
-                {/* Create Shelf Modal */}
                 {modalData.isOpen && (
                   <div className={styles.modalOpen}>
                     <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
@@ -163,7 +156,6 @@ const BookDetails = (props) => {
               </>
             ) : (
               <>
-                {/* Dropdown to select a shelf */}
                 <select id="shelfDropdown" onChange={handleSelectedShelf}>
                   <option value="">Select a shelf</option>
                   {shelves.map((shelf) => (
@@ -172,30 +164,25 @@ const BookDetails = (props) => {
                     </option>
                   ))}
                 </select>
-                {/* Button to add book to selected shelf */}
                 <button className={styles.b68} onClick={handleAddToShelf}>Add to Shelf</button>
               </>
             )
           }
           {book.subtitle && (
-    <h3 className={styles.subTitle}>{book.subtitle}</h3>
-  )}
-  {book.authors && (
-    <h3 className={styles.bookAuthor}>
-      <span style={{ fontWeight: 'bold' }}>Author: </span>
-      {book.authors}
-    </h3>
-  )}
-
-    
+            <h3 className={styles.subTitle}>{book.subtitle}</h3>
+          )}
+          {book.authors && (
+            <h3 className={styles.bookAuthor}>
+              <span style={{ fontWeight: 'bold' }}>Author: </span>
+              {book.authors}
+            </h3>
+          )}
           <p className={styles.bookPage}><span style={{ fontWeight: 'bold' }}>Pages:</span> {book.pages}</p>
           {book.published && ( 
           <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Published:</span> {book.published}</p>
-        )}
+          )}
           <p className={styles.bookDescriptionDetails}><span style={{ fontWeight: 'bold' }}>Categories: </span>{book.categories}</p>
-
           <div className={styles.description} dangerouslySetInnerHTML={{ __html: book.description || "" }}></div>
-
           <Link to={book.url}>
           <button className={styles.b68} >Learn More</button>
           </Link>
@@ -208,7 +195,7 @@ const BookDetails = (props) => {
       <section className={styles.commentContainerSection}>
         {book ? (
           <div>
-      <h1 className={styles.commentH1}>Comments About <br /> {book.title}</h1>
+            <h1 className={styles.commentH1}>Comments About <br /> {book.title}</h1>
             <Comments 
               key={comments._id} 
               comments={comments} 
@@ -222,8 +209,6 @@ const BookDetails = (props) => {
               sortCommentsByCreatedAt={sortCommentsByCreatedAt}
               book={book}
             />
-          
-          
           </div>) : (
           <p>Loading...<img src={uglyCat}/></p>
         )}

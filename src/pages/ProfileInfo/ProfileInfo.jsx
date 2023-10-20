@@ -106,8 +106,8 @@ const ProfileInfo = () => {
     const container = bookContainerRefs.current[shelfId];
     if (container) {
       scrollIntervalRefs.current[shelfId] = setInterval(() => {
-        container.scrollLeft += direction * 20; // Adjust scroll amount as needed
-      }, 200); // 200ms for smooth scrolling effect
+        container.scrollLeft += direction * 20; 
+      }, 200); 
     }
   };
 
