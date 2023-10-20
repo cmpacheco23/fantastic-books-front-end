@@ -55,3 +55,10 @@ nav > ul {
   outline: 3px auto -webkit-focus-ring-color;
 }
 
+.fantasticFont {
+  font-family: 'Fantastic', sans-serif;
+  font-size: 40px;
+}
+h1 {
+  font-family: 'Fantastic', sans-serif;
+}
