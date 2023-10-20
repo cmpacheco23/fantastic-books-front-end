@@ -22,21 +22,6 @@
 </details>
 <br>
 
-##### Table of Contents
-<details>
-<summary> Click to Expand</summary>
-
-- [What is this?](#what-is-this?)
-- [Getting Started](#getting-started)
-- [The Devs](#the-devs)
-- [Highlights](#highlights)
-- [Attributions](#attributions)
-- [Technologies Used](#technologies-used)
-- [Next Steps](#next-steps)
-
-</details>
-<br>
-
 ## What is this?
 
 Fantastic Books is a MERN stack CRUD app that makes it convenient to keep track of your all the books you will need for all you bibliophilic delights! Dive 20,000 leagues into a personalized reading journey, where you can create custom shelves to curate your tales of wonder and mystery. Whether you're charting the realms of books you've journeyed through, setting sail to the titles on your next adventure list, or unearthing niche categories from the forgotten corners of literature, our platform is your one stop shop for all you will need on you adventure!
@@ -63,11 +48,49 @@ If you are curious about what our back end looks like - [Fantastic Books: The Ba
 
 ## Highlights
 
-Carla: 
+<details>
+<summary> Click to Expand</summary>
 
-Enes:
+###### Carla: 
+```dotnetcli
+await Profile.populate(newComment, { path: 'commenter' })
+    const existingBook = await Book.findOne({ googleId: bookDetails.googleId })
+    // const profile = await Profile.findById(req.user.profile)
+    if (existingBook) {
+      existingBook.comments.push(newComment);
+      await existingBook.save();
+    } else {
+      const newBook = new Book({
+        title: bookDetails.title ? bookDetails.title : '',
+        subtitle: bookDetails.subtitle ? bookDetails.subtitle : '',
+        authors : bookDetails.authors ? bookDetails.authors : [],
+        cover: bookDetails.cover ? bookDetails.cover : '',
+        published: bookDetails.published ? bookDetails.published : '',
+        description: bookDetails.description ? bookDetails.description : '',
+        pages: bookDetails.pages ? bookDetails.pages : 0,
+        categories: bookDetails.categories ? bookDetails.categories : [],
+        url: bookDetails.url ? bookDetails.url : '',
+        googleId: bookDetails.googleId,
+        comments: [newComment]
+      })
 
-Steve: 
+      newBook.comments.push(newComment)
+      await newBook.save();
+    }
+    console.log('BOOKDETAILS:',bookDetails)
+    console.log('waffle', newComment)
+    console.log('SHOWS NEWCOMMENT COMMENTER', newComment.commenter)
+    // newComment.commenter = profile
+    res.status(201).json(newComment);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+```
+
+###### Enes:
+
+###### Steve: Landing.module.css
 ```
 .landingTitle {
   background-color: #242424; 
@@ -109,6 +132,8 @@ Steve:
   }
 }
 ```
+</details>
+<br>
 
 ## Attributions
 [Google Books api](https://developers.google.com/books)  
