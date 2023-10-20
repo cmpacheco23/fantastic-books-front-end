@@ -45,15 +45,18 @@ If you are curious about what our back end looks like - [Fantastic Books: The Ba
 ## The Devs
 
 #### Scrum Manager and Styler:  
-###### Carla Pacheco [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
+## Carla Pacheco  
+#### [Github](https://github.com/andrewmorrisondev) [Linked In](https://www.linkedin.com/in/thecarlapacheco/)
 <br />
 
-### Api Manager and Git Comander
-##### Enes Velovic [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
+#### Api Manager and Git Comander
+## Enes Velovic  
+#### [Github](https://github.com/nonchalamment) [Linked In](https://www.linkedin.com/in/enesvelovic/)
 <br />
 
-### Database Manager and Documentor
-##### Steve Morrison [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
+#### Database Manager and Documentor
+## Steve Morrison  
+#### [Github](https://github.com/trentonwahr) [Linked In](https://www.linkedin.com/in/steven-ansman-morrison/)
 
 ## Highlights
 
@@ -98,6 +101,214 @@ await Profile.populate(newComment, { path: 'commenter' })
 ```
 
 ###### Enes:
+
+```
+return (
+    <main>
+      {profile ? (
+        <div>
+          <div className={styles.spacer}/>
+          <img
+            className={styles.photo}
+            src={profile.photo}
+            alt="profile photo"
+          />
+          <h1 className={styles.name}>{profile.name}</h1>
+          <div className={styles.container}>
+          <div className={styles.toggleContainer}>
+            <input
+              type="checkbox"
+              className={styles.funCheckbox}
+              id="funCheckbox"
+              checked={darkMode}
+              onChange={handleDarkModeChange}
+            />
+            <label htmlFor="funCheckbox" className={styles.funCheckboxLabel}>
+              <i className="fas fa-moon"></i>
+              <i className="fas fa-sun"></i>
+              <span className={styles.funCheckboxThumb}></span>
+            </label>
+          </div>
+          </div>
+          {showButton && (
+            <button
+              className={styles.b68}
+              onClick={() =>
+                setModalData({
+                  isOpen: true,
+                  isEditing: false,
+                  name: "",
+                  id: null,
+                  placeholder: "Shelf Name",
+                })
+              }
+            >
+              New Shelf
+            </button>
+          )}
+          {profile.shelves.map((shelf) => (
+            <div className={styles.shelf} key={shelf._id}>
+              <div className={styles.shelfNavigation}>
+                <button
+                  className={styles.arrowButton}
+                  onMouseEnter={() =>
+                    setTimeout(() => handleScrollOnHover(shelf._id, -1), 150)
+                  }
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, -1)}
+                >
+                  ⬅️
+                </button>
+                <div className={styles.shelfContent}>
+                  <span className={styles.shelfName}>
+                    <span
+                      className={styles.tooltip}
+                      data-title={shelf.name}
+                      tooltip={shelf.name}
+                    >
+                      Name:{" "}
+                      {shelf.name.length > 20
+                        ? `${shelf.name.substring(0, 28)}...`
+                        : shelf.name}
+                    </span>
+                  </span>
+                  <div
+                    className={styles.bookContainer}
+                    ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
+                  >
+                  {currentBooks[shelf._id]?.map((book) => (
+                    <img
+                      key={book._id}
+                      src={book.cover}
+                      alt={book.title}
+                      className={styles.bookCover}
+                    />
+                  ))}
+                  {shelf.books?.length === 0 && (
+                    <img
+                      src={darkMode ? catOnShelfImage : greyCat}
+                      alt="Cat on Shelf"
+                      className={styles.catImage}
+                    />
+                    )}
+                  </div>
+                </div>
+                <button
+                  className={styles.arrowButton}
+                  onMouseEnter={() =>
+                    setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)
+                  } // 0.2s delay
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, 1)}
+                >
+                  ➡️
+                </button>
+              </div>
+              <div className={styles.shelfActions}>
+                <button
+                  className={styles.edit}
+                  onClick={() =>
+                    setModalData({
+                      isOpen: true,
+                      isEditing: true,
+                      name: shelf.name,
+                      id: shelf._id,
+                    })
+                  }
+                >
+                  ✏️
+                </button>
+                <button
+                  className={styles.delete}
+                  onClick={() => handleDeleteShelf(shelf._id)}
+                >
+                  🗑️
+                </button>
+              </div>
+              {modalData.isEditing && modalData.id === shelf._id && (
+                <div className={styles.modalOpen}>
+                  <label className={styles.input}>
+                    Edit Shelf Name:
+                    <input
+                      className={styles.input}
+                      ref={inputRef}
+                      type="text"
+                      value={modalData.name}
+                      onChange={(e) =>
+                        setModalData({ ...modalData, name: e.target.value })
+                      }
+                    />
+                  </label>
+                  <button
+                    className={styles.b68}
+                    onClick={() => handleShelf("editShelf", shelf._id)}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.b68}
+                    onClick={() =>
+                      setModalData({
+                        isOpen: false,
+                        name: "",
+                        isEditing: false,
+                        id: null,
+                      })
+                    }
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+          {modalData.isOpen && !modalData.isEditing && (
+            <div className={styles.modalOpen}>
+              <label>
+                Shelf Name:
+                <input
+                  className={styles.newShelf}
+                  ref={inputRef}
+                  type="text"
+                  value={modalData.name}
+                  onChange={(e) =>
+                    setModalData({ ...modalData, name: e.target.value })
+                  }
+                />
+              </label>
+       
+      <button
+        className={styles.b68}
+        onClick={() => handleShelf("createShelf")}
+      >
+        Create
+      </button>
+
+              <button
+                className={styles.b68}
+                onClick={() =>
+                  setModalData({
+                    isOpen: false,
+                    name: "",
+                    isEditing: false,
+                    id: null,
+                  })
+                }
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <p>
+          Loading...<img src={uglyCat} />
+        </p>
+      )}
+    </main>
+  );
+};
+```
 
 ###### Steve: Landing.module.css
 ```
