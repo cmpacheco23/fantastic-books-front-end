@@ -154,6 +154,7 @@ const BookDetails = (props) => {
               </>
             ) : (
               <>
+              
                 <select id="shelfDropdown" onChange={handleSelectedShelf}>
                   <option value="">Select a shelf</option>
                   {shelves.map((shelf) => (
@@ -165,6 +166,7 @@ const BookDetails = (props) => {
                 <button className={styles.b68} onClick={handleAddToShelf}>Add to Shelf</button>
               </>
             )
+            
           }
           {book.subtitle && (
             <h3 className={styles.subTitle}>{book.subtitle}</h3>
