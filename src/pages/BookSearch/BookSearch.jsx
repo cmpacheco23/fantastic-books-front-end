@@ -92,12 +92,12 @@ const BookSearch = () => {
        <></>
       )} */}
       {allBooks.map((book) => (
-        <div key={book.id}>
+        <section key={book.id} className={styles.bookCardContainer}>
           <BookCard book={book} onClick={() => handleBookClick(book)} />
           {selectedBook && selectedBook.id === book.id && (
             <BookDetails book={selectedBook} />
           )}
-        </div>
+        </section>
       ))}
     </main>
   );

@@ -1,6 +1,38 @@
 .linkContainer {
-  max-width: 200px;
-  max-height: 300px;
+  width: 320px;
+  max-height: 320px;
   gap: 10px;
   padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bookCardImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block; /* Make the image a block-level element */
+  margin: 0 auto; /* Horizontally center the image */
+  /* padding-top: 20px; */
+}
+
+.bookCardText {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  width: 100%; 
+  margin-top: 20px;
+}
+
+.bookCardContent {
+  text-align: center;
+  flex-wrap: wrap; 
+}
+
+.authorLink{
+  font-size: 18px;
+  margin-bottom: 20px
 }
