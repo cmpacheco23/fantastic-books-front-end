@@ -5,6 +5,11 @@ import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
+
+
+
+  // ('Received props in EditComment:', props)
+
   const {volumeId} = useParams()
   const {setFormOpen} = props
   const [formData, setFormData] = useState(props.comment)
@@ -16,15 +21,21 @@ const  EditComment = (props) => {
   const handleSubmit = async (evt) => {
     setFormOpen(false)
     evt.preventDefault();
-    console.log('handleSubmit called')
-    console.log('commentId:', commentId);
+    ('handleSubmit called')
+    ('commentId:', commentId);
     await bookService.updateComment(volumeId, commentId, formData)
     props.commentSavedUpdateRender(commentId, formData)
   }
   const handleCancel = () => {
     setFormOpen(false);
+
     console.log('After setting isFormOpen to false in handleCancel')
     props.handleCancelEdit()}
+
+    ('After setting isFormOpen to false in handleCancel')
+    props.handleCancelEdit()
+  }
+
 
   return (
     <div>

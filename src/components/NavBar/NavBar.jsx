@@ -6,6 +6,7 @@ import Logo from '/assets/logo.png'
 import styles from "./NavBar.module.css" 
 
 const NavBar = ({ user, handleLogout }) => {
+
   const [showLogo, setShowLogo] = useState(true)
 
   useEffect(() => {
@@ -30,12 +31,23 @@ const NavBar = ({ user, handleLogout }) => {
       </ul>
       <div className={`${styles.center} ${styles.flexCenter}`}>
         <ul >
+
           <li>
             <NavLink to="/" className={styles.navLink}>
               {showLogo && (<img src={'/assets/booklogo.png'} className={styles.logo} alt="Logo" />)}
             </NavLink>
           </li>
         </ul>
+
+        <li>
+          <NavLink to="/" className={styles.navLink}>
+            {showLogo && (
+            <img src={'/assets/booklogo.png'} className={styles.logo} alt="Logo" />
+            )}
+          </NavLink>
+        </li>
+      </ul>
+
       </div>
       <div className={styles.left}>
         <ul>

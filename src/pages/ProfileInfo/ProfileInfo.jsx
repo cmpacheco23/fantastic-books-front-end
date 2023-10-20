@@ -31,7 +31,7 @@ const ProfileInfo = () => {
         setProfile(data);
         setShowButton(true);
       } catch (err) {
-        console.log(err);
+        (err);
       }
     };
     fetchProfile();
@@ -51,6 +51,7 @@ const ProfileInfo = () => {
     }
   }, [profile]);
 
+
   useEffect(() => {
     return () => {
       if (flickityRef.current) {
@@ -58,6 +59,8 @@ const ProfileInfo = () => {
       }
     };
   }, []);
+
+
 
   const handleShelf = async (action, shelfId) => {
     try {
@@ -77,7 +80,7 @@ const ProfileInfo = () => {
       }
       setModalData({ isOpen: false, name: "", isEditing: false, id: null });
     } catch (err) {
-      console.log(err);
+      (err);
     }
   };
 
@@ -91,7 +94,7 @@ const ProfileInfo = () => {
         return { ...prev, shelves: updatedShelves };
       });
     } catch (err) {
-      console.log(err);
+      (err);
     }
   };
 
@@ -118,6 +121,8 @@ const ProfileInfo = () => {
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
   };
+
+
 
   return (
     <main>
@@ -244,12 +249,12 @@ const ProfileInfo = () => {
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
                   <label className={styles.input}>
-                    Edit Shelf Name:
                     <input
                       className={styles.input}
                       ref={inputRef}
                       type="text"
                       value={modalData.name}
+                      placeholder="Edit Shelf Name"
                       onChange={(e) =>
                         setModalData({ ...modalData, name: e.target.value })
                       }
@@ -281,23 +286,25 @@ const ProfileInfo = () => {
           {modalData.isOpen && !modalData.isEditing && (
             <div className={styles.modalOpen}>
               <label>
-                Shelf Name:
                 <input
                   className={styles.newShelf}
                   ref={inputRef}
                   type="text"
                   value={modalData.name}
+                  placeholder="Shelf Name"
                   onChange={(e) =>
                     setModalData({ ...modalData, name: e.target.value })
                   }
                 />
               </label>
-              <button
-                className={styles.b68}
-                onClick={() => handleShelf("createShelf")}
-              >
-                Create
-              </button>
+       
+      <button
+        className={styles.b68}
+        onClick={() => handleShelf("createShelf")}
+      >
+        Create
+      </button>
+
               <button
                 className={styles.b68}
                 onClick={() =>

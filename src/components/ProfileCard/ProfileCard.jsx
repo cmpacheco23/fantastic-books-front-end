@@ -14,6 +14,7 @@ const ProfileCard = ({profile}) => {
 
   return (
     <main className={styles.main}>
+
       <div className={styles.profileCard} onClick={handleProfileInfo} >
         <Link to={`/profiles/${profile._id}`}>
           <img className={styles.photo} src={profile.photo} alt='profile photo'/>

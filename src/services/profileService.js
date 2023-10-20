@@ -98,7 +98,7 @@ async function addBookToShelf(profileId, shelfId, volumeId) {
     })
     return res.json()
   } catch (error) {
-    console.log(error)
+    (error)
   }
 }
 

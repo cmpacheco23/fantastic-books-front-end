@@ -15,7 +15,7 @@ export async function getBookDetails(volumeId) {
     }
     return bookDetailsWithComments
   } catch (error) {
-    console.log(error)
+    (error)
   }
 }
 
@@ -31,7 +31,7 @@ export async function bookSearch (data) {
     })
     return res.json()
   } catch (error) {
-    console.log(error)
+    (error)
   }
 }
 
@@ -78,26 +78,10 @@ export async function getComments(volumeId) {
   }
 }
 
-// export async function getComments(volumeId) {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${volumeId}/comments`)
-//     const comments = await res.json()
-
-//     if (comments && comments.length > 0) {
-//       return comments
-//     } else {
-//       console.log('No comments exist for volumeId:', volumeId)
-//       return []
-//     }
-//   } catch (error) {
-//     console.error('Failed to fetch comments:', error)
-//     return []
-//   }
-// }
 
 
 export const updateComment = async (volumeId, commentId, commentFormData) => {
-  console.log(commentFormData)
+  (commentFormData)
   try {
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
       method: 'PUT',
@@ -109,7 +93,7 @@ export const updateComment = async (volumeId, commentId, commentFormData) => {
     })
     return res.json()
   } catch (error) {
-    console.log(error)
+    (error)
   }
 }
 
@@ -123,6 +107,6 @@ export const deleteComment = async (volumeId, commentId) => {
     })
     return res.json()
   } catch (error) {
-    console.log(error)
+    (error)
   }
 }

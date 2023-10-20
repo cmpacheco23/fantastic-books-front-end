@@ -51,13 +51,13 @@ const BookDetails = (props) => {
     const newComment = await bookService.createComment(volumeId, commentFormData)
     if (newComment) {
       setComments((prevComments) => [{...newComment, createdAt: newComment.commenter.createdAt },...prevComments])
-      console.log('NEW COMMENT PHOTO',newComment.commenter.name)
-      console.log('NEW COMMENT PHOTO',newComment.commenter.photo)
+      ('NEW COMMENT PHOTO',newComment.commenter.name)
+      ('NEW COMMENT PHOTO',newComment.commenter.photo)
       setBook((bookExists) => {
         if (!bookExists || !bookExists.comments) {
           return bookExists
         }
-        console.log('NEWCOMMENT PT2',newComment)
+        ('NEWCOMMENT PT2',newComment)
         return { ...bookExists, comments: [...bookExists.comments, {...newComment, createdAt: newComment.commenter.createdAt }] }
       })
     }
@@ -71,7 +71,7 @@ const BookDetails = (props) => {
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
-      console.log(updatedComment)
+      (updatedComment)
       setComments(comments.map(comment => {
         updatedComment._id === comment._id ? updatedComment : comment
       }))
@@ -112,9 +112,9 @@ const BookDetails = (props) => {
   }
 
   const handleAddToShelf = async () => {
-    console.log(selectedShelf)
+    (selectedShelf)
     try {
-      console.log(props.user.profile, selectedShelf, volumeId)
+      (props.user.profile, selectedShelf, volumeId)
       const profileData = await profileService.addBookToShelf(props.user.profile, selectedShelf, volumeId)
       setProfile(profileData)
       setShelves(profileData.shelves || [])
@@ -130,7 +130,7 @@ const BookDetails = (props) => {
       const newShelf = await profileService.createShelf({ name: modalData.name }, props.user.profile)
       setShelves(prev => [...prev, newShelf])
       setModalData({ isOpen: false, name: '', isEditing: false, id: null })
-    } catch (err) { console.log(err) }
+    } catch (err) { (err) }
   }
 
   return (
