@@ -121,64 +121,14 @@ const ProfileInfo = () => {
 
   return (
     <main>
-    {profile ? (
-      <div>
-        <div className={styles.spacer} />
-        <img
-          className={styles.photo}
-          src={profile.photo}
-          alt="profile photo"
-        />
-        <h1 className={styles.name}>{profile.name}</h1>
-        <div className="toggle-container">
-          <input
-            type="checkbox"
-            className="checkbox"
-            id="checkbox"
-            checked={darkMode}
-            onChange={handleDarkModeChange}
+      {profile ? (
+        <div>
+          <div className={styles.spacer}/>
+          <img
+            className={styles.photo}
+            src={profile.photo}
+            alt="profile photo"
           />
-          <label htmlFor="checkbox" className="checkbox-label">
-            <i className="fas fa-moon"></i>
-            <i className="fas fa-sun"></i>
-            <span className="ball"></span>
-          </label>
-        </div>
-        {showButton && (
-          <button
-            className={styles.b68}
-            onClick={() =>
-              setModalData({
-                isOpen: true,
-                isEditing: false,
-                name: "",
-                id: null,
-                placeholder: "Shelf Name",
-              })
-            }
-          >
-            New Shelf
-          </button>
-        )}
-        {profile.shelves.map((shelf) => (
-          <div className={styles.shelf} key={shelf._id}>
-            <div className={styles.shelfNavigation}>
-              <button
-                className={styles.arrowButton}
-                onMouseEnter={() =>
-                  setTimeout(() => handleScrollOnHover(shelf._id, -1), 150)
-                }
-                onMouseLeave={() => stopScrollOnHover(shelf._id)}
-                onClick={() => scrollBookContainer(shelf._id, -1)}
-              >
-                ⬅️
-              </button>
-              <div className={styles.shelfContent}>
-                <span className={styles.shelfName}>
-                  <span
-                    className={styles.tooltip}
-                    data-title={shelf.name}
-                    tooltip={shelf.name}
           <h1 className={styles.name}>{profile.name}</h1>
           <div className={styles.container}>
           <div className={styles.toggleContainer}>
@@ -242,16 +192,6 @@ const ProfileInfo = () => {
                     className={styles.bookContainer}
                     ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
                   >
-                    Name:{" "}
-                    {shelf.name.length > 20
-                      ? `${shelf.name.substring(0, 28)}...`
-                      : shelf.name}
-                  </span>
-                </span>
-                <div
-                  className={styles.bookContainer}
-                  ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
-                >
                   {currentBooks[shelf._id]?.map((book) => (
                     <img
                       key={book._id}
@@ -266,120 +206,119 @@ const ProfileInfo = () => {
                       alt="Cat on Shelf"
                       className={styles.catImage}
                     />
-                  )}
+                    )}
+                  </div>
                 </div>
-              </div>
-              <button
-                className={styles.arrowButton}
-                onMouseEnter={() =>
-                  setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)
-                }
-                onMouseLeave={() => stopScrollOnHover(shelf._id)}
-                onClick={() => scrollBookContainer(shelf._id, 1)}
-              >
-                ➡️
-              </button>
-            </div>
-            <div className={styles.shelfActions}>
-              <button
-                className={styles.edit}
-                onClick={() =>
-                  setModalData({
-                    isOpen: true,
-                    isEditing: true,
-                    name: shelf.name,
-                    id: shelf._id,
-                  })
-                }
-              >
-                ✏️
-              </button>
-              <button
-                className={styles.delete}
-                onClick={() => handleDeleteShelf(shelf._id)}
-              >
-                🗑️
-              </button>
-            </div>
-            {modalData.isEditing && modalData.id === shelf._id && (
-              <div className={styles.modalOpen}>
-                <label className={styles.input}>
-                  Edit Shelf Name:
-                  <input
-                    className={styles.input}
-                    ref={inputRef}
-                    type="text"
-                    value={modalData.name}
-                    onChange={(e) =>
-                      setModalData({ ...modalData, name: e.target.value })
-                    }
-                  />
-                </label>
                 <button
-                  className={styles.b68}
-                  onClick={() => handleShelf("editShelf", shelf._id)}
+                  className={styles.arrowButton}
+                  onMouseEnter={() =>
+                    setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)
+                  } // 0.2s delay
+                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
+                  onClick={() => scrollBookContainer(shelf._id, 1)}
                 >
-                  Save
+                  ➡️
                 </button>
+              </div>
+              <div className={styles.shelfActions}>
                 <button
-                  className={styles.b68}
+                  className={styles.edit}
                   onClick={() =>
                     setModalData({
-                      isOpen: false,
-                      name: "",
-                      isEditing: false,
-                      id: null,
+                      isOpen: true,
+                      isEditing: true,
+                      name: shelf.name,
+                      id: shelf._id,
                     })
                   }
                 >
-                  Cancel
+                  ✏️
+                </button>
+                <button
+                  className={styles.delete}
+                  onClick={() => handleDeleteShelf(shelf._id)}
+                >
+                  🗑️
                 </button>
               </div>
-            )}
-          </div>
-        ))}
-        {modalData.isOpen && !modalData.isEditing && (
-          <div className={styles.modalOpen}>
-            <label>
-              Shelf Name:
-              <input
-                className={styles.newShelf}
-                ref={inputRef}
-                type="text"
-                value={modalData.name}
-                onChange={(e) =>
-                  setModalData({ ...modalData, name: e.target.value })
+              {modalData.isEditing && modalData.id === shelf._id && (
+                <div className={styles.modalOpen}>
+                  <label className={styles.input}>
+                    Edit Shelf Name:
+                    <input
+                      className={styles.input}
+                      ref={inputRef}
+                      type="text"
+                      value={modalData.name}
+                      onChange={(e) =>
+                        setModalData({ ...modalData, name: e.target.value })
+                      }
+                    />
+                  </label>
+                  <button
+                    className={styles.b68}
+                    onClick={() => handleShelf("editShelf", shelf._id)}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.b68}
+                    onClick={() =>
+                      setModalData({
+                        isOpen: false,
+                        name: "",
+                        isEditing: false,
+                        id: null,
+                      })
+                    }
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+          {modalData.isOpen && !modalData.isEditing && (
+            <div className={styles.modalOpen}>
+              <label>
+                Shelf Name:
+                <input
+                  className={styles.newShelf}
+                  ref={inputRef}
+                  type="text"
+                  value={modalData.name}
+                  onChange={(e) =>
+                    setModalData({ ...modalData, name: e.target.value })
+                  }
+                />
+              </label>
+              <button
+                className={styles.b68}
+                onClick={() => handleShelf("createShelf")}
+              >
+                Create
+              </button>
+              <button
+                className={styles.b68}
+                onClick={() =>
+                  setModalData({
+                    isOpen: false,
+                    name: "",
+                    isEditing: false,
+                    id: null,
+                  })
                 }
-              />
-            </label>
-            <button
-              className={styles.b68}
-              onClick={() => handleShelf("createShelf")}
-            >
-            Create
-            </button>
-            <button
-              className={styles.b68}
-              onClick={() =>
-                setModalData({
-                  isOpen: false,
-                  name: "",
-                  isEditing: false,
-                  id: null,
-                })
-              }
-            >
-              Cancel
-            </button>
-          </div>
-        )}
-      </div>
-    ) : (
-      <p>
-        Loading...
-        <img src={uglyCat} />
-      </p>
-    )}
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <p>
+          Loading...<img src={uglyCat} />
+        </p>
+      )}
     </main>
   );
 };
