@@ -122,7 +122,18 @@ const ProfileInfo = () => {
     setDarkMode(event.target.checked);
   };
 
-
+  const handleRemoveBookFromShelf = (shelfId, bookId) => {
+    try {
+      setCurrentBooks((prevBooks) => {
+        const updatedBooks = { ...prevBooks };
+        updatedBooks[shelfId] = updatedBooks[shelfId].filter((book) => book._id !== bookId);
+        return updatedBooks;
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  
 
   return (
     <main>
@@ -198,12 +209,20 @@ const ProfileInfo = () => {
                     ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
                   >
                   {currentBooks[shelf._id]?.map((book) => (
+                    <div key={book._id} className={styles.bookContainerItem}>
                     <img
                       key={book._id}
                       src={book.cover}
                       alt={book.title}
                       className={styles.bookCover}
                     />
+                    <button
+                      className={styles.removeBookButton}
+                      onClick={() => handleRemoveBookFromShelf(shelf._id, book._id)}
+                    >
+                    X
+                    </button>
+                  </div>
                   ))}
                   {shelf.books?.length === 0 && (
                     <img
