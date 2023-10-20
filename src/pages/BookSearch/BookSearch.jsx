@@ -78,7 +78,7 @@ const BookSearch = () => {
         <h2 className={styles.currentPage}>Page {currPage}</h2>
         <h2 onClick={handleIncreasePageCount}>►</h2>
       </div>
-        <h2 className={styles.resultCount}>{allBooks.length} results found</h2>
+        <h2 className={styles.resultCount}>{allBooks.length} Results Found </h2>
       </>
       ) : (
       <></>
