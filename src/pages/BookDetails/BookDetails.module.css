@@ -1,8 +1,10 @@
 
+main {
+  margin-top: 90px;
+}
 .spacer {
   min-height: 60px;
   top: 0px;
-  /* You can adjust the spacer height to control the spacing at the top. */
 }
 
 .info {
