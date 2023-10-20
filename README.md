@@ -86,13 +86,13 @@ await Profile.populate(newComment, { path: 'commenter' })
       newBook.comments.push(newComment)
       await newBook.save();
     }
-    console.log('BOOKDETAILS:',bookDetails)
-    console.log('waffle', newComment)
-    console.log('SHOWS NEWCOMMENT COMMENTER', newComment.commenter)
+    ('BOOKDETAILS:',bookDetails)
+    ('waffle', newComment)
+    ('SHOWS NEWCOMMENT COMMENTER', newComment.commenter)
     // newComment.commenter = profile
     res.status(201).json(newComment);
   } catch (err) {
-    console.log(err);
+    (err);
     res.status(500).json(err);
   }
 ```

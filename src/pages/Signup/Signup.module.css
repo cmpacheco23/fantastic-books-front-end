@@ -1,4 +1,4 @@
-/* Apply styles to .spacer and .logo */
+
 .spacer {
   height: 70px;
   top: 0;
@@ -22,7 +22,7 @@
   transform: rotate(460deg);
 }
 
-/* Style input elements */
+
 input {
   margin-left: 16px;
   padding: 8px;
@@ -47,14 +47,13 @@ input::placeholder {
   text-align: center;
 }
 
-/* Apply styles to .container */
+
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-/* Apply styles to .message */
 .message {
   margin-top: 0;
   height: 22px;
@@ -67,7 +66,7 @@ input::placeholder {
   padding: 0 15px;
 }
 
-/* Apply styles to .form */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -75,7 +74,7 @@ input::placeholder {
   margin-bottom: 50px;
 }
 
-/* Apply styles to .label */
+
 .label {
   width: 100%;
   display: flex;
@@ -95,7 +94,7 @@ h1 {
   text-align: center;
 }
 
-/* Apply styles to .button */
+
 .button {
   margin-left: 16px;
 }
@@ -104,7 +103,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-/* Update styles for .b68 button */
+
 .b68 {
   background: #9b6404;
   border-radius: 8px;
@@ -130,21 +129,19 @@ h1 {
   transform: translateY(2px);
 }
 
-/* Style for button container within rightOverlay */
+
 .buttonContainer {
   display: flex;
   justify-content: space-between;
 }
 
-/* Additional styles for right overlay */
-/* Additional styles for right overlay */
 .rightOverlay {
   position: absolute;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Move it up by 50% of its own height to center it */
+  top: 50%; 
+  transform: translateY(-50%); 
   right: 0;
   width: 50%;
-  height: 100%; /* Covers the full height of the viewport */
+  height: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,17 +150,16 @@ h1 {
   z-index: 1;
 }
 
-/* Additional styles for left overlay */
 .leftOverlay {
   position: absolute;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Move it up by 50% of its own height to center it */
+  top: 50%; 
+  transform: translateY(-50%); 
   left: 0;
   width: 50%;
-  height: calc(100% - 70px); /* Adjusted for the nav bar height (70px) */
+  height: calc(100% - 70px); 
   background-size: cover;
-  background-position: center; /* Center the background image */
-  z-index: 0; /* Sent behind the right overlay */
+  background-position: center; 
+  z-index: 0; 
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -31,7 +31,7 @@ const ProfileInfo = () => {
         setProfile(data);
         setShowButton(true);
       } catch (err) {
-        console.log(err);
+        (err);
       }
     };
     fetchProfile();
@@ -51,6 +51,7 @@ const ProfileInfo = () => {
     }
   }, [profile]);
 
+
   useEffect(() => {
     return () => {
       if (flickityRef.current) {
@@ -58,6 +59,8 @@ const ProfileInfo = () => {
       }
     };
   }, []);
+
+
 
   const handleShelf = async (action, shelfId) => {
     try {
@@ -77,7 +80,7 @@ const ProfileInfo = () => {
       }
       setModalData({ isOpen: false, name: "", isEditing: false, id: null });
     } catch (err) {
-      console.log(err);
+      (err);
     }
   };
 
@@ -91,7 +94,7 @@ const ProfileInfo = () => {
         return { ...prev, shelves: updatedShelves };
       });
     } catch (err) {
-      console.log(err);
+      (err);
     }
   };
 
@@ -106,8 +109,8 @@ const ProfileInfo = () => {
     const container = bookContainerRefs.current[shelfId];
     if (container) {
       scrollIntervalRefs.current[shelfId] = setInterval(() => {
-        container.scrollLeft += direction * 20; // Adjust scroll amount as needed
-      }, 200); // 200ms for smooth scrolling effect
+        container.scrollLeft += direction * 20; 
+      }, 200); 
     }
   };
 
@@ -118,6 +121,8 @@ const ProfileInfo = () => {
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
   };
+
+
 
   return (
     <main>
@@ -292,12 +297,14 @@ const ProfileInfo = () => {
                   }
                 />
               </label>
-              <button
-                className={styles.b68}
-                onClick={() => handleShelf("createShelf")}
-              >
-                Create
-              </button>
+       
+      <button
+        className={styles.b68}
+        onClick={() => handleShelf("createShelf")}
+      >
+        Create
+      </button>
+
               <button
                 className={styles.b68}
                 onClick={() =>

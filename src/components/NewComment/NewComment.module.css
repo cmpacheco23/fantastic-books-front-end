@@ -1,14 +1,10 @@
-/* form, form * {
-  border: 1px solid orange
-} */
-
 .newComment {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 280px;
-  margin: 0 auto; /* Center horizontally */
+  margin: 0 auto; 
   text-align: center; 
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -16,14 +12,14 @@
 }
 
 .newComment label {
-  display: inline-block; /* Ensures the label and select are on the same line */
-  margin-bottom: 10px; /* Adds some space below the label */
+  display: inline-block;
+  margin-bottom: 10px; 
 }
 
 .newComment select {
-  display: inline-block; /* Display the select element inline */
-  margin-left: 10px; /* Adds some space between the label and select */
-  margin-bottom: 10px; /* Adds some space below the select */
+  display: inline-block; 
+  margin-left: 10px; 
+  margin-bottom: 10px; 
 }
 
 .b68 {
@@ -36,7 +32,6 @@
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  /* display: inline-block; */
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -83,24 +78,24 @@ button{
   margin-top: 20px;
 }
 
-/* Styles for the select element */
+
 select {
   display: inline-block;
-  appearance: none; /* Remove default arrow icon */
-  background-color: #b0800898; /* Background color */
-  border: 2px solid #333; /* Border */
-  border-radius: 10px; /* Rounded corners */
-  color: #e8dddd; /* Text color */
-  padding: 10px; /* Padding */
-  font-size: 16px; /* Font size */
+  appearance: none; 
+  background-color: #b0800898; 
+  border: 2px solid #333;
+  border-radius: 10px; 
+  color: #e8dddd; 
+  padding: 10px; 
+  font-size: 16px; 
   text-align: center;
   font-weight: 700;
 }
 label {
-  display: inline-block; /* Display label as inline-block */
-  width: 100px; /* Adjust the width as needed */
-  text-align: right; /* Right-align the label text */
-  margin-right: 10px; /* Add spacing between label and select */
+  display: inline-block;
+  width: 100px; 
+  text-align: right; 
+  margin-right: 10px; 
 }
 
 /* Style for the dropdown arrow icon (pseudo-element) */

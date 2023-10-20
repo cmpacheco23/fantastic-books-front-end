@@ -24,7 +24,6 @@ const Landing = ({ user }) => {
         <img className={styles.landingTitle} src='/assets/fantastic-books-logo.png' />
         </div>
 
-        {/* <h1 className={styles.landingTitle}>Fantastic Books</h1> */}
         <h2 className={styles.landingSubTitle}>and where to find them.</h2>
 
         <article className={styles.description}>
@@ -46,11 +45,6 @@ const Landing = ({ user }) => {
               <h4 className="direction-title">Your Shelves</h4>
               <p className="direction-text">Step into the secret garden of our 'Shelf' feature – a reader's own enchanting alcove in the great library of life! Design your shelves with names as captivating as Pemberley's halls, seamlessly add tales of old and new. For those tales you wish to remain for your eyes only', simply set your shelf to private. [Privacy feature coming soon!]</p>
             </div>
-      
-            {/* <div>
-              <h4 className="direction-title">The Forum-</h4>
-              <p className="direction-text">Enter the Fantastic Books' Forum, our very own literary round table. Like Dante seeking his path, if you're unsure where your next reading journey should lead, or if you're thoughts not so gently rapping, you've found the right place.</p>
-            </div> */}
         </article>
       </section>
           
