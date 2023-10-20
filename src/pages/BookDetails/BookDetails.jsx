@@ -141,7 +141,7 @@ const BookDetails = (props) => {
         <img className={styles.cover} src={book.cover} alt="book cover" />
         <div className={styles.bookInfo}>
           {
-            shelves.length === 0 ? (
+            shelves.length === 0  && !props.user !== null ? (
               <>
                 <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>Add New Shelf</button>
                 {modalData.isOpen && (
@@ -154,7 +154,6 @@ const BookDetails = (props) => {
               </>
             ) : (
               <>
-              
                 <select id="shelfDropdown" onChange={handleSelectedShelf}>
                   <option value="">Select a shelf</option>
                   {shelves.map((shelf) => (
