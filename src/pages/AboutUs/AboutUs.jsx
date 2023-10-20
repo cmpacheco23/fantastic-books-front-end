@@ -23,37 +23,37 @@ const AboutUs = () => {
         <div>
         <img src={carla} alt="Carla's Profile Photo" className={styles.devPhoto} />
           <h2 className={styles.devName}>Carla Pacheco</h2>
-          <p className={styles.devDescription}>
-          Software Engineer passionate about crafting technical solutions that bridge the gap between client needs and innovative products. My background is in marketing and e-commerce, primarily within MarTech and SaaS companies.
-          </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/thecarlapacheco/')}
             {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/cmpacheco23')}
           </div>
+          <p className={styles.devDescription}>
+          Software Engineer passionate about crafting technical solutions that bridge the gap between client needs and innovative products. My background is in marketing and e-commerce, primarily within MarTech and SaaS companies.
+          </p>
         </div>
           
         <div>
           <h2>Face</h2>
           <h2 className={styles.devName}>Enes Velovic</h2>
-          <p className={styles.devDescription}>
-          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. I create efficient web applications and have experience as a Chief Operating Officer and Strategic Planning Coordinator. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
-          </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/enesvelovic/')}
             {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/NSnyc')}
           </div>
+          <p className={styles.devDescription}>
+          Software Engineer with a background in business and finance, holding a degree in Business Administration and Management. I create efficient web applications and have experience as a Chief Operating Officer and Strategic Planning Coordinator. My passion lies in problem-solving, learning, and delivering high-quality products and services that exceed client and stakeholder expectations.
+          </p>
         </div>
           
         <div>
           <img src={steven} alt="Steven's Profile Photo" className={styles.devPhoto} />
           <h2 className={styles.devName}>Steve Morrison</h2>
-          <p className={styles.devDescription}>
-          An imaginative full stack Software Developer with an eye for details, ingenuity, and progress. I use my background in behavioral analysis, my skills in various technologies, and a passion to drive insightful, innovative, and impactful solutions to develop smarter applications with the user in mind.
-          </p>
           <div className={styles.links}>
           {renderLink(LinkedInLogo, "LinkedIn Logo", 'https://www.linkedin.com/in/steven-ansman-morrison/')}
             {renderLink(GithubLogo, "GitHub Logo", 'https://github.com/venmorr')}
           </div>
+          <p className={styles.devDescription}>
+          An imaginative full stack Software Developer with an eye for details, ingenuity, and progress. I use my background in behavioral analysis, my skills in various technologies, and a passion to drive insightful, innovative, and impactful solutions to develop smarter applications with the user in mind.
+          </p>
         </div>
         </section>
       </main>
