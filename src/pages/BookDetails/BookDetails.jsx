@@ -143,7 +143,10 @@ const BookDetails = (props) => {
           {
             shelves.length === 0  && !props.user !== null ? (
               <>
-                <button onClick={() => setModalData({ isOpen: true, isEditing: false, name: '', id: null })}>Add New Shelf</button>
+                {props.user ? (
+                  <button onClick={() => setModalData({ isOpen: true, isEditing: false,   name: '', id: null })}> Add New Shelf </button> ) : (
+                  <></>
+                )}
                 {modalData.isOpen && (
                   <div className={styles.modalOpen}>
                     <label>Shelf Name:<input ref={inputRef} type="text" value={modalData.name} onChange={e => setModalData({ ...modalData, name: e.target.value })} /></label>
