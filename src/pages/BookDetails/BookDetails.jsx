@@ -203,7 +203,8 @@ const BookDetails = (props) => {
               comments={comments} 
               setComments={setComments}
               user={props.user} 
-              handleEditComment={handleUpdateComment} 
+              handleUpdateComment={handleUpdateComment}
+              // handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 

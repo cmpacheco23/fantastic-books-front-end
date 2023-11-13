@@ -1,41 +1,50 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import * as bookService from '../../services/bookService'
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  // ('Received props in EditComment:', props)
+  const { volumeId, setFormOpen,  handleCancelEdit, commentSavedUpdateRender, formOpen, commentSelect, handleUpdateComment, comment  } = props
+  // const [formData, setFormData] = useState(props.comment)
 
-  const {volumeId} = useParams()
-  // const {commentId} = props
-  const {setFormOpen} = props
-  const [formData, setFormData] = useState(props.comment)
+  const [formData, setFormData] = useState({
+    text: commentSelect?.text,
+    rating: commentSelect?.rating,
+  })
 
-  const commentId = props.comment._id
+  const commentId = comment._id
   const handleChange = ({target}) => {
-    //updates state in real time
+    console.log(target.name, target.value)
     setFormData({...formData, [target.name]: target.value})
   }
+
+  useEffect(() => {
+    // Update formData when the comment prop changes
+    setFormData({
+      text: comment?.text,
+      rating: comment?.rating,
+    });
+  }, [comment]);
 
   const handleSubmit = async (evt) => {
     setFormOpen(false)
     evt.preventDefault();
     await bookService.updateComment(volumeId, commentId, formData)
-    props.commentSavedUpdateRender(commentId, formData)
+    commentSavedUpdateRender(commentId, formData)
+    handleUpdateComment()
+    // handleCommentUpdate()
   }
   
   const handleCancel = () => {
     setFormOpen(false);
-    ('After setting isFormOpen to false in handleCancel')
-    props.handleCancelEdit()
+    handleCancelEdit()
   }
 
   return (
     <div>
-      
-      {props.formOpen ?  (
+
+      {formOpen ?  (
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
         <div className={styles.dropdown}> 

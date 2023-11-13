@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import CommentCard from "../CommentCard/CommentCard";
-import EditComment from "../EditComment/EditComment"
 import NewComment from "../NewComment/NewComment"
 
 import styles from "./Comments.module.css"
@@ -39,17 +38,31 @@ const Comments = (props) => {
           user={props.user}
           volumeId={props.volumeId}
           handleToggleEditForm={() => {
-            setIsEditingComment(comment._id)
-            setFormOpen(true)
-            setSelectedComment(props.comments.find(element => element._id === comment._id))}}
-          handleDeleteComment={async () => {await props.handleDeleteComment(props.volumeId, comment._id)}}
-          isEditingComment={selectedComment} 
+            setIsEditingComment(comment._id);
+            setFormOpen(true);
+            setSelectedComment(
+              props.comments.find((element) => element._id === comment._id)
+            )
+          }}
+          formOpen={formOpen}
+          handleDeleteComment={async () => {
+            await props.handleDeleteComment(
+              props.volumeId,
+              comment._id
+            );
+          }}
+          handleUpdateComment={props.handleUpdateComment}
+          // handleCommentUpdate={props.handleCommentUpdate}
+          // handleEditComment={props.handleEditComment}
           handleCancelEdit={handleCancelEdit}
-          commentSavedUpdateRender={props.commentSavedUpdateRender}   
+          isEditingComment={selectedComment}
+          commentSavedUpdateRender={props.commentSavedUpdateRender}
+          commentSelect={selectedComment}
+          setFormOpen={setFormOpen}
         />
       ))}
       </div>
-        {isEditingComment && (
+        {/* {isEditingComment && (
           <EditComment
             volumeId={props.volumeId}
             user={props.user}
@@ -61,7 +74,7 @@ const Comments = (props) => {
             setFormOpen={setFormOpen}
             commentSavedUpdateRender={props.commentSavedUpdateRender}
           />
-        )}
+        )} */}
     </div>
   )
 }
