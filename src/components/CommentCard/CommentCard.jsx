@@ -46,8 +46,6 @@ const CommentCard = (props) => {
             comment={props.comment}
             user={props.user}
             handleUpdateComment={props.handleUpdateComment}
-            // handleCommentUpdate={props.handleCommentUpdate}
-            // handleEditComment={props.handleEditComment}
             handleCancelEdit={props.handleToggleEditForm}
             commentSelect={props.selectedComment || { text: '', rating: '1' }}
             formOpen={props.formOpen}

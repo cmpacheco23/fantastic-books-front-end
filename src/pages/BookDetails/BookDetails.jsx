@@ -204,7 +204,6 @@ const BookDetails = (props) => {
               setComments={setComments}
               user={props.user} 
               handleUpdateComment={handleUpdateComment}
-              // handleEditComment={handleUpdateComment} 
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 

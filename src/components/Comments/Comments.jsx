@@ -52,8 +52,6 @@ const Comments = (props) => {
             );
           }}
           handleUpdateComment={props.handleUpdateComment}
-          // handleCommentUpdate={props.handleCommentUpdate}
-          // handleEditComment={props.handleEditComment}
           handleCancelEdit={handleCancelEdit}
           isEditingComment={selectedComment}
           commentSavedUpdateRender={props.commentSavedUpdateRender}
