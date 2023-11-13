@@ -7,13 +7,13 @@ import styles from "./Comments.module.css"
 
 const Comments = (props) => {
 
-  const [isEditingComment, setIsEditingComment] = useState(null)
+  // const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState(true)
   const [selectedComment, setSelectedComment] = useState({})
 
-  const handleCancelEdit = () => {
-    setIsEditingComment(null)
-  }
+  // const handleCancelEdit = () => {
+  //   setIsEditingComment(null)
+  // }
 
   const sortedComments = props.comments.slice().sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt)})
@@ -37,13 +37,14 @@ const Comments = (props) => {
           comment={comment} 
           user={props.user}
           volumeId={props.volumeId}
-          handleToggleEditForm={() => {
-            setIsEditingComment(comment._id);
-            setFormOpen(true);
-            setSelectedComment(
-              props.comments.find((element) => element._id === comment._id)
-            )
-          }}
+          setSelectedComment={setSelectedComment}
+          // handleToggleEditForm={() => {
+          //   setIsEditingComment(comment._id);
+          //   setFormOpen(true);
+          //   setSelectedComment(
+          //     props.comments.find((element) => element._id === comment._id)
+          //   )
+          // }}
           formOpen={formOpen}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(
@@ -52,7 +53,7 @@ const Comments = (props) => {
             );
           }}
           handleUpdateComment={props.handleUpdateComment}
-          handleCancelEdit={handleCancelEdit}
+          // handleCancelEdit={handleCancelEdit}
           isEditingComment={selectedComment}
           commentSavedUpdateRender={props.commentSavedUpdateRender}
           commentSelect={selectedComment}

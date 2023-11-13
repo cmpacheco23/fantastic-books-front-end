@@ -69,10 +69,13 @@ const BookDetails = (props) => {
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
-      (updatedComment)
-      setComments(comments.map(comment => {
-        updatedComment._id === comment._id ? updatedComment : comment
-      }))
+      // (updatedComment)
+      // setComments(comments.map(comment => {
+      //   updatedComment._id === comment._id ? updatedComment : comment
+      // }))
+      setComments((comments) =>
+      comments.map((comment) => (comment._id === updatedComment._id ? updatedComment : comment))
+    )
     } catch (error) {
       console.error(error);
     }

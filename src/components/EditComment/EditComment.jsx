@@ -30,6 +30,7 @@ const  EditComment = (props) => {
   const handleSubmit = async (evt) => {
     setFormOpen(false)
     evt.preventDefault();
+    console.log("Submitting with:", volumeId, commentId, formData);
     await bookService.updateComment(volumeId, commentId, formData)
     commentSavedUpdateRender(commentId, formData)
     handleUpdateComment()

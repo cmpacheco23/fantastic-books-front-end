@@ -3,28 +3,42 @@ import styles from './CommentCard.module.css';
 import EditComment from '../EditComment/EditComment';
 
 const CommentCard = (props) => {
-  const [isEditingComment, setIsEditing] = useState(false);
+  const [isEditingComment, setIsEditingComment] = useState(null)
+  // const [setIsEditing] = useState(false);
 
-  const handleToggleEditForm = () => {
-    setIsEditing(!isEditingComment);
-  };
+  // const handleToggleEditForm = () => {
+  //   setIsEditing(!isEditingComment);
+  // };
 
+ const handleToggleEditForm = () => {
+    // setIsEditingComment(comment._id);
+    setIsEditingComment(!isEditingComment);
+    props.setFormOpen(true);
+    props.setSelectedComment(
+      props.comments.find((element) => element._id === props.comment._id)
+    )
+  }
+  
+  const handleCancelEdit = () => {
+    setIsEditingComment(null)
+  }
+  
   const formatDate = (dateString) =>
-    new Date(dateString).toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    });
-
+  new Date(dateString).toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  });
+  
   function getRatingEmojis(rating) {
     if (rating < 1 || rating > 5) {
       return 'Invalid Rating';
     }
     return '⭐'.repeat(rating);
   }
-
+  
   const ratingEmojis = getRatingEmojis(props.comment.rating);
-
+  
   return (
     <article className={styles.commentCard}>
       <div className={styles.commentText}>
@@ -35,25 +49,25 @@ const CommentCard = (props) => {
                 src={props.comment.commenter.photo}
                 alt={`Photo of ${props.comment.commenter.name}`}
                 className={styles.commenterPhoto}
-              />
+                />
               <p className={styles.name}>{props.comment.commenter.name}</p>
             </div>
           )}
         </div>
         {isEditingComment ? (
           <EditComment
-            volumeId={props.volumeId}
-            comment={props.comment}
-            user={props.user}
-            handleUpdateComment={props.handleUpdateComment}
-            handleCancelEdit={props.handleToggleEditForm}
-            commentSelect={props.selectedComment || { text: '', rating: '1' }}
-            formOpen={props.formOpen}
-            setFormOpen={props.setFormOpen}
-            commentSavedUpdateRender={props.commentSavedUpdateRender}
+          volumeId={props.volumeId}
+          comment={props.comment}
+          user={props.user}
+          handleUpdateComment={props.handleUpdateComment}
+          handleCancelEdit={handleCancelEdit}
+          commentSelect={props.selectedComment || { text: '', rating: '1' }}
+          formOpen={props.formOpen}
+          setFormOpen={props.setFormOpen}
+          commentSavedUpdateRender={props.commentSavedUpdateRender}
           />
-        ) : (
-          <>
+          ) : (
+            <>
             <p className={styles.commentText}>{props.comment.text}</p>
             <p>{formatDate(props.comment.createdAt)}</p>
             <p>{ratingEmojis}</p>
@@ -66,7 +80,7 @@ const CommentCard = (props) => {
             <button
               onClick={handleToggleEditForm}
               disabled={props.isEditingComment === props.comment._id}
-            >
+              >
               ✏️
             </button>
             <button
@@ -74,16 +88,17 @@ const CommentCard = (props) => {
                 props.handleDeleteComment(props.volumeId, props.comment._id)
               }
               disabled={props.isEditingComment === props.comment._id}
-            >
+              >
               🗑️
             </button>
           </div>
         ) : (
           <></>
-        )}
+          )}
       </div>
     </article>
   );
-};
-
-export default CommentCard;
+}
+  
+  export default CommentCard;
+  
