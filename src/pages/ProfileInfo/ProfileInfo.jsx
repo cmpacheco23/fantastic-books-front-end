@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import * as profileService from "../../services/profileService";
 import catOnShelfImage from "/assets/blackcat.png";
 import styles from "./ProfileInfo.module.css";
@@ -17,8 +17,6 @@ const ProfileInfo = (props) => {
     id: null,
   });
   const inputRef = useRef(null);
-  const scrollIntervalRefs = useRef({});
-  const flickityRef = useRef(null);
   const bookContainerRefs = useRef({});
   const { profileId } = useParams();
   const [currentBooks, setCurrentBooks] = useState({});
@@ -50,16 +48,6 @@ const ProfileInfo = (props) => {
       setCurrentBooks(initialBooks);
     }
   }, [profile]);
-
-
-  useEffect(() => {
-    return () => {
-      if (flickityRef.current) {
-        flickityRef.current.destroy();
-      }
-    };
-  }, []);
-
 
 
   const handleShelf = async (action, shelfId) => {
@@ -96,26 +84,6 @@ const ProfileInfo = (props) => {
     } catch (err) {
       (err);
     }
-  };
-
-  const handleScroll = (shelfId, direction) => {
-    const container = bookContainerRefs.current[shelfId];
-    if (container) {
-      container.scrollLeft += direction * 200;
-    }
-  };
-
-  const handleScrollOnHover = (shelfId, direction) => {
-    const container = bookContainerRefs.current[shelfId];
-    if (container) {
-      scrollIntervalRefs.current[shelfId] = setInterval(() => {
-        container.scrollLeft += direction * 20; 
-      }, 200); 
-    }
-  };
-
-  const stopScrollOnHover = (shelfId) => {
-    clearInterval(scrollIntervalRefs.current[shelfId]);
   };
 
   const handleDarkModeChange = (event) => {
@@ -182,22 +150,11 @@ const ProfileInfo = (props) => {
           {profile.shelves.map((shelf) => (
             <div className={styles.shelf} key={shelf._id}>
               <div className={styles.shelfNavigation}>
-                <button
-                  className={styles.arrowButton}
-                  onMouseEnter={() =>
-                    setTimeout(() => handleScrollOnHover(shelf._id, -1), 150)
-                  }
-                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
-                  onClick={() => scrollBookContainer(shelf._id, -1)}
-                >
-                  ⬅️
-                </button>
                 <div className={styles.shelfContent}>
                   <span className={styles.shelfName}>
                     <span
                       className={styles.tooltip}
                       data-title={shelf.name}
-                      tooltip={shelf.name}
                     >
                       Name:{" "}
                       {shelf.name.length > 20
@@ -210,42 +167,34 @@ const ProfileInfo = (props) => {
                     ref={(ref) => (bookContainerRefs.current[shelf._id] = ref)}
                   >
                   {currentBooks[shelf._id]?.map((book) => (
-                    <div key={book._id} className={styles.bookContainerItem}>
-                    <img
-                      key={book._id}
-                      src={book.cover}
-                      alt={book.title}
-                      className={styles.bookCover}
-                    />
-                    <button
-                      className={styles.removeBookButton}
-                      onClick={() => handleRemoveBookFromShelf(shelf._id, book._id)}
-                    >
-                    X
-                    </button>
-                  </div>
+                    <Link to={`/books/${book.googleId}`} key={book._id}>
+                      <div className={styles.bookContainerItem}>
+                      <img
+                        key={book._id}
+                        src={book.cover}
+                        alt={book.title}
+                        className={styles.bookCover}
+                        />
+                      <button
+                        className={styles.removeBookButton}
+                        onClick={() => handleRemoveBookFromShelf(shelf._id, book._id)}
+                      >
+                      X
+                      </button>
+                      </div>
+                    </Link>
                   ))}
                   {shelf.books?.length === 0 && (
                     <img
-                      src={darkMode ? catOnShelfImage : greyCat}
-                      alt="Cat on Shelf"
-                      className={styles.catImage}
+                    src={darkMode ? catOnShelfImage : greyCat}
+                    alt="Cat on Shelf"
+                    className={styles.catImage}
                     />
                     )}
                   </div>
                 </div>
-                <button
-                  className={styles.arrowButton}
-                  onMouseEnter={() =>
-                    setTimeout(() => handleScrollOnHover(shelf._id, 1), 200)
-                  } // 0.2s delay
-                  onMouseLeave={() => stopScrollOnHover(shelf._id)}
-                  onClick={() => scrollBookContainer(shelf._id, 1)}
-                >
-                  ➡️
-                </button>
-              </div>
-              <div className={styles.shelfActions}>
+                </div>
+                <div className={styles.shelfActions}>
                 <button
                   className={styles.edit}
                   onClick={() =>
@@ -262,27 +211,27 @@ const ProfileInfo = (props) => {
                 <button
                   className={styles.delete}
                   onClick={() => handleDeleteShelf(shelf._id)}
-                >
+                  >
                   🗑️
                 </button>
               </div>
               {modalData.isEditing && modalData.id === shelf._id && (
                 <div className={styles.modalOpen}>
-                  <label className={styles.input}>
-                    <input
-                      className={styles.input}
-                      ref={inputRef}
-                      type="text"
-                      value={modalData.name}
-                      placeholder="Edit Shelf Name"
-                      onChange={(e) =>
-                        setModalData({ ...modalData, name: e.target.value })
-                      }
+                <label className={styles.input}>
+                <input
+                className={styles.input}
+                ref={inputRef}
+                type="text"
+                value={modalData.name}
+                placeholder="Edit Shelf Name"
+                onChange={(e) =>
+                  setModalData({ ...modalData, name: e.target.value })
+                }
                     />
-                  </label>
+                    </label>
                   <button
-                    className={styles.b68}
-                    onClick={() => handleShelf("editShelf", shelf._id)}
+                  className={styles.b68}
+                  onClick={() => handleShelf("editShelf", shelf._id)}
                   >
                     Save
                   </button>
@@ -317,14 +266,12 @@ const ProfileInfo = (props) => {
                   }
                 />
               </label>
-       
       <button
         className={styles.b68}
         onClick={() => handleShelf("createShelf")}
       >
         Create
       </button>
-
               <button
                 className={styles.b68}
                 onClick={() =>
