@@ -36,13 +36,6 @@ const Comments = (props) => {
           user={props.user}
           volumeId={props.volumeId}
           setSelectedComment={setSelectedComment}
-          // handleToggleEditForm={() => {
-          //   setIsEditingComment(comment._id);
-          //   setFormOpen(true);
-          //   setSelectedComment(
-          //     props.comments.find((element) => element._id === comment._id)
-          //   )
-          // }}
           formOpen={formOpen}
           handleDeleteComment={async () => {
             await props.handleDeleteComment(
@@ -51,8 +44,6 @@ const Comments = (props) => {
             );
           }}
           handleUpdateComment={props.handleUpdateComment}
-          // handleCancelEdit={handleCancelEdit}
-          // commentSavedUpdateRender={props.commentSavedUpdateRender}
           selectedComment={selectedComment}
           setFormOpen={setFormOpen}
         />

@@ -73,24 +73,13 @@ const BookDetails = (props) => {
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
       const updatedComments = comments.map((comment) => (comment._id === updatedComment._id ? updatedComment : comment))
-      setComments(updatedComments)
+      console.log('UPDATEDCOMMENTS',updatedComments)
+      setComments(updatedComments);
     } catch (error) {
       console.error(error);
     }
   };
 
-
-  // const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
-  //   setComments((prevComments) =>
-  //     prevComments.map((comment) => {
-  //       if (comment._id === commentId) {
-  //         return { ...comment, ...updatedCommentData };
-  //       }
-  //       return comment;
-  //     })
-  //   );
-  // };
-  
   
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)

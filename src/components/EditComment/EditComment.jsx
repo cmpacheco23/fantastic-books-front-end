@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import * as bookService from '../../services/bookService'
-
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
@@ -25,11 +23,12 @@ const  EditComment = (props) => {
   }, [selectedComment]);
 
   const handleSubmit = async (evt) => {
-    setFormOpen(false)
+    // setFormOpen(false)
     evt.preventDefault();
     console.log("Submitting with:", volumeId, commentId, formData);
     await handleUpdateComment(volumeId, commentId, formData)
     // handleCommentUpdate()
+    setFormOpen(false)
   }
   
   const handleCancel = () => {
@@ -37,6 +36,15 @@ const  EditComment = (props) => {
     handleCancelEdit()
   }
 
+  function getRatingEmojis(rating) {
+    if (rating < 1 || rating > 5) {
+      return 'Invalid Rating';
+    }
+    return '⭐'.repeat(rating);
+  }
+  
+  const ratingEmojis = getRatingEmojis(props.comment.rating);
+  
   return (
     <div>
 
@@ -80,7 +88,17 @@ const  EditComment = (props) => {
         </div>
       </form>
       ) : (
-        <div> </div>
+        <div> 
+          <img
+                src={props.comment.commenter.photo}
+                alt={`Photo of ${props.comment.commenter.name}`}
+                className={styles.commenterPhoto}
+                />
+          <p>{props.comment.commenter.name}</p>
+          <p>{props.comment.text}</p>
+          <p>{props.formatDate(props.comment.createdAt)}</p>
+          <p>{ratingEmojis}</p>
+        </div>
       )
     }
     </div>

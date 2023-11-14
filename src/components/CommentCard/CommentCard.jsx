@@ -67,6 +67,7 @@ const CommentCard = (props) => {
           selectedComment={props.selectedComment}
           formOpen={props.formOpen}
           setFormOpen={props.setFormOpen}
+          formatDate={formatDate}
           // commentSavedUpdateRender={props.commentSavedUpdateRender}
           />
           ) : (
