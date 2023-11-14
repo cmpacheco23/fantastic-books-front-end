@@ -131,3 +131,37 @@ form{
   justify-content: center;
   max-width: 600px;
 }
+
+
+.commentCard .commenterPhoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: center; 
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+
+.commentCard .namePhoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin: 5px;
+}
+
+.namePhoto .name {
+  padding: 0;
+  margin: 0;
+}
+
+.commentText{
+  line-height: 20px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.date{
+  margin-bottom: 8px;
+}

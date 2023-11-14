@@ -89,14 +89,18 @@ const  EditComment = (props) => {
       </form>
       ) : (
         <div> 
-          <img
+          {props.comment.commenter.photo && (
+            <div className={styles.namePhoto}>
+              <img
                 src={props.comment.commenter.photo}
                 alt={`Photo of ${props.comment.commenter.name}`}
                 className={styles.commenterPhoto}
                 />
-          <p>{props.comment.commenter.name}</p>
-          <p>{props.comment.text}</p>
-          <p>{props.formatDate(props.comment.createdAt)}</p>
+              <p className={styles.name}>{props.comment.commenter.name}</p>
+            </div>
+          )}
+          <p className={styles.commentText}>{props.comment.text}</p>
+          <p className={styles.date}>{props.formatDate(props.comment.createdAt)}</p>
           <p>{ratingEmojis}</p>
         </div>
       )
