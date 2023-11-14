@@ -100,7 +100,7 @@ const  EditComment = (props) => {
           )}
           <p className={styles.commentText}>{props.comment.text}</p>
           <p className={styles.name}>— {props.comment.commenter.name}</p>
-          <p>{ratingEmojis}</p>
+          <p className={styles.emojis}>{ratingEmojis}</p>
           <p className={styles.date}>{props.formatDate(props.comment.createdAt)}</p>
         </div>
       )
