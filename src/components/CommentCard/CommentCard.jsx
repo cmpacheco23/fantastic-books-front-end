@@ -5,10 +5,10 @@ import EditComment from '../EditComment/EditComment';
 const CommentCard = (props) => {
   const [isEditingComment, setIsEditingComment] = useState(false)
   const handleToggleEditForm = () => {
-    // Open the form
+
     props.setFormOpen(true);
   
-    // Toggle the editing state
+
     setIsEditingComment(!isEditingComment);
   
     const selectedComment = props.comments.find((element) => element._id === props.comment._id);
@@ -64,10 +64,10 @@ const CommentCard = (props) => {
           user={props.user}
           handleUpdateComment={props.handleUpdateComment}
           handleCancelEdit={handleCancelEdit}
-          // selectedComment={props.selectedComment}
+          selectedComment={props.selectedComment}
           formOpen={props.formOpen}
           setFormOpen={props.setFormOpen}
-          commentSavedUpdateRender={props.commentSavedUpdateRender}
+          // commentSavedUpdateRender={props.commentSavedUpdateRender}
           />
           ) : (
             <>

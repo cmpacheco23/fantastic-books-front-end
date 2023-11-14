@@ -5,9 +5,7 @@ import * as bookService from '../../services/bookService'
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  const { volumeId, setFormOpen,  handleCancelEdit, commentSavedUpdateRender, formOpen,handleUpdateComment, comment  } = props
-  // const [formData, setFormData] = useState(props.comment)
-
+  const { volumeId, setFormOpen,  handleCancelEdit, formOpen, selectedComment, handleUpdateComment, comment  } = props
   const [formData, setFormData] = useState({
     text: comment?.text,
     rating: comment?.rating,
@@ -15,25 +13,22 @@ const  EditComment = (props) => {
 
   const commentId = comment._id
   const handleChange = ({target}) => {
-    console.log(target.name, target.value)
     setFormData({...formData, [target.name]: target.value})
   }
 
   useEffect(() => {
     // Update formData when the comment prop changes
     setFormData({
-      text: comment?.text,
-      rating: comment?.rating,
+      text: selectedComment?.text,
+      rating: selectedComment?.rating,
     });
-  }, [comment]);
+  }, [selectedComment]);
 
   const handleSubmit = async (evt) => {
     setFormOpen(false)
     evt.preventDefault();
     console.log("Submitting with:", volumeId, commentId, formData);
-    await bookService.updateComment(volumeId, commentId, formData)
-    commentSavedUpdateRender(commentId, formData)
-    handleUpdateComment()
+    await handleUpdateComment(volumeId, commentId, formData)
     // handleCommentUpdate()
   }
   

@@ -19,7 +19,6 @@ const BookDetails = (props) => {
   const [modalData, setModalData] = useState({ isOpen: false, name: '', isEditing: false, id: null })
   const inputRef = useRef(null)
 
-
   useEffect(() => {
     const fetchShelves = async () => {
       const profileData = await profileService.getOneProfile(props.user.profile)
@@ -66,32 +65,33 @@ const BookDetails = (props) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
   }
+  
   const handleUpdateComment = async (volumeId, commentId, commentFormData) => {
+    console.log('VOLUMEID', volumeId)
+    console.log('COMMENTID', commentId)
+    console.log('COMMENTFORMDATA', commentFormData)
     try {
       const updatedComment = await bookService.updateComment(volumeId, commentId, commentFormData);
-      // (updatedComment)
-      // setComments(comments.map(comment => {
-      //   updatedComment._id === comment._id ? updatedComment : comment
-      // }))
-      setComments((comments) =>
-      comments.map((comment) => (comment._id === updatedComment._id ? updatedComment : comment))
-    )
+      const updatedComments = comments.map((comment) => (comment._id === updatedComment._id ? updatedComment : comment))
+      setComments(updatedComments)
     } catch (error) {
       console.error(error);
     }
   };
 
-  const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
-    setComments((prevComments) =>
-      prevComments.map((comment) => {
-        if (comment._id === commentId) {
-          return { ...comment, ...updatedCommentData };
-        }
-        return comment
-      })
-    )
-  }
 
+  // const commentSavedUpdateRender = async (commentId, updatedCommentData) => {
+  //   setComments((prevComments) =>
+  //     prevComments.map((comment) => {
+  //       if (comment._id === commentId) {
+  //         return { ...comment, ...updatedCommentData };
+  //       }
+  //       return comment;
+  //     })
+  //   );
+  // };
+  
+  
   const handleDeleteComment = async (volumeId, commentId) => {
     await bookService.deleteComment(volumeId, commentId)
     setComments((prevComments) =>
@@ -210,7 +210,7 @@ const BookDetails = (props) => {
               handleAddComment={handleAddComment}
               handleDeleteComment={handleDeleteComment}
               volumeId={volumeId} 
-              commentSavedUpdateRender={commentSavedUpdateRender}
+              // commentSavedUpdateRender={commentSavedUpdateRender}
               sortCommentsByCreatedAt={sortCommentsByCreatedAt}
               book={book}
             />
