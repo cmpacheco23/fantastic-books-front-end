@@ -5,12 +5,8 @@ import EditComment from '../EditComment/EditComment';
 const CommentCard = (props) => {
   const [isEditingComment, setIsEditingComment] = useState(false)
   const handleToggleEditForm = () => {
-
     props.setFormOpen(true);
-  
-
     setIsEditingComment(!isEditingComment);
-  
     const selectedComment = props.comments.find((element) => element._id === props.comment._id);
     // console.log('SELECTED COMMENT', selectedComment)
     props.setSelectedComment(selectedComment)
@@ -44,20 +40,8 @@ const CommentCard = (props) => {
   
   return (
     <article className={styles.commentCard}>
-      <div className={styles.commentText}>
-        <div className={styles.commenterSection}>
-          {props.comment.commenter.photo && (
-            <div className={styles.namePhoto}>
-              <img
-                src={props.comment.commenter.photo}
-                alt={`Photo of ${props.comment.commenter.name}`}
-                className={styles.commenterPhoto}
-                />
-            </div>
-          )}
-        </div>
-        {isEditingComment ? (
-          <EditComment
+      {isEditingComment ? (
+        <EditComment
           volumeId={props.volumeId}
           comment={props.comment}
           user={props.user}
@@ -67,32 +51,42 @@ const CommentCard = (props) => {
           formOpen={props.formOpen}
           setFormOpen={props.setFormOpen}
           formatDate={formatDate}
-          />
-          ) : (
-            <div> 
+        />
+      ) : (
+        <div className={styles.commentText}>
+          <div className={styles.commenterSection}>
             {props.comment.commenter.photo && (
               <div className={styles.namePhoto}>
                 <img
                   src={props.comment.commenter.photo}
                   alt={`Photo of ${props.comment.commenter.name}`}
                   className={styles.commenterPhoto}
-                  />
+                />
+              </div>
+            )}
+          </div>
+            {props.comment.commenter.photo && (
+              <div className={styles.namePhoto}>
+                <img
+                  src={props.comment.commenter.photo}
+                  alt={`Photo of ${props.comment.commenter.name}`}
+                  className={styles.commenterPhoto}
+                />
               </div>
             )}
             <p className={styles.commentText}>{props.comment.text}</p>
             <p className={styles.name}>— {props.comment.commenter.name}</p>
             <p className={styles.emojis}>{ratingEmojis}</p>
             <p className={styles.date}>{formatDate(props.comment.createdAt)}</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
       <div className={styles.commentButtons}>
         {props.user.profile === props.comment.commenter._id ? (
           <div>
             <button
               onClick={handleToggleEditForm}
               disabled={props.isEditingComment === props.comment._id}
-              >
+            >
               ✏️
             </button>
             <button
@@ -100,17 +94,17 @@ const CommentCard = (props) => {
                 props.handleDeleteComment(props.volumeId, props.comment._id)
               }
               disabled={props.isEditingComment === props.comment._id}
-              >
+            >
               🗑️
             </button>
           </div>
         ) : (
           <></>
-          )}
+        )}
       </div>
     </article>
   );
-}
+};
   
   export default CommentCard;
   

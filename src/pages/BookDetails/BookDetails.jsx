@@ -18,7 +18,7 @@ const BookDetails = (props) => {
   const [profile, setProfile] = useState({})
   const [modalData, setModalData] = useState({ isOpen: false, name: '', isEditing: false, id: null })
   const inputRef = useRef(null)
-
+  
   useEffect(() => {
     const fetchShelves = async () => {
       const profileData = await profileService.getOneProfile(props.user.profile)

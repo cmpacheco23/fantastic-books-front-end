@@ -23,11 +23,9 @@ const  EditComment = (props) => {
   }, [selectedComment]);
 
   const handleSubmit = async (evt) => {
-    // setFormOpen(false)
     evt.preventDefault();
     console.log("Submitting with:", volumeId, commentId, formData);
     await handleUpdateComment(volumeId, commentId, formData)
-    // handleCommentUpdate()
     setFormOpen(false)
   }
   
@@ -35,20 +33,9 @@ const  EditComment = (props) => {
     setFormOpen(false);
     handleCancelEdit()
   }
-
-  function getRatingEmojis(rating) {
-    if (rating < 1 || rating > 5) {
-      return 'Invalid Rating';
-    }
-    return '⭐'.repeat(rating);
-  }
-  
-  const ratingEmojis = getRatingEmojis(props.comment.rating);
   
   return (
-    <div>
-
-      {formOpen ?  (
+    <div className={formOpen ? styles.visible : styles.hidden}>
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
         <div className={styles.dropdown}> 
@@ -80,31 +67,13 @@ const  EditComment = (props) => {
         />
         <div className={styles.btnRow}>
 
-        <button className={styles.submit} type="submit" >Save</button>
+        <button className={styles.submit} type="submit" onClick={handleSubmit}>Save</button>
         <button className={styles.cancel} type="button" onClick={handleCancel}>
           Cancel
         </button>
         
         </div>
       </form>
-      ) : (
-        <div> 
-          {props.comment.commenter.photo && (
-            <div className={styles.namePhoto}>
-              <img
-                src={props.comment.commenter.photo}
-                alt={`Photo of ${props.comment.commenter.name}`}
-                className={styles.commenterPhoto}
-                />
-            </div>
-          )}
-          <p className={styles.commentText}>{props.comment.text}</p>
-          <p className={styles.name}>— {props.comment.commenter.name}</p>
-          <p className={styles.emojis}>{ratingEmojis}</p>
-          <p className={styles.date}>{props.formatDate(props.comment.createdAt)}</p>
-        </div>
-      )
-    }
     </div>
   );
 }
