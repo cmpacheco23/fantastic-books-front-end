@@ -5,12 +5,12 @@ import * as bookService from '../../services/bookService'
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  const { volumeId, setFormOpen,  handleCancelEdit, commentSavedUpdateRender, formOpen, commentSelect, handleUpdateComment, comment  } = props
+  const { volumeId, setFormOpen,  handleCancelEdit, commentSavedUpdateRender, formOpen,handleUpdateComment, comment  } = props
   // const [formData, setFormData] = useState(props.comment)
 
   const [formData, setFormData] = useState({
-    text: commentSelect?.text,
-    rating: commentSelect?.rating,
+    text: comment?.text,
+    rating: comment?.rating,
   })
 
   const commentId = comment._id

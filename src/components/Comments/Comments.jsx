@@ -9,7 +9,7 @@ const Comments = (props) => {
 
   // const [isEditingComment, setIsEditingComment] = useState(null)
   const [formOpen, setFormOpen] = useState(true)
-  const [selectedComment, setSelectedComment] = useState({})
+  const [selectedComment, setSelectedComment] = useState(null)
 
   // const handleCancelEdit = () => {
   //   setIsEditingComment(null)
@@ -35,6 +35,7 @@ const Comments = (props) => {
         <CommentCard 
           key={`edit-${comment._id}`} 
           comment={comment} 
+          comments={props.comments}
           user={props.user}
           volumeId={props.volumeId}
           setSelectedComment={setSelectedComment}
@@ -54,9 +55,8 @@ const Comments = (props) => {
           }}
           handleUpdateComment={props.handleUpdateComment}
           // handleCancelEdit={handleCancelEdit}
-          isEditingComment={selectedComment}
           commentSavedUpdateRender={props.commentSavedUpdateRender}
-          commentSelect={selectedComment}
+          selectedComment={selectedComment}
           setFormOpen={setFormOpen}
         />
       ))}

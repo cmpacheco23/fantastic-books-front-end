@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CommentCard.module.css';
 import EditComment from '../EditComment/EditComment';
 
 const CommentCard = (props) => {
-  const [isEditingComment, setIsEditingComment] = useState(null)
-  // const [setIsEditing] = useState(false);
-
-  // const handleToggleEditForm = () => {
-  //   setIsEditing(!isEditingComment);
-  // };
-
- const handleToggleEditForm = () => {
-    // setIsEditingComment(comment._id);
-    setIsEditingComment(!isEditingComment);
+  const [isEditingComment, setIsEditingComment] = useState(false)
+  const handleToggleEditForm = () => {
+    // Open the form
     props.setFormOpen(true);
-    props.setSelectedComment(
-      props.comments.find((element) => element._id === props.comment._id)
-    )
-  }
+  
+    // Toggle the editing state
+    setIsEditingComment(!isEditingComment);
+  
+    const selectedComment = props.comments.find((element) => element._id === props.comment._id);
+    // console.log('SELECTED COMMENT', selectedComment)
+    props.setSelectedComment(selectedComment)
+  };
+  
+  useEffect(() => {
+    // Log the updated selectedComment after it has been updated
+    // console.log('Selected Comment:', props.selectedComment);
+  }, [props.selectedComment]);
+  
   
   const handleCancelEdit = () => {
     setIsEditingComment(null)
@@ -61,7 +64,7 @@ const CommentCard = (props) => {
           user={props.user}
           handleUpdateComment={props.handleUpdateComment}
           handleCancelEdit={handleCancelEdit}
-          commentSelect={props.selectedComment || { text: '', rating: '1' }}
+          // selectedComment={props.selectedComment}
           formOpen={props.formOpen}
           setFormOpen={props.setFormOpen}
           commentSavedUpdateRender={props.commentSavedUpdateRender}
