@@ -83,6 +83,8 @@ export async function getComments(volumeId) {
 export const updateComment = async (volumeId, commentId, commentFormData) => {
   (commentFormData)
   try {
+    console.log('VOLUMEID', volumeId)
+    console.log('COMMENTID', commentId)
     const res = await fetch(`${BASE_URL}/${volumeId}/comments/${commentId}`, {
       method: 'PUT',
       headers: {

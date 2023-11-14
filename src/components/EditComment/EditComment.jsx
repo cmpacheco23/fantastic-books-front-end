@@ -1,41 +1,41 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-
-import * as bookService from '../../services/bookService'
+import { useState, useEffect } from "react";
 
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  // ('Received props in EditComment:', props)
+  const { volumeId, setFormOpen,  handleCancelEdit, formOpen, selectedComment, handleUpdateComment, comment  } = props
+  const [formData, setFormData] = useState({
+    text: comment?.text,
+    rating: comment?.rating,
+  })
 
-  const {volumeId} = useParams()
-  // const {commentId} = props
-  const {setFormOpen} = props
-  const [formData, setFormData] = useState(props.comment)
-
-  const commentId = props.comment._id
+  const commentId = comment._id
   const handleChange = ({target}) => {
-    //updates state in real time
     setFormData({...formData, [target.name]: target.value})
   }
 
+  useEffect(() => {
+    // Update formData when the comment prop changes
+    setFormData({
+      text: selectedComment?.text,
+      rating: selectedComment?.rating,
+    });
+  }, [selectedComment]);
+
   const handleSubmit = async (evt) => {
-    setFormOpen(false)
     evt.preventDefault();
-    await bookService.updateComment(volumeId, commentId, formData)
-    props.commentSavedUpdateRender(commentId, formData)
+    console.log("Submitting with:", volumeId, commentId, formData);
+    await handleUpdateComment(volumeId, commentId, formData)
+    setFormOpen(false)
   }
   
   const handleCancel = () => {
     setFormOpen(false);
-    ('After setting isFormOpen to false in handleCancel')
-    props.handleCancelEdit()
+    handleCancelEdit()
   }
-
+  
   return (
-    <div>
-      
-      {props.formOpen ?  (
+    <div className={formOpen ? styles.visible : styles.hidden}>
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
         <div className={styles.dropdown}> 
@@ -67,17 +67,13 @@ const  EditComment = (props) => {
         />
         <div className={styles.btnRow}>
 
-        <button className={styles.submit} type="submit" >Save</button>
+        <button className={styles.submit} type="submit" onClick={handleSubmit}>Save</button>
         <button className={styles.cancel} type="button" onClick={handleCancel}>
           Cancel
         </button>
         
         </div>
       </form>
-      ) : (
-        <div> </div>
-      )
-    }
     </div>
   );
 }
