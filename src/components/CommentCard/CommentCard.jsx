@@ -67,15 +67,23 @@ const CommentCard = (props) => {
           formOpen={props.formOpen}
           setFormOpen={props.setFormOpen}
           formatDate={formatDate}
-          // commentSavedUpdateRender={props.commentSavedUpdateRender}
           />
           ) : (
-            <>
+            <div> 
+            {props.comment.commenter.photo && (
+              <div className={styles.namePhoto}>
+                <img
+                  src={props.comment.commenter.photo}
+                  alt={`Photo of ${props.comment.commenter.name}`}
+                  className={styles.commenterPhoto}
+                  />
+              </div>
+            )}
             <p className={styles.commentText}>{props.comment.text}</p>
             <p className={styles.name}>— {props.comment.commenter.name}</p>
-            <p>{ratingEmojis}</p>
-            <p>{formatDate(props.comment.createdAt)}</p>
-          </>
+            <p className={styles.emojis}>{ratingEmojis}</p>
+            <p className={styles.date}>{formatDate(props.comment.createdAt)}</p>
+          </div>
         )}
       </div>
       <div className={styles.commentButtons}>
