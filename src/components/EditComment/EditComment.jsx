@@ -96,12 +96,12 @@ const  EditComment = (props) => {
                 alt={`Photo of ${props.comment.commenter.name}`}
                 className={styles.commenterPhoto}
                 />
-              <p className={styles.name}>{props.comment.commenter.name}</p>
             </div>
           )}
           <p className={styles.commentText}>{props.comment.text}</p>
-          <p className={styles.date}>{props.formatDate(props.comment.createdAt)}</p>
+          <p className={styles.name}>— {props.comment.commenter.name}</p>
           <p>{ratingEmojis}</p>
+          <p className={styles.date}>{props.formatDate(props.comment.createdAt)}</p>
         </div>
       )
     }

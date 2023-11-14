@@ -53,7 +53,6 @@ const CommentCard = (props) => {
                 alt={`Photo of ${props.comment.commenter.name}`}
                 className={styles.commenterPhoto}
                 />
-              <p className={styles.name}>{props.comment.commenter.name}</p>
             </div>
           )}
         </div>
@@ -73,8 +72,9 @@ const CommentCard = (props) => {
           ) : (
             <>
             <p className={styles.commentText}>{props.comment.text}</p>
-            <p>{formatDate(props.comment.createdAt)}</p>
+            <p className={styles.name}>— {props.comment.commenter.name}</p>
             <p>{ratingEmojis}</p>
+            <p>{formatDate(props.comment.createdAt)}</p>
           </>
         )}
       </div>
