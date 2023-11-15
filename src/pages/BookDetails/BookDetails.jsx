@@ -15,14 +15,14 @@ const BookDetails = (props) => {
   const [comments, setComments] = useState([])
   const [shelves, setShelves] = useState([])
   const [selectedShelf, setSelectedShelf] = useState('')
-  const [profile, setProfile] = useState({})
+  // const [profile, setProfile] = useState({})
   const [modalData, setModalData] = useState({ isOpen: false, name: '', isEditing: false, id: null })
   const inputRef = useRef(null)
   
   useEffect(() => {
     const fetchShelves = async () => {
       const profileData = await profileService.getOneProfile(props.user.profile)
-      setProfile(profileData)
+      props.setProfile(profileData)
       setShelves(profileData.shelves || [])
     }
     fetchShelves()
@@ -106,7 +106,7 @@ const BookDetails = (props) => {
     try {
       (props.user.profile, selectedShelf, volumeId)
       const profileData = await profileService.addBookToShelf(props.user.profile, selectedShelf, volumeId)
-      setProfile(profileData)
+      props.setProfile(profileData)
       setShelves(profileData.shelves || [])
       alert("Book added to shelf!")
     } catch (error) {

@@ -79,7 +79,7 @@ function App() {
           }
         />
         <Route path="/books" element={<BookSearch />} />
-        <Route path="/books/:volumeId" element={<BookDetails user={user} />} />
+        <Route path="/books/:volumeId" element={<BookDetails user={user} setProfile={setProfile}/>} />
         <Route path="/about" element={<AboutUs />} />
       </Routes>
     </>

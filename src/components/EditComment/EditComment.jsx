@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./EditComment.module.css"
 const  EditComment = (props) => {
 
-  const { volumeId, setFormOpen,  handleCancelEdit, formOpen, selectedComment, handleUpdateComment, comment  } = props
+  const { volumeId,  handleCancelEdit, selectedComment, handleUpdateComment, comment  } = props
   const [formData, setFormData] = useState({
     text: comment?.text,
     rating: comment?.rating,
@@ -26,16 +26,16 @@ const  EditComment = (props) => {
     evt.preventDefault();
     console.log("Submitting with:", volumeId, commentId, formData);
     await handleUpdateComment(volumeId, commentId, formData)
-    setFormOpen(false)
+    // setFormOpen(false)
   }
   
   const handleCancel = () => {
-    setFormOpen(false);
+    // setFormOpen(false);
     handleCancelEdit()
   }
   
   return (
-    <div className={formOpen ? styles.visible : styles.hidden}>
+    <div >
         <form className={styles.newComment} onSubmit={handleSubmit}>
         <h1>Edit Comment</h1>
         <div className={styles.dropdown}> 
